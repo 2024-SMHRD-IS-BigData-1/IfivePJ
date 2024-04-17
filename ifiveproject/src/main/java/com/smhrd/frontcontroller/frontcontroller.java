@@ -1,24 +1,27 @@
-package frontcontroller;
+package com.smhrd.frontcontroller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.smhrd.frontcontroller.Command;
+import com.oreilly.servlet.MultipartRequest;
+import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
+import com.smhrd.controller.JoinService;
+
 
 
 @WebServlet("*.do")
 public class frontcontroller extends HttpServlet {
-	public interface Command {
-
-		String execute(HttpServletRequest request, HttpServletResponse response);
-
-	}
-
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		
+		System.out.println("[frontController]");
+		
 		request.setCharacterEncoding("UTF-8");
 		
 		String requestURI =  request.getRequestURI();
@@ -31,13 +34,10 @@ public class frontcontroller extends HttpServlet {
 		
 		
 		
-//		if (resultURL.equals("LoginService.do")) {
-//			 service = new LoginService();
-//		}
-		if(resultURL.equals("ChatService.do")) {
-			service = new ChatService();
+		if(resultURL.equals("JoinService.do")) {
+			service = new JoinService();
 		}
-		
+		 	
 		String moveURL =service.execute(request, response);
 		
 		if (moveURL != null) {

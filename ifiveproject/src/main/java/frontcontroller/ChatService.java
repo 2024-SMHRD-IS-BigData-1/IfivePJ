@@ -1,4 +1,4 @@
-package com.smhrd.db;
+package frontcontroller;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -6,8 +6,9 @@ import javax.servlet.http.HttpServletResponse;
 import com.smhrd.model.chatting_info;
 import com.smhrd.model.chatting_infoDAO;
 
-public class ChatService {
-	
+import frontcontroller.frontcontroller.Command;
+
+public class ChatService implements Command {
 	public String execute(HttpServletRequest request, HttpServletResponse response) {
 		Double chat_idx = Double.parseDouble(request.getParameter("chat_idx")) ;
 		Double room_idx = Double.parseDouble(request.getParameter("room_idx"));
@@ -21,4 +22,5 @@ public class ChatService {
 		
 		return null;
 	}
+
 }

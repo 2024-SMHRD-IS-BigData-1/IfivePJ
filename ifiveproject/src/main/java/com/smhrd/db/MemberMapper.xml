@@ -5,29 +5,9 @@
 <mapper namespace="com.smhrd.db.MemberMapper">
   
   <insert id="join" parameterType="Member">
-  	insert into web_member values(#{email}, #{pw}, #{tel}, #{address})
+  	insert into member values(#{id}, #{pw})
   </insert>
-  
-  <select id="login" parameterType="Member" resultType="Member">
-  	select * from web_member where email=#{email} and pw=#{pw}
-  </select>
-  
-  <update id="update" parameterType="Member">
-  	update web_member set pw=#{pw}, tel=#{tel}, address=#{address}
-  	where email=#{email}
-  </update>
-  
-  <select id="memberList" resultType="Member">
-  	select * from web_member where not(email='admin')
-  </select>
-  
-  <delete id="delete" parameterType="String">
-  	delete from web_member where email=#{email}
-  </delete>
-  
-  <select id="emailCheck" parameterType="String" resultType="Member">
-  	select * from web_member where email = #{email}
-  </select>
+
   
   
 </mapper>
