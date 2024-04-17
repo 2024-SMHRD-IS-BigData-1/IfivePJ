@@ -32,6 +32,9 @@ public class frontcontroller extends HttpServlet {
 //		if (resultURL.equals("LoginService.do")) {
 //			 service = new LoginService();
 //		}
+		if(resultURL.equals("ChatService.do")) {
+			service = new ChatService();
+		}
 		
 		String moveURL =service.execute(request, response);
 		
