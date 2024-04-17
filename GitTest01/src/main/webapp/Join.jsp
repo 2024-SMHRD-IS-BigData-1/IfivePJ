@@ -24,7 +24,7 @@
          </tr>
          <tr>
             <td></td>
-            <td><input type="submit" value="JOIN"></td>
+            <td><input type="submit" value="JOIN">asdsad</td>
          </tr>
       </table>
 
