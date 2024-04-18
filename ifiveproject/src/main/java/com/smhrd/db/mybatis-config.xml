@@ -6,7 +6,7 @@
 
 	<typeAliases>
 		<typeAlias type="com.smhrd.model.Member" alias="Member"/>
-		<typeAlias type="com.smhrd.model.Message" alias = "Message"/>
+		<typeAlias type="com.smhrd.model.chatting_info" alias = "Message"/>
 		<!-- <typeAlias type="com.smhrd.model.Board" alias = "Board"/>  -->
 	</typeAliases>
 

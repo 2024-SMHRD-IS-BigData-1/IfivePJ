@@ -8,21 +8,16 @@ public class chatting_info {
 
 
  private Double chat_idx; // 채팅 식별자 
- private Double room_idx;// 방 식별자 
+ //private Double room_idx;// 방 식별자 
  private String chatter;// 발화자 
  private String chating; // 발화 내용 
- private String emoticon;// 이모티콘 
- private String chatted_at;// 발화 시간 
+ //private String emoticon;// 이모티콘 
+ //private String chatted_at;// 발화 시간 
 
 // 생성자
-public chatting_info(Double chat_idx, Double room_idx, String chatter, String chating, String emoticon,
-		String chatted_at) {
-	this.chat_idx = chat_idx;
-	this.room_idx = room_idx;
-	this.chatter = chatter;
+
+public chatting_info(String chating) {
 	this.chating = chating;
-	this.emoticon = emoticon;
-	this.chatted_at = chatted_at;
 }
 
 //get, set 
@@ -32,14 +27,6 @@ public chatting_info(Double chat_idx, Double room_idx, String chatter, String ch
 
  public void setChatIdx(Double chatIdx) {
      this.chat_idx = chat_idx;
- }
-
- public Double getRoomIdx() {
-     return room_idx;
- }
-
- public void setRoomIdx(Double roomIdx) {
-     this.room_idx = room_idx;
  }
 
  public String getChatter() {
@@ -56,22 +43,6 @@ public chatting_info(Double chat_idx, Double room_idx, String chatter, String ch
 
  public void setChating(String chating) {
      this.chating = chating;
- }
-
- public String getEmoticon() {
-     return emoticon;
- }
-
- public void setEmoticon(String emoticon) {
-     this.emoticon = emoticon;
- }
-
- public String getChattedAt() {
-     return chatted_at;
- }
-
- public void setChattedAt(Date chattedAt) {
-     this.chatted_at = chatted_at;
  }
 
 // // chatting_info 모델 복사

@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
+import com.smhrd.controller.ChatService;
 import com.smhrd.controller.JoinService;
 
 
@@ -36,6 +37,9 @@ public class frontcontroller extends HttpServlet {
 		
 		if(resultURL.equals("JoinService.do")) {
 			service = new JoinService();
+		}else if(resultURL.equals("ChatService.do")) {
+			service = new ChatService();
+			System.out.println("ChatService 작동");
 		}
 		 	
 		String moveURL =service.execute(request, response);
