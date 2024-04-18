@@ -24,12 +24,13 @@ public class LoginService implements Command {
 			System.out.println("로그인 성공!");
 			HttpSession session = request.getSession();
 			session.setAttribute("loginMember", loginMember);
+			return "cal.html";
 			
 		}else {
 			System.out.println("로그인 실패");
+			return "Login.jsp";
 		}	
 		
-		return "intro.jsp";
 	}
 
 }
