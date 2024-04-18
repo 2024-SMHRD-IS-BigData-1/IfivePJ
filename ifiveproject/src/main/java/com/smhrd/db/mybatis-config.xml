@@ -16,7 +16,7 @@
 			<transactionManager type="JDBC" />
 			<dataSource type="POOLED">
 				<property name="driver" value="oracle.jdbc.driver.OracleDriver" />
-				<property name="url" value="jdbc:oracle:thin:@localhost:1524:xe" />
+				<property name="url" value="jdbc:oracle:thin:project-db-campus.smhrd.com:1524:xe" />
 				<property name="username" value="campus_24IS_BIG3_P2_4" />
 				<property name="password" value="smhrd4" />
 			</dataSource>
@@ -26,6 +26,7 @@
 	<!-- SQL문들 정의해주는 mapper.xml을 계속해서 만들건데 어디에 있는지 경로를 지정해주는 태그 -->
 	<mappers>
 		<mapper resource="com/smhrd/db/MemberMapper.xml" />
+		<mapper resource="com/smhrd/db/MessageMapper.xml" />
 	</mappers>
 	
 	
