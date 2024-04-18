@@ -22,12 +22,18 @@ import com.smhrd.controller.LoginService;
 public class frontcontroller extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		System.out.println("frontcontroller");
+		
 		
 		request.setCharacterEncoding("UTF-8");
 		
 		String requestURI =  request.getRequestURI();
 		
+		System.out.println(requestURI);
+		
 		String contextpath =  request.getContextPath();
+		
+		System.out.println(contextpath);
 		
 		String resultURL = requestURI.substring(contextpath.length() + 1);
 		
