@@ -23,10 +23,6 @@
     <!-- 채팅 박스 -->
     <div id="chatbox" style="width:450px;height:300px;border:1px solid black;overflow-y:auto;">
     	
-        <!-- 첫 번째 네모 텍스트 박스 -->
-        <div class="chat-text-box">
-            Text Box 1
-        </div>
     </div>
     <input type="text" id="message" placeholder="Enter your message" />
     <button id="button" onclick="sendMessage()">Send</button>
@@ -48,8 +44,20 @@
 	            },
 	            success: function(response) {
 	                // 요청이 성공적으로 처리되었을 때의 작업
-	                console.log("메세지 보내짐");
+	                console.log("메세지 입력 완료");
 	                console.log("Response:", response);
+	                
+	             // 채팅 박스에 메시지를 추가합니다.
+	                const chatbox = document.getElementById('chatbox');
+	                const chatTextBox = document.createElement('div');
+	                chatTextBox.className = 'chat-text-box';
+	                chatTextBox.innerText = message;
+	                
+	                // 메시지를 채팅 박스에 추가합니다.
+	                chatbox.appendChild(chatTextBox);
+	            	 // 채팅 박스를 스크롤하여 가장 최근의 메시지가 표시되도록 합니다.
+	                chatbox.scrollTop = chatbox.scrollHeight;
+	                
 	                // 요청이 성공적으로 처리되면 입력 필드를 초기화합니다.
 	                messageInput.value = '';
 	            },
@@ -59,6 +67,16 @@
 	            }
 	        });
 	    }
+		 // 엔터 키를 눌렀을 때 메시지를 보내는 이벤트 리스너 추가
+		    document.getElementById('message').addEventListener('keydown', function(event) {
+		        // 이벤트가 Enter 키를 감지하는지 확인합니다.
+		        if (event.key === 'Enter') {
+		            // 기본 동작을 막습니다. (폼 제출 등)
+		            event.preventDefault();
+		            // 메시지를 보냅니다.
+		            sendMessage();
+		        }
+		    });
     
     // 버튼에 대한 이벤트 리스너 추가
     	
