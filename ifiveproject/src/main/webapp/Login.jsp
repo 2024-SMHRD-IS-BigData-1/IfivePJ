@@ -135,12 +135,12 @@
                     <div class="login_id_box_bg"></div>
                             <div class="login_id_typing_bar">
 
-                                <input name="username" id="input-username" autocapitalize="off" type="text" placeholder="아이디를 입력하세요" value="">
+                                <input type="text" name="user_id" id="input-username" autocapitalize="off" type="text" placeholder="아이디를 입력하세요" value="">
                                 
                             </div>                        
                             <div class="login_pw_typing_bar">
 
-                                <input name="userpassword" id="input-userpassword" autocapitalize="off" type="password" placeholder="비밀번호를 입력하세요">
+                                <input type="password" name="user_pw"  id="input-userpassword" autocapitalize="off" type="password" placeholder="비밀번호를 입력하세요">
                             </div>
                         <div class="button">
                             <button class="login_button">
