@@ -11,7 +11,6 @@ import com.smhrd.model.MemberDAO;
 public class JoinService implements Command{
 	
 	public String execute(HttpServletRequest request, HttpServletResponse response) {
-		// 회원가입 기능
 		System.out.println("joinservice");
 		
 		
@@ -29,15 +28,10 @@ public class JoinService implements Command{
 		
 		System.out.println(user_id+user_pw+user_height+user_weight+user_target_weight+user_type);
 		
-		// System.out.println(email + pw + tel + address);
 		Member member = new Member(user_id, user_pw, user_height, user_weight, user_target_weight, user_type);
 		
 		int cnt = new MemberDAO().join(member);
-
-		
-		System.out.println(cnt);
-
-		
+			
 		if(cnt > 0) {
 			System.out.println("회원가입 성공!");
 			return "intro.jsp";

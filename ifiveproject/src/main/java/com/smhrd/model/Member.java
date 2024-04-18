@@ -1,6 +1,5 @@
 package com.smhrd.model;
 
-
 import java.sql.Timestamp;
 
 import lombok.AllArgsConstructor;
@@ -11,10 +10,10 @@ import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 
-// @Data : 만능 - 기본생성자, getter, setter, toString...
-@AllArgsConstructor // 모든 파라미터를 받는 생성자
-@NoArgsConstructor // 기본 생성자
-@RequiredArgsConstructor // 필요한 파라미터를 받는 생성자
+
+@AllArgsConstructor
+@NoArgsConstructor
+@RequiredArgsConstructor
 @Getter
 @Setter
 public class Member {
