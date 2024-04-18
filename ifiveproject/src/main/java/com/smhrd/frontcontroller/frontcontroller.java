@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 import com.smhrd.controller.IdCheck;
+import com.smhrd.controller.ChatService;
 import com.smhrd.controller.JoinService;
 import com.smhrd.controller.LoginService;
 
@@ -36,6 +37,9 @@ public class frontcontroller extends HttpServlet {
 		
 		if(resultURL.equals("JoinService.do")) {
 			service = new JoinService();
+		}else if(resultURL.equals("ChatService.do")) {
+			service = new ChatService();
+			System.out.println("ChatService 작동");
 		}else if(resultURL.equals("LoginService.do")) {
 			service= new LoginService();
 		}else if(resultURL.equals("IdCheck.do")) {
