@@ -6,8 +6,8 @@
 
 	<typeAliases>
 		<typeAlias type="com.smhrd.model.Member" alias="Member"/>
-		<typeAlias type="com.smhrd.model.Message" alias = "Message"/>
-		<typeAlias type="com.smhrd.model.Board" alias = "Board"/>
+		<!-- <typeAlias type="com.smhrd.model.Message" alias = "Message"/>
+		<typeAlias type="com.smhrd.model.Board" alias = "Board"/> -->
 	</typeAliases>
 
 	<!-- 환경설정(계정, driver, url...) -->
@@ -16,7 +16,7 @@
 			<transactionManager type="JDBC" />
 			<dataSource type="POOLED">
 				<property name="driver" value="oracle.jdbc.driver.OracleDriver" />
-				<property name="url" value="jdbc:oracle:thin:@localhost:1524:xe" />
+				<property name="url" value="jdbc:oracle:thin:@project-db-campus.smhrd.com:1524:xe" />
 				<property name="username" value="campus_24IS_BIG3_P2_4" />
 				<property name="password" value="smhrd4" />
 			</dataSource>
