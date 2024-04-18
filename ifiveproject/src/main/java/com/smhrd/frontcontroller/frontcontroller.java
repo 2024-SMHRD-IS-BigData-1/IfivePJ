@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 import com.smhrd.controller.JoinService;
+import com.smhrd.controller.LoginService;
 
 
 
@@ -36,6 +37,8 @@ public class frontcontroller extends HttpServlet {
 		
 		if(resultURL.equals("JoinService.do")) {
 			service = new JoinService();
+		}else if(resultURL.equals("LoginService.do")) {
+			service= new LoginService();
 		}
 		 	
 		String moveURL =service.execute(request, response);

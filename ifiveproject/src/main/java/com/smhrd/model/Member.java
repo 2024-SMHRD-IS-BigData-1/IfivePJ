@@ -20,7 +20,7 @@ public class Member {
 	
 
 	@NonNull private String user_id;
-	 private String user_pw;
+	@NonNull private String user_pw;
 	 private float user_height;
 	 private float user_weight;
 	 private float user_target_weight;

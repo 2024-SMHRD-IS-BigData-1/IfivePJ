@@ -19,6 +19,15 @@ public class MemberDAO {
 		return cnt;
 	}
 
+	public Member login(Member member) {
+		System.out.println("member");		
+		SqlSession session = sqlSessionFactory.openSession(true);
+		Member loginMember = session.selectOne("com.smhrd.db.MemberMapper.login", member);
+		session.close();
+		return loginMember;
+	}
+	
+
 
 
 

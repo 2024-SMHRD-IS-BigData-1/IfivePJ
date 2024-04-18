@@ -8,6 +8,9 @@
   	insert into user_info values(#{user_id}, #{user_pw},#{user_height},#{user_weight},#{user_target_weight},sysdate,#{user_type})
   </insert>
 
+  <select id="login" parameterType="Member" resultType="Member">
+  	select * from user_info where user_id=#{user_id} and user_pw=#{user_pw}
+  </select>
   
   
 </mapper>
