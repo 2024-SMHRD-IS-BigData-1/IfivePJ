@@ -10,11 +10,15 @@ public class chatting_infoDAO {
 	SqlSessionFactory sqlSessionFactory = SqlSessionManager.getSqlSession();
 	
 	
-	public int join(String chatting) {
+	public int join(chatting_info sendChat) {
 		SqlSession session = sqlSessionFactory.openSession(true);
-		int cnt = session.insert("com.smhrd.db.MessageMapper.insertMessage", chatting);
+		int cnt = session.insert("com.smhrd.db.MessageMapper.insertMessage", sendChat);
 		session.close();
 		return cnt;
 	}
+
+
+
+
 
 }

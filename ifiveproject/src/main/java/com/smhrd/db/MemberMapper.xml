@@ -12,5 +12,9 @@
   	select * from user_info where user_id=#{user_id} and user_pw=#{user_pw}
   </select>
   
+  <select id="idCheck" parameterType="String" resultType="Member">
+  	select * from user_info where user_id=#{user_id}
+  </select>
+  
   
 </mapper>
