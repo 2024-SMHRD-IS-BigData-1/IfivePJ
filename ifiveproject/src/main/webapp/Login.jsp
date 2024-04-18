@@ -130,7 +130,7 @@
                 </div>
             </div>
             <!-- login page box -->
-            <form action="Loginservice" method="POST">
+            <form action="LoginService.do" method="POST">
                 <div class="login_box">
                     <div class="login_id_box_bg"></div>
                             <div class="login_id_typing_bar">
@@ -144,7 +144,8 @@
                             </div>
                         <div class="button">
                             <button class="login_button">
-                                <a href="cal.html">로그인</a>
+                       
+                                로그인
                             </button>
                         </div>
                         
