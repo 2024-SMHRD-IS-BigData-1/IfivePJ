@@ -8,7 +8,7 @@
   	insert into web_member values(#{email}, #{pw}, #{tel}, #{address})
   </insert>
   
-  <select id="login" parameterType="Member" resultType="Member">
+  <select id="login" parameterType="user_info" resultType="user_info">
   	select * from web_member where email=#{email} and pw=#{pw}
   </select>
   
