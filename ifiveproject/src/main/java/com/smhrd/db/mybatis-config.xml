@@ -9,6 +9,7 @@
 		<!-- <typeAlias type="com.smhrd.model.Message" alias = "Message"/>
 		<typeAlias type="com.smhrd.model.Board" alias = "Board"/> -->
 	</typeAliases>
+		
 
 	<!-- 환경설정(계정, driver, url...) -->
 	<environments default="development">

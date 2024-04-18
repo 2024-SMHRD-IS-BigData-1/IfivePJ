@@ -5,7 +5,7 @@
 <mapper namespace="com.smhrd.db.MemberMapper">
   
   <insert id="join" parameterType="Member">
-  	insert into member values(#{id}, #{pw})
+  	insert into user_info values(#{user_id}, #{user_pw},#{user_height},#{user_weight},#{user_target_weight},sysdate,#{user_type})
   </insert>
 
   

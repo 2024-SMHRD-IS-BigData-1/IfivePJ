@@ -15,15 +15,28 @@ public class JoinService implements Command{
 		System.out.println("joinservice");
 		
 		
-		String id = request.getParameter("id");
-		String pw = request.getParameter("pw");
+		String user_id = request.getParameter("user_id");
+		String user_pw = request.getParameter("user_pw");
+		float user_height = Float.parseFloat(request.getParameter("user_height")) ;
+		float user_weight = Float.parseFloat(request.getParameter("user_weight")) ;
+		float user_target_weight = Float.parseFloat(request.getParameter("user_target_weight")) ;
+
+		String user_type="normal";
+		if(user_id.equals("admin")) {
+			user_type="admin";
+		}
 		
-		System.out.println(id+pw);
+		
+		System.out.println(user_id+user_pw+user_height+user_weight+user_target_weight+user_type);
 		
 		// System.out.println(email + pw + tel + address);
-		Member member = new Member(id, pw);
+		Member member = new Member(user_id, user_pw, user_height, user_weight, user_target_weight, user_type);
 		
 		int cnt = new MemberDAO().join(member);
+
+		
+		System.out.println(cnt);
+
 		
 		if(cnt > 0) {
 			System.out.println("회원가입 성공!");
