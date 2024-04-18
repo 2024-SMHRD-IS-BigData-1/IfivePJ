@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
+import com.smhrd.controller.IdCheck;
 import com.smhrd.controller.JoinService;
 import com.smhrd.controller.LoginService;
 
@@ -20,8 +21,6 @@ import com.smhrd.controller.LoginService;
 public class frontcontroller extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		
-		System.out.println("[frontController]");
 		
 		request.setCharacterEncoding("UTF-8");
 		
@@ -39,6 +38,8 @@ public class frontcontroller extends HttpServlet {
 			service = new JoinService();
 		}else if(resultURL.equals("LoginService.do")) {
 			service= new LoginService();
+		}else if(resultURL.equals("IdCheck.do")) {
+			service= new IdCheck();
 		}
 		 	
 		String moveURL =service.execute(request, response);
