@@ -28,10 +28,15 @@
   }
    #exampleModal {
     position: absolute;
-    top: calc(100% + 20px); /* 캘린더 아래로부터 20px 떨어진 위치 */
+    /*top: calc(100% + 20px); /* 캘린더 아래로부터 20px 떨어진 위치 */ 
+    display: none;
+    top : 0px;
     left: 50%; /* 가운데 정렬 */
     transform: translateX(-50%); /* 가운데 정렬 */
     z-index: 1051; /* 캘린더 모달 뒤에 위치 */
+    
+    /* 테스트용 배경색 추가 */
+     background-color: whitesmoke;
   }
 </style>
 </head>
@@ -40,6 +45,11 @@
   <div id='calendar-container'>
     <div id='calendar'></div>
   </div>
+  
+  
+  
+  <!-- Modal Start -->
+  
   <div
       class="modal fade"
       id="exampleModal"
@@ -58,7 +68,7 @@
               aria-label="Close"
             ></button>
           </div>
-          <div class="modal-body">
+          < class="modal-body">
             일정이름 : <input type="text" id="title" /><br />
             시작시간 : <input type="datetime-local" id="start" /><br />
             종료시간 : <input type="datetime-local" id="end" /><br />
@@ -248,6 +258,8 @@
     $("#end").val("");
     $("#color").val("");
   }
+  
+  calendar.addEvent(eventData);
 });
 </script>
 </body>
