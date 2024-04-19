@@ -2,50 +2,33 @@
 <html>
 <head>
   <meta charset='utf-8' />
-  <!-- 화면 해상도에 따라 글자 크기 대응(모바일 대응) -->
-  <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <!-- jquery CDN -->
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <!-- Bootstrap JS (v5) CDN -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-  <!-- fullcalendar CDN -->
+  <!-- Fullcalendar CDN -->
   <link href='https://cdn.jsdelivr.net/npm/fullcalendar@5.8.0/main.min.css' rel='stylesheet' />
   <script src='https://cdn.jsdelivr.net/npm/fullcalendar@5.8.0/main.min.js'></script>
-  <!-- fullcalendar 언어 CDN -->
+  <!-- Fullcalendar 언어 CDN -->
   <script src='https://cdn.jsdelivr.net/npm/fullcalendar@5.8.0/locales-all.min.js'></script>
-<style>
-  /* body 스타일 */
-  html, body {
-    overflow: hidden;
-    font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
-    font-size: 14px;
-  }
-  /* 캘린더 위의 해더 스타일(날짜가 있는 부분) */
-  .fc-header-toolbar {
-    padding-top: 1em;
-    padding-left: 1em;
-    padding-right: 1em;
-  }
-   #exampleModal {
-    position: absolute;
-    /*top: calc(100% + 20px); /* 캘린더 아래로부터 20px 떨어진 위치 */ 
-    display: none;
-    top : -20px;
-    left: 30%; /* 가운데 정렬 */
-    transform: translateX(-50%); /* 가운데 정렬 */
-    z-index: 1051; /* 캘린더 모달 뒤에 위치 */
-    
-    /* 테스트용 배경색 추가 */
-     background-color: whitesmoke;
-  }
-</style>
+  <style>
+    html, body {
+      overflow: hidden;
+      font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
+      font-size: 14px;
+    }
+    #calendar-container {
+      padding: 30px;
+    }
+  </style>
 </head>
-<body style="padding:30px;">
-  <!-- calendar 태그 -->
+<body>
   <div id='calendar-container'>
     <div id='calendar'></div>
   </div>
   
+<<<<<<< HEAD
   <!-- Modal Start -->
   <div
       class="modal fade"
@@ -123,7 +106,22 @@
              $("#exampleModal").modal("show");
           }
        }
+=======
+  <script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var calendarEl = document.getElementById('calendar');
+    var calendar = new FullCalendar.Calendar(calendarEl, {
+      height: '700px',
+      expandRows: true,
+      slotMinTime: '08:00',
+      slotMaxTime: '20:00',
+      headerToolbar: {
+        left: 'prev,next today',
+        center: 'title',
+        right: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek'
+>>>>>>> branch 'master' of https://github.com/2024-SMHRD-IS-BigData-1/IfivePJ.git
       },
+<<<<<<< HEAD
         
       headerToolbar: {
         left: 'prev,next today,mycustomButton',
@@ -167,10 +165,23 @@
         {title: 'Birthday Party',start: '2021-07-13T07:00:00'},
         {title: 'Click for Google',url: 'http://google.com/' /* 클릭시 해당 url로 이동*/, start: '2021-07-28'}
       ]
+=======
+      initialView: 'dayGridMonth',
+      editable: true,
+      selectable: true,
+      locale: 'ko',
+      dateClick: function(info) {
+        window.open('schedule.jsp?date=' + info.dateStr, '_blank');
+      }
+>>>>>>> branch 'master' of https://github.com/2024-SMHRD-IS-BigData-1/IfivePJ.git
     });
+<<<<<<< HEAD
     // 캘린더 랜더링
+=======
+>>>>>>> branch 'master' of https://github.com/2024-SMHRD-IS-BigData-1/IfivePJ.git
     calendar.render();
 
+<<<<<<< HEAD
     $("#saveChanges").on("click", function () {
        var eventData = {
           title: $("#title").val(),
@@ -212,5 +223,23 @@
     });
   });
 </script>
+=======
+    // Listen for messages from the child window
+    window.addEventListener('message', function(event) {
+      try {
+        var eventData = JSON.parse(event.data);
+        calendar.addEvent({
+          title: eventData.title,
+          start: eventData.start,
+          end: eventData.end,
+          allDay: eventData.allDay || false
+        });
+      } catch (e) {
+        console.error("Error parsing event data", e);
+      }
+    }, false);
+  });
+  </script>
+>>>>>>> branch 'master' of https://github.com/2024-SMHRD-IS-BigData-1/IfivePJ.git
 </body>
 </html>
