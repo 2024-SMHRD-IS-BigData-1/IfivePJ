@@ -3,6 +3,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+	<script src="https://apis.google.com/js/platform.js" async defer></script>
+	<meta name ="google-signin-client_id" content="218384123421-pjbbgsgftjuho4jl6sodjvnivlq9au58.apps.googleusercontent.com">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
@@ -156,6 +158,7 @@
             </form>
 
             <div style="width: 40px; height: 40px; padding-right: 0.80px; left: 1046px; top: 677px; position: absolute; justify-content: center; align-items: center; display: inline-flex">
+                <div class="g-signin2" data-onsuccess="onSignIn"></div>
                 <div style="width: 39.20px; height: 40px; position: relative">
                     <div style="width: 19.20px; height: 18.80px; left: 20px; top: 16.36px; position: absolute; background: #4285F4"></div>
                     <div style="width: 31.09px; height: 16.19px; left: 2.15px; top: 23.81px; position: absolute; background: #34A853"></div>
@@ -163,6 +166,8 @@
                     <div style="width: 31.24px; height: 16.20px; left: 2.15px; top: 0px; position: absolute; background: #EA4335"></div>
                 </div>
             </div>
+           
+            
             <div style="width: 19px; height: 19px; left: 794px; top: 443px; position: absolute; background: #FFFEFE; border-radius: 9999px; border: 1px #DBDBDB solid"></div>
             <div style="width: 143px; left: 820px; top: 441px; position: absolute; color: #767676; font-size: 15px; font-family: Noto Sans KR; font-weight: 400; letter-spacing: 1.50px; word-wrap: break-word">로그인 상태 유지</div>
             <div style="left: 915px; top: 611px; position: absolute; color: #767676; font-size: 18px; font-family: Noto Sans KR; font-weight: 400; letter-spacing: 1.80px; word-wrap: break-word">간편로그인</div>
@@ -226,8 +231,15 @@
             </div>
         </div>
     </div>
-    <script>
-       
-    </script>
+	    <script>
+		    function onSignIn(googleUser) {
+		  	  var profile = googleUser.getBasicProfile();
+		  	  console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+		  	  console.log('Name: ' + profile.getName());
+		  	  console.log('Image URL: ' + profile.getImageUrl());
+		  	  console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+		  	}
+	    
+	    </script>
 </body>
 </html>
