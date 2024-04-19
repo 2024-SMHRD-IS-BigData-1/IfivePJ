@@ -81,12 +81,12 @@
             </select><br>
             기록유형 : 
             <select id="intake_ath">
-				<option value="morning">아침</option>
-				<option value="lunch">점심</option>
-				<option value="dinner">저녁</option>
-				<option value="snack">간식</option>
-				<option value="athletics">운동</option>
-			</select>
+            <option value="morning">아침</option>
+            <option value="lunch">점심</option>
+            <option value="dinner">저녁</option>
+            <option value="snack">간식</option>
+            <option value="athletics">운동</option>
+         </select>
           </div>
           <div class="modal-footer">
             <button
@@ -118,26 +118,26 @@
         slotMaxTime: '20:00', // Day 캘린더에서 종료 시간
         // 해더에 표시할 툴바
         customButtons:{
-			mycustomButton:{
-				text: "일정 추가하기",
-				click: function(){
-					$("#exampleModal").modal("show");
-				}
-			},
-			mySaveButton:{
-			text:"저장하기",
-			click:	async function() {
-				if (confirm("저장하시겠습니까?")){
-					var allEvent = calendar.getEvents();
-					const saveEvent = await axios({
-						method : "POST",
-						url : "/calendar",
-						data: allEvent,
-					});
-				}
-			}
-			}
-		},
+         mycustomButton:{
+            text: "일정 추가하기",
+            click: function(){
+               $("#exampleModal").modal("show");
+            }
+         },
+         mySaveButton:{
+         text:"저장하기",
+         click:   async function() {
+            if (confirm("저장하시겠습니까?")){
+               var allEvent = calendar.getEvents();
+               const saveEvent = await axios({
+                  method : "POST",
+                  url : "/calendar",
+                  data: allEvent,
+               });
+            }
+         }
+         }
+      },
         
         headerToolbar: {
           left: 'prev,next today,mycustomButton,mySaveButton',
@@ -193,39 +193,39 @@
       calendar.render();
     });
   })();
-		$("#saveChanges").on("click", function () {
-			var eventData = {
-				title: $("#title").val(),
-				start: $("#start").val(),
-				end: $("#end").val(),
-				color: $("#color").val(),
-				intake_ath: $("#intake_ath").val()
-			}
-			//빈값입력시 오류
-			if (
-				eventData.title == "" ||
-				eventData.start == "" ||
-				eventData.end == "" ||
-				eventData.intake_ath == ""
-			) {
-				alert("입력하지 않은 값이 있습니다.");
+      $("#saveChanges").on("click", function () {
+         var eventData = {
+            title: $("#title").val(),
+            start: $("#start").val(),
+            end: $("#end").val(),
+            color: $("#color").val(),
+            intake_ath: $("#intake_ath").val()
+         }
+         //빈값입력시 오류
+         if (
+            eventData.title == "" ||
+            eventData.start == "" ||
+            eventData.end == "" ||
+            eventData.intake_ath == ""
+         ) {
+            alert("입력하지 않은 값이 있습니다.");
 
-			} else if ($("#start").val() > $("#end").val()) {
-				// 끝나는 날짜가 시작하는 날짜보다 값이 크면 안됨
-				alert("시간을 잘못입력 하셨습니다.");
+         } else if ($("#start").val() > $("#end").val()) {
+            // 끝나는 날짜가 시작하는 날짜보다 값이 크면 안됨
+            alert("시간을 잘못입력 하셨습니다.");
 
-			} else {
-				// 이벤트 추가
-				calendar.addEvent(eventData);
-				$("#exampleModal").modal("hide");
+         } else {
+            // 이벤트 추가
+            calendar.addEvent(eventData);
+            $("#exampleModal").modal("hide");
 
-				$("#title").val("");
-				$("#start").val("");
-				$("#end").val("");
-				$("#color").val("");
-				$("#intake_ath").val("");
-			}
-		})
+            $("#title").val("");
+            $("#start").val("");
+            $("#end").val("");
+            $("#color").val("");
+            $("#intake_ath").val("");
+         }
+      })
 </script>
 </body>
 </html>
