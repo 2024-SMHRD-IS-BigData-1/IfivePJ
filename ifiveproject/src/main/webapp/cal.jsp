@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -57,7 +59,7 @@
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel" 일정 추가하기</h5>
+            <h5 class="modal-title" id="exampleModalLabel"> 일정 추가하기</h5>
             <button
               type="button"
               class="btn-close"
@@ -89,16 +91,8 @@
          </select>
           </div>
           <div class="modal-footer">
-            <button
-              type="button"
-              class="btn btn-secondary"
-              data-bs-dismiss="modal"
-            >
-              취소
-            </button>
-            <button type="button" class="btn btn-primary" id="saveChanges">
-              추가
-            </button>
+             <input type="submit" value="취소"   class="btn btn-secondary" data-bs-dismiss="modal">
+             <input type="submit" value="추가" class="btn btn-primary" id="saveChanges">
           </div>
         </div>
       </div>
@@ -117,19 +111,33 @@
       slotMaxTime: '20:00', // Day 캘린더에서 종료 시간
       // 해더에 표시할 툴바
       customButtons:{
-       mycustomButton:{
-          text: "일정 추가하기",
-          click: function(){
-             $("#exampleModal").modal("show");
-          }
-       }
-      },
-        
-      headerToolbar: {
-        left: 'prev,next today,mycustomButton',
-        center: 'title',
-        right: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek'
-      },
+    	  mycustomButton:{
+              text: "일정 추가하기",
+              click: function(){
+                 $("#exampleModal").modal("show");
+              }
+           },
+           mySaveButton:{
+           text:"운동 저장하기",
+           click:   async function() {
+              if (confirm("저장하시겠습니까?")){
+                 var allEvent = calendar.getEvents();
+                 const saveEvent = await axios({
+                    method : "POST",
+                    url : "/calendar",
+                    data: allEvent,
+                 });
+              }
+           }
+           }
+        },
+          
+          headerToolbar: {
+            left: 'prev,next today,mycustomButton,mySaveButton',
+            center: 'title',
+            right: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek'
+          },
+
       initialView: 'dayGridMonth', // 초기 로드 될때 보이는 캘린더 화면(기본 설정: 달)
       navLinks: true, // 날짜를 선택하면 Day 캘린더나 Week 캘린더로 링크
       editable: true, // 수정 가능?
@@ -170,6 +178,11 @@
     });
     // 캘린더 랜더링
     calendar.render();
+
+    // 날짜 칸을 클릭했을 때 팝업 창 표시
+    $('input[type="datetime-local"]').on('click', function() {
+      $("#exampleModal").modal("show");
+    });
 
     $("#saveChanges").on("click", function () {
        var eventData = {
