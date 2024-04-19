@@ -6,6 +6,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    
+	<script>
+	function openGroupJoinWindow() {
+	    window.open("Newgroup.jsp", "_blank", "width=400,height=300");
+	}
+	</script>
 </head>
 <body>
     <div style="width: 100%; height: 100%; position: relative; background: white; border: 1px black solid">
@@ -105,7 +111,12 @@
         <div style="left: 385px; top: 380px; position: absolute; color: black; font-size: 13px; font-family: Inter; font-weight: 400; word-wrap: break-word">group3</div>
         <div style="left: 385px; top: 432px; position: absolute; color: black; font-size: 13px; font-family: Inter; font-weight: 400; word-wrap: break-word">group4</div>
         <div style="width: 10px; height: 7.89px; left: 497px; top: 282.90px; position: absolute; background: #5C5C5C"></div>
-        <div style="width: 14px; height: 11.04px; left: 492px; top: 226.11px; position: absolute; background: black"></div>
+        <div  id = groupjoin  onclick="openGroupJoinWindow()" style="width: 14px; height: 11.04px; left: 492px; top: 226.11px; position: absolute; background: black"></div>
+        
+        
+        
+        
+        
         <div style="width: 20px; height: 20px; left: 329px; top: 170px; position: absolute; transform: rotate(-90deg); transform-origin: 0 0">
             <div style="width: 10px; height: 5px; left: 5px; top: 7.50px; position: absolute; border: 2px #212121 solid"></div>
         </div>

@@ -17,6 +17,8 @@ import com.smhrd.controller.DietService;
 import com.smhrd.controller.FoodCaloryService;
 import com.smhrd.controller.JoinService;
 import com.smhrd.controller.LoginService;
+import com.smhrd.controller.NewgroupService;
+
 
 
 
@@ -55,8 +57,10 @@ public class frontcontroller extends HttpServlet {
 			service= new DietService();
 		}else if(resultURL.equals("FoodCaloryService.do")) {
 			service= new FoodCaloryService();
+		}else if(resultURL.equals("NewgroupService.do")) {
+			service= new NewgroupService();
 		}
-		 	
+		
 		String moveURL =service.execute(request, response);
 		System.out.print(moveURL);
 		
