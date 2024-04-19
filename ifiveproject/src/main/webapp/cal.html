@@ -38,6 +38,9 @@
     /* 테스트용 배경색 추가 */
      background-color: whitesmoke;
   }
+    #results {
+        margin-top: 10px;
+    }
 </style>
 </head>
 <body style="padding:30px;">
@@ -226,6 +229,17 @@
             $("#intake_ath").val("");
          }
       })
+      
 </script>
+	<form action="DietService.do" method="post">
+		아이디값 넘겨야함	
+		<input type="submit" id="input_food" value="식단기록">
+	</form>
+	<form action="FoodCaloryService.do">
+		음식 검색
+		 <input type="text" id="FoodCalory" placeholder="검색어 입력">
+		 <button id="searchButton">검색</button>
+		 <div id="results"></div>	
+	</form>
 </body>
 </html>

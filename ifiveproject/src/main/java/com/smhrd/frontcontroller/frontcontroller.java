@@ -13,6 +13,8 @@ import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 import com.smhrd.controller.IdCheck;
 import com.smhrd.controller.ChatService;
+import com.smhrd.controller.DietService;
+import com.smhrd.controller.FoodCaloryService;
 import com.smhrd.controller.JoinService;
 import com.smhrd.controller.LoginService;
 
@@ -45,11 +47,14 @@ public class frontcontroller extends HttpServlet {
 			service = new JoinService();
 		}else if(resultURL.equals("ChatService.do")) {
 			service = new ChatService();
-			System.out.println("ChatService 작동");
 		}else if(resultURL.equals("LoginService.do")) {
 			service= new LoginService();
 		}else if(resultURL.equals("IdCheck.do")) {
 			service= new IdCheck();
+		}else if(resultURL.equals("DietService.do")) {
+			service= new DietService();
+		}else if(resultURL.equals("FoodCaloryService.do")) {
+			service= new FoodCaloryService();
 		}
 		 	
 		String moveURL =service.execute(request, response);

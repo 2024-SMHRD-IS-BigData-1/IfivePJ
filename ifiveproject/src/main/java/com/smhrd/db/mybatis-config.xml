@@ -7,6 +7,7 @@
 	<typeAliases>
 		<typeAlias type="com.smhrd.model.Member" alias="Member"/>
 		<typeAlias type="com.smhrd.model.chatting_info" alias = "Message"/>
+		<typeAlias type="com.smhrd.model.FoodCaloryMapper" alias = "Food"/>
 		<!-- <typeAlias type="com.smhrd.model.Board" alias = "Board"/>  -->
 	</typeAliases>
 		
@@ -28,6 +29,7 @@
 	<mappers>
 		<mapper resource="com/smhrd/db/MemberMapper.xml" />
 		<mapper resource="com/smhrd/db/MessageMapper.xml" />
+		<mapper resource="com/smhrd/db/FoodCaloryMapper.xml" />
 	</mappers>
 	
 	
