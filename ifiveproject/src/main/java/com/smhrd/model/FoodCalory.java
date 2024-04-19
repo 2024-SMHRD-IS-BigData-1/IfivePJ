@@ -4,7 +4,7 @@ public class FoodCalory {
 
 	    private String food_idx;
 	    private String food_name;
-	    private float intake_weight;
+	    private String intake_weight;
 	    private int intake_calory;
 	    public String getFoodIdx() {
 	        return food_idx;
@@ -30,7 +30,7 @@ public class FoodCalory {
 	        this.food_name = food_name;
 	    }
 
-	    public float getIntakeWeight() {
+	    public String getIntakeWeight() {
 	        return intake_weight;
 	    }
 

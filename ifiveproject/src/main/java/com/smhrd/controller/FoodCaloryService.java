@@ -8,6 +8,8 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import com.smhrd.db.SqlSessionManager;
 import com.smhrd.frontcontroller.Command;
 import com.smhrd.model.FoodCalory;
+import com.smhrd.model.FoodCaloryDAO;
+import com.smhrd.model.MemberDAO;
 
 public class FoodCaloryService implements Command {
 
@@ -18,14 +20,11 @@ public class FoodCaloryService implements Command {
 		String food = request.getParameter("FoodCalory");
 		System.out.println(food);
 		
-		SqlSessionFactory sqlSessionFactory=  SqlSessionManager.getSqlSession();
-		SqlSession session = sqlSessionFactory.openSession(true);
-		FoodCalory foodCalory = session.selectOne("com.smhrd.db.FoodCaloryMapper.Search", food);
-		request.setAttribute("foodCalory", foodCalory);
-		session.close();
 		
-		System.out.println(foodCalory.getIntakeCalory());
+		FoodCalory food_find = new FoodCalory(food)
+		int cnt = new FoodCaloryDAO().search(food_find );
 		
+
 		return null;
 	}
 }
