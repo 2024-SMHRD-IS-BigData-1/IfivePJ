@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.smhrd.db.athleticsMapper">
+  
+  <insert id="select" parameterType="athletics_plan_info" >
+  SELECT * FROM athletics_plan_info;
+  </insert>
+  
+
+
+  
+  
+</mapper>

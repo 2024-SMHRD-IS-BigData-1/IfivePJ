@@ -7,6 +7,9 @@ import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 
+/**
+ * 
+ */
 @AllArgsConstructor
 @NoArgsConstructor
 @RequiredArgsConstructor
@@ -14,14 +17,19 @@ import lombok.Setter;
 @Setter
 public class athletics_plan_info {
 	
-	@NonNull private int plan_idx;
-	private String user_id;
-	private String ath_date;
-	private String ath_time;
-	private String aht_type;
-	private String ath_duration;
-	private String created_at;
-	private String ath_done;
-	private int ath_reward;
+	private int plan_idx;
+	@NonNull private String user_id;
+	@NonNull private String ath_date;
+	@NonNull private String ath_time;
+	@NonNull private String aht_type;
+	@NonNull private String ath_duration;
+	@NonNull private String created_at;
+	@NonNull private String ath_done;
+	@NonNull private int ath_reward;
+	
+	
+
+	
+	
 
 }

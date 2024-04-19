@@ -16,6 +16,7 @@ import com.smhrd.controller.ChatService;
 import com.smhrd.controller.JoinService;
 import com.smhrd.controller.LoginService;
 import com.smhrd.controller.NewgroupService;
+import com.smhrd.controller.athletics_plan_infoService;
 
 
 
@@ -54,6 +55,8 @@ public class frontcontroller extends HttpServlet {
 			service= new IdCheck();
 		}else if(resultURL.equals("NewgroupService.do")) {
 			service= new NewgroupService();
+		}else if (resultURL.equals("athletics_plan_infoService.do")) {
+			service= new athletics_plan_infoService();
 		}
 		
 		String moveURL =service.execute(request, response);
