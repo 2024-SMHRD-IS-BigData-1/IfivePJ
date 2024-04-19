@@ -2,15 +2,10 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
-  
 
-	<mapper namespace="com.smhrd.db.MessageMapper">
-	  
-	  
-	  <insert id="insertMessage" parameterType="String">
-	    INSERT INTO chatting_info VALUES #{}
+<mapper namespace="com.smhrd.db.MessageMapper">
 
-  		</insert> 
-  
-  
+  <insert id="insertMessage" parameterType="Message">
+    INSERT INTO test_chat VALUES (#{chating})
+  </insert>
 </mapper>

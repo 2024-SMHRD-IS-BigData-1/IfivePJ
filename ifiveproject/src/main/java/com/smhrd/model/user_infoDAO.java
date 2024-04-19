@@ -5,20 +5,17 @@ import org.apache.ibatis.session.SqlSessionFactory;
 
 import com.smhrd.db.SqlSessionManager;
 
-public class chatting_infoDAO {
+
+
+public class user_infoDAO {
 	
 	SqlSessionFactory sqlSessionFactory = SqlSessionManager.getSqlSession();
 	
-	
-	public int join(chatting_info sendChat) {
+
+	public user_info login(user_info member) {
 		SqlSession session = sqlSessionFactory.openSession(true);
-		int cnt = session.insert("com.smhrd.db.MessageMapper.insertMessage", sendChat);
+		int cnt = session.insert("com.smhrd.db.MemberMapper.Login", member);
 		session.close();
-		return cnt;
+		return null;
 	}
-
-
-
-
-
 }

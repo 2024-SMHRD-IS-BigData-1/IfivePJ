@@ -1,3 +1,4 @@
+<%@page import="org.apache.ibatis.reflection.SystemMetaObject"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -22,64 +23,68 @@
     <!-- 채팅 박스 -->
     <div id="chatbox" style="width:450px;height:300px;border:1px solid black;overflow-y:auto;">
        
-        <!-- 첫 번째 네모 텍스트 박스 -->
-        <div class="chat-text-box">
-            Text Box 1
-        </div>
-        <!-- 두 번째 네모 텍스트 박스 -->
-        <div class="chat-text-box">
-            Text Box 2
-        </div>
-        <!-- 세 번째 네모 텍스트 박스 -->
-        <div class="chat-text-box">
-            Text Box 3
-        </div>
-        <!-- 네 번째 네모 텍스트 박스 -->
-        <div class="chat-text-box">
-            Text Box 4
-        </div>
     </div>
     <input type="text" id="message" placeholder="Enter your message" />
-    <button onclick="sendMessage()">Send</button>
-
+    <button id="button" onclick="sendMessage()">Send</button>
+   
     <script>
-        function sendMessage() {
-           // 메시지를 채팅 박스에 추가하는 함수
-            function sendMessage() {
-                // 입력 필드의 값을 가져옴
-                const message = document.getElementById('message').value;
+       // 메시지를 서버로 보내는 함수
+       //document.getElementById('sendButton').addEventListener('click', sendMessage);
+       function sendMessage() {
+           // 입력 필드의 값을 가져옵니다.
+           const messageInput = document.getElementById('message');
+           const message = messageInput.value;
+           
+           // AJAX 요청을 보냅니다.
+           $.ajax({
+               type: "POST",
+               url: "ChatService.do",
+               data: {
+                   "message" : message  // 입력된 메시지를 서버로 보냅니다.
+               },
+               success: function(response) {
+                   // 요청이 성공적으로 처리되었을 때의 작업
+                   console.log("메세지 입력 완료");
+                   console.log("Response:", response);
+                   
+                // 채팅 박스에 메시지를 추가합니다.
+                   const chatbox = document.getElementById('chatbox');
+                   const chatTextBox = document.createElement('div');
+                   chatTextBox.className = 'chat-text-box';
+                   chatTextBox.innerText = message;
+                   
+                   // 메시지를 채팅 박스에 추가합니다.
+                   chatbox.appendChild(chatTextBox);
+                   // 채팅 박스를 스크롤하여 가장 최근의 메시지가 표시되도록 합니다.
+                   chatbox.scrollTop = chatbox.scrollHeight;
+                   
+                   // 요청이 성공적으로 처리되면 입력 필드를 초기화합니다.
+                   messageInput.value = '';
+               },
+               error: function(xhr, status, error) {
+                   // 요청이 실패했을 때의 작업
+                   console.error("Error sending message:", error);
+               }
+           });
+       }
+       // 엔터 키를 눌렀을 때 메시지를 보내는 이벤트 리스너 추가
+          document.getElementById('message').addEventListener('keydown', function(event) {
+              // 이벤트가 Enter 키를 감지하는지 확인합니다.
+              if (event.key === 'Enter') {
+                  // 기본 동작을 막습니다. (폼 제출 등)
+                  event.preventDefault();
+                  // 메시지를 보냅니다.
+                  sendMessage();
+              }
+          });
+    
+    // 버튼에 대한 이벤트 리스너 추가
+       
 
-                // 새로운 네모 텍스트 박스를 생성
-                const newTextBox = document.createElement('div');
-                newTextBox.className = 'chat-text-box';
-                newTextBox.textContent = message;
-
-                // 새로운 텍스트 박스를 채팅 박스에 추가
-                const chatbox = document.getElementById('chatbox');
-                chatbox.appendChild(newTextBox);
-
-                // 입력 필드를 비움
-                document.getElementById('message').value = '';
-                
-           var message = $("#message").val();
-            $.ajax({
-                type: "POST",
-                url: "ChatServlet",
-                data: { message: message },
-                success: function(response) {
-                    console.log("Message sent successfully");
-                },
-                error: function(xhr, status, error) {
-                    console.error("Error sending message: " + error);
-                }
-            });
-           }
-        }
-
-        function updateChat() {
+         /* function updateChat() {
             $.ajax({
                 type: "GET",
-                url: "ChatServlet",
+                url: "ChatService",
                 success: function(response) {
                     $("#chatbox").html(response);
                 },
@@ -87,10 +92,9 @@
                     console.error("Error updating chat: " + error);
                 }
             });
-        } 
-
+        }  
         // Update chat every 2 seconds
-        setInterval(updateChat, 2000);
+        setInterval(updateChat, 2000);*/
     </script>
 </body>
 </html>

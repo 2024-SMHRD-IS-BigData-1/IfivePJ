@@ -21,7 +21,6 @@ public class SqlSessionManager {
 	   }
 	}
 	
-	// DAO에서 getSqlSession() 호출해서 기능을 구현 
 	public static SqlSessionFactory getSqlSession() {
 	      return sqlSessionFactory;
 	   }
