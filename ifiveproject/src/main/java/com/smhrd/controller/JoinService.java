@@ -31,14 +31,16 @@ public class JoinService implements Command{
 		Member member = new Member(user_id, user_pw, user_height, user_weight, user_target_weight, user_type);
 		
 		int cnt = new MemberDAO().join(member);
+		
+		
 			
 		if(cnt > 0) {
 			System.out.println("회원가입 성공!");
-			return "intro.jsp";
+			return "Login.jsp";
 
 		}else {
 			System.out.println("회원가입 실패..");
-			return "intro.jsp";
+			return "Join.jsp";
 		}
 				
 	}

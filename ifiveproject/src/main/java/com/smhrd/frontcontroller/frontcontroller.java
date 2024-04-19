@@ -53,6 +53,7 @@ public class frontcontroller extends HttpServlet {
 		}
 		 	
 		String moveURL =service.execute(request, response);
+		System.out.print(moveURL);
 		
 		if (moveURL != null) {
 		response.sendRedirect(moveURL);

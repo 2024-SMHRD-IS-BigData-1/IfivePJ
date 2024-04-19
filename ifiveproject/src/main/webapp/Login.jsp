@@ -132,7 +132,9 @@
                 </div>
             </div>
             <!-- login page box -->
+
             <form action="LoginService.do" method="post">
+
                 <div class="login_box">
                     <div class="login_id_box_bg"></div>
                             <div class="login_id_typing_bar">
@@ -148,10 +150,12 @@
                             </div>
                         <div class="button">
 
+
                             
                             <input class="login_button" type="submit" value="Login" >
                             
                             
+
                         </div>
                         
                 </div>             
@@ -173,7 +177,7 @@
             <div style="left: 915px; top: 611px; position: absolute; color: #767676; font-size: 18px; font-family: Noto Sans KR; font-weight: 400; letter-spacing: 1.80px; word-wrap: break-word">간편로그인</div>
             <div style="width: 115px; left: 1021px; top: 441px; position: absolute; color: #767676; font-size: 15px; font-family: Noto Sans KR; font-weight: 400; letter-spacing: 1.50px; word-wrap: break-word">아이디/비밀번호</div>
             <div style="width: 342px; height: 58px; left: 794px; top: 785px; position: absolute; background: white; border: 1px black solid"></div>
-            <div style="left: 929px; top: 801px; position: absolute; color: #B6ADAD; font-size: 18px; font-family: Noto Sans KR; font-weight: 500; letter-spacing: 1.80px; word-wrap: break-word">회원가입</div>
+            <a href="Join.jsp"><div style="left: 929px; top: 801px; position: absolute; color: #B6ADAD; font-size: 18px; font-family: Noto Sans KR; font-weight: 500; letter-spacing: 1.80px; word-wrap: break-word">회원가입</div></a>
             <div style="width: 40px; height: 40px; left: 844px; top: 677px; position: absolute; background: white; border-radius: 9999px; overflow: hidden; border: 1px #E6E6EA solid; justify-content: center; align-items: center; display: inline-flex">
                 <div style="width: 20px; height: 20px; position: relative">
                     <div style="width: 20px; height: 20px; left: 0px; top: 20px; position: absolute; background: #03C75A"></div>
