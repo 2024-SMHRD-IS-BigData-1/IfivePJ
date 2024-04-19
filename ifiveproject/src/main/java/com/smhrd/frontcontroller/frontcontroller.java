@@ -15,6 +15,8 @@ import com.smhrd.controller.IdCheck;
 import com.smhrd.controller.ChatService;
 import com.smhrd.controller.JoinService;
 import com.smhrd.controller.LoginService;
+import com.smhrd.controller.NewgroupService;
+
 
 
 
@@ -50,8 +52,10 @@ public class frontcontroller extends HttpServlet {
 			service= new LoginService();
 		}else if(resultURL.equals("IdCheck.do")) {
 			service= new IdCheck();
+		}else if(resultURL.equals("NewgroupService.do")) {
+			service= new NewgroupService();
 		}
-		 	
+		
 		String moveURL =service.execute(request, response);
 		System.out.print(moveURL);
 		
