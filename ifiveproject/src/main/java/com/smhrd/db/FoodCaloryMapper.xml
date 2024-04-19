@@ -7,3 +7,10 @@
  <select id="Search" parameterType="food" resultType="food">
   	select * from food_calory_info where food_name=#{food_name}
   </select>
+ 
+<!--  <select id="Search" parameterType="String" resultType="FoodCalory">
+	SELECT *
+	FROM food_calory_info
+	WHERE food_name LIKE '%' || #{food_name} || '%'
+</select> -->
+  </mapper>

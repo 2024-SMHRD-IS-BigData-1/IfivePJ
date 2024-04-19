@@ -6,7 +6,6 @@ public class FoodCalory {
 	    private String food_name;
 	    private float intake_weight;
 	    private int intake_calory;
-
 	    public String getFoodIdx() {
 	        return food_idx;
 	    }
