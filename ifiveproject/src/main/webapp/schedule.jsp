@@ -29,7 +29,19 @@ function submitEvent() {
     <h1>운동</h1>
   <input type="text" id="eventTitle" placeholder="Event Title" />
   <button onclick="submitEvent()">Add Event</button>
-  
-  
+	
+	<br>
+	<br>
+	
+	<form action="DietService.do" method="post">
+		아이디값 넘겨야함 <input type="submit" id="input_food" value="식단기록">
+	</form>
+	<form action="FoodCaloryService.do" method="POST">
+		음식 검색 <input type="text" id="FoodCalory" name="FoodCalory"
+			placeholder="검색어 입력">
+		<button id="searchButton">검색</button>
+		<div id="results"></div>
+	</form>
+
 </body>
 </html>

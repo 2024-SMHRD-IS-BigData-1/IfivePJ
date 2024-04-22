@@ -2,30 +2,31 @@ package com.smhrd.controller;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import org.apache.ibatis.session.SqlSession;
-import org.apache.ibatis.session.SqlSessionFactory;
+import javax.servlet.http.HttpSession;
 
-import com.smhrd.db.SqlSessionManager;
 import com.smhrd.frontcontroller.Command;
 import com.smhrd.model.FoodCalory;
+import com.smhrd.model.FoodCaloryDAO;
 
 public class FoodCaloryService implements Command {
 
-	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) {
 		System.out.println("FoodCaloryService");
 		
-		String food = request.getParameter("FoodCalory");
-		System.out.println(food);
+		String food_name = request.getParameter("FoodCalory");
+		System.out.println(food_name);
 		
-		SqlSessionFactory sqlSessionFactory=  SqlSessionManager.getSqlSession();
-		SqlSession session = sqlSessionFactory.openSession(true);
-		FoodCalory foodCalory = session.selectOne("com.smhrd.db.FoodCaloryMapper.Search", food);
-		request.setAttribute("foodCalory", foodCalory);
-		session.close();
+		FoodCalory food_search = new FoodCalory(food_name);
 		
-		System.out.println(foodCalory.getIntakeCalory());
+		FoodCalory food_find = new FoodCaloryDAO().Search(food_search);
 		
-		return null;
+		if(food_find !=null) {
+			System.out.println("음식 찾기 성공");
+			HttpSession session = request.getSession();
+			session.setAttribute("food_find", food_find);
+		}else {
+			System.out.println("음식 찾기 실패");
+		}
+		return "schedule.jsp";
 	}
 }

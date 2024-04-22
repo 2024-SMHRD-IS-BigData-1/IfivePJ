@@ -5,7 +5,7 @@
 <mapper namespace="com.smhrd.db.FoodCaloryMapper">
 
  <select id="Search" parameterType="food" resultType="food">
-  	select * from food_calory_info where food_name=#{food_name}
+  	select * from food_calory_info where food_name=#{food}
   </select>
  
 <!--  <select id="Search" parameterType="String" resultType="FoodCalory">
