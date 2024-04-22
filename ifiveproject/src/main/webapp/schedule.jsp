@@ -53,16 +53,20 @@ function submitEvent(eventType) {
         title: eventTitleInput
     };
     if (eventType === "exercise") {
-        eventData.start = startDateInput;
-        eventData.end = endDateInput;
+        eventData.startDate = startDateInput;
+        eventData.endDate = endDateInput;
     }
 
     // AJAX 요청 보내기
     $.ajax({
         url: 'ScheduleService.do', // 서버의 엔드포인트 URL
         type: 'POST', // 요청 메소드 (POST로 지정하여 데이터 전송)
-        contentType: 'application/json', // 전송할 데이터의 타입 (JSON으로 지정)
-        data: JSON.stringify(eventData), // 전송할 데이터 객체를 JSON 문자열로 변환하여 전송
+        data: {
+            eventType: eventType,
+            title: eventTitleInput,
+            start: startDateInput, // 운동 일정 이벤트에 대해서만 전송합니다.
+            end: endDateInput // 운동 일정 이벤트에 대해서만 전송합니다.
+        }, // 전송할 데이터 객체를 직접 지정하여 전송
         success: function(response) {
             // 성공적으로 응답을 받았을 때 수행할 작업
             console.log(response);
@@ -73,13 +77,14 @@ function submitEvent(eventType) {
         }
     });
 }
+
 </script>
 
 </head>
 <body>
 
     <h1>운동 일정</h1>
-    <input type="text" id="exerciseEventTitle" placeholder="Event Title" />
+    <input type="text" id="exerciseEventTitle"  name="exercise_schedule" placeholder="Event Title" />
     <input type="date" id="exerciseStartDate" />
     <input type="date" id="exerciseEndDate" />
     <button onclick="submitEvent('exercise')">Add Event</button>
@@ -87,13 +92,13 @@ function submitEvent(eventType) {
     <div id="exerciseList"></div>
     
     <h1>음식</h1>
-    <input type="text" id="foodEventTitle" placeholder="Event Title" />
+    <input type="text" id="foodEventTitle" name="food_name" placeholder="Event Title" />
     <button onclick="submitEvent('food')">Add Event</button>
     <div id="foodEvents" class="eventList"></div>
     <div id="foodList"></div>
     
     <h1>운동이름</h1>
-    <input type="text" id="exercisenameEventTitle" placeholder="Event Title" />
+    <input type="text" id="exercisenameEventTitle" name="exercise_name" placeholder="Event Title" />
     <button onclick="submitEvent('exercisename')">Add Event</button>
     <div id="exercisenameEvents" class="eventList"></div>
     <div id="exercisenameList"></div>
