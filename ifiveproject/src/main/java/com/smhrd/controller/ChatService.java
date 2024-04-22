@@ -14,7 +14,6 @@ public class ChatService implements Command {
 		String chating = request.getParameter("message");
 		System.out.println(chating);
 		
-		
 		chatting_info sendChat = new chatting_info(chating);
 		int cnt = new chatting_infoDAO().join(sendChat);
 		if(cnt>0) {
