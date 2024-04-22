@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.smhrd.db.DietMapper">
+
+  <insert id="insertDiet" parameterType="Diet">
+    INSERT INTO diet_info VALUES 
+    (#{diet_idx},#{user_id},#{food_idx},#{intake_weight},#{intake_calory},#{created_at})
+  </insert>
+</mapper>

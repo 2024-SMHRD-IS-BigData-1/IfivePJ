@@ -13,6 +13,8 @@ import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 import com.smhrd.controller.IdCheck;
 import com.smhrd.controller.ChatService;
+import com.smhrd.controller.DietService;
+import com.smhrd.controller.FoodCaloryService;
 import com.smhrd.controller.JoinService;
 import com.smhrd.controller.LoginService;
 import com.smhrd.controller.NewgroupService;
@@ -32,11 +34,9 @@ public class frontcontroller extends HttpServlet {
 		
 		String requestURI =  request.getRequestURI();
 		
-		System.out.println(requestURI);
 		
 		String contextpath =  request.getContextPath();
 		
-		System.out.println(contextpath);
 		
 		String resultURL = requestURI.substring(contextpath.length() + 1);
 		
@@ -48,11 +48,14 @@ public class frontcontroller extends HttpServlet {
 			service = new JoinService();
 		}else if(resultURL.equals("ChatService.do")) {
 			service = new ChatService();
-			System.out.println("ChatService 작동");
 		}else if(resultURL.equals("LoginService.do")) {
 			service= new LoginService();
 		}else if(resultURL.equals("IdCheck.do")) {
 			service= new IdCheck();
+		}else if(resultURL.equals("DietService.do")) {
+			service= new DietService();
+		}else if(resultURL.equals("FoodCaloryService.do")) {
+			service= new FoodCaloryService();
 		}else if(resultURL.equals("NewgroupService.do")) {
 			service= new NewgroupService();
 		}else if(resultURL.equals("ScheduleService.do")) {
