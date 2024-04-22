@@ -18,10 +18,14 @@ import com.smhrd.controller.FoodCaloryService;
 import com.smhrd.controller.JoinService;
 import com.smhrd.controller.LoginService;
 import com.smhrd.controller.NewgroupService;
+<<<<<<< HEAD
 import com.smhrd.controller.athletics_plan_infoService;
 import com.smhrd.controller.mypageService;
 
 
+=======
+import com.smhrd.controller.ScheduleService;
+>>>>>>> branch 'master' of https://github.com/2024-SMHRD-IS-BigData-1/IfivePJ.git
 
 
 
@@ -61,10 +65,15 @@ public class frontcontroller extends HttpServlet {
 			service= new FoodCaloryService();
 		}else if(resultURL.equals("NewgroupService.do")) {
 			service= new NewgroupService();
+<<<<<<< HEAD
 		}else if (resultURL.equals("athletics_plan_infoService.do")) {
 			service= new athletics_plan_infoService();
 		}else if (resultURL.equals("mypageService.do")) {
 			service= new mypageService();
+=======
+		}else if(resultURL.equals("ScheduleService.do")) {
+			service= new ScheduleService();
+>>>>>>> branch 'master' of https://github.com/2024-SMHRD-IS-BigData-1/IfivePJ.git
 		}
 		
 		String moveURL =service.execute(request, response);

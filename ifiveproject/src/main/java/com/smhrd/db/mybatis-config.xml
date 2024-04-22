@@ -9,7 +9,11 @@
 		<typeAlias type="com.smhrd.model.chatting_info" alias = "Message"/>
 		<typeAlias type="com.smhrd.model.FoodCalory" alias = "Food"/>
 		<typeAlias type="com.smhrd.model.Group" alias = "Group"/>
+<<<<<<< HEAD
 		<typeAlias type="com.smhrd.model.mypage" alias = "mypage"/>
+=======
+		<typeAlias type="com.smhrd.model.Schedule" alias = "Schedule"/>
+>>>>>>> branch 'master' of https://github.com/2024-SMHRD-IS-BigData-1/IfivePJ.git
 		<!-- <typeAlias type="com.smhrd.model.Board" alias = "Board"/>  -->
 	</typeAliases>
 		
@@ -34,6 +38,7 @@
 		<mapper resource="com/smhrd/db/MessageMapper.xml" />
 		<mapper resource="com/smhrd/db/FoodCaloryMapper.xml" />
 		<mapper resource="com/smhrd/db/GroupMapper.xml" />
+		<mapper resource="com/smhrd/db/ScheduleMapper.xml" />
 	</mappers>
 	
 	
