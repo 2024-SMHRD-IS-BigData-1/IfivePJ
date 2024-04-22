@@ -28,8 +28,6 @@
     <button id="button" onclick="sendMessage()">Send</button>
 	
     <script>
- 		// 메시지를 서버로 보내는 함수
- 		//document.getElementById('sendButton').addEventListener('click', sendMessage);
 	    function sendMessage() {
 	        // 입력 필드의 값을 가져옵니다.
 	        const messageInput = document.getElementById('message');
