@@ -9,9 +9,10 @@ public class FoodCaloryDAO {
 	
 	public FoodCalory Search(FoodCalory food) {
 		SqlSession session = sqlSessionFactory.openSession(true);
-		session.selectOne("com.smhrd.db.FoodCaloryMapper.Search",food);
+		System.out.println("DAO");
+		FoodCalory food_find = session.selectOne("com.smhrd.db.FoodCaloryMapper.Search",food);
 		session.close();
-		return food;
+		return food_find;
 	}
 	
 }
