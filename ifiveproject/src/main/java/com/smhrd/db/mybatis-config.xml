@@ -7,7 +7,9 @@
 	<typeAliases>
 		<typeAlias type="com.smhrd.model.Member" alias="Member"/>
 		<typeAlias type="com.smhrd.model.chatting_info" alias = "Message"/>
+		<typeAlias type="com.smhrd.model.FoodCaloryMapper" alias = "Food"/>
 		<typeAlias type="com.smhrd.model.Group" alias = "Group"/>
+		<typeAlias type="com.smhrd.model.mypage" alias = "mypage"/>
 		<!-- <typeAlias type="com.smhrd.model.Board" alias = "Board"/>  -->
 	</typeAliases>
 		
@@ -27,8 +29,10 @@
 	
 	<!-- SQL문들 정의해주는 mapper.xml을 계속해서 만들건데 어디에 있는지 경로를 지정해주는 태그 -->
 	<mappers>
+		<mapper resource="com/smhrd/db/mypage.xml"/>
 		<mapper resource="com/smhrd/db/MemberMapper.xml" />
 		<mapper resource="com/smhrd/db/MessageMapper.xml" />
+		<mapper resource="com/smhrd/db/FoodCaloryMapper.xml" />
 		<mapper resource="com/smhrd/db/GroupMapper.xml" />
 	</mappers>
 	

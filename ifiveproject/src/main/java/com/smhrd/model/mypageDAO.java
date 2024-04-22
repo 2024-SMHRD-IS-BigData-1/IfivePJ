@@ -5,18 +5,16 @@ import org.apache.ibatis.session.SqlSessionFactory;
 
 import com.smhrd.db.SqlSessionManager;
 
-public class chatting_infoDAO {
+public class mypageDAO {
+	SqlSessionFactory sqlSessionFactory=  SqlSessionManager.getSqlSession();
 	
-	SqlSessionFactory sqlSessionFactory = SqlSessionManager.getSqlSession();
-	
-	
-	public int join(chatting_info sendChat) {
+	public int update(mypage mypage) {
 		SqlSession session = sqlSessionFactory.openSession(true);
-		int cnt = session.insert("com.smhrd.db.MessageMapper.insertMessage", sendChat);
+		int cnt = session.update("com.smhrd.db.mypageMapper.update",mypage);
 		session.close();
 		return cnt;
+		
+		
 	}
-
-
 
 }
