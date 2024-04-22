@@ -72,24 +72,7 @@
             /* z-index: 2; */
         }
         /* 채팅 타이핑란 */
-        .typing_text{
-            left: 74px; 
-            top: 22px; 
-            position: absolute; 
-            color: #DBDBDB; 
-            font-size: 14px; 
-            font-family: Noto Sans KR; 
-            font-weight: 500; 
-            word-wrap: break-word;
-        }
-        .chatting_print_page{
-            width: 866px; 
-            height: 613px; 
-            left: 215px; 
-            top: 60px; 
-            position: absolute; 
-            background: #ECECEC;
-        }
+        
         .text-input {
             border: none;
             outline: none;
@@ -100,7 +83,7 @@
             top: 17px;
         }
         .chat-text-box {
-            width: auto; /* 너비는 chatbox의 100% */
+            width: auto;
             padding: 10px; /* 내부 패딩 */
             margin: 5px 0; /* 상하 여백 */
             border: 1px solid black; /* 테두리 */
@@ -309,7 +292,7 @@
 		<img style="width: 35px; height: 35px"
 			src="https://via.placeholder.com/35x35" />
 	</div>
-
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
 	<script>   
 
@@ -340,7 +323,7 @@
 	        const messageInput = document.getElementById('message');
 	        const message = messageInput.innerText;
 	        
-	        console.log("dddddddddddddd"+message);
+	        console.log("입력 메세지:"+message);
 	        
 	        // AJAX 요청을 보냅니다.
 	        $.ajax({

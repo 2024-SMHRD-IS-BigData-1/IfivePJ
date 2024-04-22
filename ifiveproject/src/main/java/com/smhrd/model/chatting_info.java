@@ -14,18 +14,10 @@ public class chatting_info {
  //private String emoticon;// 이모티콘 
  //private String chatted_at;// 발화 시간 
 
- 
- 
- 
 // 생성자
 
 public chatting_info(String chating) {
 	this.chating = chating;
-}
-
-@Override
-public String toString() {
-	return "chatting_info [chat_idx=" + chat_idx + ", chatter=" + chatter + ", chating=" + chating + "]";
 }
 
 //get, set 
