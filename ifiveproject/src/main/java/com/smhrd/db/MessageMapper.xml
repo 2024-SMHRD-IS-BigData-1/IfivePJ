@@ -5,6 +5,6 @@
 <mapper namespace="com.smhrd.db.MessageMapper">
 
   <insert id="insertMessage" parameterType="Message">
-    INSERT INTO test_chat VALUES (#{chating})
+    INSERT INTO test_chat VALUES(#{chating})
   </insert>
 </mapper>

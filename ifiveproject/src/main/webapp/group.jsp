@@ -3,6 +3,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
@@ -337,7 +338,9 @@
 		function sendMessage() {
 	        // 입력 필드의 값을 가져옵니다.
 	        const messageInput = document.getElementById('message');
-	        const message = messageInput.value;
+	        const message = messageInput.innerText;
+	        
+	        console.log("dddddddddddddd"+message);
 	        
 	        // AJAX 요청을 보냅니다.
 	        $.ajax({
