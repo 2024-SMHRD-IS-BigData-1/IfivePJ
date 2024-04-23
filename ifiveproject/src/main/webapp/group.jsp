@@ -96,11 +96,15 @@
         #chatbox{
            height: 600px;
           padding-top: 70px;
-          padding-left: 215px;
+          padding-left: 220px;
           padding-right: 20px;
           margin-bottom: 10px;
           text-align: right;
         }
+        .link {
+		    cursor: pointer;
+		  }
+        
     </style>
     
    <script>
@@ -233,11 +237,17 @@
     <div class="header" style="width: 1920px; height: 0px; left: 0px; top: 0px; position: fixed">
         <div style="width: 1920px; height: 1px; left: 0px; top: 90px; position: absolute; background: #DBDBDB"></div>
         <div style="width: 1920px; height: 90px; left: 1px; top: 0px; position: absolute; background: white"></div>
-        <div style="width: 84px; height: 34px; left: 321px; top: 23px; position: absolute; color: black; font-size: 28px; font-family: Noto Sans KR; font-weight: 700; letter-spacing: 2.80px; word-wrap: break-word">IFIVE</div>
-        <div style="left: 790px; top: 35px; position: absolute; color: black; font-size: 14px; font-family: Noto Sans KR; font-weight: 350; word-wrap: break-word">Group</div>
-        <div style="left: 881px; top: 35px; position: absolute; color: black; font-size: 14px; font-family: Noto Sans KR; font-weight: 350; word-wrap: break-word">Callender</div>
-        <div style="left: 994px; top: 35px; position: absolute; color: black; font-size: 14px; font-family: Noto Sans KR; font-weight: 350; word-wrap: break-word">Board</div>
-        <div style="left: 1083px; top: 35px; position: absolute; color: black; font-size: 14px; font-family: Noto Sans KR; font-weight: 350; word-wrap: break-word">Mypage</div>
+        <div style="width: 84px; height: 34px; left: 321px; top: 23px; position: absolute; color: black; font-size: 28px; font-family: Noto Sans KR; font-weight: 700; 
+        	letter-spacing: 2.80px; word-wrap: break-word"
+        	class="link" onclick="location.href='Main.jsp'">IFIVE</div>
+        <div style="left: 790px; top: 35px; position: absolute; color: black; font-size: 14px; font-family: Noto Sans KR; font-weight: 350; word-wrap: break-word"
+        	class="link" onclick="location.href='group.jsp'">Group</div>
+        <div style="left: 881px; top: 35px; position: absolute; color: black; font-size: 14px; font-family: Noto Sans KR; font-weight: 350; word-wrap: break-word"
+        	class="link" onclick="location.href='cal.jsp'" >Callender</div>
+        <div style="left: 994px; top: 35px; position: absolute; color: black; font-size: 14px; font-family: Noto Sans KR; font-weight: 350; word-wrap: break-word"
+        	class="link" onclick="location.href='joining_group.jsp'">Board</div>
+        <div style="left: 1083px; top: 35px; position: absolute; color: black; font-size: 14px; font-family: Noto Sans KR; font-weight: 350; word-wrap: break-word"
+        	class="link" onclick="location.href=' '">Mypage</div>
         <div style="width: 112px; height: 35px; left: 1489px; top: 27px; position: absolute">
             <div style="width: 112px; height: 35px; left: 0px; top: 0px; position: absolute; background: white; border-radius: 30px; border: 1px #DBDBDB solid"></div>
             <div style="width: 70px; height: 22px; left: 21px; top: 7px; position: absolute">
@@ -256,7 +266,8 @@
             <div style="width: 1920px; height: 1px; left: 0px; top: 2px; position: absolute; background: #DBDBDB"></div>
             <div style="left: 751px; top: 56px; position: absolute; color: black; font-size: 16px; font-family: Noto Sans KR; font-weight: 500; line-height: 16px; word-wrap: break-word">Group</div>
             <div style="left: 1095px; top: 57px; position: absolute; color: black; font-size: 16px; font-family: Noto Sans KR; font-weight: 500; line-height: 16px; word-wrap: break-word">My page</div>
-            <div style="left: 835px; top: 56px; position: absolute; color: black; font-size: 16px; font-family: Noto Sans KR; font-weight: 500; line-height: 16px; word-wrap: break-word">Callender</div>
+            <div style="left: 835px; top: 56px; position: absolute; color: black; font-size: 16px; font-family: Noto Sans KR; font-weight: 500; line-height: 16px; word-wrap: break-word";
+            	class="cal-link" onclick="location.href='cal.jsp'" >Callender</div>
             <div style="left: 1017px; top: 57px; position: absolute; color: black; font-size: 16px; font-family: Noto Sans KR; font-weight: 500; line-height: 16px; word-wrap: break-word">Point</div>
             <div style="left: 943px; top: 57px; position: absolute; color: black; font-size: 16px; font-family: Noto Sans KR; font-weight: 500; line-height: 16px; word-wrap: break-word">Chat</div>
             <div style="left: 902px; top: 180px; position: absolute; color: #797979; font-size: 15px; font-family: Noto Sans KR; font-weight: 350; line-height: 15px; word-wrap: break-word">Ifive@naver.com</div>
