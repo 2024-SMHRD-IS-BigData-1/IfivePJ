@@ -1,4 +1,4 @@
-<%@page import="com.smhrd.model.Member"%>
+<%@page import="org.apache.ibatis.reflection.SystemMetaObject"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -32,51 +32,55 @@
   </style>
 </head>
 <body>
-
-	<% Member loginMember = (Member)session.getAttribute("loginMember"); %>
   <div id='calendar-container'>
     <div id='calendar'></div>
   </div>
-  
+ 
+ 
   <script>
-  document.addEventListener('DOMContentLoaded', function() { 
-    var calendarEl = document.getElementById('calendar');
-    var calendar = new FullCalendar.Calendar(calendarEl, {
-      height: '600px',
-      expandRows: true,
-      slotMinTime: '08:00',
-      slotMaxTime: '20:00',
-      headerToolbar: {
-        left: 'prev,next today',
-        center: 'title',
-        right: 'dayGridMonth,timeGridWeek,timeGridDay, stWeek'
-      },
-      initialView: 'dayGridMonth',
-      editable: true,
-      selectable: true,
-      locale: 'ko',
-      dateClick: function(info) {
-        window.open('schedule.jsp?date=' + info.dateStr, '_blank');
-      }
-    });
-    calendar.render();
+ 
+ 
+  document.addEventListener('DOMContentLoaded', function() {
+      var calendarEl = document.getElementById('calendar');
+      var calendar = new FullCalendar.Calendar(calendarEl, {
+          height: '600px',
+          expandRows: true,
+          slotMinTime: '08:00',
+          slotMaxTime: '20:00',
+          headerToolbar: {
+              left: 'prev,next today',
+              center: 'title',
+              right: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek'
+          },
+          initialView: 'dayGridMonth',
+          editable: true,
+          selectable: true,
+          locale: 'ko',
+          dateClick: function(info) {
+              window.open('exercise.jsp?date=' + info.dateStr, '_blank');
+          }
+      });
 
-    // Listen for messages from the child window
-    window.addEventListener('message', function(event) {
-      try {
-        var eventData = JSON.parse(event.data);
-        calendar.addEvent({
-          title: eventData.title,
-          start: eventData.start,
-          end: eventData.end,
-          allDay: eventData.allDay || false
-        });
-      } catch (e) {
-        console.error("Error parsing event data", e);
-      }
-    }, false);
+      calendar.render();
+
+      // 부모 창에서 이벤트 데이터를 받아와서 캘린더에 추가
+      window.addEventListener('message', function(event) {
+          try {
+              var eventData = JSON.parse(event.data);
+              calendar.addEventSource({
+                  events: [{
+                      title: eventData.title,
+                      start: eventData.scheduleDate
+                  }]
+              });
+          } catch (e) {
+              console.error("Error parsing event data", e);
+          }
+      }, false);
   });
-  </script>
+
+	</script>
+
   
   
   <div id="chart-container"></div>
@@ -117,20 +121,10 @@
         }
 
     </script>
-<<<<<<< HEAD
+  
+
   
  
 
-=======
-    
-    
-    
-
-
-<<<<<<< HEAD
->>>>>>> branch 'master' of https://github.com/2024-SMHRD-IS-BigData-1/IfivePJ.git
-=======
-
->>>>>>> branch 'master' of https://github.com/2024-SMHRD-IS-BigData-1/IfivePJ.git
 </body>
 </html>
