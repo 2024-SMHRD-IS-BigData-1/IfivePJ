@@ -1,3 +1,5 @@
+<%@page import="com.smhrd.model.GroupDAO"%>
+<%@page import="com.smhrd.model.Group"%>
 <%@page import="java.util.List"%>
 <%@page import="com.smhrd.model.Member"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -435,26 +437,24 @@
         <div style="width: 196px; height: 1px; left: 1px; top: 111px; position: absolute; background: #DBDBDB"></div>
         <div style="left: 15px; top: 71px; position: absolute; color: black; font-size: 20px; font-family: Inter; font-weight: 500; word-wrap: break-word">Group</div>
        
-       <table>
-       <%
-       		Member loginMember = (Member)session.getAttribute("loginMember");
-	       List<group> groupList = null;				
-			if(loginMember != null){
-				// 로그인한 상태 -> 로그인한 사용자에게 도착한 메세지 가져오기
-				groupList = new GroupDAO().groupList(loginMember.getEmail());
-				// System.out.print(messageList.size());
-				pageContext.setAttribute("groupList", groupList);
-			}
-       %>
-       <c:forEach items="${groupList }" var="group" varStatus="s">
-       		<tr>
-       			<td>그룹이름: ${group.group_name}</td>
-       			<td>그룹정보: ${group.group_info} </td>
-       			<td>인원 제한: ${group.group_limit}</td>
-       			<td>상태: ${group.group_status}</td>
-       		</tr>
-       </c:forEach>
-       </table>
+      <table>
+	    <%
+		    Member logiMember2Member = (Member) session.getAttribute("loginMember");
+		    List<Group> groupList = null;
+		    if (logiMember2Member != null) {
+		    	groupList = new GroupDAO().groupList(logiMember2Member.getUser_id());
+		        pageContext.setAttribute("groupList", groupList);
+		    }
+	    %>
+		    <c:forEach items="${groupList}" var="group" varStatus="s">
+		        <tr>
+		            <td>그룹이름: ${group.group_name}</td>
+		            <td>그룹정보: ${group.group_info}</td>
+		            <td>인원 제한: ${group.group_limit}</td>
+		            <td>상태: ${group.group_status}</td>
+		        </tr>
+		    </c:forEach>
+		</table>
        									<!-- top 52px -->
        	<div class="group_button" style="top:320px;">
        		<h5>Group Information</h5>

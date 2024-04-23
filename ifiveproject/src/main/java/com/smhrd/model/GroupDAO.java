@@ -1,5 +1,7 @@
 package com.smhrd.model;
 
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
@@ -15,7 +17,13 @@ public class GroupDAO {
 		session.close();
 		return cnt;
 	}
-
+	
+	public List<Group> groupList(String user_id) {
+		SqlSession session = sqlSessionFactory.openSession(true);
+		List<Group> groupList = session.selectList("com.smhrd.db.GroupMapper.groupList");
+		session.close();
+		return groupList;
+	}
 
 
 
