@@ -1,6 +1,9 @@
+<%@page import="com.smhrd.model.Member"%>
 <%@page import="org.apache.ibatis.reflection.SystemMetaObject"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
+<%Member loginMember = (Member)session.getAttribute("loginMember"); %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -32,6 +35,11 @@
   </style>
 </head>
 <body>
+<<<<<<< HEAD
+
+	
+=======
+>>>>>>> branch 'master' of https://github.com/2024-SMHRD-IS-BigData-1/IfivePJ.git
   <div id='calendar-container'>
     <div id='calendar'></div>
   </div>

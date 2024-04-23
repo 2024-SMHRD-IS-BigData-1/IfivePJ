@@ -1,5 +1,8 @@
+<%@page import="com.smhrd.model.Member"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
+<%Member loginMember = (Member)session.getAttribute("loginMember"); %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -152,16 +155,19 @@
                     <div style="left: 993px; top: 35px; position: absolute; color: black; font-size: 14px; font-family: Noto Sans KR; font-weight: 350; word-wrap: break-word">Board</div>
                     <div style="left: 1082px; top: 35px; position: absolute; color: black; font-size: 14px; font-family: Noto Sans KR; font-weight: 350; word-wrap: break-word">Mypage</div>
                     <div style="width: 112px; height: 35px; left: 1488px; top: 27px; position: absolute">
-                        <div style="width: 112px; height: 35px; left: 0px; top: 0px; position: absolute; background: white; border-radius: 30px; border: 1px #DBDBDB solid"></div>
-                        <div style="width: 70px; height: 22px; left: 21px; top: 7px; position: absolute">
-                            <div style="left: 34px; top: 1px; position: absolute; color: black; font-size: 14px; font-family: Noto Sans KR; font-weight: 350; word-wrap: break-word">Login</div>
-                            <div style="width: 28px; height: 22px; left: 0px; top: 0px; position: absolute; flex-direction: column; justify-content: flex-start; align-items: flex-start; display: inline-flex">
-                                <div style="width: 28px; height: 22px"></div>
-                                <div style="width: 18.67px; height: 14.67px; background: black"></div>
-                            </div>
-                        </div>
-                    </div>
+                        <% if (loginMember == null) { %>
+        <!-- 로그인되지 않은 상태 -->
+        <div style="width: 112px; height: 35px; left: 1489px; top: 27px; position: absolute">
+            <div style="width: 112px; height: 35px; left: 0px; top: 0px; position: absolute; background: white; border-radius: 30px; border: 1px #DBDBDB solid"></div>
+            <div style="width: 70px; height: 22px; left: 21px; top: 7px; position: absolute">
+                <div style="left: 34px; top: 1px; position: absolute; color: black; font-size: 14px; font-family: Noto Sans KR; font-weight: 350; word-wrap: break-word">Login</div>
+                <div style="width: 28px; height: 22px; left: 0px; top: 0px; position: absolute; flex-direction: column; justify-content: flex-start; align-items: flex-start; display: inline-flex">
+                    <div style="width: 28px; height: 22px"></div>
+                    <div style="width: 18.67px; height: 14.67px; background: black"></div>
                 </div>
+            </div>
+        </div>
+    <% } %>
             </div>
             <div style="width: 1920px; height: 1px; left: 0px; top: 90px; position: absolute; background: #D9D9D9"></div>
         </div>
@@ -200,21 +206,21 @@
                     </div>
                 </div>
             </div>
-
+		
             <!-- 현재 몸무게 -->
-		      <div style="width: 148.85px; height: 30px; left: 317px; top: 49px; position: absolute">
-		    <div style="width: 148.85px; height: 30px; left: 0px; top: 0px; position: absolute; background: #FFFCFC"></div>
-		    <div style="width: 148.85px; height: 1px; left: 0px; top: 29px; position: absolute; background: #DBDBDB"></div>
-		    <div style="width: 74.43px; height: 23px; left: 74.43px; top: 4px; position: absolute">
-		        <div style="width: 74.43px; height: 23px; left: 0px; top: 0px; position: absolute; background: #FFFCFC"></div>
-		        <input type="text" name ="weight" class="weight_input" style="width: 50px; left: 0px; top: 0px; position: absolute; color: black; font-size: 15px; font-family: Noto Sans KR; font-weight: 500; border: none; outline: none;" value="75">
-		        <div style="width: 19.47px; left: 52.06px; top: 0px; position: absolute; color: #797979; font-size: 15px; font-family: Noto Sans KR; font-weight: 400; word-wrap: break-word">kg</div>
-		    </div>
-		    <div style="width: 74.43px; height: 23px; left: 0px; top: 4px; position: absolute">
-		        <div style="width: 74.43px; height: 23px; left: 0px; top: 0px; position: absolute; background: #FFFCFC"></div>
-		        <div style="width: 73.28px; left: 1.15px; top: -0px; position: absolute; color: black; font-size: 15px; font-family: Noto Sans KR; font-weight: 500; word-wrap: break-word">현재 체중:</div>
-		    </div>
-		</div>
+		     <div style="width: 148.85px; height: 30px; left: 317px; top: 49px; position: absolute">
+    <div style="width: 148.85px; height: 30px; left: 0px; top: 0px; position: absolute; background: #FFFCFC"></div>
+    <div style="width: 148.85px; height: 1px; left: 0px; top: 29px; position: absolute; background: #DBDBDB"></div>
+    <div style="width: 74.43px; height: 23px; left: 74.43px; top: 4px; position: absolute">
+        <div style="width: 74.43px; height: 23px; left: 0px; top: 0px; position: absolute; background: #FFFCFC"></div>
+        <input type="text" name="weight" class="weight_input" style="width: 50px; left: 0px; top: 0px; position: absolute; color: black; font-size: 15px; font-family: Noto Sans KR; font-weight: 500; border: none; outline: none;" value="<%=loginMember.getUser_weight() %>">
+        <div style="width: 19.47px; left: 52.06px; top: 0px; position: absolute; color: #797979; font-size: 15px; font-family: Noto Sans KR; font-weight: 400; word-wrap: break-word">kg</div>
+    </div>
+    <div style="width: 74.43px; height: 23px; left: 0px; top: 4px; position: absolute">
+        <div style="width: 74.43px; height: 23px; left: 0px; top: 0px; position: absolute; background: #FFFCFC"></div>
+        <div style="width: 73.28px; left: 1.15px; top: -0px; position: absolute; color: black; font-size: 15px; font-family: Noto Sans KR; font-weight: 500; word-wrap: break-word">현재 체중:</div>
+    </div>
+</div>
 
 
             <!-- 키 -->
@@ -222,7 +228,7 @@
 			    <div style="width: 148.85px; height: 30px; left: 0px; top: 0px; position: absolute; background: #FFFCFC"></div>
 			    <div style="width: 148.85px; height: 1px; left: 0px; top: 29px; position: absolute; background: #DBDBDB"></div>
 			    <div style="width: 77.25px; height: 23px; left: 74.43px; top: 4px; position: absolute">
-			        <input type="text" name ="height" class="height_input" style="width: 30px; left: 0px; top: 3px; position: absolute; color: black; font-size: 15px; font-family: Roboto; font-weight: 500; border: none; outline: none;" value="175">
+			        <input type="text" name ="height" class="height_input" style="width: 30px; left: 0px; top: 3px; position: absolute; color: black; font-size: 15px; font-family: Roboto; font-weight: 500; border: none; outline: none;" value="<%=loginMember.getUser_height() %>">
 			        <div style="width: 25.19px; left: 52.06px; top: 0px; position: absolute; color: #797979; font-size: 15px; font-family: Noto Sans KR; font-weight: 400; word-wrap: break-word">cm</div>
 			    </div>
 			    <div style="width: 74.43px; height: 23px; left: 0px; top: 4px; position: absolute">
@@ -237,7 +243,7 @@
 	    <div style="width: 148.85px; height: 1px; left: 0px; top: 29px; position: absolute; background: #DBDBDB"></div>
 	    <div style="width: 74.43px; height: 23px; left: 74.43px; top: 4px; position: absolute">
 	        <div style="width: 74.43px; height: 23px; left: 0px; top: 0px; position: absolute; background: #FFFCFC"></div>
-	        <input type="text" name = "goal_weight" class="goal_weight_input" style="width: 40px; left: 0px; top: 3px; position: absolute; color: black; font-size: 15px; font-family: Roboto; font-weight: 500; border: none; outline: none;" value="68">
+	        <input type="text" name = "goal_weight" class="goal_weight_input" style="width: 40px; left: 0px; top: 3px; position: absolute; color: black; font-size: 15px; font-family: Roboto; font-weight: 500; border: none; outline: none;" value="<%=loginMember.getUser_target_weight() %>">
 	        <div style="width: 19.47px; left: 52.06px; top: 0px; position: absolute; color: #797979; font-size: 15px; font-family: Noto Sans KR; font-weight: 400; word-wrap: break-word">kg</div>
 	    </div>
 	    <div style="width: 74.43px; height: 23px; left: 0px; top: 4px; position: absolute">
@@ -258,7 +264,7 @@
                     <div style="width: 404px; height: 1px; left: 0px; top: 55px; position: absolute; background: #DBDBDB"></div>
                     <div style="width: 384px; height: 20px; left: 10px; top: 18px; position: absolute">
                         <div style="width: 384px; height: 20px; left: 0px; top: 0px; position: absolute; background: #FFFCFC"></div>
-                        <div class="typing_ID">ID</div>
+                        <div class="typing_ID"><%=loginMember.getUser_id()%></div>
                     </div>
                 </div>
             </div>
@@ -275,7 +281,7 @@
                     <div style="width: 404px; height: 1px; left: 0px; top: 55px; position: absolute; background: #DBDBDB"></div>
                     <div style="width: 384px; height: 20px; left: 10px; top: 18px; position: absolute">
                         <div style="width: 384px; height: 20px; left: 0px; top: 0px; position: absolute; background: #FFFCFC"></div>
-                        <div class="typing_PW">PW</div>
+                        <div class="typing_PW">***</div>
                     </div>
                 </div>
             </div>

@@ -229,6 +229,7 @@
                     <input name="ser_target_weight" id="input-usergoalweight" autocapitalize="off" type="text" placeholder="목표체중을 입력하세요" value="">
 
                 </div>
+                
         </div>
 
         <div class="button">
@@ -335,6 +336,7 @@
             </div>
         </div>
     </div>
+    
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
          <script type="text/javascript">
          function checkID(){

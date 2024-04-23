@@ -2,6 +2,9 @@
 <%@page import="com.smhrd.model.Member"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
+   <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
+<%Member loginMember = (Member)session.getAttribute("loginMember"); %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -608,7 +611,33 @@
     </div>
 
 
+<<<<<<< HEAD
+    <!-- header -->
+<div class="header" style="width: 1920px; height: 0px; left: 0px; top: 0px; position: fixed">
+    <div style="width: 1920px; height: 1px; left: 0px; top: 90px; position: absolute; background: #DBDBDB"></div>
+    <div style="width: 1920px; height: 90px; left: 1px; top: 0px; position: absolute; background: white"></div>
+    <a href ="Main.jsp"><div style="width: 84px; height: 34px; left: 321px; top: 23px; position: absolute; color: black; font-size: 28px; font-family: Noto Sans KR; font-weight: 700; letter-spacing: 2.80px; word-wrap: break-word">IFIVE</div></a>
+    <a href="group.jsp"><div style="left: 790px; top: 35px; position: absolute; color: black; font-size: 14px; font-family: Noto Sans KR; font-weight: 350; word-wrap: break-word">Group</div></a>
+    <a href="cal.jsp"><div style="left: 881px; top: 35px; position: absolute; color: black; font-size: 14px; font-family: Noto Sans KR; font-weight: 350; word-wrap: break-word">Callender</div></a>
+    <div style="left: 994px; top: 35px; position: absolute; color: black; font-size: 14px; font-family: Noto Sans KR; font-weight: 350; word-wrap: break-word">Board</div>
+    <a href="mypage.jsp"><div style="left: 1083px; top: 35px; position: absolute; color: black; font-size: 14px; font-family: Noto Sans KR; font-weight: 350; word-wrap: break-word">Mypage</div></a>
+    <% if (loginMember == null) { %>
+        <!-- 로그인되지 않은 상태 -->
+        <div style="width: 112px; height: 35px; left: 1489px; top: 27px; position: absolute">
+            <div style="width: 112px; height: 35px; left: 0px; top: 0px; position: absolute; background: white; border-radius: 30px; border: 1px #DBDBDB solid"></div>
+            <div style="width: 70px; height: 22px; left: 21px; top: 7px; position: absolute">
+                <div style="left: 34px; top: 1px; position: absolute; color: black; font-size: 14px; font-family: Noto Sans KR; font-weight: 350; word-wrap: break-word">Login</div>
+                <div style="width: 28px; height: 22px; left: 0px; top: 0px; position: absolute; flex-direction: column; justify-content: flex-start; align-items: flex-start; display: inline-flex">
+                    <div style="width: 28px; height: 22px"></div>
+                    <div style="width: 18.67px; height: 14.67px; background: black"></div>
+                </div>
+            </div>
+        </div>
+    <% } %>
+</div>
+=======
    
+>>>>>>> branch 'master' of https://github.com/2024-SMHRD-IS-BigData-1/IfivePJ.git
 
         <!-- footer -->
         <div class="footer" style="width: 1920px; height: 252px; left: 0px; top: 1042px; position: absolute">

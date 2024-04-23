@@ -16,10 +16,10 @@ import lombok.Setter;
 @Setter
 public class mypage {
 
-	 private String user_id;
-	 private String user_pw;
-	@NonNull private int user_height;
-	@NonNull private int user_weight;
-	@NonNull private int user_target_weight;
-	
+    private String user_id;
+    private String user_pw;
+   @NonNull private int user_height;
+   @NonNull private int user_weight;
+   @NonNull private int user_target_weight;
+   
 }
