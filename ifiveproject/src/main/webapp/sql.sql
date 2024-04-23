@@ -8,3 +8,5 @@ CREATE TABLE test_chat(
 
 drop table test_chat;
 
+select * from athletics_plan_info;
+

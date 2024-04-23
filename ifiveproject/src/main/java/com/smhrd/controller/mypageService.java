@@ -14,7 +14,8 @@ public class mypageService implements Command {
    @Override
    public String execute(HttpServletRequest request, HttpServletResponse response) {
 
-      
+	  String userId = (String) request.getSession().getAttribute("user_id");
+	   
       String weight = request.getParameter("weight");
       String height = request.getParameter("height");
       String goal_weight = request.getParameter("goal_weight");

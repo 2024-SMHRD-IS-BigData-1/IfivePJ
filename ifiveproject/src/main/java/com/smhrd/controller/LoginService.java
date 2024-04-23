@@ -24,6 +24,7 @@ public class LoginService implements Command {
 			System.out.println("로그인 성공!");
 			HttpSession session = request.getSession();
 			session.setAttribute("loginMember", loginMember);
+			session.setAttribute("user_id", user_id);
 			return "Main.jsp";
 			
 		}else {
