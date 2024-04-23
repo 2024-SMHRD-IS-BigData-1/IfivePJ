@@ -12,6 +12,244 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
+    	.box{
+            width: 100%; 
+            height: 100%;
+            position: relative;
+        }
+        .header_box1{
+            width: 1920px; 
+            height: 92px; 
+            left: 0px; 
+            top: 0px; 
+            position: absolute;
+        }
+        .header_box2{
+            width: 1920px; 
+            height: 91px; 
+            left: 0px; 
+            top: 0px; 
+            position: absolute;
+        }
+        .header_bg{
+            width: 1920px; 
+            height: 91px; 
+            left: 0px; 
+            top: 0px; 
+            position: absolute; 
+            background: white;
+        }
+        .login_button{
+            width: 112px; 
+            height: 35px; 
+            left: 1527px; 
+            top: 26px; 
+            position: absolute;
+        }
+        .login_button_bg{
+            width: 112px; 
+            height: 35px; 
+            left: 0px; 
+            top: 0px; 
+            position: absolute; 
+            background: white; 
+            border-radius: 30px; 
+            border: 1px #DBDBDB solid;
+        }
+        .login_button_textBox{
+            width: 70px; 
+            height: 22px; 
+            left: 21px; 
+            top: 7px; 
+            position: absolute;
+        }
+        .login_button_textBg{
+            width: 70px; 
+            height: 22px; 
+            left: 0px; 
+            top: 0px; 
+            position: absolute; 
+            background: white;
+        }
+        .login_button_img{
+            width: 20px; 
+            height: 20px; 
+            left: 1px; 
+            top: 1px; 
+            position: absolute; 
+            background: #DEDBDB;
+        }
+        .login_textBox{
+            width: 43px; 
+            height: 20px; 
+            left: 27px; 
+            top: 1px; 
+            position: absolute;
+        }
+        .login_textBg{
+            width: 43px; 
+            height: 20px; 
+            left: 0px; 
+            top: 0px; 
+            position: absolute; 
+            background: white;
+        }
+        .login_text{
+            left: 3px; 
+            top: 0px; 
+            position: absolute; 
+            color: black; 
+            font-size: 14px; 
+            font-family: Noto Sans KR; 
+            font-weight: 350; 
+            word-wrap: break-word;
+        }
+        .header_mypage{
+            width: 50px; 
+            height: 40px; 
+            left: 1051px; 
+            top: 26px; 
+            position: absolute;
+        }
+        .header_mypage_bg{
+            width: 50px; 
+            height: 40px; 
+            left: 0px; 
+            top: 0px; 
+            position: absolute; 
+            background: white;
+        }
+        .header_mypage_text{
+            left: 0px; 
+            top: 10px; 
+            position: absolute; 
+            color: black; 
+            font-size: 14px; 
+            font-family: Noto Sans KR; 
+            font-weight: 350; 
+            word-wrap: break-word;
+        }
+        .header_callender{
+            width: 63px; 
+            height: 40px; 
+            left: 928px; 
+            top: 26px; 
+            position: absolute;
+        }
+        .header_callender_bg{
+            width: 63px; 
+            height: 40px; 
+            left: 0px; 
+            top: 0px; 
+            position: absolute; 
+            background: white;
+        }
+        .header_callender_text{
+            left: 0px; 
+            top: 10px; 
+            position: absolute; 
+            color: black; 
+            font-size: 14px; 
+            font-family: Noto Sans KR; 
+            font-weight: 350; 
+            word-wrap: break-word;
+        }
+
+        .header_group{
+            width: 41px; 
+            height: 40px; 
+            left: 827px; 
+            top: 26px; 
+            position: absolute;
+        }
+        .header_group_bg{
+            width: 41px; 
+            height: 40px; 
+            left: 0px; 
+            top: 0px; 
+            position: absolute; 
+            background: white;
+        }
+        .header_group_text{
+            left: 0px; 
+            top: 10px; 
+            position: absolute; 
+            color: black; 
+            font-size: 14px; 
+            font-family: Noto Sans KR; 
+            font-weight: 350; 
+            word-wrap: break-word;
+        }
+
+        .team_title{
+            width: 85px;
+            height: 50px; 
+            left: 320px; 
+            top: 21px; 
+            position: absolute;
+        }
+        .team_title_bg{
+            width: 85px; 
+            height: 50px; 
+            left: 0px; 
+            top: 0px; 
+            position: absolute; 
+            background: white;
+        }
+        .team_title_text{
+            left: 2px; 
+            top: 5px; 
+            position: absolute; 
+            color: black; 
+            font-size: 28px; 
+            font-family: Noto Sans KR; 
+            font-weight: 700; 
+            letter-spacing: 2.80px; 
+            word-wrap: break-word;
+        }
+
+
+        .header_bar{
+            width: 1920px; 
+            height: 1px; 
+            left: 0px; 
+            top: 91px; 
+            position: absolute; 
+            background: #D9D9D9;
+        }
+
+        .group_main_box{
+            width: 241px; 
+            height: 1092px; 
+            left: 317px; 
+            top: 100px; 
+            position: fixed;
+        }
+        .sidebar{
+            height: 100%;
+            width: 0%;
+            position: fixed;
+            z-index: 2;
+            top: 141px;
+            left: 514px;
+            overflow-x: hidden;
+            transition: 0.3s;
+            padding-top: 60px;
+            padding-bottom: 60px;
+        }
+
+        .layer {
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background-color: rgba(0, 0, 0, 0.5); /* 반투명한 검은 배경 */
+            display: none;
+            z-index: 1;
+        }
+        
+        
         .group_main_box{
             width: 198px; 
             height: 731px; 
@@ -75,8 +313,9 @@
             position: fixed;
             /* z-index: 2; */
         }
-        /* 채팅 타이핑란 */
         
+        
+        /* 채팅 타이핑란 */
         .text-input {
             border: none;
             outline: none;
@@ -100,11 +339,15 @@
         #chatbox{
            height: 600px;
           padding-top: 70px;
-          padding-left: 215px;
+          padding-left: 220px;
           padding-right: 20px;
           margin-bottom: 10px;
           text-align: right;
         }
+        .link {
+		    cursor: pointer;
+		  }
+        
     </style>
     
    <script>
@@ -114,6 +357,45 @@
    </script>
 </head>
 <body>
+	 <!-- header -->
+    <div class="box">
+        <div class="header_box1">
+            <div class="header_box2">
+                <div class="header_bg"></div>
+               
+                <a class="header_mypage" href="mypage.html" role="button">
+                    <div class="header_mypage_bg"></div>
+                    <div class="header_mypage_text">Mypage</div>
+                </a>
+
+                <a class="header_callender" href="callender.html" role="button">
+                    <div class="header_callender_bg"></div>
+                    <div class="header_callender_text">Callender</div>
+                </a>
+                <a class="header_group" href="group_offer.html" role="button">
+                    <div class="header_group_bg"></div>
+                    <div class="header_group_text">Group</div>
+                </a>
+                <a class="team_title" href="main.html" role="button">
+                    <div class="team_title_bg"></div>
+                    <div class="team_title_text">IFIVE</div>
+                </a>
+            </div>
+            <div class="header_bar"></div>
+            <a class="login_button" href="login_pop.html" role="button">
+                <div class="login_button_bg"></div>
+                <div class="login_button_textBox">
+                    <div class="login_button_textBg"></div>
+                    <div class="login_button_img"></div>
+                    <div class="login_textBox">
+                        <div class="login_textBg"></div>
+                        <div class="login_text">Login</div>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+	
    <!-- group -->
     <div class="group_main_box">
         <div style="width: 198px; height: 731px; left: 0px; top: 0px; position: absolute; background: rgba(255, 255, 255, 0.70); border: 1px black solid"></div>
@@ -233,6 +515,7 @@
     </div>
 
 
+<<<<<<< HEAD
     <!-- header -->
 <div class="header" style="width: 1920px; height: 0px; left: 0px; top: 0px; position: fixed">
     <div style="width: 1920px; height: 1px; left: 0px; top: 90px; position: absolute; background: #DBDBDB"></div>
@@ -256,6 +539,9 @@
         </div>
     <% } %>
 </div>
+=======
+   
+>>>>>>> branch 'master' of https://github.com/2024-SMHRD-IS-BigData-1/IfivePJ.git
 
         <!-- footer -->
         <div class="footer" style="width: 1920px; height: 252px; left: 0px; top: 1042px; position: absolute">
@@ -263,7 +549,8 @@
             <div style="width: 1920px; height: 1px; left: 0px; top: 2px; position: absolute; background: #DBDBDB"></div>
             <div style="left: 751px; top: 56px; position: absolute; color: black; font-size: 16px; font-family: Noto Sans KR; font-weight: 500; line-height: 16px; word-wrap: break-word">Group</div>
             <div style="left: 1095px; top: 57px; position: absolute; color: black; font-size: 16px; font-family: Noto Sans KR; font-weight: 500; line-height: 16px; word-wrap: break-word">My page</div>
-            <div style="left: 835px; top: 56px; position: absolute; color: black; font-size: 16px; font-family: Noto Sans KR; font-weight: 500; line-height: 16px; word-wrap: break-word">Callender</div>
+            <div style="left: 835px; top: 56px; position: absolute; color: black; font-size: 16px; font-family: Noto Sans KR; font-weight: 500; line-height: 16px; word-wrap: break-word";
+            	class="cal-link" onclick="location.href='cal.jsp'" >Callender</div>
             <div style="left: 1017px; top: 57px; position: absolute; color: black; font-size: 16px; font-family: Noto Sans KR; font-weight: 500; line-height: 16px; word-wrap: break-word">Point</div>
             <div style="left: 943px; top: 57px; position: absolute; color: black; font-size: 16px; font-family: Noto Sans KR; font-weight: 500; line-height: 16px; word-wrap: break-word">Chat</div>
             <div style="left: 902px; top: 180px; position: absolute; color: #797979; font-size: 15px; font-family: Noto Sans KR; font-weight: 350; line-height: 15px; word-wrap: break-word">Ifive@naver.com</div>
