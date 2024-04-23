@@ -1,5 +1,9 @@
+<%@page import="com.smhrd.model.Member"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+
+ <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
+<%Member loginMember = (Member)session.getAttribute("loginMember"); %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,91 +11,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        /* .main{
-            width: 100%;
-            height: 100%; 
-            position: relative; 
-            background: white; 
-            border: 1px whitesmoke solid} */
+        
         .wrap{
             margin: 10px auto;
             width: 1920px;
             height: 2985px;
         }
-        #header{
+        .header_box1{
             width: 1920px; 
-            height: 90px; 
+            height: 92px; 
             left: 0px; 
-            top: 1px; 
+            top: 0px; 
+            position: absolute;
+        }
+        .header_box2{
+            width: 1920px; 
+            height: 91px; 
+            left: 0px; 
+            top: 0px; 
+            position: absolute;
+        }
+        .header_bg{
+            width: 1920px; 
+            height: 91px; 
+            left: 0px; 
+            top: 0px; 
             position: absolute; 
             background: white;
         }
-        #header>#main-logo{
-            width: 84px; 
-            height: 34px; 
-            left: 320px; 
-            top: 24px; 
-            position: absolute; 
-            color: black; 
-            font-size: 28px; 
-            font-family: Noto Sans KR; 
-            font-weight: 700; 
-            letter-spacing: 2.80px; 
-            word-wrap: break-word;
-        }
-        #header>#group_button{
-            left: 789px; 
-            top: 36px; 
-            position: absolute; 
-            color: black; 
-            font-size: 14px; 
-            font-family: Noto Sans KR; 
-            font-weight: 350; 
-            word-wrap: break-word;
-        }
-        #header>#mypage_button{
-            left: 1082px;
-            top: 36px; 
-            position: absolute; 
-            color: black; 
-            font-size: 14px; 
-            font-family: Noto Sans KR; 
-            font-weight: 350; 
-            word-wrap: break-word;
-        }
-        #header>#callender_button{
-            left: 880px; 
-            top: 36px; 
-            position: absolute; 
-            color: black; 
-            font-size: 14px;
-            font-family: Noto Sans KR; 
-            font-weight: 350; 
-            word-wrap: break-word;
-        }
-        #header>#board_button{
-            left: 993px; 
-            top: 36px; 
-            position: absolute; 
-            color: black; 
-            font-size: 14px; 
-            font-family: Noto Sans KR; 
-            font-weight: 350; 
-            word-wrap: break-word;
-        }
-        .bar{
-            width: 1920px; 
-            height: 1px; 
-            left: 0px; 
-            top: 90px; 
-            position: absolute; 
-            background: #D8D8D8;
-        }
-        #header>.login_button_group{
+        .login_button{
             width: 112px; 
             height: 35px; 
-            left: 1488px;
-            top: 28px; 
+            left: 1527px; 
+            top: 26px; 
             position: absolute;
         }
         .login_button_bg{
@@ -104,16 +56,47 @@
             border-radius: 30px; 
             border: 1px #DBDBDB solid;
         }
-        #login_sym{
-            width: 70px;
+        .login_button_textBox{
+            width: 70px; 
             height: 22px; 
             left: 21px; 
             top: 7px; 
             position: absolute;
         }
-        #login_text{
-            left: 34px; 
+        .login_button_textBg{
+            width: 70px; 
+            height: 22px; 
+            left: 0px; 
+            top: 0px; 
+            position: absolute; 
+            background: white;
+        }
+        .login_button_img{
+            width: 20px; 
+            height: 20px; 
+            left: 1px; 
             top: 1px; 
+            position: absolute; 
+            background: #DEDBDB;
+        }
+        .login_textBox{
+            width: 43px; 
+            height: 20px; 
+            left: 27px; 
+            top: 1px; 
+            position: absolute;
+        }
+        .login_textBg{
+            width: 43px; 
+            height: 20px; 
+            left: 0px; 
+            top: 0px; 
+            position: absolute; 
+            background: white;
+        }
+        .login_text{
+            left: 3px; 
+            top: 0px; 
             position: absolute; 
             color: black; 
             font-size: 14px; 
@@ -121,26 +104,120 @@
             font-weight: 350; 
             word-wrap: break-word;
         }
-        /* #login_icon{
-            width: 28px; 
-            height: 22px; 
+        .header_mypage{
+            width: 50px; 
+            height: 40px; 
+            left: 1051px; 
+            top: 26px; 
+            position: absolute;
+        }
+        .header_mypage_bg{
+            width: 50px; 
+            height: 40px; 
             left: 0px; 
             top: 0px; 
             position: absolute; 
-            flex-direction: column; 
-            justify-content: flex-start; 
-            align-items: flex-start; 
-            display: inline-flex;
+            background: white;
         }
-        #l_icon1{
-            width: 28px; 
-            height: 22px;
-        } */
-        /* #l_icon2{
-            width: 18.67px; 
-            height: 14.67px; 
-            background: black;
-        } */
+        .header_mypage_text{
+            left: 0px; 
+            top: 10px; 
+            position: absolute; 
+            color: black; 
+            font-size: 14px; 
+            font-family: Noto Sans KR; 
+            font-weight: 350; 
+            word-wrap: break-word;
+        }
+        .header_callender{
+            width: 63px; 
+            height: 40px; 
+            left: 928px; 
+            top: 26px; 
+            position: absolute;
+        }
+        .header_callender_bg{
+            width: 63px; 
+            height: 40px; 
+            left: 0px; 
+            top: 0px; 
+            position: absolute; 
+            background: white;
+        }
+        .header_callender_text{
+            left: 0px; 
+            top: 10px; 
+            position: absolute; 
+            color: black; 
+            font-size: 14px; 
+            font-family: Noto Sans KR; 
+            font-weight: 350; 
+            word-wrap: break-word;
+        }
+
+        .header_group{
+            width: 41px; 
+            height: 40px; 
+            left: 827px; 
+            top: 26px; 
+            position: absolute;
+        }
+        .header_group_bg{
+            width: 41px; 
+            height: 40px; 
+            left: 0px; 
+            top: 0px; 
+            position: absolute; 
+            background: white;
+        }
+        .header_group_text{
+            left: 0px; 
+            top: 10px; 
+            position: absolute; 
+            color: black; 
+            font-size: 14px; 
+            font-family: Noto Sans KR; 
+            font-weight: 350; 
+            word-wrap: break-word;
+        }
+
+        .team_title{
+            width: 85px;
+            height: 50px; 
+            left: 320px; 
+            top: 21px; 
+            position: absolute;
+        }
+        .team_title_bg{
+            width: 85px; 
+            height: 50px; 
+            left: 0px; 
+            top: 0px; 
+            position: absolute; 
+            background: white;
+        }
+        .team_title_text{
+            left: 2px; 
+            top: 5px; 
+            position: absolute; 
+            color: black; 
+            font-size: 28px; 
+            font-family: Noto Sans KR; 
+            font-weight: 700; 
+            letter-spacing: 2.80px; 
+            word-wrap: break-word;
+        }
+
+
+        .header_bar{
+            width: 1920px; 
+            height: 1px; 
+            left: 0px; 
+            top: 91px; 
+            position: absolute; 
+            background: #D9D9D9;
+        }
+      
         #record_img{
             width: 1600px; 
             height: 708px; 
@@ -168,15 +245,7 @@
             font-weight: 400; 
             word-wrap: break-word;
         }
-        /* #mainboard_button{
-            width: 267px; 
-            height: 66px; 
-            left: 826px; 
-            top: 481px; 
-            position: absolute; 
-            background: #EAEAEA; 
-            border-radius: 30px;
-        } */
+       
         #record{
             left: 894px; 
             top: 485px; 
@@ -277,14 +346,7 @@
             font-weight: 350; 
             word-wrap: break-word;
         }
-        /* #cal_enter_img{
-            width: 10px; 
-            height: 9.38px; 
-            left: 1494px; 
-            top: 1376.38px; 
-            position: absolute; 
-            background: #7E7E7E;
-        } */
+      
         #group_exp{
             left: 903px; 
             top: 1747px; 
@@ -427,36 +489,60 @@
     </style>
 </head>
 <body>
+
     <div class="wrap">
-        <nav>
-            <!-- header -->
-            <div id="header">
-                <div id="main-logo">IFIVE</div>
-                <div id="group_button">Group</div>
-                <div id="callender_button">Callender</div>
-                <div id="board_button">Board</div>
-                <div id="mypage_button">Mypage</div>
-                <div class="login_button_group">
-                    
-                    <div class="login_container">
-                        <div class="login_button_bg">
-                            <a class="login" href="Login.jsp" role="button">
-                                <div id="login_sym">
-                                    <span class="login_text">Login</span>
-                                    <div id="login_icon">
-                                        <div id="l_icon1"></div>
-                                        <div id="l_icon2"></div>
-                                    </div>
-                                </div>
-                            </a>
-    
+        <!-- header -->
+        <div class="header_box1">
+            <div class="header_box2">
+                <div class="header_bg"></div>
+               
+                <a class="header_mypage" href="mypage.jsp" role="button">
+                    <div class="header_mypage_bg"></div>
+                    <div class="header_mypage_text">Mypage</div>
+                </a>
+
+                <a class="header_callender" href="cal.jsp" role="button">
+                    <div class="header_callender_bg"></div>
+                    <div class="header_callender_text">Callender</div>
+                </a>
+                <a class="header_group" href="group.jsp" role="button">
+                    <div class="header_group_bg"></div>
+                    <div class="header_group_text">Group</div>
+                </a>
+                <a class="team_title" href="Main.jsp" role="button">
+                    <div class="team_title_bg"></div>
+                    <div class="team_title_text">IFIVE</div>
+                </a>
+            </div>
+            <div class="header_bar"></div>
+
+              <% if (loginMember != null) { %>
+                <!-- 로그인된 상태 -->
+                <div class="login_button">
+                    <a href="LogoutService.do">로그아웃</a>
+                </div>
+            <% } else { %>
+                <!-- 로그인 안된 상태 -->
+                <a class="login_button" href="Login.jsp" role="button">
+                    <div class="login_button_bg"></div>
+                    <div class="login_button_textBox">
+                        <div class="login_button_textBg"></div>
+                        <div class="login_button_img"></div>
+                        <div class="login_textBox">
+                            <div class="login_textBg"></div>
+                            <div class="login_button">
+                                <a href="Login.jsp">로그인</a>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="bar"></div>
-            </div>
-        </nav>
-        <!-- mainboard -->
+                </a>
+            <% } %>
+        </div>
+       
+       
+       
+       
+      
         <nav>
             <img id="record_img" src="./img/동기부여2.jpg" />
                 <div id="mainboard_title">Life is like riding a bicycle</div>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.smhrd.db.athleticsMapper">
+  
+  <insert id="insert" parameterType="athletics_plan_info" >
+  insert into athletics_plan_info values(#{plan_idx},#{user_id},#{ath_date},
+				#{ath_time},#{ath_duration},#{created_at},#{ath_done},#{ath_done},#{ath_reward})
+  </insert>
+  
+
+
+  
+  
+</mapper>
