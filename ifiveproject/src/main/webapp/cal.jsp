@@ -1,4 +1,4 @@
-<%@page import="com.smhrd.model.Member"%>
+<%@page import="org.apache.ibatis.reflection.SystemMetaObject"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -32,51 +32,54 @@
   </style>
 </head>
 <body>
-
-	<% Member loginMember = (Member)session.getAttribute("loginMember"); %>
   <div id='calendar-container'>
     <div id='calendar'></div>
   </div>
-  
+ 
+ 
   <script>
+ 
   document.addEventListener('DOMContentLoaded', function() {
-    var calendarEl = document.getElementById('calendar');
-    var calendar = new FullCalendar.Calendar(calendarEl, {
-      height: '600px',
-      expandRows: true,
-      slotMinTime: '08:00',
-      slotMaxTime: '20:00',
-      headerToolbar: {
-        left: 'prev,next today',
-        center: 'title',
-        right: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek'
-      },
-      initialView: 'dayGridMonth',
-      editable: true,
-      selectable: true,
-      locale: 'ko',
-      dateClick: function(info) {
-        window.open('schedule.jsp?date=' + info.dateStr, '_blank');
-      }
-    });
-    calendar.render();
+      var calendarEl = document.getElementById('calendar');
+      var calendar = new FullCalendar.Calendar(calendarEl, {
+          height: '600px',
+          expandRows: true,
+          slotMinTime: '08:00',
+          slotMaxTime: '20:00',
+          headerToolbar: {
+              left: 'prev,next today',
+              center: 'title',
+              right: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek'
+          },
+          initialView: 'dayGridMonth',
+          editable: true,
+          selectable: true,
+          locale: 'ko',
+          dateClick: function(info) {
+              window.open('exercise.jsp?date=' + info.dateStr, '_blank');
+          }
+      });
 
-    // Listen for messages from the child window
-    window.addEventListener('message', function(event) {
-      try {
-        var eventData = JSON.parse(event.data);
-        calendar.addEvent({
-          title: eventData.title,
-          start: eventData.start,
-          end: eventData.end,
-          allDay: eventData.allDay || false
-        });
-      } catch (e) {
-        console.error("Error parsing event data", e);
-      }
-    }, false);
+      calendar.render();
+
+      // 부모 창에서 이벤트 데이터를 받아와서 캘린더에 추가
+      window.addEventListener('message', function(event) {
+          try {
+              var eventData = JSON.parse(event.data);
+              calendar.addEventSource({
+                  events: [{
+                      title: eventData.title,
+                      start: eventData.scheduleDate
+                  }]
+              });
+          } catch (e) {
+              console.error("Error parsing event data", e);
+          }
+      }, false);
   });
-  </script>
+
+	</script>
+
   
   
   <div id="chart-container"></div>
@@ -116,42 +119,11 @@
             chart.draw(data, options);
         }
 
-        document.addEventListener('DOMContentLoaded', function() { 
-            var calendarEl = document.getElementById('calendar');
-            var calendar = new FullCalendar.Calendar(calendarEl, {
-                // 캘린더 설정...
-                dateClick: function(info) {
-                    var date = info.dateStr;
-                    $.ajax({
-                        url: 'LoadEventsServlet.do', // 일정을 불러올 서블릿 URL
-                        type: 'GET',
-                        data: { date: date }, // 클릭한 날짜 전달
-                        success: function(response) {
-                            var events = response.events; // 서버에서 받은 일정 데이터
-                            events.forEach(function(event) {
-                                calendar.addEvent(event); // 객체를 바로 전달하여 캘린더에 추가
-                            });
-                        },
-                        error: function(xhr, status, error) {
-                            // 오류 처리
-                            console.error(error);
-                        }
-                    });
-                },
-                // 다른 설정...
-            });
-            calendar.render();
-        });
-   
-        
-        
-        
-        
     </script>
+  
 
   
  
-
 
 </body>
 </html>

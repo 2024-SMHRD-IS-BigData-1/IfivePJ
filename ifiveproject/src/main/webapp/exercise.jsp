@@ -1,5 +1,10 @@
+<%@page import="com.smhrd.model.Member"%>
+<%@page import="com.smhrd.model.ScheduleDAO"%>
+<%@page import="java.util.List"%>
+<%@page import="com.smhrd.model.Schedule"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" isELIgnored="false"%>
+	pageEncoding="UTF-8" isELIgnored="false"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,6 +22,7 @@
 </style>
 </head>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
 
 <script>
 function submitEvent(eventType) {
@@ -55,6 +61,40 @@ function submitEvent(eventType) {
     eventItemDiv.appendChild(editButton); // Edit 버튼을 이벤트 항목에 추가합니다.
 
     eventListDiv.insertBefore(eventItemDiv, eventListDiv.firstChild); // 이벤트 항목을 이벤트 목록의 첫 번째 자식으로 추가합니다.
+    
+
+    var eventTitleInput = document.getElementById('scheduleEventTitle').value;
+    var scheduleDateInput = document.getElementById('scheduleDate').value;
+    var scheduleTimeInput = document.getElementById('scheduleTime').value;
+    var scheduleDurationInput = document.getElementById('scheduleDuration').value;
+
+    // AJAX 요청을 보냅니다.
+ // AJAX 요청을 보냅니다.
+    $.ajax({
+        url: 'cal.jsp', // 데이터를 처리할 jsp 파일의 경로
+        type: 'POST', // POST 방식으로 데이터를 전송합니다.
+        data: {
+            eventTitle: eventTitleInput,
+            scheduleDate: scheduleDateInput
+        },
+        success: function(response) {
+            // 요청이 성공하면 수행할 작업을 여기에 작성합니다.
+            console.log(response); // 서버에서 받은 응답을 출력합니다.
+            // 부모 창으로 이벤트 데이터 전송
+            var eventData = {
+                title: eventTitleInput,
+                scheduleDate: scheduleDateInput
+            };
+            window.opener.postMessage(JSON.stringify(eventData), '*');
+        },
+        error: function(xhr, status, error) {
+            // 오류가 발생하면 수행할 작업을 여기에 작성합니다.
+            console.error(error); // 오류를 콘솔에 출력합니다.
+        }
+    });
+    
+    
+    
 
     // AJAX 요청 보내기
     $.ajax({
@@ -79,7 +119,12 @@ function submitEvent(eventType) {
 }
 </script>
 
+
+
 <body>
+			
+			
+							
 			<h1>운동 일정</h1>
 			<input type="text" id="scheduleEventTitle" name="ath_type" placeholder="Event Title" />
 			<input type="date" id="scheduleDate" name="ath_date" />
@@ -88,5 +133,18 @@ function submitEvent(eventType) {
 			<button onclick="submitEvent('schedule')">Add Event</button>
 			<div id="scheduleEvents" class="eventList"></div>
 			<div id="scheduleList"></div>
+			<button id="registerButton">등록 완료</button>
+			
+			
+			
+			<script>
+			// 등록 완료 버튼 클릭 시 창 닫기
+			document.getElementById('registerButton').addEventListener('click', function() {
+			    window.close(); // 창 닫기
+			});
+			</script>
+			
+			
+			
 </body>
 </html>

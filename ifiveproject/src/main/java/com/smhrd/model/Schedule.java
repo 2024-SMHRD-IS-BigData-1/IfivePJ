@@ -16,7 +16,7 @@ public class Schedule {
 	
 	@NonNull private int plan_idx;
 	private String user_id;
-	private String ath_date;
+	@NonNull private String ath_date;
 	private String ath_time;
 	private String ath_type;
 	private String ath_duration;
@@ -24,7 +24,8 @@ public class Schedule {
 	private String ath_done;
 	private int ath_reward;
 
-		
+	
+	
 	public Schedule(String user_id, String ath_date, String ath_time, String ath_type,
 			String ath_duration, String ath_done, int ath_reward) {
 		super();

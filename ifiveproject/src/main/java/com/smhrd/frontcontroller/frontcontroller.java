@@ -16,7 +16,6 @@ import com.smhrd.controller.ChatService;
 import com.smhrd.controller.DietService;
 import com.smhrd.controller.FoodCaloryService;
 import com.smhrd.controller.JoinService;
-import com.smhrd.controller.LoadEventsServlet;
 import com.smhrd.controller.LoginService;
 import com.smhrd.controller.LogoutService;
 import com.smhrd.controller.NewgroupService;
@@ -70,8 +69,6 @@ public class frontcontroller extends HttpServlet {
 			service= new mypageService();
 		}else if(resultURL.equals("ScheduleService.do")) {
 			service= new ScheduleService();
-		}else if(resultURL.equals("LoadEventsServlet.do")) {
-			service= new LoadEventsServlet();
 		}else if(resultURL.equals("LogoutService.do")) {
 			service= new LogoutService();
 		}

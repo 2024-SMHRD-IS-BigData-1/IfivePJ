@@ -8,8 +8,10 @@ import java.io.PrintWriter;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.smhrd.frontcontroller.Command;
+import com.smhrd.model.Member;
 import com.smhrd.model.MemberDAO;
 import com.smhrd.model.Schedule;
 import com.smhrd.model.ScheduleDAO;
@@ -18,34 +20,32 @@ public class ScheduleService implements Command {
 
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) {
-    		
+
+
 
         System.out.println("ScheduleService");
-
-
-        
-        
-        
+       
         String ath_type = request.getParameter("title");
         String ath_date = request.getParameter("date");
         String ath_time = request.getParameter("time");
         String ath_duration = request.getParameter("duration");
-		/* String ath_done = request.getParameter("checkbox"); */
+		String ath_done = request.getParameter("checkbox");
         System.out.println(ath_type+ath_date+ath_duration+ath_time);
 
         
         String user_id= "test1";
-        String ath_done= "O";
+        ath_done= "O";
         int ath_reward =0;
         
-
         
-        Schedule exercise= new Schedule(user_id, ath_date, ath_time, ath_type, ath_duration, ath_done, ath_reward);
+        System.out.println("input");
+        Schedule schedule= new Schedule(user_id, ath_date, ath_time, ath_type, ath_duration, ath_done, ath_reward);
+        int cnt = new ScheduleDAO().join(schedule);
         
         
         
+ 
         
-        int cnt = new ScheduleDAO().join(exercise);
         PrintWriter out;
         try {
 			out = response.getWriter();
