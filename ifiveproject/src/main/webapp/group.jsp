@@ -245,7 +245,6 @@
             z-index: 1;
         }
         
-        
         .group_main_box{
             width: 198px; 
             height: 731px; 
@@ -265,20 +264,12 @@
             padding-top: 60px;
             padding-bottom: 60px;
         }
-        .layer {
-            width: 100%;
-            height: 100%;
-            position: fixed;
-            top: 0;
-            left: 0;
-            background-color: rgba(0, 0, 0, 0.5); /* 반투명한 검은 배경 */
-            display: none;
-            z-index: 1;
-        }
+        
+        
         .group_button{
             width: 172px; 
             height: 52px; 
-            top: 112px; 
+            /* top: 112px; */ 
             left: 24px;
             cursor: pointer; 
             position: absolute;
@@ -359,20 +350,20 @@
             <div class="header_box2">
                 <div class="header_bg"></div>
                
-                <a class="header_mypage" href="mypage.html" role="button">
+                <a class="header_mypage" href="mypage.jsp" role="button">
                     <div class="header_mypage_bg"></div>
                     <div class="header_mypage_text">Mypage</div>
                 </a>
 
-                <a class="header_callender" href="callender.html" role="button">
+                <a class="header_callender" href="cal.jsp" role="button">
                     <div class="header_callender_bg"></div>
                     <div class="header_callender_text">Callender</div>
                 </a>
-                <a class="header_group" href="group_offer.html" role="button">
+                <a class="header_group" href="group.jsp" role="button">
                     <div class="header_group_bg"></div>
                     <div class="header_group_text">Group</div>
                 </a>
-                <a class="team_title" href="main.html" role="button">
+                <a class="team_title" href="Main.jsp" role="button">
                     <div class="team_title_bg"></div>
                     <div class="team_title_text">IFIVE</div>
                 </a>
@@ -398,39 +389,48 @@
         <div style="width: 196px; height: 1px; left: 1px; top: 111px; position: absolute; background: #DBDBDB"></div>
         <div style="left: 15px; top: 71px; position: absolute; color: black; font-size: 20px; font-family: Inter; font-weight: 500; word-wrap: break-word">Group</div>
         
-        <div class="group_button" onclick="openNav()">
-            <div style="width: 172px; height: 52px; left: 0px; top: 0px; cursor: pointer; position: absolute; background: white;"></div>
+        <div class="group_button" onclick="openNav()" style="top:112px;">
+        	<div class="group_button_bg"></div>
             <div style="width: 30px; height: 30px; left: 6px; top: 12px; position: absolute; background: #D9D9D9; border-radius: 9999px"></div>
             <div style="width: 172px; height: 1px; left: 1px; top: 51px; position: absolute; background: #D9D9D9"></div>
             <div style="left: 41px; top: 24px; position: absolute; color: black; font-size: 13px; font-family: Inter; font-weight: 400; word-wrap: break-word">group1</div>
             <!-- button_icon -->
-            <img class="image">
+            <!-- <img class="image"> -->
         </div>
-
-        <div style="width: 172px; height: 52px; left: 24px; top: 164px; position: absolute; background: white">
-            <div style="width: 172px; height: 52px; left: 0px; top: 0px; position: absolute; background: white"></div>
+		
+		<div class="group_button" onclick="openNav()" style="top:164px;" >
+			<div class="group_button_bg"></div>
+        	<!-- <div style="width: 172px; height: 52px; left: 24px; top: 164px; position: absolute; background: white"> -->
             <div style="width: 30px; height: 30px; left: 6px; top: 12px; position: absolute; background: #FF6B6B; border-radius: 9999px"></div>
             <div style="width: 172px; height: 1px; left: 1px; top: 51px; position: absolute; background: #D9D9D9"></div>
             <div style="left: 41px; top: 24px; position: absolute; color: black; font-size: 13px; font-family: Inter; font-weight: 400; word-wrap: break-word">group2</div>
         
         </div>
-            
-        <div style="width: 172px; height: 52px; left: 24px; top: 216px; position: absolute; background: white">
-            <div style="width: 172px; height: 52px; left: 0px; top: 0px; position: absolute; background: white"></div>
+        
+        <div class="group_button" onclick="openNav()" style="top:216px;" >
+			<div class="group_button_bg"></div>    
             <div style="width: 30px; height: 30px; left: 6px; top: 12px; position: absolute; background: #0B5FFD; border-radius: 9999px"></div>
             <div style="width: 172px; height: 1px; left: 1px; top: 51px; position: absolute; background: #D9D9D9"></div>
             <div style="left: 41px; top: 24px; position: absolute; color: black; font-size: 13px; font-family: Inter; font-weight: 400; word-wrap: break-word">group3</div>
         </div>
         
-        
-        <div style="width: 172px; height: 52px; left: 24px; top: 268px; position: absolute; background: white">
-            <div style="width: 172px; height: 52px; left: 0px; top: 0px; position: absolute; background: white"></div>
+        <div class="group_button" onclick="openNav()" style="top:268px;" >
+			<div class="group_button_bg"></div>
             <div style="width: 30px; height: 30px; left: 6px; top: 12px; position: absolute; background: #FBBC05; border-radius: 9999px"></div>
             <div style="width: 172px; height: 1px; left: 1px; top: 51px; position: absolute; background: #D9D9D9"></div>
             <div style="left: 41px; top: 24px; position: absolute; color: black; font-size: 13px; font-family: Inter; font-weight: 400; word-wrap: break-word">group4</div>
         </div>
-      <div id = groupjoin  onclick="openGroupJoinWindow()"style="width:14px; 
-         height: 14px; left: 172px; top: 85.11px; position: absolute; background: black"></div>
+        <!-- 그룹 만들기 버튼 -->
+       
+       <c:forEach>
+       </c:forEach>
+       		<c:if test = onclick="openGroupJoinWindow()">
+		      <div id = groupjoin  onclick="openGroupJoinWindow()"style="width:14px; 
+		         height: 14px; left: 172px; top: 85.11px; position: absolute; background: black"></div>
+       			
+       		</c:if>
+       		
+    	
        
       <!-- backbutton -->
         <!-- <a href="javascript:void(0)" class="close-btn" onclick="closeNav()">
@@ -445,11 +445,11 @@
             <div style="width: 865px; height: 59px; left: 215px; top: 1px; position: absolute; background: white"></div>
             <!-- 채팅 출력창 -->
             <div id="chatbox" ></div>
-            <div style="width: 250px; height: 59px; left: 831px; top: 1px; position: absolute; background: white">헤드</div>
-            <div style="width: 205px; height: 29px; left: 831px; top: 16px; position: absolute; background: #F1F1F5; border-radius: 30px">검색창</div>
-            <div style="width: 14px; height: 14px; left: 1012px; top: 24px; position: absolute; background: #DBDBDB">검색버튼</div>
-            <div style="width: 865px; height: 1px; left: 215px; top: 60px; position: absolute; background: #DBDBDB">가름선</div>
-         <div style="width: 142px; height: 59px; left: 215px; top: 1px; position: absolute; background: #F7F7F7"></div>
+            <div style="width: 250px; height: 59px; left: 831px; top: 1px; position: absolute; background: white"></div>
+            <div style="width: 205px; height: 29px; left: 831px; top: 16px; position: absolute; background: #F1F1F5; border-radius: 30px"></div>
+            <div style="width: 14px; height: 14px; left: 1012px; top: 24px; position: absolute; background: #DBDBDB"></div>
+            <div style="width: 865px; height: 1px; left: 215px; top: 60px; position: absolute; background: #DBDBDB"></div>
+         	<div style="width: 142px; height: 59px; left: 215px; top: 1px; position: absolute; background: #F7F7F7"></div>
             <div style="width: 71px; height: 59px; left: 215px; top: 1px; position: absolute; background: white"></div>
             <div style="width: 71px; height: 59px; left: 286px; top: 1px; position: absolute; background: white"></div>
             <div style="left: 286px; top: 29px; position: absolute; color: black; font-size: 15px; font-family: Inter; font-weight: 400; word-wrap: break-word">Group1</div>
