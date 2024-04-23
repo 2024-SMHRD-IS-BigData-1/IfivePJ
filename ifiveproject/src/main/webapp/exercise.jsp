@@ -3,7 +3,7 @@
 <%@page import="java.util.List"%>
 <%@page import="com.smhrd.model.Schedule"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8" isELIgnored="false"%>
+   pageEncoding="UTF-8" isELIgnored="false"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
@@ -122,29 +122,29 @@ function submitEvent(eventType) {
 
 
 <body>
-			
-			
-							
-			<h1>운동 일정</h1>
-			<input type="text" id="scheduleEventTitle" name="ath_type" placeholder="Event Title" />
-			<input type="date" id="scheduleDate" name="ath_date" />
-			<input type="time" id="scheduleTime" name="ath_time" />
-			<input type="text" id="scheduleDuration" name="ath_duration"/>
-			<button onclick="submitEvent('schedule')">Add Event</button>
-			<div id="scheduleEvents" class="eventList"></div>
-			<div id="scheduleList"></div>
-			<button id="registerButton">등록 완료</button>
-			
-			
-			
-			<script>
-			// 등록 완료 버튼 클릭 시 창 닫기
-			document.getElementById('registerButton').addEventListener('click', function() {
-			    window.close(); // 창 닫기
-			});
-			</script>
-			
-			
-			
+         
+         
+                     
+         <h1>운동 일정</h1>
+         <input type="text" id="scheduleEventTitle" name="ath_type" placeholder="Event Title" />
+         <input type="date" id="scheduleDate" name="ath_date" />
+         <input type="time" id="scheduleTime" name="ath_time" />
+         <input type="text" id="scheduleDuration" name="ath_duration"/>
+         <button onclick="submitEvent('schedule')">Add Event</button>
+         <div id="scheduleEvents" class="eventList"></div>
+         <div id="scheduleList"></div>
+         <button id="registerButton">등록 완료</button>
+         
+         
+         
+         <script>
+         // 등록 완료 버튼 클릭 시 창 닫기
+         document.getElementById('registerButton').addEventListener('click', function() {
+             window.close(); // 창 닫기
+         });
+         </script>
+         
+         
+         
 </body>
 </html>
