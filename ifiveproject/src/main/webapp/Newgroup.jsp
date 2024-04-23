@@ -16,12 +16,6 @@
 		<input type="submit" value="그룹 생성" >
 	</form>
 	
-	<script>
-        function closeWindow() {
-            window.close();
-        }
-    </script>
-
 
 </body>
 </html>

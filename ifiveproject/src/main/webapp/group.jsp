@@ -1,3 +1,5 @@
+<%@page import="java.util.List"%>
+<%@page import="com.smhrd.model.Member"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -214,13 +216,13 @@
             background: #D9D9D9;
         }
 
-        .group_main_box{
+        /* .group_main_box{
             width: 241px; 
             height: 1092px; 
             left: 317px; 
             top: 100px; 
             position: fixed;
-        }
+        } */
         .sidebar{
             height: 100%;
             width: 0%;
@@ -301,7 +303,48 @@
             /* z-index: 2; */
         }
         
-        
+        /* 그룹 생성 스타일 */
+        #groupjoin {
+		    width: 14px;
+		    height: 14px;
+		    left: 172px;
+		    top: 85.11px;
+		    position: absolute;
+		    background: black;
+		    cursor: pointer; /* 커서를 손가락으로 바꿈 */
+		  }
+		
+		  /* 팝업 스타일 */
+		  .popup {
+		    display: none; /* 기본적으로 숨김 */
+		    position: fixed;
+		    top: 50%;
+		    left: 50%;
+		    transform: translate(-50%, -50%);
+		    background-color: #fefefe;
+		    border: 1px solid #888;
+		    z-index: 1000; /* 다른 요소 위에 위치 */
+		    padding: 20px;
+		  }
+		
+		  .popup-content {
+		    text-align: center;
+		  }
+		
+		  .close_groupjoin {
+		    color: #aaa;
+		    float: right;
+		    font-size: 28px;
+		    font-weight: bold;
+		  }
+		
+		  .close_groupjoin:hover,
+		  .close_groupjoin:focus {
+		    color: black;
+		    text-decoration: none;
+		    cursor: pointer;
+		  }
+		        
         /* 채팅 타이핑란 */
         .text-input {
             border: none;
@@ -388,6 +431,35 @@
         <div style="width: 198px; height: 731px; left: 0px; top: 0px; position: absolute; background: rgba(255, 255, 255, 0.70); border: 1px black solid"></div>
         <div style="width: 196px; height: 1px; left: 1px; top: 111px; position: absolute; background: #DBDBDB"></div>
         <div style="left: 15px; top: 71px; position: absolute; color: black; font-size: 20px; font-family: Inter; font-weight: 500; word-wrap: break-word">Group</div>
+       
+       <table>
+       <%
+       		Member loginMember = (Member)session.getAttribute("loginMember");
+	       List<group> groupList = null;				
+			if(loginMember != null){
+				// 로그인한 상태 -> 로그인한 사용자에게 도착한 메세지 가져오기
+				groupList = new GroupDAO().groupList(loginMember.getEmail());
+				// System.out.print(messageList.size());
+				pageContext.setAttribute("groupList", groupList);
+			}
+       %>
+       <c:forEach items="${groupList }" var="group" varStatus="s">
+       		<tr>
+       			<td>그룹이름: ${group.group_name}</td>
+       			<td>그룹정보: ${group.group_info} </td>
+       			<td>인원 제한: ${group.group_limit}</td>
+       			<td>상태: ${group.group_status}</td>
+       		</tr>
+       </c:forEach>
+       </table>
+       									<!-- top 52px -->
+       	<div class="group_button" style="top:320px;">
+       		<h5>Group Information</h5>
+		    <p>이름: ${group.group_name}</p>
+		    <p>정보: ${group.group_info}</p>
+		    <p>인원 제한: ${group.group_limit}</p>
+		    <p>상태: ${group.group_status}</p>
+       	</div>
         
         <div class="group_button" onclick="openNav()" style="top:112px;">
         	<div class="group_button_bg"></div>
@@ -420,17 +492,42 @@
             <div style="width: 172px; height: 1px; left: 1px; top: 51px; position: absolute; background: #D9D9D9"></div>
             <div style="left: 41px; top: 24px; position: absolute; color: black; font-size: 13px; font-family: Inter; font-weight: 400; word-wrap: break-word">group4</div>
         </div>
+        
+        
+        
         <!-- 그룹 만들기 버튼 -->
-       
-       <c:forEach>
-       </c:forEach>
-       		<c:if test = onclick="openGroupJoinWindow()">
-		      <div id = groupjoin  onclick="openGroupJoinWindow()"style="width:14px; 
-		         height: 14px; left: 172px; top: 85.11px; position: absolute; background: black"></div>
-       			
-       		</c:if>
-       		
-    	
+		<div id=groupjoin
+			style="width: 14px; height: 14px; left: 172px; top: 85.11px; position: absolute; background: black"></div>
+			<div id="myPopup" class="popup">
+			  <span class="close_groupjoin" onclick="closePopup()">&times;</span>
+			  <div class="popup-content">
+			  <!-- 그룹 만들기 팝업창 -->
+			    <h5>그룹생성하기 </h5>
+				<form action="NewgroupService.do" method="post">						
+					<li><input type="text" name="group_name" placeholder="그룹명을 입력하세요"></li>							
+					<li><input type="text" name="group_info" placeholder="그룹소개를 입력하세요"></li>	
+					<li><input type="number" name="group_limit" placeholder="그룹 정원"></li>	
+					<input type="submit" value="그룹 생성" >
+				</form>
+		  	</div>
+		</div>
+		
+		<script>
+		// 팝업 표시 함수
+		function showPopup() {
+		  document.getElementById("myPopup").style.display = "block";
+		}
+		
+		// 팝업 숨김 함수
+		function closePopup() {
+		  document.getElementById("myPopup").style.display = "none";
+		}
+		
+		// 요소 클릭 시 팝업 표시
+		document.getElementById("groupjoin").addEventListener("click", function() {
+		  showPopup();
+		});
+		</script>
        
       <!-- backbutton -->
         <!-- <a href="javascript:void(0)" class="close-btn" onclick="closeNav()">
@@ -590,6 +687,8 @@
             closeNav(); // 사이드바를 닫기
          });
       });
+      
+      
       
       function sendMessage() {
            // 입력 필드의 값을 가져옵니다.
