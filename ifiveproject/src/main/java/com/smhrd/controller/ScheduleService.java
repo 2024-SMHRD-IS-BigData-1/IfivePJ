@@ -24,12 +24,9 @@ public class ScheduleService implements Command {
     	
 
         System.out.println("ScheduleService");
-<<<<<<< HEAD
         
-        String user_id = (String) request.getSession().getAttribute("loginMember");
-=======
+       
         String user_id = (String) request.getSession().getAttribute("user_id");
->>>>>>> branch 'master' of https://github.com/2024-SMHRD-IS-BigData-1/IfivePJ.git
         String ath_type = request.getParameter("title");
         String ath_date = request.getParameter("date");
         String ath_time = request.getParameter("time");
@@ -43,11 +40,8 @@ public class ScheduleService implements Command {
         System.out.println(ath_type+ath_date+ath_duration+ath_time+user_id);
 
         
-<<<<<<< HEAD
-       
-=======
 
->>>>>>> branch 'master' of https://github.com/2024-SMHRD-IS-BigData-1/IfivePJ.git
+
         ath_done= "O";
         int ath_reward =0;
         

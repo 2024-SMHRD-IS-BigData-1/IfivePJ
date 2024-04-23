@@ -13,6 +13,7 @@
 		<typeAlias type="com.smhrd.model.mypage" alias = "mypage"/>
 
 		<typeAlias type="com.smhrd.model.Schedule" alias = "Schedule"/>
+		<typeAlias type="com.smhrd.model.mypage" alias = "mypage"/>
 		<!-- <typeAlias type="com.smhrd.model.Board" alias = "Board"/>  -->
 	</typeAliases>
 		

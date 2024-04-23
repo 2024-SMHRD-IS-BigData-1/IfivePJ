@@ -69,7 +69,7 @@ public class frontcontroller extends HttpServlet {
 			service= new ScheduleService();
 		}else if(resultURL.equals("LogoutService.do")) {
 			service= new LogoutService();
-		}else if(resultURL.equals("mypage.do")) {
+		}else if(resultURL.equals("mypageService.do")) {
 			service= new mypageService();
 		}else if(resultURL.equals("LogoutService.do")) {
 			service= new LogoutService();
