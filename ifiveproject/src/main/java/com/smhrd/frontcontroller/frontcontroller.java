@@ -68,9 +68,13 @@ public class frontcontroller extends HttpServlet {
 		}else if(resultURL.equals("ScheduleService.do")) {
 			service= new ScheduleService();
 		}else if(resultURL.equals("LogoutService.do")) {
+<<<<<<< HEAD
 			service= new LogoutService();
 		}else if(resultURL.equals("mypage.do")) {
 			service= new mypageService();
+=======
+			service= new LogoutService();
+>>>>>>> branch 'master' of https://github.com/2024-SMHRD-IS-BigData-1/IfivePJ.git
 		}
 		
 		String moveURL =service.execute(request, response);
