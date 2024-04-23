@@ -23,12 +23,11 @@ public class Schedule {
 	private String created_at;
 	private String ath_done;
 	private int ath_reward;
-	
-	
-	public Schedule(@NonNull int plan_idx, String user_id, String ath_date, String ath_time, String ath_type,
+
+		
+	public Schedule(String user_id, String ath_date, String ath_time, String ath_type,
 			String ath_duration, String ath_done, int ath_reward) {
 		super();
-		this.plan_idx = plan_idx;
 		this.user_id = user_id;
 		this.ath_date = ath_date;
 		this.ath_time = ath_time;

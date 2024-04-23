@@ -16,6 +16,7 @@ import com.smhrd.controller.ChatService;
 import com.smhrd.controller.DietService;
 import com.smhrd.controller.FoodCaloryService;
 import com.smhrd.controller.JoinService;
+import com.smhrd.controller.LoadEventsServlet;
 import com.smhrd.controller.LoginService;
 import com.smhrd.controller.NewgroupService;
 import com.smhrd.controller.ScheduleService;
@@ -60,6 +61,8 @@ public class frontcontroller extends HttpServlet {
 			service= new NewgroupService();
 		}else if(resultURL.equals("ScheduleService.do")) {
 			service= new ScheduleService();
+		}else if(resultURL.equals("LoadEventsServlet.do")) {
+			service= new LoadEventsServlet();
 		}
 		
 		String moveURL =service.execute(request, response);

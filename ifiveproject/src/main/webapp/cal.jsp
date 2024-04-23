@@ -36,7 +36,7 @@
   </div>
   
   <script>
-  document.addEventListener('DOMContentLoaded', function() { 
+  document.addEventListener('DOMContentLoaded', function() {
     var calendarEl = document.getElementById('calendar');
     var calendar = new FullCalendar.Calendar(calendarEl, {
       height: '600px',
@@ -46,7 +46,7 @@
       headerToolbar: {
         left: 'prev,next today',
         center: 'title',
-        right: 'dayGridMonth,timeGridWeek,timeGridDay, stWeek'
+        right: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek'
       },
       initialView: 'dayGridMonth',
       editable: true,
@@ -113,12 +113,42 @@
             chart.draw(data, options);
         }
 
+        document.addEventListener('DOMContentLoaded', function() { 
+            var calendarEl = document.getElementById('calendar');
+            var calendar = new FullCalendar.Calendar(calendarEl, {
+                // 캘린더 설정...
+                dateClick: function(info) {
+                    var date = info.dateStr;
+                    $.ajax({
+                        url: 'LoadEventsServlet.do', // 일정을 불러올 서블릿 URL
+                        type: 'GET',
+                        data: { date: date }, // 클릭한 날짜 전달
+                        success: function(response) {
+                            var events = response.events; // 서버에서 받은 일정 데이터
+                            events.forEach(function(event) {
+                                calendar.addEvent(event); // 객체를 바로 전달하여 캘린더에 추가
+                            });
+                        },
+                        error: function(xhr, status, error) {
+                            // 오류 처리
+                            console.error(error);
+                        }
+                    });
+                },
+                // 다른 설정...
+            });
+            calendar.render();
+        });
+   
+        
+        
+        
+        
     </script>
     
     
-    
-
-
+  
+ 
 
 </body>
 </html>
