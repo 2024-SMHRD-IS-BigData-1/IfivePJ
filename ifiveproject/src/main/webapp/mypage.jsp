@@ -1,5 +1,8 @@
+<%@page import="com.smhrd.model.Member"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
+<%Member loginMember = (Member)session.getAttribute("loginMember"); %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -152,16 +155,19 @@
                     <div style="left: 993px; top: 35px; position: absolute; color: black; font-size: 14px; font-family: Noto Sans KR; font-weight: 350; word-wrap: break-word">Board</div>
                     <div style="left: 1082px; top: 35px; position: absolute; color: black; font-size: 14px; font-family: Noto Sans KR; font-weight: 350; word-wrap: break-word">Mypage</div>
                     <div style="width: 112px; height: 35px; left: 1488px; top: 27px; position: absolute">
-                        <div style="width: 112px; height: 35px; left: 0px; top: 0px; position: absolute; background: white; border-radius: 30px; border: 1px #DBDBDB solid"></div>
-                        <div style="width: 70px; height: 22px; left: 21px; top: 7px; position: absolute">
-                            <div style="left: 34px; top: 1px; position: absolute; color: black; font-size: 14px; font-family: Noto Sans KR; font-weight: 350; word-wrap: break-word">Login</div>
-                            <div style="width: 28px; height: 22px; left: 0px; top: 0px; position: absolute; flex-direction: column; justify-content: flex-start; align-items: flex-start; display: inline-flex">
-                                <div style="width: 28px; height: 22px"></div>
-                                <div style="width: 18.67px; height: 14.67px; background: black"></div>
-                            </div>
-                        </div>
-                    </div>
+                        <% if (loginMember == null) { %>
+        <!-- 로그인되지 않은 상태 -->
+        <div style="width: 112px; height: 35px; left: 1489px; top: 27px; position: absolute">
+            <div style="width: 112px; height: 35px; left: 0px; top: 0px; position: absolute; background: white; border-radius: 30px; border: 1px #DBDBDB solid"></div>
+            <div style="width: 70px; height: 22px; left: 21px; top: 7px; position: absolute">
+                <div style="left: 34px; top: 1px; position: absolute; color: black; font-size: 14px; font-family: Noto Sans KR; font-weight: 350; word-wrap: break-word">Login</div>
+                <div style="width: 28px; height: 22px; left: 0px; top: 0px; position: absolute; flex-direction: column; justify-content: flex-start; align-items: flex-start; display: inline-flex">
+                    <div style="width: 28px; height: 22px"></div>
+                    <div style="width: 18.67px; height: 14.67px; background: black"></div>
                 </div>
+            </div>
+        </div>
+    <% } %>
             </div>
             <div style="width: 1920px; height: 1px; left: 0px; top: 90px; position: absolute; background: #D9D9D9"></div>
         </div>
@@ -200,14 +206,14 @@
                     </div>
                 </div>
             </div>
-
+		
             <!-- 현재 몸무게 -->
 		      <div style="width: 148.85px; height: 30px; left: 317px; top: 49px; position: absolute">
 		    <div style="width: 148.85px; height: 30px; left: 0px; top: 0px; position: absolute; background: #FFFCFC"></div>
 		    <div style="width: 148.85px; height: 1px; left: 0px; top: 29px; position: absolute; background: #DBDBDB"></div>
 		    <div style="width: 74.43px; height: 23px; left: 74.43px; top: 4px; position: absolute">
 		        <div style="width: 74.43px; height: 23px; left: 0px; top: 0px; position: absolute; background: #FFFCFC"></div>
-		        <input type="text" name ="weight" class="weight_input" style="width: 50px; left: 0px; top: 0px; position: absolute; color: black; font-size: 15px; font-family: Noto Sans KR; font-weight: 500; border: none; outline: none;" value="75">
+		        <input type="text" name ="weight" class="weight_input" style="width: 50px; left: 0px; top: 0px; position: absolute; color: black; font-size: 15px; font-family: Noto Sans KR; font-weight: 500; border: none; outline: none; value="<%= request.getAttribute("currentWeight") %>">
 		        <div style="width: 19.47px; left: 52.06px; top: 0px; position: absolute; color: #797979; font-size: 15px; font-family: Noto Sans KR; font-weight: 400; word-wrap: break-word">kg</div>
 		    </div>
 		    <div style="width: 74.43px; height: 23px; left: 0px; top: 4px; position: absolute">
