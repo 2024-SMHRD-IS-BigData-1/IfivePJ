@@ -3,10 +3,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+
     <style>
         .group_main_box{
             width: 198px; 
@@ -27,6 +27,8 @@
             padding-top: 60px;
             padding-bottom: 60px;
         }
+
+
         .layer {
             width: 100%;
             height: 100%;
@@ -37,6 +39,9 @@
             display: none;
             z-index: 1;
         }
+
+
+
         .group_button{
             width: 172px; 
             height: 52px; 
@@ -57,6 +62,7 @@
         }
         .group_button:hover + .image{
             display: block;
+           
         }
         .close_btn{
             width: 20px; 
@@ -67,50 +73,38 @@
             transform: rotate(-90deg); 
             transform-origin: 0 0;
         }
+
         .footer{
             position: fixed;
             /* z-index: 2; */
         }
+
         /* 채팅 타이핑란 */
+        .typing_text{
+            left: 74px; 
+            top: 22px; 
+            position: absolute; 
+            color: #DBDBDB; 
+            font-size: 14px; 
+            font-family: Noto Sans KR; 
+            font-weight: 500; 
+            word-wrap: break-word;
+        }
+        .chatting_print_page{
+            width: 866px; 
+            height: 613px; 
+            left: 215px; 
+            top: 60px; 
+            position: absolute; 
+            background: #ECECEC;
+        }
         
-        .text-input {
-            border: none;
-            outline: none;
-            background: transparent;
-            width: 100px; /* 텍스트 입력 상자의 너비 */
-            height: 20px; /* 텍스트 입력 상자의 높이 */
-            left: calc(100% - 208px); /* 오른쪽 여백 조정 */
-            top: 17px;
-        }
-        .chat-text-box {
-            width: fit-content;
-            padding: 10px; /* 내부 패딩 */
-            margin: 5px 0; /* 상하 여백 */
-            border: 1px solid black; /* 테두리 */
-            border-radius: 5px; /* 테두리 둥글게 */
-            background-color: #f0f0f0; /* 배경색 */
-            text-align: right;
-           position: relative;
-           z-index: 15;
-        }
-        #chatbox{
-           height: 600px;
-          padding-top: 70px;
-          padding-left: 215px;
-          padding-right: 20px;
-          margin-bottom: 10px;
-          text-align: right;
-        }
     </style>
-    
-   <script>
-      function openGroupJoinWindow() {
-          window.open("Newgroup.jsp", "_blank", "width=400,height=300");
-      }
-   </script>
+
 </head>
 <body>
-   <!-- group -->
+
+    <!-- group -->
     <div class="group_main_box">
         <div style="width: 198px; height: 731px; left: 0px; top: 0px; position: absolute; background: rgba(255, 255, 255, 0.70); border: 1px black solid"></div>
         <div style="width: 196px; height: 1px; left: 1px; top: 111px; position: absolute; background: #DBDBDB"></div>
@@ -147,10 +141,9 @@
             <div style="width: 172px; height: 1px; left: 1px; top: 51px; position: absolute; background: #D9D9D9"></div>
             <div style="left: 41px; top: 24px; position: absolute; color: black; font-size: 13px; font-family: Inter; font-weight: 400; word-wrap: break-word">group4</div>
         </div>
-      <div id = groupjoin  onclick="openGroupJoinWindow()"style="width:14px; 
-         height: 14px; left: 172px; top: 85.11px; position: absolute; background: black"></div>
-       
-      <!-- backbutton -->
+        <div style="width: 14px; height: 11.04px; left: 172px; top: 85.11px; position: absolute; background: black"></div>
+        
+        <!-- backbutton -->
         <!-- <a href="javascript:void(0)" class="close-btn" onclick="closeNav()">
             <div style="width: 10px; height: 5px; left: 5px; top: 7.50px; position: absolute; border: 2px #212121 solid"></div>
         </a> -->
@@ -162,12 +155,12 @@
             <div style="width: 1082px; height: 731px; left: 0px; top: 0px; position: absolute; background: #ECECEC; border: 1px black solid"></div>
             <div style="width: 865px; height: 59px; left: 215px; top: 1px; position: absolute; background: white"></div>
             <!-- 채팅 출력창 -->
-            <div id="chatbox" ></div>
-            <div style="width: 250px; height: 59px; left: 831px; top: 1px; position: absolute; background: white">헤드</div>
-            <div style="width: 205px; height: 29px; left: 831px; top: 16px; position: absolute; background: #F1F1F5; border-radius: 30px">검색창</div>
-            <div style="width: 14px; height: 14px; left: 1012px; top: 24px; position: absolute; background: #DBDBDB">검색버튼</div>
-            <div style="width: 865px; height: 1px; left: 215px; top: 60px; position: absolute; background: #DBDBDB">가름선</div>
-         <div style="width: 142px; height: 59px; left: 215px; top: 1px; position: absolute; background: #F7F7F7"></div>
+            <div class="chatting_print_page"></div>
+            <div style="width: 250px; height: 59px; left: 831px; top: 1px; position: absolute; background: white"></div>
+            <div style="width: 205px; height: 29px; left: 831px; top: 16px; position: absolute; background: #F1F1F5; border-radius: 30px"></div>
+            <div style="width: 14px; height: 14px; left: 1012px; top: 24px; position: absolute; background: #DBDBDB"></div>
+            <div style="width: 865px; height: 1px; left: 215px; top: 60px; position: absolute; background: #DBDBDB"></div>
+            <div style="width: 142px; height: 59px; left: 215px; top: 1px; position: absolute; background: #F7F7F7"></div>
             <div style="width: 71px; height: 59px; left: 215px; top: 1px; position: absolute; background: white"></div>
             <div style="width: 71px; height: 59px; left: 286px; top: 1px; position: absolute; background: white"></div>
             <div style="left: 286px; top: 29px; position: absolute; color: black; font-size: 15px; font-family: Inter; font-weight: 400; word-wrap: break-word">Group1</div>
@@ -218,13 +211,11 @@
         <!-- 타이핑란 -->
         <div style="width: 865px; height: 59px; left: 218px; top: 672px; position: absolute">
             <div style="width: 865px; height: 59px; left: 0px; top: 0px; position: absolute; background: white"></div>
-            <div style="width: 748px; height: 29px; left: 58px; top: 17px; position: absolute; background: #EEEEF5; border-radius: 30px"
-                contenteditable="true" id="message"  ></div>
+            <div style="width: 748px; height: 29px; left: 58px; top: 17px; position: absolute; background: #EEEEF5; border-radius: 30px"></div>
             <div style="width: 14px; height: 14px; left: 11px; top: 23px; position: absolute; background: #D9D9D9"></div>
             <div style="width: 14px; height: 14px; left: 34px; top: 23px; position: absolute; background: #D9D9D9"></div>
-            <div style="width: 13px; height: 14px; left: 760px; top: 23px; position: absolute; background: #D9D9D9"
-               id="button" onclick="sendMessage()">
-            </div>
+            <div style="width: 13px; height: 14px; left: 784px; top: 23px; position: absolute; background: #D9D9D9"></div>
+            <div class="typing_text">Message</div>
         </div>
     </div>
 
@@ -291,92 +282,40 @@
         <div class="layer"></div>
         
     </div>
-   <div
-      style="width: 35px; height: 35px; left: 991px; top: 1151px; position: absolute; justify-content: center; align-items: center; display: inline-flex">
-      <img style="width: 35px; height: 35px"
-         src="https://via.placeholder.com/35x35" />
-   </div>
-   <div
-      style="width: 35px; height: 35px; left: 1090px; top: 1151px; position: absolute; justify-content: center; align-items: center; display: inline-flex">
-      <img style="width: 35px; height: 35px"
-         src="https://via.placeholder.com/35x35" />
-   </div>
-   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
-   <script>   
 
-      function openNav() {
-         document.getElementById("sidebar").style.width = "1250px";
-         document.querySelector(".footer").style.display = "block"; // 푸터 보이기
-      }
-      function closeNav() {
-         document.getElementById("sidebar").style.width = "0";
-      }
 
-      document.addEventListener('DOMContentLoaded', function() {
-         const layer = document.querySelector('.layer');
-         const groupButton = document.querySelector('.group_button');
 
-         groupButton.addEventListener('click', function() {
-            layer.style.display = 'block';
-            openNav(); // 사이드바를 열기
-         });
-         layer.addEventListener('click', function() {
-            layer.style.display = 'none';
-            closeNav(); // 사이드바를 닫기
-         });
-      });
-      
-      function sendMessage() {
-           // 입력 필드의 값을 가져옵니다.
-           const messageInput = document.getElementById('message');
-           const message = messageInput.innerText;
-           
-           console.log("입력 메세지:"+message);
-           
-           // AJAX 요청을 보냅니다.
-           $.ajax({
-               type: "POST",
-               url: "ChatService.do",
-               data: {
-                   "message" : message  // 입력된 메시지를 서버로 보냅니다.
-               },
-               success: function(response) {
-                   // 요청이 성공적으로 처리되었을 때의 작업
-                   console.log("메세지 입력 완료");
-                   console.log("Response:", response);
-                   
-                // 채팅 박스에 메시지를 추가합니다.
-                   const chatbox = document.getElementById('chatbox');
-                   const chatTextBox = document.createElement('div');
-                   chatTextBox.className = 'chat-text-box';
-                   chatTextBox.innerText = message;
-                   
-                   // 메시지를 채팅 박스에 추가합니다.
-                   chatbox.appendChild(chatTextBox);
-                   // 채팅 박스를 스크롤하여 가장 최근의 메시지가 표시되도록 합니다.
-                   chatbox.scrollTop = chatbox.scrollHeight;
-                   
-                   // 요청이 성공적으로 처리되면 입력 필드를 초기화합니다.
-                    messageInput.innerText = '';
-               },
-               error: function(xhr, status, error) {
-                   // 요청이 실패했을 때의 작업
-                   console.error("Error sending message:", error);
-               }
-           });
-       }
-      document.getElementById('message').addEventListener('keydown',
-            function(event) {
-               // 이벤트가 Enter 키를 감지하는지 확인합니다.
-               if (event.key === 'Enter') {
-                  // 기본 동작을 막습니다. (폼 제출 등)
-                  event.preventDefault();
-                  // 메시지를 보냅니다.
-                  sendMessage();
-               }
-            });
-   </script>
-    
+    <script>   
+
+    function openNav() {
+        document.getElementById("sidebar").style.width = "1250px";
+        document.querySelector(".footer").style.display = "block"; // 푸터 보이기
+
+    }
+
+    function closeNav() {
+        document.getElementById("sidebar").style.width = "0";
+
+    }
+
+
+    document.addEventListener('DOMContentLoaded', function() {
+    const layer = document.querySelector('.layer');
+    const groupButton = document.querySelector('.group_button');
+
+    groupButton.addEventListener('click', function() {
+        layer.style.display = 'block';
+        openNav(); // 사이드바를 열기
+    });
+
+    layer.addEventListener('click', function() {
+        layer.style.display = 'none';
+        closeNav(); // 사이드바를 닫기
+    });
+    });
+
+
+    </script>
 </body>
 </html>
