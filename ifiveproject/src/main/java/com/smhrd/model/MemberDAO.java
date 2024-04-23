@@ -31,6 +31,7 @@ public class MemberDAO {
 		session.close();
 		return member;
 	}
+
 	
 
 

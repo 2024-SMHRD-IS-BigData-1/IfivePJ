@@ -65,8 +65,6 @@ public class frontcontroller extends HttpServlet {
 			service= new NewgroupService();
 		}else if (resultURL.equals("athletics_plan_infoService.do")) {
 			service= new athletics_plan_infoService();
-		}else if (resultURL.equals("mypageService.do")) {
-			service= new mypageService();
 		}else if(resultURL.equals("ScheduleService.do")) {
 			service= new ScheduleService();
 		}else if(resultURL.equals("LogoutService.do")) {
