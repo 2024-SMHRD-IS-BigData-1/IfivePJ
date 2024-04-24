@@ -16,6 +16,12 @@
     ScheduleDAO scheduleDAO = new ScheduleDAO();
     // 해당 사용자의 모든 캘린더 정보 가져오기
     List<Schedule> events = scheduleDAO.selectAllByUserId(userId);
+    
+    for(Schedule vo : events){
+    	System.out.println(vo.toString());	
+    }
+    
+    
     // Gson 라이브러리를 사용하여 이벤트 데이터를 JSON 형식으로 변환
     Gson gson = new Gson();
     String jsonEvents = gson.toJson(events);
@@ -86,41 +92,52 @@
 
   <div id="chart-container"></div>
     <script>
-        // 예시로 사용할 save_cal 변수 데이터
-        var save_cal = [1250, 1400, 1250, 1400, 1350, 1300, 1450];
-        google.charts.load('current', {packages: ['corechart']});
-        google.charts.setOnLoadCallback(drawChart);
+document.addEventListener('DOMContentLoaded', function() {
+    var calendarEl = document.getElementById('calendar');
+    var calendar = new FullCalendar.Calendar(calendarEl, {
+        events: <%= jsonEvents %>,
+        height: '600px',
+        expandRows: true,
+        slotMinTime: '08:00',
+        slotMaxTime: '20:00',
+        headerToolbar: {
+            left: 'prev,next today',
+            center: 'title',
+            right: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek'
+        },
+        initialView: 'dayGridMonth',
+        editable: true,
+        selectable: true,
+        locale: 'ko',
+        dateClick: function(info) {
+            window.open('exercise.jsp?date=' + info.dateStr, '_blank');
+        },
+        eventContent: function(arg) {
+            var title = arg.event.title;
+            var createdAtDate = arg.event.start.toISOString().slice(0,10); // 일정의 시작 시간을 ISO 형식으로 변환하고 날짜 부분만 추출
+            var athType = ''; // ath_type을 저장할 변수
 
-        function drawChart() {
-            var data = new google.visualization.DataTable();
-            data.addColumn('string', 'Day');
-            data.addColumn('number', 'Calories');
-            data.addColumn('number', 'Basal Metabolic Rate');  // 기초대사량을 위한 새 열 추가
+            // events를 순회하며 생성 시간에 따라 ath_type을 설정
+            for (var i = 0; i < events.length; i++) {
+                var event = events[i];
+                var eventCreatedAtDate = new Date(event.created_at).toISOString().slice(0,10); // 각 일정의 생성 시간을 ISO 형식으로 변환하고 날짜 부분만 추출
 
-            var days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
-            var basalMetabolicRate = 1500;  // 기초대사량 고정 값
-
-            var rows = days.map(function(day, index) {
-                return [day, save_cal[index], basalMetabolicRate];  // 모든 요일에 기초대사량 값 추가
-            });
-
-            data.addRows(rows);
-
-            var options = {
-                title: 'Weekly Calories Intake',
-                curveType: 'none',
-                legend: { position: 'bottom' },
-                series: {
-                    0: { color: '#e2431e' },  // 칼로리 데이터의 색상
-                    1: { color: '#3366cc' }  // 기초대사량 라인의 색상
+                // 생성 시간이 같은 경우 해당 ath_type을 가져옴
+                if (createdAtDate === eventCreatedAtDate) {
+                    athType = event.ath_type;
+                    break;
                 }
+            }
+
+            // ath_type에 따라 다른 표시 방식을 선택하여 반환
+            return {
+                html: '<div>' + title + ' (' + athType + ')</div>'
             };
-
-            var chart = new google.visualization.LineChart(document.getElementById('chart-container'));
-            chart.draw(data, options);
         }
-
-    </script>
+    });
+    calendar.render();
+});
+</script>
 
   
  

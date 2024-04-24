@@ -34,18 +34,18 @@ function submitEvent(eventType) {
     // 이벤트 목록 추가
     var eventListDiv = document.getElementById(eventType + "Events");
     var eventItemDiv = document.createElement("div");
-    eventItemDiv.className = "eventItem"; // 이벤트 항목의 클래스를 지정합니다.
+    eventItemDiv.className = "eventItem";
 
     // checkbox 추가
     var checkbox = document.createElement("input");
-    checkbox.type = "checkbox"; // input 요소를 체크박스로 지정합니다.
+    checkbox.type = "checkbox";
     checkbox.className = "checkbox";
-    eventItemDiv.appendChild(checkbox); // 체크박스를 이벤트 항목에 추가합니다.
+    eventItemDiv.appendChild(checkbox);
 
     // 이벤트 텍스트 추가
     var newEventText = document.createElement("p");
     newEventText.textContent = eventTitleInput + ' ' + scheduleDateInput + ' ' + scheduleTimeInput + ' ' + scheduleDurationInput;
-    eventItemDiv.appendChild(newEventText); // 이벤트 텍스트를 이벤트 항목에 추가합니다.
+    eventItemDiv.appendChild(newEventText);
 
     // Edit 버튼 추가
     var editButton = document.createElement("button");
@@ -58,64 +58,33 @@ function submitEvent(eventType) {
             newEventText.textContent = eventTitleInput + ' ' + scheduleDateInput + ' ' + scheduleTimeInput + ' ' + scheduleDurationInput;
         }
     };
-    eventItemDiv.appendChild(editButton); // Edit 버튼을 이벤트 항목에 추가합니다.
+    eventItemDiv.appendChild(editButton);
 
-    eventListDiv.insertBefore(eventItemDiv, eventListDiv.firstChild); // 이벤트 항목을 이벤트 목록의 첫 번째 자식으로 추가합니다.
-    
-
-    var eventTitleInput = document.getElementById('scheduleEventTitle').value;
-    var scheduleDateInput = document.getElementById('scheduleDate').value;
-    var scheduleTimeInput = document.getElementById('scheduleTime').value;
-    var scheduleDurationInput = document.getElementById('scheduleDuration').value;
+    eventListDiv.insertBefore(eventItemDiv, eventListDiv.firstChild); 
 
     // AJAX 요청을 보냅니다.
- // AJAX 요청을 보냅니다.
     $.ajax({
-        url: 'cal.jsp', // 데이터를 처리할 jsp 파일의 경로
-        type: 'POST', // POST 방식으로 데이터를 전송합니다.
+        url: 'cal.jsp',
+        type: 'POST',
         data: {
             eventTitle: eventTitleInput,
-            scheduleDate: scheduleDateInput
-        },
-        success: function(response) {
-            // 요청이 성공하면 수행할 작업을 여기에 작성합니다.
-            console.log(response); // 서버에서 받은 응답을 출력합니다.
-            // 부모 창으로 이벤트 데이터 전송
-            var eventData = {
-                title: eventTitleInput,
-                scheduleDate: scheduleDateInput
-            };
-            window.opener.postMessage(JSON.stringify(eventData), '*');
-        },
-        error: function(xhr, status, error) {
-            // 오류가 발생하면 수행할 작업을 여기에 작성합니다.
-            console.error(error); // 오류를 콘솔에 출력합니다.
-        }
-    });
-    
-    
-    
-
-    // AJAX 요청 보내기
-    $.ajax({
-        url: 'ScheduleService.do', // 서버의 엔드포인트 URL
-        type: 'POST', // 요청 메소드 (POST로 지정하여 데이터 전송)
-        data: {
-            title: eventTitleInput,
-            date: scheduleDateInput,
-            time: scheduleTimeInput,
-            duration: scheduleDurationInput,
-            /* checkbox: checkbox.checked // 체크박스의 상태를 데이터에 추가합니다. */
+            scheduleDate: scheduleDateInput,
+            scheduleTime: scheduleTimeInput, // 수정된 부분
+            scheduleDuration: scheduleDurationInput // 수정된 부분
         },
         success: function(response) {
             console.log(response);
+            var eventData = {
+                title: eventTitleInput,
+                start: scheduleDateInput + 'T' + scheduleTimeInput, // 캘린더에서 사용할 형식으로 조합합니다.
+                allDay: false // 이벤트가 하루 종일인지 여부를 설정합니다.
+            };
+            $('#calendar').fullCalendar('renderEvent', eventData, true); // 캘린더에 이벤트를 추가합니다.
         },
         error: function(xhr, status, error) {
-            // 오류 발생 시 수행할 작업
             console.error(error);
         }
     });
-
 }
 </script>
 

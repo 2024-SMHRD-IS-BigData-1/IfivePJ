@@ -9,7 +9,7 @@ import com.smhrd.db.SqlSessionManager;
 
 public class ScheduleDAO {
 	
-	SqlSessionFactory sqlSessionFactory=  SqlSessionManager.getSqlSession();
+	static SqlSessionFactory sqlSessionFactory=  SqlSessionManager.getSqlSession();
 	
 	public int join(Schedule schedule) {
 				
@@ -20,7 +20,7 @@ public class ScheduleDAO {
 		return cnt;
 	}
 
-	 public List<Schedule> selectAllByUserId(String userId) { // 특정 사용자의 모든 일정 데이터를 가져오는 메서드
+	 public static List<Schedule> selectAllByUserId(String userId) { // 특정 사용자의 모든 일정 데이터를 가져오는 메서드
 		 System.out.println("dao2");
 		 try (SqlSession session = sqlSessionFactory.openSession(true)) {
 	            List<Schedule> schedules = session.selectList("com.smhrd.db.ScheduleMapper.selectAllByUserId", userId);

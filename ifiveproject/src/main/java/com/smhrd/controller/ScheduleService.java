@@ -4,7 +4,7 @@ package com.smhrd.controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -49,7 +49,8 @@ public class ScheduleService implements Command {
         System.out.println("input");
         Schedule schedule= new Schedule(user_id, ath_date, ath_time, ath_type, ath_duration, ath_done, ath_reward);
         int cnt = new ScheduleDAO().join(schedule);
-        
+       
+		List<Schedule> events = ScheduleDAO.selectAllByUserId(user_id);
         
         
  
