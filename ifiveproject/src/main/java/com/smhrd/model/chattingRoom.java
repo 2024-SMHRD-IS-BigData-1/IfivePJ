@@ -13,23 +13,21 @@ import lombok.Setter;
 @Getter
 @Setter
 public class chattingRoom {
-	
-	@NonNull String room_idx;
-    private String user_id;
-    private String room_title;
-    private String room_info;
-    private int room_limit;
-    private String opened_at;
-    private String room_status;
     
-    public chattingRoom(String user_id, String room_title, String room_info, int room_limit, String room_status) {
-    	this.user_id=user_id;
-    	this.room_title=room_title;
-    	this.room_info=room_info;
-    	this.room_limit=room_limit;
-    	this.room_status=room_status;
-    	
+	
+    private String room_idx;
+    @NonNull private String user_id;
+    private String group_name;
+    private String group_info;
+    private int group_limit;
+    private String opened_at;
+    private String group_status;
+    
+    public chattingRoom(String user_id, String group_name, String group_info, int group_limit, String group_status) {
+        this.user_id=user_id;
+        this.group_name=group_name;
+        this.group_info=group_info;
+        this.group_limit=group_limit;
+        this.group_status=group_status;
     }
-
-
 }

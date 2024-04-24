@@ -12,9 +12,9 @@ public class chattingRoomDAO {
 	public int join(chattingRoom chattingRoom) { 
 		
 		SqlSession session =  sqlSessionFactory.openSession(true);
-		int cnt = session.insert("com.smhrd.db.chattingRoom.join",chattingRoom);		
+		int cnt2 = session.insert("com.smhrd.db.chattingRoomMapper.join",chattingRoom);		
 		session.close();
-		return cnt;
+		return cnt2;
 	}
 
 }

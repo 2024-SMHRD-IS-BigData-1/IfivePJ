@@ -5,8 +5,8 @@
 <mapper namespace="com.smhrd.db.chattingRoomMapper">
 
 	<insert id="join" parameterType="chattingRoom">
-		insert into user_info values
-		(room_idx.NEXTVAL, #{USER_ID},#{ROOM_TITLE},#{ROOM_INFO},#{ROOM_LIMIT},sysdate,#{ROOM_STATUS})
+		insert into chatroom_info values
+		(room_idx.NEXTVAL,#{user_id},#{group_name},#{group_info},#{group_limit},sysdate,#{group_status})
 	</insert>
 
 
