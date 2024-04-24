@@ -682,7 +682,6 @@
     </div>
     <div class="write_button" >
         <div><button id="write_buttonStyle" onclick="openNewPopup()" onclick="save()">글쓰기</button></div>
-
     </div>
     <div class="layer"></div>
     

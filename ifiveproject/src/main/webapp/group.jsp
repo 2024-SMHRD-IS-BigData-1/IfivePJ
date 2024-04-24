@@ -220,13 +220,6 @@
             background: #D9D9D9;
         }
 
-        /* .group_main_box{
-            width: 241px; 
-            height: 1092px; 
-            left: 317px; 
-            top: 100px; 
-            position: fixed;
-        } */
         .sidebar{
             height: 100%;
             width: 0%;
@@ -367,6 +360,20 @@
         }
         .link {
           cursor: pointer;
+        }
+        
+        /* top버튼, 그룹구인 버튼 */
+        .button{
+            width: 25px; height: 27px; left: 948px; top: 1107px; position: absolute
+        }
+        #buttonStyle{
+            width: 50px; height: 50px; left: 6.25px; top: 10.12px; position: absolute; border: 2px #212121 solid
+        }
+        .write_button{
+            width: 25px; height: 50px; left: 1000px; top: 1000px; position: absolute
+        }
+        #write_buttonStyle{
+            width: 70px; height: 100; left: 220px; top: 6px; position: absolute; border: 1px #212121 solid 
         }
         
     </style>
@@ -592,7 +599,6 @@
             <div style="width: 35px; height: 35px; left: 791px; top: 109px; position: absolute">
                 <div style="width: 35px; height: 35px; left: 0px; top: 0px; position: absolute; background: #C4C4C4"></div>
                 <div style="width: 35px; height: 35px; left: 0px; top: 0px; position: absolute; background: #C4C4C4; border-radius: 9999px"></div>
-                <img style="width: 35px; height: 35px; left: 0px; top: 0px; position: absolute" src="https://via.placeholder.com/35x35" />
             </div>
             <div style="width: 35px; height: 35px; left: 892px; top: 109px; position: absolute">
                 <div style="width: 35px; height: 35px; left: 0px; top: 0px; position: absolute; background: black; border-radius: 9999px"></div>
@@ -608,12 +614,6 @@
                     <div style="width: 3.63px; height: 5.29px; left: 10.20px; top: 6.79px; position: absolute; background: black"></div>
                     <div style="width: 4.15px; height: 5.34px; left: 13.91px; top: 6.80px; position: absolute; background: black"></div>
                 </div>
-            </div>
-            <div style="width: 35px; height: 35px; left: 991px; top: 109px; position: absolute; justify-content: center; align-items: center; display: inline-flex">
-                <img style="width: 35px; height: 35px" src="https://via.placeholder.com/35x35" />
-            </div>
-            <div style="width: 35px; height: 35px; left: 1090px; top: 109px; position: absolute; justify-content: center; align-items: center; display: inline-flex">
-                <img style="width: 35px; height: 35px" src="https://via.placeholder.com/35x35" />
             </div>
         </div>
 
@@ -798,16 +798,14 @@
 			</div>
 		</div>
 		
-	<div
-		style="width: 35px; height: 35px; left: 991px; top: 1151px; position: absolute; justify-content: center; align-items: center; display: inline-flex">
-		<img style="width: 35px; height: 35px"
-			src="https://via.placeholder.com/35x35" />
-	</div>
-	<div
-		style="width: 35px; height: 35px; left: 1090px; top: 1151px; position: absolute; justify-content: center; align-items: center; display: inline-flex">
-		<img style="width: 35px; height: 35px"
-			src="https://via.placeholder.com/35x35" />
-	</div>
+	
+	<div class="button" >
+        <div><button id="buttonStyle" onclick="scrollToTop()"></button></div>
+    </div>
+    <div class="write_button" >
+        <div><button id="write_buttonStyle" onclick="openNewPopup()" onclick="save()">글쓰기</button></div>
+    </div>
+	
 	<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> -->
 
    <script>   
@@ -826,9 +824,7 @@
 	   document.getElementById("groupIntroTitle").addEventListener("click", openPopup);
 
 	    function openPopup() {
-	      
 	      saveAndShowGroupInfo();
-	      
 	    } 
 	    
 	    function closePopup() {
@@ -865,99 +861,107 @@
 	        }
 	    }
 
-	    function openNewPopup(){
-	        var popupContent = "<div class='popup'><h2>그룹구인창</h2> <button onclick='closePopup()'>등록</button> <p>그룹명 : </p><input type='text' id='groupName' placeholder='그룹명을 입력하세요'> <p>인원수:</p><input type='text' id='example'> <p>소개글:</p><input type='text' id='example2'></div>";
-	        // 팝업 창 요소 생성
-	      var popupWrapper = document.createElement("div");
-	      popupWrapper.classList.add("popup-wrapper");
-	      popupWrapper.innerHTML=popupContent;
+	    	function openNewPopup(){
+				var popupContent = "<div class='popup'><h2>그룹구인창</h2> <button onclick='closePopup()'>등록</button> <p>그룹명 : </p><input type='text' id='groupName' placeholder='그룹명을 입력하세요'> <p>인원수:</p><input type='text' id='example'> <p>소개글:</p><input type='text' id='example2'></div>";
+					// 팝업 창 요소 생성
+					var popupWrapper = document.createElement("div");
+					popupWrapper.classList.add("popup-wrapper");
+					popupWrapper.innerHTML = popupContent;
 
-	      // 팝업 창을 body에 추가
-	      document.body.appendChild(popupWrapper);
+					// 팝업 창을 body에 추가
+					document.body.appendChild(popupWrapper);
 
-	    //   savedData = {
-	    //         groupName: groupName,
-	    //         example: example,
-	    //         example2: example2
-	    //     };
-	    
-	    } 
-   
-   		// 그룹 사이드바 기능
-	      function openNav() {
-	         document.getElementById("sidebar").style.width = "1250px";
-	         document.querySelector(".footer").style.display = "block"; // 푸터 보이기
-	      }
-	      function closeNav() {
-	         document.getElementById("sidebar").style.width = "0";
-	      }
-	
-	      document.addEventListener('DOMContentLoaded', function() {
-	         const layer = document.querySelector('.layer');
-	         const groupButton = document.querySelector('.group_button');
-	
-	         groupButton.addEventListener('click', function() {
-	            layer.style.display = 'block';
-	            openNav(); // 사이드바를 열기
-	         });
-	         layer.addEventListener('click', function() {
-	            layer.style.display = 'none';
-	            closeNav(); // 사이드바를 닫기
-	         });
-	      });
-      
-      
-      // 채팅 메세지 올리기
-      function sendMessage() {
-           // 입력 필드의 값을 가져옵니다.
-           const messageInput = document.getElementById('message');
-           const message = messageInput.innerText;
-           
-           console.log("입력 메세지:"+message);
-           
-           // AJAX 요청을 보냅니다.
-           $.ajax({
-               type: "POST",
-               url: "ChatService.do",
-               data: {
-                   "message" : message  // 입력된 메시지를 서버로 보냅니다.
-               },
-               success: function(response) {
-                   // 요청이 성공적으로 처리되었을 때의 작업
-                   console.log("메세지 입력 완료");
-                   console.log("Response:", response);
-                   
-                // 채팅 박스에 메시지를 추가합니다.
-                   const chatbox = document.getElementById('chatbox');
-                   const chatTextBox = document.createElement('div');
-                   chatTextBox.className = 'chat-text-box';
-                   chatTextBox.innerText = message;
-                   
-                   // 메시지를 채팅 박스에 추가합니다.
-                   chatbox.appendChild(chatTextBox);
-                   // 채팅 박스를 스크롤하여 가장 최근의 메시지가 표시되도록 합니다.
-                   chatbox.scrollTop = chatbox.scrollHeight;
-                   
-                   // 요청이 성공적으로 처리되면 입력 필드를 초기화합니다.
-                    messageInput.innerText = '';
-               },
-               error: function(xhr, status, error) {
-                   // 요청이 실패했을 때의 작업
-                   console.error("Error sending message:", error);
-               }
-           });
-       }
-      document.getElementById('message').addEventListener('keydown',
-            function(event) {
-               // 이벤트가 Enter 키를 감지하는지 확인합니다.
-               if (event.key === 'Enter') {
-                  // 기본 동작을 막습니다. (폼 제출 등)
-                  event.preventDefault();
-                  // 메시지를 보냅니다.
-                  sendMessage();
-               }
-            });
-   </script>
+					//   savedData = {
+					//         groupName: groupName,
+					//         example: example,
+					//         example2: example2
+					//     };
+				}
+				// 버튼을 클릭하면 페이지 맨 위로 스크롤합니다.
+				function scrollToTop() {
+					window.scrollTo({
+						top : 0,
+						behavior : "smooth" // 부드럽게 스크롤
+					});
+				}
+
+				// 그룹 사이드바 기능
+				function openNav() {
+					document.getElementById("sidebar").style.width = "1250px";
+					document.querySelector(".footer").style.display = "block"; // 푸터 보이기
+				}
+				function closeNav() {
+					document.getElementById("sidebar").style.width = "0";
+				}
+
+				document.addEventListener('DOMContentLoaded',
+						function() {
+							const layer = document.querySelector('.layer');
+							const groupButton = document
+									.querySelector('.group_button');
+
+							groupButton.addEventListener('click', function() {
+								layer.style.display = 'block';
+								openNav(); // 사이드바를 열기
+							});
+							layer.addEventListener('click', function() {
+								layer.style.display = 'none';
+								closeNav(); // 사이드바를 닫기
+							});
+						});
+
+				// 채팅 메세지 올리기
+				function sendMessage() {
+					// 입력 필드의 값을 가져옵니다.
+					const messageInput = document.getElementById('message');
+					const message = messageInput.innerText;
+
+					console.log("입력 메세지:" + message);
+
+					// AJAX 요청을 보냅니다.
+					$.ajax({
+						type : "POST",
+						url : "ChatService.do",
+						data : {
+							"message" : message
+						// 입력된 메시지를 서버로 보냅니다.
+						},
+						success : function(response) {
+							// 요청이 성공적으로 처리되었을 때의 작업
+							console.log("메세지 입력 완료");
+							console.log("Response:", response);
+
+							// 채팅 박스에 메시지를 추가합니다.
+							const chatbox = document.getElementById('chatbox');
+							const chatTextBox = document.createElement('div');
+							chatTextBox.className = 'chat-text-box';
+							chatTextBox.innerText = message;
+
+							// 메시지를 채팅 박스에 추가합니다.
+							chatbox.appendChild(chatTextBox);
+							// 채팅 박스를 스크롤하여 가장 최근의 메시지가 표시되도록 합니다.
+							chatbox.scrollTop = chatbox.scrollHeight;
+
+							// 요청이 성공적으로 처리되면 입력 필드를 초기화합니다.
+							messageInput.innerText = '';
+						},
+						error : function(xhr, status, error) {
+							// 요청이 실패했을 때의 작업
+							console.error("Error sending message:", error);
+						}
+					});
+				}
+				document.getElementById('message').addEventListener('keydown',
+						function(event) {
+							// 이벤트가 Enter 키를 감지하는지 확인합니다.
+							if (event.key === 'Enter') {
+								// 기본 동작을 막습니다. (폼 제출 등)
+								event.preventDefault();
+								// 메시지를 보냅니다.
+								sendMessage();
+							}
+						});
+			</script>
     
 </body>
 </html>
