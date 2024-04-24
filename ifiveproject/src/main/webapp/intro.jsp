@@ -22,14 +22,6 @@
 				<li><input type="submit" value="JoinUs" ></li>
 			</form>
 			
-			
-			<h5>로그인</h5>
-			<form action="LoginService.do" method="post">
-				<li><input type="text" name="user_id" placeholder="ID를 입력하세요"></li>											
-				<li><input type="password" name="user_pw" placeholder="PW를 입력하세요"></li>								
-				<li><input type="submit" value="Login" ></li>
-			</form>
-			
 			<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 			<script type="text/javascript">
 			function checkID(){
@@ -61,6 +53,14 @@
 	
 	
 			</script>
+			
+			<h5>로그인</h5>
+			<form action="LoginService.do" method="post">
+				<li><input type="text" name="user_id" placeholder="ID를 입력하세요"></li>											
+				<li><input type="password" name="user_pw" placeholder="PW를 입력하세요"></li>								
+				<li><input type="submit" value="Login" ></li>
+			</form>
+			
 			
 
 			

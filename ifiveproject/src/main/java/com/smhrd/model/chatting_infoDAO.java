@@ -19,6 +19,4 @@ public class chatting_infoDAO {
 
 
 
-
-
 }

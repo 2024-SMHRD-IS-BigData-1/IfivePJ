@@ -3,8 +3,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<script src="https://apis.google.com/js/platform.js" async defer></script>
-	<meta name ="google-signin-client_id" content="218384123421-pjbbgsgftjuho4jl6sodjvnivlq9au58.apps.googleusercontent.com">
+
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
@@ -110,6 +110,7 @@
         }
        
     </style>
+     <script src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>	
 </head>
 <body>
     <div class="wrap">
@@ -162,7 +163,7 @@
             </form>
 
             <div style="width: 40px; height: 40px; padding-right: 0.80px; left: 1046px; top: 677px; position: absolute; justify-content: center; align-items: center; display: inline-flex">
-                <div class="g-signin2" data-onsuccess="onSignIn"></div>
+
                 <div style="width: 39.20px; height: 40px; position: relative">
                     <div style="width: 19.20px; height: 18.80px; left: 20px; top: 16.36px; position: absolute; background: #4285F4"></div>
                     <div style="width: 31.09px; height: 16.19px; left: 2.15px; top: 23.81px; position: absolute; background: #34A853"></div>
@@ -190,6 +191,7 @@
                 </div>
             </div>
             <div style="width: 50.58px; height: 40px; left: 904px; top: 677px; position: absolute">
+            <button id="kakao-login-btn" style="background-color: #FEE500; color: black; border: none; font-weight: bold; padding: 10px 20px; border-radius: 5px; cursor: pointer;">
                 <div style="width: 50.58px; height: 40px; left: 0px; top: 0px; position: absolute; background: #FEE500; border-radius: 9999px"></div>
                 <div style="width: 28.45px; height: 20.79px; left: 11.15px; top: 9.65px; position: absolute">
                     <div style="width: 28.45px; height: 20.79px; left: 0px; top: 0px; position: absolute; background: #392020"></div>
@@ -243,7 +245,53 @@
 		  	  console.log('Image URL: ' + profile.getImageUrl());
 		  	  console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
 		  	}
+		    
 	    
 	    </script>
+	     <script>
+    Kakao.init('5d988841c896e18e470d2bab9c3492e6');
+
+    function loginWithKakao() {
+        Kakao.Auth.login({
+            success: function(authObj) {
+                console.log(authObj);
+
+                // 사용자 정보 요청
+                Kakao.API.request({
+                    url: '/v2/user/me',
+                    success: function(response) {
+                        console.log(response);
+                    },
+                    fail: function(error) {
+                        console.log(error);
+                    }
+                });
+            },
+            fail: function(err) {
+                console.error(err);
+            }
+        });
+    }
+
+    document.getElementById('kakao-login-btn').addEventListener('click', loginWithKakao);
+
+
+	</script>
+	
+	<script>
+		Kakao.Auth.login({
+		    success: function(authObj) {
+		        console.log(authObj);
+	
+		        // 로그인 성공 후 main.jsp로 리디렉션
+		        window.location.href = 'Main.jsp';
+		    },
+		    fail: function(err) {
+		        console.error(err);
+		    }
+		});
+
+	
+	</script>
 </body>
 </html>

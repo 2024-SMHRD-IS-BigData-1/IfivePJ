@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.smhrd.db.mypageMapper">
+  <update id="update" parameterType="Member">
+     update test_mypage set user_height=#{user_height}, user_weight=#{user_weight}, user_target_weight = #{user_target_weight}
+     where user_id=#{user_id}
+  </update>
+</mapper>

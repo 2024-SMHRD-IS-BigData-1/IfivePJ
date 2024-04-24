@@ -13,7 +13,7 @@
 	</button>
 
     <script>
-    Kakao.init('5d988841c896e18e470d2bab9c3492e6');
+    Kakao.init('');// key값 입력 5
 
     function loginWithKakao() {
         Kakao.Auth.login({

@@ -19,7 +19,7 @@
         }
         .join_box_bg{
             width: 460px;
-            height: 977px; 
+            height: 834px; 
             left: 730px; 
             top: 235px; 
             position: absolute; 
@@ -44,19 +44,19 @@
             position: absolute; 
             background: #DBDBDB;
         }
-        .bar3{
+        /* .bar3{
             width: 342px; 
             height: 1px; 
             left: 793px; 
-            top: 499px; 
+            top: 497px; 
             position: absolute; 
             background: #DBDBDB;
-        }
+        } */
         .bar4{
             width: 342px; 
             height: 1px; 
             left: 793px; 
-            top: 580px; 
+            top: 497px; 
             position: absolute; 
             background: #DBDBDB;
         }
@@ -64,7 +64,7 @@
             width: 342px; 
             height: 1px; 
             left: 793px; 
-            top: 661px; 
+            top: 576px; 
             position: absolute; 
             background: #DBDBDB;
         }
@@ -72,11 +72,11 @@
             width: 342px; 
             height: 1px; 
             left: 793px; 
-            top: 742px; 
+            top: 655px; 
             position: absolute; 
             background: #DBDBDB;
         }
-        #input-username {
+        #input_id {
             position: relative;
             top: -50px;
             /* login_typing_bar의 위치와 크기에 맞게 조절 */
@@ -161,7 +161,7 @@
             width: 342px; 
             height: 58px; 
             left: 789px; 
-            top: 799px;
+            top: 718px;
             font-size: 15px;
             border-radius: 5px; 
             margin-top: 10px;
@@ -185,6 +185,21 @@
             word-wrap: break-word;
            
         }
+        #IDcheck{
+            width: 60px;
+            height: 18px;
+            left: 280px;
+            top: 5px; 
+            position: absolute; 
+            color: #746F6F; 
+            font-size: 12px; 
+            font-family: Inter; 
+            font-weight: 400; 
+            border: none;  
+            margin-top: 0px;
+            background: none;
+            word-wrap: break-word;
+        }
     </style>
 <body>
     <div style="width: 100%; height: 100%; position: relative; background: white">
@@ -193,9 +208,9 @@
         <div class="join_box">
             <div class="join_box_bg"></div>
                 <div class="bar1">
-                    <input name="user_id" id="input-username" autocapitalize="off" type="text" placeholder="아이디를 입력하세요" value="">
-               		<input type="button" value="id 중복체크" onclick="checkID()">
-               		<span id="checkID"></span>
+                    <input name="user_id" id="input_id" autocapitalize="off" type="text" placeholder="아이디를 입력하세요" value="">
+                     <input id="IDcheck" type="button" value="중복체크" onclick="checkID()">
+                     <span id="checkID"></span>
                 </div>
                 <div class="bar2">
                     <input name="user_pw" id="input-userpassword" autocapitalize="off" type="password" placeholder="비밀번호를 입력하세요" value="">
@@ -211,9 +226,10 @@
                     
                 </div>
                 <div class="bar6">
-                    <input name="user_target_weight" id="input-usergoalweight" autocapitalize="off" type="text" placeholder="목표체중을 입력하세요" value="">
+                    <input name="ser_target_weight" id="input-usergoalweight" autocapitalize="off" type="text" placeholder="목표체중을 입력하세요" value="">
 
                 </div>
+                
         </div>
 
         <div class="button">
@@ -227,22 +243,9 @@
     </form>
     
     
-    
+    <!-- <div style="left: 1063px; top: 329px; position: absolute; color: #746F6F; font-size: 12px; font-family: Inter; font-weight: 400; word-wrap: break-word">중복체크</div> -->
 
-        <!-- box -->
-        <!-- <div style="width: 342px; height: 56px; left: 793px; top: 284px; position: absolute; background: linear-gradient(0deg, white 0%, white 100%), linear-gradient(0deg, white 0%, white 100%)"></div> -->
-        <!-- <div style="width: 342px; height: 56px; left: 793px; top: 363px; position: absolute; background: linear-gradient(0deg, white 0%, white 100%), linear-gradient(0deg, white 0%, white 100%)"></div>
-        <div style="width: 342px; height: 56px; left: 793px; top: 443px; position: absolute; background: linear-gradient(0deg, white 0%, white 100%), linear-gradient(0deg, white 0%, white 100%)"></div>
-        <div style="width: 342px; height: 56px; left: 793px; top: 524px; position: absolute; background: linear-gradient(0deg, white 0%, white 100%), linear-gradient(0deg, white 0%, white 100%)"></div>
-        <div style="width: 342px; height: 56px; left: 793px; top: 605px; position: absolute; background: linear-gradient(0deg, white 0%, white 100%), linear-gradient(0deg, white 0%, white 100%)"></div>
-        <div style="width: 342px; height: 56px; left: 793px; top: 686px; position: absolute; background: linear-gradient(0deg, white 0%, white 100%), linear-gradient(0deg, white 0%, white 100%)"></div> -->
-        <!-- <div style="width: 174px; left: 794px; top: 301px; position: absolute; color: #767676; font-size: 15px; font-family: Noto Sans KR; font-weight: 400; letter-spacing: 1.50px; word-wrap: break-word">아이디를 입력하세요</div>
-            <div style="width: 192px; left: 794px; top: 380px; position: absolute; color: #767676; font-size: 15px; font-family: Noto Sans KR; font-weight: 400; letter-spacing: 1.50px; word-wrap: break-word">비밀번호를 입력하세요</div>
-            <div style="width: 192px; left: 794px; top: 460px; position: absolute; color: #767676; font-size: 15px; font-family: Noto Sans KR; font-weight: 400; letter-spacing: 1.50px; word-wrap: break-word">닉네임을 입력하세요</div>
-            <div style="width: 192px; left: 797px; top: 541px; position: absolute; color: #767676; font-size: 15px; font-family: Noto Sans KR; font-weight: 400; letter-spacing: 1.50px; word-wrap: break-word">현재 체중을 입력하세요</div>
-            <div style="width: 192px; left: 797px; top: 622px; position: absolute; color: #767676; font-size: 15px; font-family: Noto Sans KR; font-weight: 400; letter-spacing: 1.50px; word-wrap: break-word">키를 입력하세요</div>
-            <div style="width: 192px; left: 797px; top: 703px; position: absolute; color: #767676; font-size: 15px; font-family: Noto Sans KR; font-weight: 400; letter-spacing: 1.50px; word-wrap: break-word">목표 체중을 입력하세요</div> -->
-        
+      
         
         
         
@@ -333,36 +336,37 @@
             </div>
         </div>
     </div>
+    
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-			<script type="text/javascript">
-			function checkID(){
-				var input_id = $("#input_id").val()
-				console.log(input_id)
-				$.ajax(
-					{
-						// 어디로 요청할건지
-						url : "IdCheck.do",
-						// 어떤 데이터를 보낼건지
-						data : {'input_id' : input_id},
-						// 어떤 방식으로 요청할건지
-						type : 'get',
-						// 성공했을 때 / 실패했을 때 어떻게 처리할건지
-						success : function(data){
-							if(data=="true"){
-								$('#checkID').html('사용 가능한 ID입니다')
-							}else{
-								$('#checkID').html('사용 불가능한 ID입니다')
-							}
-						},
-						error : function(){
-							alert("통신실패!")
-							}
-						}		
-					)
-				
-				}
-	
-	
-			</script>
+         <script type="text/javascript">
+         function checkID(){
+            var input_id = $("#input_id").val()
+            console.log(input_id)
+            $.ajax(
+               {
+                  // 어디로 요청할건지
+                  url : "IdCheck.do",
+                  // 어떤 데이터를 보낼건지
+                  data : {'input_id' : input_id},
+                  // 어떤 방식으로 요청할건지
+                  type : 'get',
+                  // 성공했을 때 / 실패했을 때 어떻게 처리할건지
+                  success : function(data){
+                	  if(data == "true") {
+                		    alert('사용 가능한 ID입니다');
+                		} else {
+                		    alert('사용 불가능한 ID입니다');
+                		}
+                  },
+                  error : function(){
+                     alert("통신실패!")
+                     }
+                  }      
+               )
+            
+            }
+   
+   
+         </script>
 </body>
 </html>
