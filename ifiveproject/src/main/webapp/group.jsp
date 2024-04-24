@@ -14,7 +14,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-    	.box{
+       .box{
             width: 100%; 
             height: 100%;
             position: relative;
@@ -296,46 +296,46 @@
         
         /* 그룹 생성 스타일 */
         #groupjoin {
-		    width: 14px;
-		    height: 14px;
-		    left: 172px;
-		    top: 85.11px;
-		    position: absolute;
-		    background: black;
-		    cursor: pointer; /* 커서를 손가락으로 바꿈 */
-		  }
-		
-		  /* 팝업 스타일 */
-		  .popup {
-		    display: none; /* 기본적으로 숨김 */
-		    position: fixed;
-		    top: 50%;
-		    left: 50%;
-		    transform: translate(-50%, -50%);
-		    background-color: #fefefe;
-		    border: 1px solid #888;
-		    z-index: 1000; /* 다른 요소 위에 위치 */
-		    padding: 20px;
-		  }
-		
-		  .popup-content {
-		    text-align: center;
-		  }
-		
-		  .close_groupjoin {
-		    color: #aaa;
-		    float: right;
-		    font-size: 28px;
-		    font-weight: bold;
-		  }
-		
-		  .close_groupjoin:hover,
-		  .close_groupjoin:focus {
-		    color: black;
-		    text-decoration: none;
-		    cursor: pointer;
-		  }
-		        
+          width: 14px;
+          height: 14px;
+          left: 172px;
+          top: 85.11px;
+          position: absolute;
+          background: black;
+          cursor: pointer; /* 커서를 손가락으로 바꿈 */
+        }
+      
+        /* 팝업 스타일 */
+        .popup {
+          display: none; /* 기본적으로 숨김 */
+          position: fixed;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          background-color: #fefefe;
+          border: 1px solid #888;
+          z-index: 1000; /* 다른 요소 위에 위치 */
+          padding: 20px;
+        }
+      
+        .popup-content {
+          text-align: center;
+        }
+      
+        .close_groupjoin {
+          color: #aaa;
+          float: right;
+          font-size: 28px;
+          font-weight: bold;
+        }
+      
+        .close_groupjoin:hover,
+        .close_groupjoin:focus {
+          color: black;
+          text-decoration: none;
+          cursor: pointer;
+        }
+              
         /* 채팅 타이핑란 */
         .text-input {
             border: none;
@@ -366,8 +366,8 @@
           text-align: right;
         }
         .link {
-		    cursor: pointer;
-		  }
+          cursor: pointer;
+        }
         
     </style>
     
@@ -378,7 +378,7 @@
    </script>
 </head>
 <body>
-	 <!-- header -->
+    <!-- header -->
     <div class="box">
         <div class="header_box1">
             <div class="header_box2">
@@ -416,84 +416,84 @@
             </a>
         </div>
     </div>
-	
+   
    <!-- group -->
     <div class="group_main_box">
         <div style="width: 198px; height: 731px; left: 0px; top: 0px; position: absolute; background: rgba(255, 255, 255, 0.70); border: 1px black solid"></div>
         <div style="width: 196px; height: 1px; left: 1px; top: 111px; position: absolute; background: #DBDBDB"></div>
         <div style="left: 15px; top: 71px; position: absolute; color: black; font-size: 20px; font-family: Inter; font-weight: 500; word-wrap: break-word">Group</div>
-       	
-       	<!-- 가입한 그룹 띄우기 -->							
-       	<div class="group_button" style="top:120px;">
-	      <table>
-		    	<%
-			    Member logiMember2Member = (Member) session.getAttribute("loginMember");
-			    List<Group> groupList = null;
-			    if (logiMember2Member != null) {
-			    	groupList = new GroupDAO().groupList(logiMember2Member.getUser_id());
-			        pageContext.setAttribute("groupList", groupList);
-			    }
-		    	%>
-			    <c:forEach items="${groupList}" var="group" varStatus="s">
-			         <tr>
-						<td>
-		                    <div class="group_button_bg"></div>
+          
+          <!-- 가입한 그룹 띄우기 -->                     
+          <div class="group_button" style="top:120px;">
+         <table>
+             <%
+             Member logiMember2Member = (Member) session.getAttribute("loginMember");
+             List<Group> groupList = null;
+             if (logiMember2Member != null) {
+                groupList = new GroupDAO().groupList(logiMember2Member.getUser_id());
+                 pageContext.setAttribute("groupList", groupList);
+             }
+             %>
+             <c:forEach items="${groupList}" var="group" varStatus="s">
+                  <tr>
+                  <td>
+                          <div class="group_button_bg"></div>
                     <div style="width: 30px; height: 30px; left: 6px; top:${s.index*60+12}px; position: absolute; background: #DBDBDB; border-radius: 9999px"></div>
                     <div style="width: 172px; height: 1px; left: 1px; top: ${s.index * 60 + 52}px; position: absolute; background: #D9D9D9"></div>
-		                    <div style="left: 41px; top: ${s.index * 60 + 24}px; position: absolute; color: black; font-size: 13px; font-family: Inter; font-weight: 400; word-wrap: break-word">
-                       	 	${group.group_name}</div>
+                          <div style="left: 41px; top: ${s.index * 60 + 24}px; position: absolute; color: black; font-size: 13px; font-family: Inter; font-weight: 400; word-wrap: break-word">
+                              ${group.group_name}</div>
                 </td>
-					</tr>
-			    </c:forEach>
-			</table>
-		</div>
-		
-		<!-- 그룹 원 색상 변경 -->
-		<!-- <script>
-		    function randomColor() {
-		        var letters = '0123456789ABCDEF';
-		        var color = '#';
-		        for (var i = 0; i < 6; i++) {
-		            color += letters[Math.floor(Math.random() * 16)];
-		        }
-		        return color;
-		    }
-		</script> -->
+               </tr>
+             </c:forEach>
+         </table>
+      </div>
+      
+      <!-- 그룹 원 색상 변경 -->
+      <!-- <script>
+          function randomColor() {
+              var letters = '0123456789ABCDEF';
+              var color = '#';
+              for (var i = 0; i < 6; i++) {
+                  color += letters[Math.floor(Math.random() * 16)];
+              }
+              return color;
+          }
+      </script> -->
 
         
         <!-- 그룹 만들기 버튼 -->
-		<div id=groupjoin
-			style="width: 14px; height: 14px; left: 172px; top: 85.11px; position: absolute; background: black"></div>
-			<div id="myPopup" class="popup">
-			  <span class="close_groupjoin" onclick="closePopup()">&times;</span>
-			  <div class="popup-content">
-			  <!-- 그룹 만들기 팝업창 -->
-			    <h5>그룹생성하기 </h5>
-				<form action="NewgroupService.do" method="post">						
-					<li><input type="text" name="group_name" placeholder="그룹명을 입력하세요"></li>							
-					<li><input type="text" name="group_info" placeholder="그룹소개를 입력하세요"></li>	
-					<li><input type="number" name="group_limit" placeholder="그룹 정원"></li>	
-					<input type="submit" value="그룹 생성" >
-				</form>
-		  	</div>
-		</div>
-		
-		<script>
-		// 팝업 표시 함수
-		function showPopup() {
-		  document.getElementById("myPopup").style.display = "block";
-		}
-		
-		// 팝업 숨김 함수
-		function closePopup() {
-		  document.getElementById("myPopup").style.display = "none";
-		}
-		
-		// 요소 클릭 시 팝업 표시
-		document.getElementById("groupjoin").addEventListener("click", function() {
-		  showPopup();
-		});
-		</script>
+      <div id=groupjoin
+         style="width: 14px; height: 14px; left: 172px; top: 85.11px; position: absolute; background: black"></div>
+         <div id="myPopup" class="popup">
+           <span class="close_groupjoin" onclick="closePopup()">&times;</span>
+           <div class="popup-content">
+           <!-- 그룹 만들기 팝업창 -->
+             <h5>그룹생성하기 </h5>
+            <form action="NewgroupService.do" method="post">                  
+               <li><input type="text" name="group_name" placeholder="그룹명을 입력하세요"></li>                     
+               <li><input type="text" name="group_info" placeholder="그룹소개를 입력하세요"></li>   
+               <li><input type="number" name="group_limit" placeholder="그룹 정원"></li>   
+               <input type="submit" value="그룹 생성" >
+            </form>
+           </div>
+      </div>
+      
+      <script>
+      // 팝업 표시 함수
+      function showPopup() {
+        document.getElementById("myPopup").style.display = "block";
+      }
+      
+      // 팝업 숨김 함수
+      function closePopup() {
+        document.getElementById("myPopup").style.display = "none";
+      }
+      
+      // 요소 클릭 시 팝업 표시
+      document.getElementById("groupjoin").addEventListener("click", function() {
+        showPopup();
+      });
+      </script>
        
       <!-- backbutton -->
         <!-- <a href="javascript:void(0)" class="close-btn" onclick="closeNav()">
@@ -512,12 +512,12 @@
             <div style="width: 205px; height: 29px; left: 831px; top: 16px; position: absolute; background: #F1F1F5; border-radius: 30px"></div>
             <div style="width: 14px; height: 14px; left: 1012px; top: 24px; position: absolute; background: #DBDBDB"></div>
             <div style="width: 865px; height: 1px; left: 215px; top: 60px; position: absolute; background: #DBDBDB"></div>
-         	<div style="width: 142px; height: 59px; left: 215px; top: 1px; position: absolute; background: #F7F7F7"></div>
+            <div style="width: 142px; height: 59px; left: 215px; top: 1px; position: absolute; background: #F7F7F7"></div>
             <div style="width: 71px; height: 59px; left: 215px; top: 1px; position: absolute; background: white"></div>
             <div style="width: 71px; height: 59px; left: 286px; top: 1px; position: absolute; background: white"></div>
             <!-- 그룹이름 -->
             <div style="left: 286px; top: 29px; position: absolute; color: black; font-size: 15px; font-family: Inter; font-weight: 400; word-wrap: break-word">
-            	해당 그룹이름을 넣어야함</div>
+               해당 그룹이름을 넣어야함</div>
             <div style="width: 215px; height: 731px; left: 0px; top: 0px; position: absolute; background: white; border: 1px black solid"></div>
             <div style="width: 213px; height: 59px; left: 1px; top: 1px; position: absolute; background: #F7F7F7"></div>
             <div style="width: 105px; height: 59px; left: 109px; top: 1px; position: absolute">
@@ -528,7 +528,7 @@
             <div style="width: 105px; height: 59px; left: 1px; top: 1px; position: absolute">
                 <div style="width: 105px; height: 59px; left: 0px; top: 0px; position: absolute; background: #F7F7F7"></div>
                 <div style="left: 19px; top: 18px; position: absolute; color: black; font-size: 20px; font-family: Inter; font-weight: 500; word-wrap: break-word">
-                	<%=logiMember2Member.getUser_id() %></div>
+                   <%=logiMember2Member.getUser_id() %></div>
             </div>
             <div style="width: 213px; height: 52px; left: 1px; top: 61px; position: absolute">
                 <div style="width: 213px; height: 52px; left: 0px; top: 0px; position: absolute; background: white"></div>
@@ -539,7 +539,7 @@
                 <div style="width: 180px; height: 1px; left: 33px; top: 52px; position: absolute; background: #DBDBDB"></div>
                 <div style="width: 213px; height: 52px; left: 0px; top: 0px; position: absolute; background: white"></div>
                 <div style="width: 135.91px; height: 21.15px; left: 68.54px; top: 15.87px; position: absolute; color: black; font-size: 20px; font-family: Inter; font-weight: 500; word-wrap: break-word">
-                	그룹인원1</div>
+                   그룹인원1</div>
                 <div style="width: 34px; height: 52px; left: 0px; top: 0px; position: absolute; background: white"></div>
                 <div style="width: 30px; height: 30px; left: 34px; top: 11px; position: absolute; background: #FEE292; border-radius: 9999px"></div>
             </div>
@@ -548,7 +548,7 @@
                 <div style="width: 34px; height: 52px; left: 0px; top: 0px; position: absolute; background: white"></div>
                 <div style="width: 213px; height: 52px; left: 0px; top: 0px; position: absolute; background: white"></div>
                 <div style="width: 135.91px; height: 21.15px; left: 68.54px; top: 15.87px; position: absolute; color: black; font-size: 20px; font-family: Inter; font-weight: 500; word-wrap: break-word">
-                	그룹인원2</div>
+                   그룹인원2</div>
                 <div style="width: 30px; height: 30px; left: 34px; top: 11px; position: absolute; background: #FF6B6B; border-radius: 9999px"></div>
             </div>
             <div style="width: 213px; height: 53px; left: 1px; top: 219px; position: absolute">
@@ -556,7 +556,7 @@
                 <div style="width: 34px; height: 52px; left: 0px; top: 0px; position: absolute; background: white"></div>
                 <div style="width: 213px; height: 52px; left: 0px; top: 0px; position: absolute; background: white"></div>
                 <div style="width: 135.91px; height: 21.15px; left: 68.54px; top: 15.87px; position: absolute; color: black; font-size: 20px; font-family: Inter; font-weight: 500; word-wrap: break-word">
-                	그룹인원3</div>
+                   그룹인원3</div>
                 <div style="width: 30px; height: 30px; left: 34px; top: 11px; position: absolute; background: #E8CBCB; border-radius: 9999px"></div>
             </div>
             <div style="width: 30px; height: 30px; left: 250px; top: 16px; position: absolute; background: #D9D9D9; border-radius: 9999px"></div>
@@ -587,7 +587,7 @@
             <div style="left: 751px; top: 56px; position: absolute; color: black; font-size: 16px; font-family: Noto Sans KR; font-weight: 500; line-height: 16px; word-wrap: break-word">Group</div>
             <div style="left: 1095px; top: 57px; position: absolute; color: black; font-size: 16px; font-family: Noto Sans KR; font-weight: 500; line-height: 16px; word-wrap: break-word">My page</div>
             <div style="left: 835px; top: 56px; position: absolute; color: black; font-size: 16px; font-family: Noto Sans KR; font-weight: 500; line-height: 16px; word-wrap: break-word";
-            	class="cal-link" onclick="location.href='cal.jsp'" >Callender</div>
+               class="cal-link" onclick="location.href='cal.jsp'" >Callender</div>
             <div style="left: 1017px; top: 57px; position: absolute; color: black; font-size: 16px; font-family: Noto Sans KR; font-weight: 500; line-height: 16px; word-wrap: break-word">Point</div>
             <div style="left: 943px; top: 57px; position: absolute; color: black; font-size: 16px; font-family: Noto Sans KR; font-weight: 500; line-height: 16px; word-wrap: break-word">Chat</div>
             <div style="left: 902px; top: 180px; position: absolute; color: #797979; font-size: 15px; font-family: Noto Sans KR; font-weight: 350; line-height: 15px; word-wrap: break-word">Ifive@naver.com</div>

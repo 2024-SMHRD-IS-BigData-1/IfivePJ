@@ -26,6 +26,7 @@
 			<dataSource type="POOLED">
 				<property name="driver" value="oracle.jdbc.driver.OracleDriver" />
 				<property name="url" value="jdbc:oracle:thin:@project-db-campus.smhrd.com:1524:xe" />
+
 				<property name="username" value="campus_24IS_BIG3_P2_4" />
 				<property name="password" value="smhrd4" />
 			</dataSource>
@@ -40,7 +41,7 @@
 		<mapper resource="com/smhrd/db/FoodCaloryMapper.xml" />
 		<mapper resource="com/smhrd/db/GroupMapper.xml" />
 		<mapper resource="com/smhrd/db/ScheduleMapper.xml" />
-		<mapper resource="com/smhrd/db/chattingRoom.xml" />
+		<mapper resource="com/smhrd/db/chattingRoomMapper.xml" />
 	</mappers>
 	
 	
