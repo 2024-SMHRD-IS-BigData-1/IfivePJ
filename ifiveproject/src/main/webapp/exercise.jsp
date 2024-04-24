@@ -129,10 +129,30 @@ function submitEvent(eventType) {
          <input type="text" id="scheduleEventTitle" name="ath_type" placeholder="Event Title" />
          <input type="date" id="scheduleDate" name="ath_date" />
          <input type="time" id="scheduleTime" name="ath_time" />
+         
          <input type="text" id="scheduleDuration" name="ath_duration"/>
          <button onclick="submitEvent('schedule')">Add Event</button>
          <div id="scheduleEvents" class="eventList"></div>
          <div id="scheduleList"></div>
+         
+         
+         <h1>음식기록</h1>
+         <input type="text" id="FoodEventTitle" name="ath_type" placeholder="Event Title" />
+         <input type="text" id="scheduleDuration" name="ath_duration"/>
+         <button onclick="submitEvent('schedule')">Add Event</button>
+         <div id="scheduleEvents" class="eventList"></div>
+         <div id="scheduleList"></div>
+         
+         
+         <h1>운동기록</h1>
+         <input type="text" id="FoodEventTitle" name="ath_type" placeholder="Event Title" />
+         <input type="text" id="scheduleDuration" name="ath_duration"/>
+         <button onclick="submitEvent('schedule')">Add Event</button>
+         <div id="scheduleEvents" class="eventList"></div>
+         <div id="scheduleList"></div>
+         
+         
+           
          <button id="registerButton">등록 완료</button>
          
          
