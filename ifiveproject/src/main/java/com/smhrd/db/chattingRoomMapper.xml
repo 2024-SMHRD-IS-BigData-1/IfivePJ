@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.smhrd.db.chattingRoomMapper">
+
+	<insert id="join" parameterType="chattingRoom">
+		insert into user_info values
+		(room_idx.NEXTVAL, #{USER_ID},#{ROOM_TITLE},#{ROOM_INFO},#{ROOM_LIMIT},sysdate,#{ROOM_STATUS})
+	</insert>
+
+
+</mapper>

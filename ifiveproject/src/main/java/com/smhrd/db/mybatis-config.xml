@@ -9,6 +9,7 @@
 		<typeAlias type="com.smhrd.model.chatting_info" alias = "Message"/>
 		<typeAlias type="com.smhrd.model.FoodCalory" alias = "Food"/>
 		<typeAlias type="com.smhrd.model.Group" alias = "Group"/>
+		<typeAlias type="com.smhrd.model.chattingRoom" alias="chattingRoom"/>
 
 		<typeAlias type="com.smhrd.model.mypage" alias = "mypage"/>
 
@@ -39,6 +40,7 @@
 		<mapper resource="com/smhrd/db/FoodCaloryMapper.xml" />
 		<mapper resource="com/smhrd/db/GroupMapper.xml" />
 		<mapper resource="com/smhrd/db/ScheduleMapper.xml" />
+		<mapper resource="com/smhrd/db/chattingRoom.xml" />
 	</mappers>
 	
 	

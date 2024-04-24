@@ -3,8 +3,7 @@
 <%@page import="java.util.List"%>
 <%@page import="com.smhrd.model.Member"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-    
+    pageEncoding="UTF-8" isELIgnored="false"%>
    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
 <%Member loginMember = (Member)session.getAttribute("loginMember"); %>
 <!DOCTYPE html>
@@ -259,19 +258,6 @@
             top: 141px; 
             position: fixed;
         }
-        .sidebar{
-            height: 100%;
-            width: 0%;
-            position: fixed;
-            z-index: 2;
-            top: 141px;
-            left: 514px;
-            overflow-x: hidden;
-            transition: 0.3s;
-            padding-top: 60px;
-            padding-bottom: 60px;
-        }
-        
         
         .group_button{
             width: 172px; 
@@ -436,16 +422,10 @@
         <div style="width: 198px; height: 731px; left: 0px; top: 0px; position: absolute; background: rgba(255, 255, 255, 0.70); border: 1px black solid"></div>
         <div style="width: 196px; height: 1px; left: 1px; top: 111px; position: absolute; background: #DBDBDB"></div>
         <div style="left: 15px; top: 71px; position: absolute; color: black; font-size: 20px; font-family: Inter; font-weight: 500; word-wrap: break-word">Group</div>
-       								
-       								<!-- top 52px -->
-       <div class="group_button" style="top:320px;">
-	      <table border="1px">
-	      			<tr>
-			            <td>그룹이름</td>
-			            <td>그룹정보</td>
-			            <td>인원</td>
-			            <td>상태</td>
-		        	</tr>
+       	
+       	<!-- 가입한 그룹 띄우기 -->							
+       	<div class="group_button" style="top:120px;">
+	      <table>
 		    	<%
 			    Member logiMember2Member = (Member) session.getAttribute("loginMember");
 			    List<Group> groupList = null;
@@ -455,50 +435,31 @@
 			    }
 		    	%>
 			    <c:forEach items="${groupList}" var="group" varStatus="s">
-			        <tr>
-			            <td>${group.group_name}</td>
-			            <td>${group.group_info}</td>
-			            <td>${group.group_limit}</td>
-			            <td>${group.group_status}</td>
-			        </tr>
+			         <tr>
+						<td>
+		                    <div class="group_button_bg"></div>
+                    <div style="width: 30px; height: 30px; left: 6px; top:${s.index*60+12}px; position: absolute; background: #DBDBDB; border-radius: 9999px"></div>
+                    <div style="width: 172px; height: 1px; left: 1px; top: ${s.index * 60 + 52}px; position: absolute; background: #D9D9D9"></div>
+		                    <div style="left: 41px; top: ${s.index * 60 + 24}px; position: absolute; color: black; font-size: 13px; font-family: Inter; font-weight: 400; word-wrap: break-word">
+                       	 	${group.group_name}</div>
+                </td>
+					</tr>
 			    </c:forEach>
 			</table>
 		</div>
-       									
-        
-        <div class="group_button" onclick="openNav()" style="top:112px;">
-        	<div class="group_button_bg"></div>
-            <div style="width: 30px; height: 30px; left: 6px; top: 12px; position: absolute; background: #D9D9D9; border-radius: 9999px"></div>
-            <div style="width: 172px; height: 1px; left: 1px; top: 51px; position: absolute; background: #D9D9D9"></div>
-            <div style="left: 41px; top: 24px; position: absolute; color: black; font-size: 13px; font-family: Inter; font-weight: 400; word-wrap: break-word">group1</div>
-            <!-- button_icon -->
-            <!-- <img class="image"> -->
-        </div>
 		
-		<div class="group_button" onclick="openNav()" style="top:164px;" >
-			<div class="group_button_bg"></div>
-        	<!-- <div style="width: 172px; height: 52px; left: 24px; top: 164px; position: absolute; background: white"> -->
-            <div style="width: 30px; height: 30px; left: 6px; top: 12px; position: absolute; background: #FF6B6B; border-radius: 9999px"></div>
-            <div style="width: 172px; height: 1px; left: 1px; top: 51px; position: absolute; background: #D9D9D9"></div>
-            <div style="left: 41px; top: 24px; position: absolute; color: black; font-size: 13px; font-family: Inter; font-weight: 400; word-wrap: break-word">group2</div>
-        
-        </div>
-        
-        <div class="group_button" onclick="openNav()" style="top:216px;" >
-			<div class="group_button_bg"></div>    
-            <div style="width: 30px; height: 30px; left: 6px; top: 12px; position: absolute; background: #0B5FFD; border-radius: 9999px"></div>
-            <div style="width: 172px; height: 1px; left: 1px; top: 51px; position: absolute; background: #D9D9D9"></div>
-            <div style="left: 41px; top: 24px; position: absolute; color: black; font-size: 13px; font-family: Inter; font-weight: 400; word-wrap: break-word">group3</div>
-        </div>
-        
-        <div class="group_button" onclick="openNav()" style="top:268px;" >
-			<div class="group_button_bg"></div>
-            <div style="width: 30px; height: 30px; left: 6px; top: 12px; position: absolute; background: #FBBC05; border-radius: 9999px"></div>
-            <div style="width: 172px; height: 1px; left: 1px; top: 51px; position: absolute; background: #D9D9D9"></div>
-            <div style="left: 41px; top: 24px; position: absolute; color: black; font-size: 13px; font-family: Inter; font-weight: 400; word-wrap: break-word">group4</div>
-        </div>
-        
-        
+		<!-- 그룹 원 색상 변경 -->
+		<!-- <script>
+		    function randomColor() {
+		        var letters = '0123456789ABCDEF';
+		        var color = '#';
+		        for (var i = 0; i < 6; i++) {
+		            color += letters[Math.floor(Math.random() * 16)];
+		        }
+		        return color;
+		    }
+		</script> -->
+
         
         <!-- 그룹 만들기 버튼 -->
 		<div id=groupjoin
@@ -554,7 +515,9 @@
          	<div style="width: 142px; height: 59px; left: 215px; top: 1px; position: absolute; background: #F7F7F7"></div>
             <div style="width: 71px; height: 59px; left: 215px; top: 1px; position: absolute; background: white"></div>
             <div style="width: 71px; height: 59px; left: 286px; top: 1px; position: absolute; background: white"></div>
-            <div style="left: 286px; top: 29px; position: absolute; color: black; font-size: 15px; font-family: Inter; font-weight: 400; word-wrap: break-word">Group1</div>
+            <!-- 그룹이름 -->
+            <div style="left: 286px; top: 29px; position: absolute; color: black; font-size: 15px; font-family: Inter; font-weight: 400; word-wrap: break-word">
+            	해당 그룹이름을 넣어야함</div>
             <div style="width: 215px; height: 731px; left: 0px; top: 0px; position: absolute; background: white; border: 1px black solid"></div>
             <div style="width: 213px; height: 59px; left: 1px; top: 1px; position: absolute; background: #F7F7F7"></div>
             <div style="width: 105px; height: 59px; left: 109px; top: 1px; position: absolute">
@@ -564,7 +527,8 @@
             <div style="width: 213px; height: 1px; left: 1px; top: 60px; position: absolute; background: #DBDBDB"></div>
             <div style="width: 105px; height: 59px; left: 1px; top: 1px; position: absolute">
                 <div style="width: 105px; height: 59px; left: 0px; top: 0px; position: absolute; background: #F7F7F7"></div>
-                <div style="left: 19px; top: 18px; position: absolute; color: black; font-size: 20px; font-family: Inter; font-weight: 500; word-wrap: break-word">Person</div>
+                <div style="left: 19px; top: 18px; position: absolute; color: black; font-size: 20px; font-family: Inter; font-weight: 500; word-wrap: break-word">
+                	<%=logiMember2Member.getUser_id() %></div>
             </div>
             <div style="width: 213px; height: 52px; left: 1px; top: 61px; position: absolute">
                 <div style="width: 213px; height: 52px; left: 0px; top: 0px; position: absolute; background: white"></div>
@@ -574,7 +538,8 @@
             <div style="width: 213px; height: 53px; left: 1px; top: 113px; position: absolute">
                 <div style="width: 180px; height: 1px; left: 33px; top: 52px; position: absolute; background: #DBDBDB"></div>
                 <div style="width: 213px; height: 52px; left: 0px; top: 0px; position: absolute; background: white"></div>
-                <div style="width: 135.91px; height: 21.15px; left: 68.54px; top: 15.87px; position: absolute; color: black; font-size: 20px; font-family: Inter; font-weight: 500; word-wrap: break-word">Person</div>
+                <div style="width: 135.91px; height: 21.15px; left: 68.54px; top: 15.87px; position: absolute; color: black; font-size: 20px; font-family: Inter; font-weight: 500; word-wrap: break-word">
+                	그룹인원1</div>
                 <div style="width: 34px; height: 52px; left: 0px; top: 0px; position: absolute; background: white"></div>
                 <div style="width: 30px; height: 30px; left: 34px; top: 11px; position: absolute; background: #FEE292; border-radius: 9999px"></div>
             </div>
@@ -582,14 +547,16 @@
                 <div style="width: 180px; height: 1px; left: 33px; top: 52px; position: absolute; background: #DBDBDB"></div>
                 <div style="width: 34px; height: 52px; left: 0px; top: 0px; position: absolute; background: white"></div>
                 <div style="width: 213px; height: 52px; left: 0px; top: 0px; position: absolute; background: white"></div>
-                <div style="width: 135.91px; height: 21.15px; left: 68.54px; top: 15.87px; position: absolute; color: black; font-size: 20px; font-family: Inter; font-weight: 500; word-wrap: break-word">Person</div>
+                <div style="width: 135.91px; height: 21.15px; left: 68.54px; top: 15.87px; position: absolute; color: black; font-size: 20px; font-family: Inter; font-weight: 500; word-wrap: break-word">
+                	그룹인원2</div>
                 <div style="width: 30px; height: 30px; left: 34px; top: 11px; position: absolute; background: #FF6B6B; border-radius: 9999px"></div>
             </div>
             <div style="width: 213px; height: 53px; left: 1px; top: 219px; position: absolute">
                 <div style="width: 180px; height: 1px; left: 33px; top: 52px; position: absolute; background: #DBDBDB"></div>
                 <div style="width: 34px; height: 52px; left: 0px; top: 0px; position: absolute; background: white"></div>
                 <div style="width: 213px; height: 52px; left: 0px; top: 0px; position: absolute; background: white"></div>
-                <div style="width: 135.91px; height: 21.15px; left: 68.54px; top: 15.87px; position: absolute; color: black; font-size: 20px; font-family: Inter; font-weight: 500; word-wrap: break-word">Person</div>
+                <div style="width: 135.91px; height: 21.15px; left: 68.54px; top: 15.87px; position: absolute; color: black; font-size: 20px; font-family: Inter; font-weight: 500; word-wrap: break-word">
+                	그룹인원3</div>
                 <div style="width: 30px; height: 30px; left: 34px; top: 11px; position: absolute; background: #E8CBCB; border-radius: 9999px"></div>
             </div>
             <div style="width: 30px; height: 30px; left: 250px; top: 16px; position: absolute; background: #D9D9D9; border-radius: 9999px"></div>
@@ -612,34 +579,6 @@
         </div>
     </div>
 
-
-<<<<<<< HEAD
-    <!-- header -->
-<div class="header" style="width: 1920px; height: 0px; left: 0px; top: 0px; position: fixed">
-    <div style="width: 1920px; height: 1px; left: 0px; top: 90px; position: absolute; background: #DBDBDB"></div>
-    <div style="width: 1920px; height: 90px; left: 1px; top: 0px; position: absolute; background: white"></div>
-    <a href ="Main.jsp"><div style="width: 84px; height: 34px; left: 321px; top: 23px; position: absolute; color: black; font-size: 28px; font-family: Noto Sans KR; font-weight: 700; letter-spacing: 2.80px; word-wrap: break-word">IFIVE</div></a>
-    <a href="group.jsp"><div style="left: 790px; top: 35px; position: absolute; color: black; font-size: 14px; font-family: Noto Sans KR; font-weight: 350; word-wrap: break-word">Group</div></a>
-    <a href="cal.jsp"><div style="left: 881px; top: 35px; position: absolute; color: black; font-size: 14px; font-family: Noto Sans KR; font-weight: 350; word-wrap: break-word">Callender</div></a>
-    <div style="left: 994px; top: 35px; position: absolute; color: black; font-size: 14px; font-family: Noto Sans KR; font-weight: 350; word-wrap: break-word">Board</div>
-    <a href="mypage.jsp"><div style="left: 1083px; top: 35px; position: absolute; color: black; font-size: 14px; font-family: Noto Sans KR; font-weight: 350; word-wrap: break-word">Mypage</div></a>
-    <% if (loginMember == null) { %>
-        <!-- 로그인되지 않은 상태 -->
-        <div style="width: 112px; height: 35px; left: 1489px; top: 27px; position: absolute">
-            <div style="width: 112px; height: 35px; left: 0px; top: 0px; position: absolute; background: white; border-radius: 30px; border: 1px #DBDBDB solid"></div>
-            <div style="width: 70px; height: 22px; left: 21px; top: 7px; position: absolute">
-                <div style="left: 34px; top: 1px; position: absolute; color: black; font-size: 14px; font-family: Noto Sans KR; font-weight: 350; word-wrap: break-word">Login</div>
-                <div style="width: 28px; height: 22px; left: 0px; top: 0px; position: absolute; flex-direction: column; justify-content: flex-start; align-items: flex-start; display: inline-flex">
-                    <div style="width: 28px; height: 22px"></div>
-                    <div style="width: 18.67px; height: 14.67px; background: black"></div>
-                </div>
-            </div>
-        </div>
-    <% } %>
-</div>
-=======
-   
->>>>>>> branch 'master' of https://github.com/2024-SMHRD-IS-BigData-1/IfivePJ.git
 
         <!-- footer -->
         <div class="footer" style="width: 1920px; height: 252px; left: 0px; top: 1042px; position: absolute">
