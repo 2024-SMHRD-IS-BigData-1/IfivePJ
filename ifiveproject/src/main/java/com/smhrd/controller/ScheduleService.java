@@ -24,6 +24,8 @@ public class ScheduleService implements Command {
     	
 
         System.out.println("ScheduleService");
+        
+       
         String user_id = (String) request.getSession().getAttribute("user_id");
         String ath_type = request.getParameter("title");
         String ath_date = request.getParameter("date");
@@ -39,10 +41,11 @@ public class ScheduleService implements Command {
 
         
 
+
         ath_done= "O";
         int ath_reward =0;
         
-        
+        System.out.println(user_id);
         System.out.println("input");
         Schedule schedule= new Schedule(user_id, ath_date, ath_time, ath_type, ath_duration, ath_done, ath_reward);
         int cnt = new ScheduleDAO().join(schedule);

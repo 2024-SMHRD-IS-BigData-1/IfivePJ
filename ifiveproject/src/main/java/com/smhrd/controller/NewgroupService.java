@@ -2,7 +2,6 @@ package com.smhrd.controller;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import com.smhrd.frontcontroller.Command;
 import com.smhrd.model.Group;
@@ -35,6 +34,7 @@ public class NewgroupService implements Command {
 	
 		if(cnt > 0) {
 			System.out.println("그룹 생성 성공!");
+			request.setAttribute("group", group);
 			return "group.jsp";
 
 		}else {

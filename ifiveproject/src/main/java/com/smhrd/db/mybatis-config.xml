@@ -14,6 +14,7 @@
 		<typeAlias type="com.smhrd.model.mypage" alias = "mypage"/>
 
 		<typeAlias type="com.smhrd.model.Schedule" alias = "Schedule"/>
+		<typeAlias type="com.smhrd.model.mypage" alias = "mypage"/>
 		<!-- <typeAlias type="com.smhrd.model.Board" alias = "Board"/>  -->
 	</typeAliases>
 		
@@ -25,6 +26,7 @@
 			<dataSource type="POOLED">
 				<property name="driver" value="oracle.jdbc.driver.OracleDriver" />
 				<property name="url" value="jdbc:oracle:thin:@project-db-campus.smhrd.com:1524:xe" />
+
 				<property name="username" value="campus_24IS_BIG3_P2_4" />
 				<property name="password" value="smhrd4" />
 			</dataSource>

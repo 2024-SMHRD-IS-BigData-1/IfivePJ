@@ -8,6 +8,9 @@
   	insert into group_info values(group_idx.NEXTVAL, #{user_id},#{group_name},#{group_info},#{group_limit},sysdate,#{group_status})
   </insert>
   
+  <select id="groupList" resultType="Group" parameterType="String">
+  	select * from group_info where user_id=#{user_id} 
+  </select>
 
 
   
