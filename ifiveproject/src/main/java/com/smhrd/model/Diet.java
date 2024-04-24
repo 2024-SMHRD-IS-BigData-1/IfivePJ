@@ -1,75 +1,46 @@
 package com.smhrd.model;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.NonNull;
+import lombok.RequiredArgsConstructor;
+import lombok.Setter;
 
+@AllArgsConstructor
+@NoArgsConstructor
+@RequiredArgsConstructor
+@Getter
+@Setter
 public class Diet {
 
-	    // 섭취 식별자 
-	    private String diet_idx;
-	    private String user_id;
-	    private String food_idx;
-	    private float intake_weight;
+		// 섭취 식별자 
+		 @NonNull private int diet_idx;
+		 @NonNull private String user_id;
+		 @NonNull private String food_name;
+		private String intake_weight;
 	    private int intake_calory;
-	    private String created_at;
+	    @NonNull private String eat_date;
 	    
 	    
-	    public Diet(String diet_idx, String user_id, String food_idx, float intake_weight, int intake_calory,
-				String created_at) {
+	    public Diet(String user_id, String food_name, String intake_weight, int intake_calory, String eat_date) {
+	    	super();
+	    	this.user_id = user_id;
+	    	this.food_name = food_name;
+	    	this.intake_weight = intake_weight;
+	    	this.intake_calory = intake_calory;
+	    	this.eat_date = eat_date;
+	    }
+
+
+		public Diet(String user_id, String eat_date) {
 			super();
-			this.diet_idx = diet_idx;
 			this.user_id = user_id;
-			this.food_idx = food_idx;
-			this.intake_weight = intake_weight;
-			this.intake_calory = intake_calory;
-			this.created_at = created_at;
+			this.eat_date = eat_date;
 		}
+	    
+	    
 
-		public String getDietIdx() {
-	        return diet_idx;
-	    }
-
-	    public void setDietIdx(Double dietIdx) {
-	        this.diet_idx = diet_idx;
-	    }
-
-	    public String getUserId() {
-	        return user_id;
-	    }
-
-	    public void setUserId(String userId) {
-	        this.user_id = user_id;
-	    }
-
-	    public String getFoodIdx() {
-	        return food_idx;
-	    }
-
-	    public void setFoodIdx(Double foodIdx) {
-	        this.food_idx = food_idx;
-	    }
-
-	    public float getIntakeWeight() {
-	        return intake_weight;
-	    }
-
-	    public void setIntakeWeight(Double intakeWeight) {
-	        this.intake_weight = intake_weight;
-	    }
-
-	    public int getIntakeCalory() {
-	        return intake_calory;
-	    }
-
-	    public void setIntakeCalory(Double intakeCalory) {
-	        this.intake_calory = intake_calory;
-	    }
-
-	    public String getCreatedAt() {
-	        return created_at;
-	    }
-
-	    public void setCreatedAt(String createdAt) {
-	        this.created_at = created_at;
-	    }
    
 	
 }

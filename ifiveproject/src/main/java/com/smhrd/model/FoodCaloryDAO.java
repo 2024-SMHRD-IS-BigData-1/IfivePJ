@@ -1,18 +1,23 @@
 package com.smhrd.model;
 
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import com.smhrd.db.SqlSessionManager;
 
 public class FoodCaloryDAO {
 	SqlSessionFactory sqlSessionFactory=  SqlSessionManager.getSqlSession();
-	
-	public FoodCalory Search(FoodCalory food) {
-		SqlSession session = sqlSessionFactory.openSession(true);
+
+	public List<FoodCalory> foodList(String food) {
 		System.out.println("DAO");
-		FoodCalory food_find = session.selectOne("com.smhrd.db.FoodCaloryMapper.Search",food);
+		SqlSession session = sqlSessionFactory.openSession(true);
+		List<FoodCalory> foodList = session.selectList("com.smhrd.db.FoodCaloryMapper.showfood",food);
 		session.close();
-		return food_find;
+		System.out.println("foodList : " + foodList.size());
+		return foodList;
 	}
+
+
 	
 }

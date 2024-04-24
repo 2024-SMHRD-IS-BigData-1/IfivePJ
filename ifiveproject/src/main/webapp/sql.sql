@@ -8,5 +8,12 @@ CREATE TABLE test_chat(
 
 drop table test_chat;
 
+
+
+create sequence diet_idx
+  START WITH 1
+  INCREMENT BY 1 ;
+
 select * from athletics_plan_info;
+
 
