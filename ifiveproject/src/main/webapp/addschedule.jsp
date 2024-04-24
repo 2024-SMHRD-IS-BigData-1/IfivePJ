@@ -1,5 +1,10 @@
+<%@page import="com.smhrd.model.Member"%>
+<%@page import="com.smhrd.model.ScheduleDAO"%>
+<%@page import="java.util.List"%>
+<%@page import="com.smhrd.model.Schedule"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8" isELIgnored="false"%>
+   pageEncoding="UTF-8" isELIgnored="false"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,7 +26,9 @@
             display: inline-block; /* 모든 요소를 한 줄에 표시합니다. */
             vertical-align: middle; /* 요소를 수직 중앙에 정렬합니다. */
         }
-       .callender_bg{
+
+
+        .callender_bg{
             width: 500px; 
             height: 695px; 
             left: 0px; 
@@ -542,12 +549,97 @@
             word-wrap: break-word
         }
     </style>
+    
+    
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        function submitEvent(eventType) {
+            var eventTitleInput = document.getElementById(eventType + "EventTitle").value;
+            var scheduleDateInput = document.getElementById(eventType + "Date").value;
+            var scheduleTimeInput = document.getElementById(eventType + "Time").value;
+            var scheduleDurationInput = document.getElementById(eventType + "Duration").value;
+
+            // 이벤트 목록 추가
+            var eventListDiv = document.getElementById(eventType + "Events");
+            if (!eventListDiv) {
+                eventListDiv = document.createElement("div");
+                eventListDiv.id = eventType + "Events";
+                document.body.appendChild(eventListDiv);
+            }
+
+            var eventItemDiv = document.createElement("div");
+            eventItemDiv.className = "eventItem";
+
+            var checkbox = document.createElement("input");
+            checkbox.type = "checkbox";
+            checkbox.className = "checkbox";
+            eventItemDiv.appendChild(checkbox);
+
+            var newEventText = document.createElement("p");
+            newEventText.textContent = eventTitleInput + ' ' + scheduleDateInput + ' ' + scheduleTimeInput + ' ' + scheduleDurationInput;
+            eventItemDiv.appendChild(newEventText);
+
+            var editButton = document.createElement("button");
+            editButton.textContent = "Edit";  
+            editButton.className = "editButton";
+            editButton.onclick = function() {
+                var newEventTitle = prompt("Enter new event title", eventTitleInput);
+                if (newEventTitle) {
+                    eventTitleInput = newEventTitle;
+                    newEventText.textContent = eventTitleInput + ' ' + scheduleDateInput + ' ' + scheduleTimeInput + ' ' + scheduleDurationInput;
+                }
+            };
+            eventItemDiv.appendChild(editButton);
+
+            eventListDiv.insertBefore(eventItemDiv, eventListDiv.firstChild);
+
+            // AJAX 요청 보내기
+            $.ajax({
+                url: 'ScheduleService.do',
+                type: 'POST',
+                data: {
+                    title: eventTitleInput,
+                    date: scheduleDateInput,
+                    time: scheduleTimeInput,
+                    duration: scheduleDurationInput
+                },
+                success: function(response) {
+                    console.log(response);
+                },
+                error: function(xhr, status, error) {
+                    console.error(error);
+                }
+            });
+
+            // cal.jsp로 데이터 전송
+            $.ajax({
+                url: 'cal.jsp',
+                type: 'POST',
+                data: {
+                    eventTitle: eventTitleInput,
+                    scheduleDate: scheduleDateInput
+                },
+                success: function(response) {
+                    console.log(response);
+                    // 부모 창으로 이벤트 데이터 전송
+                    var eventData = {
+                        title: eventTitleInput,
+                        scheduleDate: scheduleDateInput
+                    };
+                    window.opener.postMessage(JSON.stringify(eventData), '*');
+                },
+                error: function(xhr, status, error) {
+                    console.error(error);
+                }
+            });
+        }
+    </script>
+    
 
 </head>
 <body>
     <div class="box">
         <div class="callender_bg"></div>
-
         <!-- exercise -->
         <div class="exercise_title_box1">
             <div class="exercise_title_box1_bg"></div>
@@ -561,22 +653,23 @@
             <div class="exercise_box_bg"></div>
             <div class="what_exercise_box">
                 <div class="what_exercise_box_bg"></div>
-                <input type="text" class="what_exercise_type" placeholder="What..."/>
+                <input type="text" id="scheduleEventTitle" name="ath_type" class="what_exercise_type" placeholder="What..."/>
             </div>
             <div class="exercise_detail_box">
                 <div class="exercise_detail_box_bg"></div>
-                <input type="text" class="exercise_detail_type" placeholder="Details..."/>
+                <input type="text" id="scheduleDuration" name="ath_duration" class="exercise_detail_type" placeholder="Details..."/>
             </div>
             <div class="when_day_box">
                 <div class="when_day_box_bg"></div>
                 <!-- <div class="when_day_box_img"></div> -->
-                <input type="date" name="ath_date" class="when_day_type" placeholder="Year-Month-Day"/>
+                <input type="date" id="scheduleDate" name="ath_date" class="when_day_type" placeholder="Year-Month-Day"/>
             </div>
             <div class="when_time_box">
                 <div class="when_time_box_bg"></div>
                 <!-- <div class="when_time_box_img"></div> -->
-                <input type="time" name="ath_time" class="when_time_type">Time...</input>
+                <input type="time" id="scheduleTime" name="ath_time" class="when_time_type">Time...</input>
             </div>
+            
             <button onclick="submitEvent('schedule')" class="adit_button_box1">
                 <div class="adit_button_box1_bg"></div>
                 <div class="adit_button_box1_text">Adit</div>
@@ -584,7 +677,7 @@
             <div class="record_exercise_box">
                 <div class="record_exercise_box_bg"></div>
                 <div class="exercise_record">Record...</div>
-                <!-- <div id="scheduleList"></div> -->
+
 
             </div>
         </div>
@@ -607,12 +700,12 @@
                 <div class="what_food_type_box">
                     <div class="what_food_type_box_bg"></div>
                     <div class="what_food_type_img"></div>
-                    <input type="text" name="ath_type" class="what_food_type" placeholder="What..."/>
+                    <input type="text"  class="what_food_type" placeholder="What..."/>
                 </div>
             </div>
-            <button onclick="submitEvent('schedule')" class="adit_button_box2">
+            <button class="adit_button_box2">
                 <div class="adit_button_box2_bg"></div>
-                <div class="adit_button_box2_text">Adit</div>
+                <div class="adit_button_box2_text">찾기</div>
             </button>
             <div class="record_food_box2">
                 <div class="record_food_box_bg2"></div>
@@ -624,116 +717,19 @@
         </div>
 
         <!-- register button -->
-        <button class="register_button_box">
+        <button id="registerButton" class="register_button_box">
             <div class="register_button_box_bg"></div>
             <div class="register_button_text">Register</div>
         </button>
     </div>
+           
     
-    
-    
-    
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-    <script>
-        function submitEvent(eventType) {
-            var eventTitleInput = document.getElementById(eventType + "EventTitle").value;
-            var scheduleDateInput = document.getElementById(eventType + "Date").value;
-            var scheduleTimeInput = document.getElementById(eventType + "Time").value;
-            var scheduleDurationInput = document.getElementById(eventType + "Duration").value;
-        
-            // 이벤트 목록 추가
-            var eventListDiv = document.getElementById(eventType + "Events");
-            var eventItemDiv = document.createElement("div");
-            eventItemDiv.className = "eventItem"; // 이벤트 항목의 클래스를 지정합니다.
-        
-            // checkbox 추가
-            var checkbox = document.createElement("input");
-            checkbox.type = "checkbox"; // input 요소를 체크박스로 지정합니다.
-            checkbox.className = "checkbox";
-            eventItemDiv.appendChild(checkbox); // 체크박스를 이벤트 항목에 추가합니다.
-        
-            // 이벤트 텍스트 추가
-            var newEventText = document.createElement("p");
-            newEventText.textContent = eventTitleInput + ' ' + scheduleDateInput + ' ' + scheduleTimeInput + ' ' + scheduleDurationInput;
-            eventItemDiv.appendChild(newEventText); // 이벤트 텍스트를 이벤트 항목에 추가합니다.
-        
-            // Edit 버튼 추가
-            var editButton = document.createElement("button");
-            editButton.textContent = "Edit";  
-            editButton.className = "editButton";
-            editButton.onclick = function() {
-                var newEventTitle = prompt("Enter new event title", eventTitleInput);
-                if (newEventTitle) {
-                    eventTitleInput = newEventTitle;
-                    newEventText.textContent = eventTitleInput + ' ' + scheduleDateInput + ' ' + scheduleTimeInput + ' ' + scheduleDurationInput;
-                }
-            };
-            eventItemDiv.appendChild(editButton); // Edit 버튼을 이벤트 항목에 추가합니다.
-        
-            eventListDiv.insertBefore(eventItemDiv, eventListDiv.firstChild); // 이벤트 항목을 이벤트 목록의 첫 번째 자식으로 추가합니다.
-            
-        
-            var eventTitleInput = document.getElementById('scheduleEventTitle').value;
-            var scheduleDateInput = document.getElementById('scheduleDate').value;
-            var scheduleTimeInput = document.getElementById('scheduleTime').value;
-            var scheduleDurationInput = document.getElementById('scheduleDuration').value;
-        
-            // AJAX 요청을 보냅니다.
-         // AJAX 요청을 보냅니다.
-            $.ajax({
-                url: 'cal.jsp', // 데이터를 처리할 jsp 파일의 경로
-                type: 'POST', // POST 방식으로 데이터를 전송합니다.
-                data: {
-                    eventTitle: eventTitleInput,
-                    scheduleDate: scheduleDateInput
-                },
-                success: function(response) {
-                    // 요청이 성공하면 수행할 작업을 여기에 작성합니다.
-                    console.log(response); // 서버에서 받은 응답을 출력합니다.
-                    // 부모 창으로 이벤트 데이터 전송
-                    var eventData = {
-                        title: eventTitleInput,
-                        scheduleDate: scheduleDateInput
-                    };
-                    window.opener.postMessage(JSON.stringify(eventData), '*');
-                },
-                error: function(xhr, status, error) {
-                    // 오류가 발생하면 수행할 작업을 여기에 작성합니다.
-                    console.error(error); // 오류를 콘솔에 출력합니다.
-                }
-            });
-            
-            
-             // AJAX 요청 보내기
-            $.ajax({
-                url: 'ScheduleService.do', // 서버의 엔드포인트 URL
-                type: 'POST', // 요청 메소드 (POST로 지정하여 데이터 전송)
-                data: {
-                    title: eventTitleInput,
-                    date: scheduleDateInput,
-                    time: scheduleTimeInput,
-                    duration: scheduleDurationInput,
-                    /* checkbox: checkbox.checked // 체크박스의 상태를 데이터에 추가합니다. */
-                },
-                success: function(response) {
-                    console.log(response);
-                },
-                error: function(xhr, status, error) {
-                    // 오류 발생 시 수행할 작업
-                    console.error(error);
-                }
-            });
-        
-        }
-        </script>
 
     <script>
 
-
-
-       // 등록 완료 버튼 클릭 시 창 닫기
-         document.getElementById('register_button_box').addEventListener('click', function() {
+      // 등록 완료 버튼 클릭 시 창 닫기
+         document.getElementById('registerButton').addEventListener('click', function() {
              window.close(); // 창 닫기
          });
     </script>

@@ -49,22 +49,16 @@
          <%
             Member loginMember = (Member)session.getAttribute("loginMember");
             Diet eat_food = (Diet)session.getAttribute("eat_food");                      
-            List<Diet> dietList = null;     
-            
-            
-        /*     if(loginMember != null && eat_food !=null ){ */
-               // 로그인한 상태 -> 로그인한 사용자에게 도착한 메세지 가져오기
                String user_id = loginMember.getUser_id();
                String eat_date = request.getParameter("date");
                System.out.print(user_id+eat_date);
                
                Diet cal = new Diet(user_id,eat_date);              
-               dietList = new DietDAO().dietList(cal);
+               List<Diet> dietList = new DietDAO().dietList(cal);
                System.out.print(dietList.size());
                pageContext.setAttribute("dietList", dietList);
-            /* } */
-         %>
-     
+
+%>
           
             <table>
             <c:forEach items="${dietList }" var="diet" varStatus="s">
