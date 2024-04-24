@@ -16,3 +16,4 @@ create sequence diet_idx
 
 select * from athletics_plan_info;
 
+
