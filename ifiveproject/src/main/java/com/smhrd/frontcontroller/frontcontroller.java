@@ -14,7 +14,8 @@ import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 import com.smhrd.controller.IdCheck;
 import com.smhrd.controller.ChatService;
 import com.smhrd.controller.DietService;
-import com.smhrd.controller.FoodCaloryService;
+import com.smhrd.controller.EatService;
+import com.smhrd.controller.GetFoodNames;
 import com.smhrd.controller.JoinService;
 import com.smhrd.controller.LoginService;
 import com.smhrd.controller.LogoutService;
@@ -59,8 +60,6 @@ public class frontcontroller extends HttpServlet {
 			service= new IdCheck();
 		}else if(resultURL.equals("DietService.do")) {
 			service= new DietService();
-		}else if(resultURL.equals("FoodCaloryService.do")) {
-			service= new FoodCaloryService();
 		}else if(resultURL.equals("NewgroupService.do")) {
 			service= new NewgroupService();
 		}else if (resultURL.equals("athletics_plan_infoService.do")) {
@@ -73,9 +72,11 @@ public class frontcontroller extends HttpServlet {
 			service= new mypageService();
 		}else if(resultURL.equals("LogoutService.do")) {
 			service= new LogoutService();
+		}else if(resultURL.equals("GetFoodNames.do")) {
+			service= new GetFoodNames();
 			
-		}
 		
+		}
 		String moveURL =service.execute(request, response);
 		System.out.print(moveURL);
 		

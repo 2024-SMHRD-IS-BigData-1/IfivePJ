@@ -83,7 +83,7 @@
           selectable: true,
           locale: 'ko',
           dateClick: function(info) {
-              window.open('exercise.jsp?date=' + info.dateStr, '_blank');
+              window.open('food.jsp?date=' + info.dateStr, '_blank');
           }
       });
       calendar.render();

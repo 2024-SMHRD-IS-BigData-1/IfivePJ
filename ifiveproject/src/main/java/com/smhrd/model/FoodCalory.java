@@ -19,8 +19,19 @@ public class FoodCalory {
     private String intake_weight;
     private int intake_calory;
     
-    // 'food' 속성에 대한 getter 메서드 추가
-    public String getFood() {
-        return food_name;
-    }
+
+	public FoodCalory(String food_name, int intake_calory) {
+		super();
+		this.food_name = food_name;
+		this.intake_calory = intake_calory;
+	}
+	
+	
+	 @Override
+	 public String toString() {
+	      return "FoodCalory{" +
+	                "food_name='" + food_name + '\'' +
+	                ", intake_calory=" + intake_calory +
+	                '}';
+	    }
 }
