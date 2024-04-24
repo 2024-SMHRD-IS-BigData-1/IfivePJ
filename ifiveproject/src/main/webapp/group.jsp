@@ -220,13 +220,6 @@
             background: #D9D9D9;
         }
 
-        /* .group_main_box{
-            width: 241px; 
-            height: 1092px; 
-            left: 317px; 
-            top: 100px; 
-            position: fixed;
-        } */
         .sidebar{
             height: 100%;
             width: 0%;
@@ -369,13 +362,22 @@
           cursor: pointer;
         }
         
+        /* top버튼, 그룹구인 버튼 */
+        .button{
+            width: 25px; height: 27px; left: 948px; top: 1107px; position: absolute
+        }
+        #buttonStyle{
+            width: 50px; height: 50px; left: 6.25px; top: 10.12px; position: absolute; border: 2px #212121 solid
+        }
+        .write_button{
+            width: 25px; height: 50px; left: 1000px; top: 1000px; position: absolute
+        }
+        #write_buttonStyle{
+            width: 70px; height: 100; left: 220px; top: 6px; position: absolute; border: 1px #212121 solid 
+        }
+        
     </style>
     
-   <script>
-      function openGroupJoinWindow() {
-          window.open("Newgroup.jsp", "_blank", "width=400,height=300");
-      }
-   </script>
 </head>
 <body>
     <!-- header -->
@@ -462,38 +464,41 @@
 
         
         <!-- 그룹 만들기 버튼 -->
-      <div id=groupjoin
-         style="width: 14px; height: 14px; left: 172px; top: 85.11px; position: absolute; background: black"></div>
-         <div id="myPopup" class="popup">
-           <span class="close_groupjoin" onclick="closePopup()">&times;</span>
-           <div class="popup-content">
-           <!-- 그룹 만들기 팝업창 -->
-             <h5>그룹생성하기 </h5>
-            <form action="NewgroupService.do" method="post">                  
-               <li><input type="text" name="group_name" placeholder="그룹명을 입력하세요"></li>                     
-               <li><input type="text" name="group_info" placeholder="그룹소개를 입력하세요"></li>   
-               <li><input type="number" name="group_limit" placeholder="그룹 정원"></li>   
-               <input type="submit" value="그룹 생성" >
-            </form>
-           </div>
-      </div>
-      
-      <script>
-      // 팝업 표시 함수
-      function showPopup() {
-        document.getElementById("myPopup").style.display = "block";
-      }
-      
-      // 팝업 숨김 함수
-      function closePopup() {
-        document.getElementById("myPopup").style.display = "none";
-      }
-      
-      // 요소 클릭 시 팝업 표시
-      document.getElementById("groupjoin").addEventListener("click", function() {
-        showPopup();
-      });
-      </script>
+		<div id=groupjoin
+			style="width: 14px; height: 14px; left: 172px; top: 85.11px; position: absolute; background: black"></div>
+		<div id="myPopup" class="popup">
+			<span class="close_groupjoin" onclick="closePopup()">&times;</span>
+			<div class="popup-content">
+				<!-- 그룹 만들기 팝업창 -->
+				<h5>그룹생성하기</h5>
+				<form action="NewgroupService.do" method="post">
+					<li><input type="text" name="group_name"
+						placeholder="그룹명을 입력하세요"></li>
+					<li><input type="text" name="group_info"
+						placeholder="그룹소개를 입력하세요"></li>
+					<li><input type="number" name="group_limit"
+						placeholder="그룹 정원"></li> <input type="submit" value="그룹 생성">
+				</form>
+			</div>
+		</div>
+
+		<script>
+			// 팝업 표시 함수
+			function showPopup() {
+				document.getElementById("myPopup").style.display = "block";
+			}
+
+			// 팝업 숨김 함수
+			function closePopup() {
+				document.getElementById("myPopup").style.display = "none";
+			}
+
+			// 요소 클릭 시 팝업 표시
+			document.getElementById("groupjoin").addEventListener("click",
+					function() {
+						showPopup();
+					});
+		</script>
        
       <!-- backbutton -->
         <!-- <a href="javascript:void(0)" class="close-btn" onclick="closeNav()">
@@ -594,7 +599,6 @@
             <div style="width: 35px; height: 35px; left: 791px; top: 109px; position: absolute">
                 <div style="width: 35px; height: 35px; left: 0px; top: 0px; position: absolute; background: #C4C4C4"></div>
                 <div style="width: 35px; height: 35px; left: 0px; top: 0px; position: absolute; background: #C4C4C4; border-radius: 9999px"></div>
-                <img style="width: 35px; height: 35px; left: 0px; top: 0px; position: absolute" src="https://via.placeholder.com/35x35" />
             </div>
             <div style="width: 35px; height: 35px; left: 892px; top: 109px; position: absolute">
                 <div style="width: 35px; height: 35px; left: 0px; top: 0px; position: absolute; background: black; border-radius: 9999px"></div>
@@ -611,105 +615,353 @@
                     <div style="width: 4.15px; height: 5.34px; left: 13.91px; top: 6.80px; position: absolute; background: black"></div>
                 </div>
             </div>
-            <div style="width: 35px; height: 35px; left: 991px; top: 109px; position: absolute; justify-content: center; align-items: center; display: inline-flex">
-                <img style="width: 35px; height: 35px" src="https://via.placeholder.com/35x35" />
-            </div>
-            <div style="width: 35px; height: 35px; left: 1090px; top: 109px; position: absolute; justify-content: center; align-items: center; display: inline-flex">
-                <img style="width: 35px; height: 35px" src="https://via.placeholder.com/35x35" />
-            </div>
         </div>
 
         <div class="layer"></div>
-        
+		
+		
+		<!-- 중앙 -->
+        <div style="width: 798px; height: 1092px; left: 561px; top: 100px; position: absolute">
+            <div style="width: 797px; height: 1092px; left: 0px; top: 0px; position: absolute; background: #F6CFCF"></div>
+            <div style="width: 1px; height: 1092px; left: -1px; top: 0px; position: absolute; background: #DBDBDB"></div>
+            <div style="width: 1px; height: 1092px; left: 797px; top: 0px; position: absolute; background: #DBDBDB"></div>
+            <div style="width: 797px; height: 194px; left: 0px; top: 0px; position: absolute">
+                <div style="width: 797px; height: 194px; left: 0px; top: 0px; position: absolute">
+                    <div style="width: 797px; height: 194px; left: 0px; top: 0px; position: absolute; background: white"></div>
+                    <div style="width: 797px; height: 30px; left: 0px; top: 50px; position: absolute; background: white"></div>
+                    <div style="width: 72px; height: 30px; left: 50px; top: 50px; position: absolute">
+                        <div style="width: 72px; height: 30px; left: 0px; top: 0px; position: absolute; background: white"></div>
+                        <div style="left: 0px; top: 0px; position: absolute; color: black; font-size: 25px; font-family: Inter; font-weight: 700; word-wrap: break-word">Board</div>
+                    </div>
+                </div>
+                <div style="width: 797px; height: 48px; left: 0px; top: 120px; position: absolute">
+                    <div style="width: 797px; height: 48px; left: 0px; top: 0px; position: absolute; background: white"></div>
+                    <div style="width: 513px; height: 44px; left: 224px; top: 2px; position: absolute">
+                        <div id="search_bar" style="width: 513px; height: 44px; left: 0px; top: 0px; position: absolute; background: #F1F1F1; border-radius: 30px"></div>
+                        <div style="width: 24px; height: 24px; left: 469px; top: 10px; position: absolute; background: #E2ACAC"></div>
+                    </div>
+                </div>
+            </div>
+            <div style="width: 797px; height: 898px; left: 0px; top: 194px; position: absolute">
+                <div style="width: 797px; height: 898px; left: 0px; top: 0px; position: absolute; background: white"></div>
+                <div style="width: 682px; height: 52px; left: 57px; top: 0px; position: absolute; background: white"></div>
+                <div style="width: 682px; height: 1px; left: 57px; top: 51px; position: absolute; background: #DBDBDB"></div>
+                <div id="groupIntroTitle"  style="left: 105px; top: 12px; position: absolute; color: black; font-size: 15px; font-family: Inter; font-weight: 400; word-wrap: break-word; cursor: pointer">그룹 소개 타이틀!</div>
+                   
+                <div style="width: 30px; height: 30px; left: 67px; top: 11px; position: absolute; background: #D9D9D9; border-radius: 9999px"></div>
+            </div>
+        </div>
+		
+		<!-- 오른쪽 사이드 -->
+		<div
+			style="width: 240px; height: 1092px; left: 1360px; top: 100px; position: absolute">
+			<div
+				style="width: 240px; height: 1092px; left: 0px; top: 0px; position: absolute; background: white"></div>
+			<div
+				style="width: 240px; height: 215px; left: 0px; top: 877px; position: absolute">
+				<div
+					style="width: 240px; height: 215px; left: 0px; top: 0px; position: absolute; background: white"></div>
+				<div
+					style="width: 240px; height: 123px; left: 0px; top: 30px; position: absolute">
+					<div
+						style="width: 240px; height: 28px; left: 0px; top: 60px; position: absolute">
+						<div
+							style="width: 240px; height: 28px; left: 0px; top: 0px; position: absolute; background: white"></div>
+						<div
+							style="left: 10px; top: 1px; position: absolute; color: black; font-size: 18px; font-family: Noto Sans KR; font-weight: 500; word-wrap: break-word">Ifive@naver.com</div>
+					</div>
+					<div
+						style="width: 240px; height: 15px; left: 0px; top: 108px; position: absolute">
+						<div
+							style="width: 240px; height: 15px; left: 0px; top: 0px; position: absolute; background: white"></div>
+						<div
+							style="width: 139px; height: 14px; left: 10px; top: 1px; position: absolute">
+							<div
+								style="left: 0px; top: 0px; position: absolute; color: black; font-size: 12px; font-family: Roboto; font-weight: 500; word-wrap: break-word">운영시간:평일</div>
+							<div
+								style="left: 80px; top: 0px; position: absolute; color: black; font-size: 12px; font-family: Roboto; font-weight: 500; word-wrap: break-word">09:00~18:00</div>
+						</div>
+					</div>
+					<div
+						style="width: 240px; height: 30px; left: 0px; top: 0px; position: absolute">
+						<div
+							style="width: 240px; height: 30px; left: 0px; top: 0px; position: absolute; background: white"></div>
+						<div
+							style="left: 10px; top: 2px; position: absolute; color: black; font-size: 18px; font-family: Noto Sans KR; font-weight: 500; word-wrap: break-word">Q&A</div>
+					</div>
+					<div
+						style="width: 240px; height: 1px; left: 0px; top: 39px; position: absolute; background: #DBDBDB"></div>
+				</div>
+			</div>
+			<div
+				style="width: 240px; height: 336px; left: 0px; top: 531px; position: absolute">
+				<div
+					style="width: 240px; height: 22px; left: 0px; top: 270px; position: absolute">
+					<div
+						style="width: 240px; height: 22px; left: 0px; top: 0px; position: absolute; background: white"></div>
+					<div
+						style="left: 10px; top: 0px; position: absolute; color: black; font-size: 15px; font-family: Noto Sans KR; font-weight: 500; word-wrap: break-word">고무나라</div>
+				</div>
+				<div
+					style="width: 240px; height: 22px; left: 0px; top: 292px; position: absolute">
+					<div
+						style="width: 240px; height: 22px; left: 0px; top: 0px; position: absolute; background: white"></div>
+					<div
+						style="left: 10px; top: 0px; position: absolute; color: #505050; font-size: 15px; font-family: Noto Sans KR; font-weight: 400; word-wrap: break-word">근력
+						유도밴드 3cm</div>
+				</div>
+				<div
+					style="width: 240px; height: 22px; left: 0px; top: 314px; position: absolute">
+					<div
+						style="width: 240px; height: 22px; left: 0px; top: 0px; position: absolute; background: white"></div>
+					<div
+						style="width: 58px; height: 21px; left: 10px; top: 0px; position: absolute">
+						<div
+							style="left: 40px; top: 0px; position: absolute; color: black; font-size: 14px; font-family: Noto Sans KR; font-weight: 400; word-wrap: break-word">원</div>
+						<div
+							style="left: 0px; top: 0px; position: absolute; color: black; font-size: 14px; font-family: Roboto; font-weight: 500; word-wrap: break-word">5,200</div>
+					</div>
+				</div>
+				<div
+					style="width: 240px; height: 292px; left: 0px; top: 0px; position: absolute; background: rgba(0, 0, 0, 0.03)"></div>
+				<a
+					href="http://gomunara.com/product/%EA%B3%A0%EB%AC%B4%EB%82%98%EB%9D%BC-%EA%B7%BC%EB%A0%A5%EB%B0%B4%EB%93%9C-3cm/66/category/33/display/1/"><div
+						style="width: 240px; height: 240px; left: 0px; top: 30px; position: absolute; background: #DBDBDB">
+						<img
+							src="https://image1.coupangcdn.com/image/vendor_inventory/c815/e925c1a6de43d437702b41ca7b509aae96570ffc92e81990905d5b9c2bf6.jpg"
+							width="240px" height="240px">
+					</div></a>
+			</div>
+			<div
+				style="width: 240px; height: 336px; left: 0px; top: 185px; position: absolute">
+				<div
+					style="width: 240px; height: 22px; left: 0px; top: 270px; position: absolute">
+					<div
+						style="width: 240px; height: 22px; left: 0px; top: 0px; position: absolute; background: white"></div>
+					<div
+						style="left: 10px; top: 0px; position: absolute; color: black; font-size: 15px; font-family: Noto Sans KR; font-weight: 500; word-wrap: break-word">바르닭</div>
+				</div>
+				<div
+					style="width: 240px; height: 22px; left: 0px; top: 292px; position: absolute">
+					<div
+						style="width: 240px; height: 22px; left: 0px; top: 0px; position: absolute; background: white"></div>
+					<div
+						style="left: 10px; top: 0px; position: absolute; color: #505050; font-size: 15px; font-family: Noto Sans KR; font-weight: 400; word-wrap: break-word">[바르닭]
+						소스품은 닭가슴살</div>
+				</div>
+				<div
+					style="width: 240px; height: 22px; left: 0px; top: 314px; position: absolute">
+					<div
+						style="width: 240px; height: 22px; left: 0px; top: 0px; position: absolute; background: white"></div>
+					<div
+						style="width: 58px; height: 21px; left: 10px; top: 1px; position: absolute">
+						<div
+							style="left: 0px; top: 0px; position: absolute; color: black; font-size: 14px; font-family: Roboto; font-weight: 500; word-wrap: break-word">2,900</div>
+						<div
+							style="left: 45px; top: 0px; position: absolute; color: black; font-size: 14px; font-family: Noto Sans KR; font-weight: 400; word-wrap: break-word">원</div>
+					</div>
+				</div>
+				<div
+					style="width: 240px; height: 292px; left: 0px; top: 0px; position: absolute; background: rgba(0, 0, 0, 0.03)"></div>
+				<a
+					href="https://mall.drdiary.co.kr/goods/goods_view.php?goodsNo=1000002278&utm_term=&gad_source=1&gclid=CjwKCAjwrIixBhBbEiwACEqDJdEPx-MxyixC9IJQqZa83Toe0ezkSHy0lfaclmHzDv-5y_knzVqpgRoC-hYQAvD_BwE"><div
+						style="width: 240px; height: 240px; left: 0px; top: 30px; position: absolute; background: #DBDBDB">
+						<img
+							src="https://godomall.speedycdn.net/9e886df8f0ec5d2f44f612f355605e0b/goods/1000002278/image/detail/1000002278_detail_019.jpg"
+							width="240px" height="240px">
+					</div></a>
+			</div>
+			<div
+				style="width: 240px; height: 95px; left: 0px; top: 65px; position: absolute">
+				<div
+					style="width: 240px; height: 95px; left: 0px; top: 0px; position: absolute; background: #EFE9E9; border-radius: 5px"></div>
+				<div
+					style="width: 240px; height: 20px; left: 0px; top: 35px; position: absolute">
+					<div
+						style="width: 240px; height: 20px; left: 0px; top: 0px; position: absolute; background: #EFE9E9"></div>
+					<div
+						style="left: 10px; top: 0px; position: absolute; color: #505050; font-size: 13px; font-family: Noto Sans KR; font-weight: 400; word-wrap: break-word">게시글에
+						욕설은 삼가해주세요.</div>
+				</div>
+				<div
+					style="width: 240px; height: 25px; left: 0px; top: 10px; position: absolute">
+					<div
+						style="width: 240px; height: 25px; left: 0px; top: 0px; position: absolute; background: #EFE9E9"></div>
+					<div
+						style="width: 78px; height: 22px; left: 10px; top: 2px; position: absolute">
+						<div
+							style="width: 20px; height: 20px; left: 58px; top: 1px; position: absolute; background: #D9D9D9"></div>
+						<div
+							style="left: 0px; top: 0px; position: absolute; color: black; font-size: 15px; font-family: Noto Sans KR; font-weight: 500; word-wrap: break-word">공지사항</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+	
+	<div class="button" >
+        <div><button id="buttonStyle" onclick="scrollToTop()"></button></div>
     </div>
-   <div
-      style="width: 35px; height: 35px; left: 991px; top: 1151px; position: absolute; justify-content: center; align-items: center; display: inline-flex">
-      <img style="width: 35px; height: 35px"
-         src="https://via.placeholder.com/35x35" />
-   </div>
-   <div
-      style="width: 35px; height: 35px; left: 1090px; top: 1151px; position: absolute; justify-content: center; align-items: center; display: inline-flex">
-      <img style="width: 35px; height: 35px"
-         src="https://via.placeholder.com/35x35" />
-   </div>
-   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <div class="write_button" >
+        <div><button id="write_buttonStyle" onclick="openNewPopup()" onclick="save()">글쓰기</button></div>
+    </div>
+	
+	<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> -->
 
    <script>   
+	   document.addEventListener("DOMContentLoaded", function() { // 검색창 커서 기능
+	       var searchInput = document.getElementById("search_bar");
+	       searchInput.addEventListener("click", function() {
+	        var inputField = document.createElement("input");
+	        inputField.setAttribute("type", "text");
+	        inputField.setAttribute("style", "width: 100%; height: 100%; border: none; outline: none; background: transparent;");
+	       //  inputField.setAttribute("placeholder", "검색어를 입력하세요");
+	        inputField.focus();
+	        this.appendChild(inputField);
+	       });
+	   });
+			
+	   document.getElementById("groupIntroTitle").addEventListener("click", openPopup);
 
-      function openNav() {
-         document.getElementById("sidebar").style.width = "1250px";
-         document.querySelector(".footer").style.display = "block"; // 푸터 보이기
-      }
-      function closeNav() {
-         document.getElementById("sidebar").style.width = "0";
-      }
+	    function openPopup() {
+	      saveAndShowGroupInfo();
+	    } 
+	    
+	    function closePopup() {
+	        var popupWrapper= document.querySelector(".popup-wrapper");
+	        popupWrapper.parentNode.removeChild(popupWrapper);
+	    }
+	    
+	    function saveAndShowGroupInfo() {
+	        var groupNameInput = document.getElementById('groupName');
+	        var exampleInput = document.getElementById('example');
+	        var example2Input = document.getElementById('example2');
 
-      document.addEventListener('DOMContentLoaded', function() {
-         const layer = document.querySelector('.layer');
-         const groupButton = document.querySelector('.group_button');
+	        if (groupNameInput && exampleInput && example2Input) {
+	            var groupName = groupNameInput.value;
+	            var example = exampleInput.value;
+	            var example2 = example2Input.value;
 
-         groupButton.addEventListener('click', function() {
-            layer.style.display = 'block';
-            openNav(); // 사이드바를 열기
-         });
-         layer.addEventListener('click', function() {
-            layer.style.display = 'none';
-            closeNav(); // 사이드바를 닫기
-         });
-      });
-      
-      
-      
-      function sendMessage() {
-           // 입력 필드의 값을 가져옵니다.
-           const messageInput = document.getElementById('message');
-           const message = messageInput.innerText;
-           
-           console.log("입력 메세지:"+message);
-           
-           // AJAX 요청을 보냅니다.
-           $.ajax({
-               type: "POST",
-               url: "ChatService.do",
-               data: {
-                   "message" : message  // 입력된 메시지를 서버로 보냅니다.
-               },
-               success: function(response) {
-                   // 요청이 성공적으로 처리되었을 때의 작업
-                   console.log("메세지 입력 완료");
-                   console.log("Response:", response);
-                   
-                // 채팅 박스에 메시지를 추가합니다.
-                   const chatbox = document.getElementById('chatbox');
-                   const chatTextBox = document.createElement('div');
-                   chatTextBox.className = 'chat-text-box';
-                   chatTextBox.innerText = message;
-                   
-                   // 메시지를 채팅 박스에 추가합니다.
-                   chatbox.appendChild(chatTextBox);
-                   // 채팅 박스를 스크롤하여 가장 최근의 메시지가 표시되도록 합니다.
-                   chatbox.scrollTop = chatbox.scrollHeight;
-                   
-                   // 요청이 성공적으로 처리되면 입력 필드를 초기화합니다.
-                    messageInput.innerText = '';
-               },
-               error: function(xhr, status, error) {
-                   // 요청이 실패했을 때의 작업
-                   console.error("Error sending message:", error);
-               }
-           });
-       }
-      document.getElementById('message').addEventListener('keydown',
-            function(event) {
-               // 이벤트가 Enter 키를 감지하는지 확인합니다.
-               if (event.key === 'Enter') {
-                  // 기본 동작을 막습니다. (폼 제출 등)
-                  event.preventDefault();
-                  // 메시지를 보냅니다.
-                  sendMessage();
-               }
-            });
-   </script>
+	            if (groupName && example && example2) {
+	                // 팝업 창의 내용과 스타일을 설정
+	                var popupContent = "<div class='popup'><h2>생성완료</h2> <button onclick='closePopup()'>확인</button> <p>그룹명 : " + groupName + "</p> <p>그룹인원 : " + example + " </p> <p>소개글(그룹설명) : " + example2 + " </div>";
+
+	                // 팝업 창 요소 생성
+	                var popupWrapper = document.createElement("div");
+	                popupWrapper.classList.add("popup-wrapper");
+	                popupWrapper.innerHTML = popupContent;
+
+	                // 팝업 창을 body에 추가
+	                document.body.appendChild(popupWrapper);
+	            } else {
+	                alert("값을 모두 입력하세요.");
+	            }
+	        } else {
+	            alert("입력 필드를 찾을 수 없습니다.");
+	        }
+	    }
+
+	    	function openNewPopup(){
+				var popupContent = "<div class='popup'><h2>그룹구인창</h2> <button onclick='closePopup()'>등록</button> <p>그룹명 : </p><input type='text' id='groupName' placeholder='그룹명을 입력하세요'> <p>인원수:</p><input type='text' id='example'> <p>소개글:</p><input type='text' id='example2'></div>";
+					// 팝업 창 요소 생성
+					var popupWrapper = document.createElement("div");
+					popupWrapper.classList.add("popup-wrapper");
+					popupWrapper.innerHTML = popupContent;
+
+					// 팝업 창을 body에 추가
+					document.body.appendChild(popupWrapper);
+
+					//   savedData = {
+					//         groupName: groupName,
+					//         example: example,
+					//         example2: example2
+					//     };
+				}
+				// 버튼을 클릭하면 페이지 맨 위로 스크롤합니다.
+				function scrollToTop() {
+					window.scrollTo({
+						top : 0,
+						behavior : "smooth" // 부드럽게 스크롤
+					});
+				}
+
+				// 그룹 사이드바 기능
+				function openNav() {
+					document.getElementById("sidebar").style.width = "1250px";
+					document.querySelector(".footer").style.display = "block"; // 푸터 보이기
+				}
+				function closeNav() {
+					document.getElementById("sidebar").style.width = "0";
+				}
+
+				document.addEventListener('DOMContentLoaded',
+						function() {
+							const layer = document.querySelector('.layer');
+							const groupButton = document
+									.querySelector('.group_button');
+
+							groupButton.addEventListener('click', function() {
+								layer.style.display = 'block';
+								openNav(); // 사이드바를 열기
+							});
+							layer.addEventListener('click', function() {
+								layer.style.display = 'none';
+								closeNav(); // 사이드바를 닫기
+							});
+						});
+
+				// 채팅 메세지 올리기
+				function sendMessage() {
+					// 입력 필드의 값을 가져옵니다.
+					const messageInput = document.getElementById('message');
+					const message = messageInput.innerText;
+
+					console.log("입력 메세지:" + message);
+
+					// AJAX 요청을 보냅니다.
+					$.ajax({
+						type : "POST",
+						url : "ChatService.do",
+						data : {
+							"message" : message
+						// 입력된 메시지를 서버로 보냅니다.
+						},
+						success : function(response) {
+							// 요청이 성공적으로 처리되었을 때의 작업
+							console.log("메세지 입력 완료");
+							console.log("Response:", response);
+
+							// 채팅 박스에 메시지를 추가합니다.
+							const chatbox = document.getElementById('chatbox');
+							const chatTextBox = document.createElement('div');
+							chatTextBox.className = 'chat-text-box';
+							chatTextBox.innerText = message;
+
+							// 메시지를 채팅 박스에 추가합니다.
+							chatbox.appendChild(chatTextBox);
+							// 채팅 박스를 스크롤하여 가장 최근의 메시지가 표시되도록 합니다.
+							chatbox.scrollTop = chatbox.scrollHeight;
+
+							// 요청이 성공적으로 처리되면 입력 필드를 초기화합니다.
+							messageInput.innerText = '';
+						},
+						error : function(xhr, status, error) {
+							// 요청이 실패했을 때의 작업
+							console.error("Error sending message:", error);
+						}
+					});
+				}
+				document.getElementById('message').addEventListener('keydown',
+						function(event) {
+							// 이벤트가 Enter 키를 감지하는지 확인합니다.
+							if (event.key === 'Enter') {
+								// 기본 동작을 막습니다. (폼 제출 등)
+								event.preventDefault();
+								// 메시지를 보냅니다.
+								sendMessage();
+							}
+						});
+			</script>
     
 </body>
 </html>

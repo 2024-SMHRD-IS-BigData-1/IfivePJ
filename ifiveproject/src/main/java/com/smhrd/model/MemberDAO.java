@@ -6,7 +6,7 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import com.smhrd.db.SqlSessionManager;
 
 public class MemberDAO {
-	
+
 	SqlSessionFactory sqlSessionFactory=  SqlSessionManager.getSqlSession();
 	
 	public int join(Member member) { // id, pw
@@ -31,12 +31,4 @@ public class MemberDAO {
 		session.close();
 		return member;
 	}
-
-	
-
-
-
-
-	
-
 }
