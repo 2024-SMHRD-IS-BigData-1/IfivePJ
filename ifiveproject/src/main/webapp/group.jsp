@@ -1,3 +1,5 @@
+<%@page import="com.smhrd.model.chattingRoomDAO"%>
+<%@page import="com.smhrd.model.chattingRoom"%>
 <%@page import="com.smhrd.model.GroupDAO"%>
 <%@page import="com.smhrd.model.Group"%>
 <%@page import="java.util.List"%>
@@ -467,7 +469,7 @@
 		<div id=groupjoin
 			style="width: 14px; height: 14px; left: 172px; top: 85.11px; position: absolute; background: black"></div>
 		<div id="myPopup" class="popup">
-			<span class="close_groupjoin" onclick="closePopup()">&times;</span>
+			<span class="close_groupjoin" onclick="closePopup1()">&times;</span>
 			<div class="popup-content">
 				<!-- 그룹 만들기 팝업창 -->
 				<h5>그룹생성하기</h5>
@@ -489,7 +491,7 @@
 			}
 
 			// 팝업 숨김 함수
-			function closePopup() {
+			function closePopup1() {
 				document.getElementById("myPopup").style.display = "none";
 			}
 
@@ -642,15 +644,44 @@
                     </div>
                 </div>
             </div>
+            
+            <!-- 채팅방 명단 -->
             <div style="width: 797px; height: 898px; left: 0px; top: 194px; position: absolute">
                 <div style="width: 797px; height: 898px; left: 0px; top: 0px; position: absolute; background: white"></div>
                 <div style="width: 682px; height: 52px; left: 57px; top: 0px; position: absolute; background: white"></div>
                 <div style="width: 682px; height: 1px; left: 57px; top: 51px; position: absolute; background: #DBDBDB"></div>
-                <div id="groupIntroTitle"  style="left: 105px; top: 12px; position: absolute; color: black; font-size: 15px; font-family: Inter; font-weight: 400; word-wrap: break-word; cursor: pointer">그룹 소개 타이틀!</div>
-                   
+                <div id="groupIntroTitle"  style="left: 105px; top: 12px; position: absolute; color: black; font-size: 15px; font-family: Inter; font-weight: 400; word-wrap: break-word; cursor: pointer">
+                	그룹 소개 타이틀!</div>
                 <div style="width: 30px; height: 30px; left: 67px; top: 11px; position: absolute; background: #D9D9D9; border-radius: 9999px"></div>
+                
+                <div class="chattingRoom_button" style="top: 194px;">
+					<table>
+						<%
+						List<chattingRoom> chattingRoomList = null;
+						chattingRoomList = new chattingRoomDAO().chattingRoomList();
+							pageContext.setAttribute("chattingRoomList", chattingRoomList);
+						%>
+						${chattingRoomList}
+						<c:forEach items="${chattingRoomList}" var="chattingRoom" varStatus="s">
+							${chattingRoom}
+							<tr>
+								<td>
+									<div class="chattingRoom_bg"></div>
+										<div style="width: 682px; height: 52px; left: 57px; top: ${s.index*60+12}px; position: absolute; background: white"></div>
+										<div style="width: 682px; height: 1px; left: 57px; top: ${s.index * 60 + 52}px; position: absolute; background: #DBDBDB"></div>
+										<div id="chattingRoomTitle" style="left: 105px; top: ${s.index * 60 +5 }px; position: absolute; color: black; font-size: 15px; font-family: Inter; font-weight: 400; word-wrap: break-word; cursor: pointer">
+											${chattingRoom.group_name }</div>
+										<div style="width: 30px; height: 30px; left: 67px; top: ${s.index*60+12}px; position: absolute; background: #D9D9D9; border-radius: 9999px"></div>
+								</td>
+							</tr>
+						</c:forEach>
+					</table>
+				</div>
             </div>
-        </div>
+	
+				
+			
+		</div>
 		
 		<!-- 오른쪽 사이드 -->
 		<div
