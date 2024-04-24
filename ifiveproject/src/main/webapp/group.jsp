@@ -611,7 +611,7 @@
     </div>
 
 
-<<<<<<< HEAD
+
     <!-- header -->
 <div class="header" style="width: 1920px; height: 0px; left: 0px; top: 0px; position: fixed">
     <div style="width: 1920px; height: 1px; left: 0px; top: 90px; position: absolute; background: #DBDBDB"></div>
@@ -635,9 +635,8 @@
         </div>
     <% } %>
 </div>
-=======
+
    
->>>>>>> branch 'master' of https://github.com/2024-SMHRD-IS-BigData-1/IfivePJ.git
 
         <!-- footer -->
         <div class="footer" style="width: 1920px; height: 252px; left: 0px; top: 1042px; position: absolute">

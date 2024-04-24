@@ -1,9 +1,22 @@
+<%@page import="com.google.gson.Gson"%>
+<%@page import="com.smhrd.model.Schedule"%>
+<%@page import="java.util.List"%>
+<%@page import="com.smhrd.model.ScheduleDAO"%>
 <%@page import="com.smhrd.model.Member"%>
 <%@page import="org.apache.ibatis.reflection.SystemMetaObject"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
 <%Member loginMember = (Member)session.getAttribute("loginMember"); %>
+<%
+    // ScheduleDAO 인스턴스 생성
+    ScheduleDAO scheduleDAO = new ScheduleDAO();
+    // 모든 이벤트 데이터를 가져옴
+    List<Schedule> events = scheduleDAO.selectAll();
+    // Gson 라이브러리를 사용하여 이벤트 데이터를 JSON 형식으로 변환
+    Gson gson = new Gson();
+    String jsonEvents = gson.toJson(events);
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -35,22 +48,18 @@
   </style>
 </head>
 <body>
-<<<<<<< HEAD
 
-	
-=======
->>>>>>> branch 'master' of https://github.com/2024-SMHRD-IS-BigData-1/IfivePJ.git
+
   <div id='calendar-container'>
     <div id='calendar'></div>
   </div>
  
  
-  <script>
- 
- 
+    <script>
   document.addEventListener('DOMContentLoaded', function() {
       var calendarEl = document.getElementById('calendar');
       var calendar = new FullCalendar.Calendar(calendarEl, {
+    	  events:<%= jsonEvents %>,
           height: '600px',
           expandRows: true,
           slotMinTime: '08:00',
@@ -68,34 +77,14 @@
               window.open('exercise.jsp?date=' + info.dateStr, '_blank');
           }
       });
-
       calendar.render();
-
-      // 부모 창에서 이벤트 데이터를 받아와서 캘린더에 추가
-      window.addEventListener('message', function(event) {
-          try {
-              var eventData = JSON.parse(event.data);
-              calendar.addEventSource({
-                  events: [{
-                      title: eventData.title,
-                      start: eventData.scheduleDate
-                  }]
-              });
-          } catch (e) {
-              console.error("Error parsing event data", e);
-          }
-      }, false);
   });
-
 	</script>
 
-  
-  
   <div id="chart-container"></div>
     <script>
         // 예시로 사용할 save_cal 변수 데이터
         var save_cal = [1250, 1400, 1250, 1400, 1350, 1300, 1450];
-
         google.charts.load('current', {packages: ['corechart']});
         google.charts.setOnLoadCallback(drawChart);
 
@@ -129,7 +118,6 @@
         }
 
     </script>
-  
 
   
  
