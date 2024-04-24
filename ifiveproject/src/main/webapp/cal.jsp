@@ -7,12 +7,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
-<%Member loginMember = (Member)session.getAttribute("loginMember"); %>
 <%
+    // 세션에서 로그인된 사용자 정보 가져오기
+    Member loginMember = (Member)session.getAttribute("loginMember");
+    String userId = loginMember.getUser_id(); // 로그인된 사용자의 아이디
+
     // ScheduleDAO 인스턴스 생성
     ScheduleDAO scheduleDAO = new ScheduleDAO();
-    // 모든 이벤트 데이터를 가져옴
-    List<Schedule> events = scheduleDAO.selectAll();
+    // 해당 사용자의 모든 캘린더 정보 가져오기
+    List<Schedule> events = scheduleDAO.selectAllByUserId(userId);
     // Gson 라이브러리를 사용하여 이벤트 데이터를 JSON 형식으로 변환
     Gson gson = new Gson();
     String jsonEvents = gson.toJson(events);
@@ -59,7 +62,7 @@
   document.addEventListener('DOMContentLoaded', function() {
       var calendarEl = document.getElementById('calendar');
       var calendar = new FullCalendar.Calendar(calendarEl, {
-    	  events:<%= jsonEvents %>,
+    	  events: <%= jsonEvents %>,
           height: '600px',
           expandRows: true,
           slotMinTime: '08:00',

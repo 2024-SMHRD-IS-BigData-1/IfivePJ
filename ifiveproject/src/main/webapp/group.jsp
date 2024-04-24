@@ -1,3 +1,5 @@
+<%@page import="com.smhrd.model.GroupDAO"%>
+<%@page import="com.smhrd.model.Group"%>
 <%@page import="java.util.List"%>
 <%@page import="com.smhrd.model.Member"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -434,35 +436,35 @@
         <div style="width: 198px; height: 731px; left: 0px; top: 0px; position: absolute; background: rgba(255, 255, 255, 0.70); border: 1px black solid"></div>
         <div style="width: 196px; height: 1px; left: 1px; top: 111px; position: absolute; background: #DBDBDB"></div>
         <div style="left: 15px; top: 71px; position: absolute; color: black; font-size: 20px; font-family: Inter; font-weight: 500; word-wrap: break-word">Group</div>
-       
-       <table>
-       <%
-       		Member loginMember = (Member)session.getAttribute("loginMember");
-	       List<group> groupList = null;				
-			if(loginMember != null){
-				// 로그인한 상태 -> 로그인한 사용자에게 도착한 메세지 가져오기
-				groupList = new GroupDAO().groupList(loginMember.getEmail());
-				// System.out.print(messageList.size());
-				pageContext.setAttribute("groupList", groupList);
-			}
-       %>
-       <c:forEach items="${groupList }" var="group" varStatus="s">
-       		<tr>
-       			<td>그룹이름: ${group.group_name}</td>
-       			<td>그룹정보: ${group.group_info} </td>
-       			<td>인원 제한: ${group.group_limit}</td>
-       			<td>상태: ${group.group_status}</td>
-       		</tr>
-       </c:forEach>
-       </table>
-       									<!-- top 52px -->
-       	<div class="group_button" style="top:320px;">
-       		<h5>Group Information</h5>
-		    <p>이름: ${group.group_name}</p>
-		    <p>정보: ${group.group_info}</p>
-		    <p>인원 제한: ${group.group_limit}</p>
-		    <p>상태: ${group.group_status}</p>
-       	</div>
+       								
+       								<!-- top 52px -->
+       <div class="group_button" style="top:320px;">
+	      <table border="1px">
+	      			<tr>
+			            <td>그룹이름</td>
+			            <td>그룹정보</td>
+			            <td>인원</td>
+			            <td>상태</td>
+		        	</tr>
+		    	<%
+			    Member logiMember2Member = (Member) session.getAttribute("loginMember");
+			    List<Group> groupList = null;
+			    if (logiMember2Member != null) {
+			    	groupList = new GroupDAO().groupList(logiMember2Member.getUser_id());
+			        pageContext.setAttribute("groupList", groupList);
+			    }
+		    	%>
+			    <c:forEach items="${groupList}" var="group" varStatus="s">
+			        <tr>
+			            <td>${group.group_name}</td>
+			            <td>${group.group_info}</td>
+			            <td>${group.group_limit}</td>
+			            <td>${group.group_status}</td>
+			        </tr>
+			    </c:forEach>
+			</table>
+		</div>
+       									
         
         <div class="group_button" onclick="openNav()" style="top:112px;">
         	<div class="group_button_bg"></div>
@@ -611,7 +613,11 @@
     </div>
 
 
+<<<<<<< HEAD
 
+=======
+<<<<<<< HEAD
+>>>>>>> branch 'master' of https://github.com/2024-SMHRD-IS-BigData-1/IfivePJ.git
     <!-- header -->
 <div class="header" style="width: 1920px; height: 0px; left: 0px; top: 0px; position: fixed">
     <div style="width: 1920px; height: 1px; left: 0px; top: 90px; position: absolute; background: #DBDBDB"></div>
@@ -635,8 +641,16 @@
         </div>
     <% } %>
 </div>
+<<<<<<< HEAD
 
+=======
+=======
+>>>>>>> branch 'master' of https://github.com/2024-SMHRD-IS-BigData-1/IfivePJ.git
    
+<<<<<<< HEAD
+=======
+>>>>>>> branch 'master' of https://github.com/2024-SMHRD-IS-BigData-1/IfivePJ.git
+>>>>>>> branch 'master' of https://github.com/2024-SMHRD-IS-BigData-1/IfivePJ.git
 
         <!-- footer -->
         <div class="footer" style="width: 1920px; height: 252px; left: 0px; top: 1042px; position: absolute">
