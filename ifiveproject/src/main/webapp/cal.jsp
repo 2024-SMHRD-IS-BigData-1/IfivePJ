@@ -35,17 +35,12 @@
   </style>
 </head>
 <body>
-<<<<<<< HEAD
 
-	
-=======
->>>>>>> branch 'master' of https://github.com/2024-SMHRD-IS-BigData-1/IfivePJ.git
   <div id='calendar-container'>
     <div id='calendar'></div>
   </div>
  
- 
-  <script>
+ <script>
  
  
   document.addEventListener('DOMContentLoaded', function() {
@@ -65,7 +60,7 @@
           selectable: true,
           locale: 'ko',
           dateClick: function(info) {
-              window.open('food.jsp?date=' + info.dateStr, '_blank');
+              window.open('addschedule.jsp?date=' + info.dateStr, '_blank');
           }
       });
 

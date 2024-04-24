@@ -144,12 +144,6 @@ function submitEvent(eventType) {
          <div id="scheduleList"></div>
          
          
-         <h1>운동기록</h1>
-         <input type="text" id="FoodEventTitle" name="ath_type" placeholder="Event Title" />
-         <input type="text" id="scheduleDuration" name="ath_duration"/>
-         <button onclick="submitEvent('schedule')">Add Event</button>
-         <div id="scheduleEvents" class="eventList"></div>
-         <div id="scheduleList"></div>
          
          
            
