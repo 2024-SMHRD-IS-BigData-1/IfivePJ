@@ -20,7 +20,7 @@ public class GroupDAO {
 	
 	public List<Group> groupList(String user_id) {
 		SqlSession session = sqlSessionFactory.openSession(true);
-		List<Group> groupList = session.selectList("com.smhrd.db.GroupMapper.groupList");
+		List<Group> groupList = session.selectList("com.smhrd.db.GroupMapper.groupList",user_id);
 		session.close();
 		return groupList;
 	}
