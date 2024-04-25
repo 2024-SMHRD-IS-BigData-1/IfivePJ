@@ -378,6 +378,20 @@
             width: 70px; height: 100; left: 220px; top: 6px; position: absolute; border: 1px #212121 solid 
         }
         
+        /* 그룹생성 팝업위치 */
+        #myPopup {
+        display: none;
+        position: absolute;
+        left: 200px;
+        top: 100px;
+        transform: translate(-50%, -50%);
+        background-color: white;
+        padding: 20px;
+        border: 1px solid black;
+        z-index: 10000000000000; /* 팝업이 다른 요소 위에 보이도록 함 */
+        
+    }
+        
     </style>
     
 </head>
@@ -468,21 +482,22 @@
         <!-- 그룹 만들기 버튼 -->
 		<div id=groupjoin
 			style="width: 14px; height: 14px; left: 172px; top: 85.11px; position: absolute; background: black"></div>
+			
+			
 		<div id="myPopup" class="popup">
-			<span class="close_groupjoin" onclick="closePopup1()">&times;</span>
-			<div class="popup-content">
-				<!-- 그룹 만들기 팝업창 -->
-				<h5>그룹생성하기</h5>
-				<form action="NewgroupService.do" method="post">
-					<li><input type="text" name="group_name"
-						placeholder="그룹명을 입력하세요"></li>
-					<li><input type="text" name="group_info"
-						placeholder="그룹소개를 입력하세요"></li>
-					<li><input type="number" name="group_limit"
-						placeholder="그룹 정원"></li> <input type="submit" value="그룹 생성">
-				</form>
-			</div>
+		    <span class="close_groupjoin" onclick="closePopup1()">&times;</span>
+		    <div class="popup-content">
+		        <h5>그룹생성하기</h5>
+		        <form action="NewgroupService.do" method="post">
+		            <li><input type="text" name="group_name" placeholder="그룹명을 입력하세요"></li>
+		            <li><input type="text" name="group_info" placeholder="그룹소개를 입력하세요"></li>
+		            <li><input type="number" name="group_limit" placeholder="그룹 정원"></li>
+		            <input type="submit" value="그룹 생성">
+		        </form>
+		    </div>
 		</div>
+		
+		
 
 		<script>
 			// 팝업 표시 함수
