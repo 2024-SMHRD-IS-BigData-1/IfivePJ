@@ -53,8 +53,8 @@
   document.addEventListener('DOMContentLoaded', function() {
     var calendarEl = document.getElementById('calendar');
     var user_schedule = [
-    	
-    	// 여기서 일정 정보를 직접 채워넣는 대신 JSP 코드를 사용하여 가져옴
+       
+       // 여기서 일정 정보를 직접 채워넣는 대신 JSP 코드를 사용하여 가져옴
         <% 
             // 세션에서 로그인된 사용자 정보 가져오기
             Member loginMember = (Member)session.getAttribute("loginMember");
@@ -97,7 +97,7 @@
       events: user_schedule,
       locale: 'ko',
       dateClick: function(info) {
-        window.open('addschedule.jsp?date=' + info.dateStr, '_blank');
+        window.open('schedule_final.jsp?date=' + info.dateStr, '_blank');
       }
     });
 
@@ -105,7 +105,7 @@
   });
 
 
-	</script>
+   </script>
 </head>
 <body>
 

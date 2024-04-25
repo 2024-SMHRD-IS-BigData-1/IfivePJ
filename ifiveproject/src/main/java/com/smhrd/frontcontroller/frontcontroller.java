@@ -14,7 +14,6 @@ import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 import com.smhrd.controller.IdCheck;
 import com.smhrd.controller.ChatService;
 import com.smhrd.controller.DietService;
-import com.smhrd.controller.EatService;
 import com.smhrd.controller.GetFoodNames;
 import com.smhrd.controller.JoinService;
 import com.smhrd.controller.LoginService;
