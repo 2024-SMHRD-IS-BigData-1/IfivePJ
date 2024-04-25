@@ -1,9 +1,20 @@
+
+<%@page import="java.util.Date"%>
+<%@page import="java.text.SimpleDateFormat"%>
+<%@page import="com.google.gson.Gson"%>
+<%@page import="com.smhrd.model.Schedule"%>
+<%@page import="java.util.List"%>
+<%@page import="com.smhrd.model.ScheduleDAO"%>
 <%@page import="com.smhrd.model.Member"%>
 <%@page import="org.apache.ibatis.reflection.SystemMetaObject"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
-<%Member loginMember = (Member)session.getAttribute("loginMember"); %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+
+
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -33,59 +44,77 @@
       height: 300px;
     }
   </style>
+  
+
+
+
+<script src='fullcalendar/main.js'></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var calendarEl = document.getElementById('calendar');
+    var user_schedule = [
+    	
+    	// 여기서 일정 정보를 직접 채워넣는 대신 JSP 코드를 사용하여 가져옴
+        <% 
+            // 세션에서 로그인된 사용자 정보 가져오기
+            Member loginMember = (Member)session.getAttribute("loginMember");
+            String userId = loginMember.getUser_id(); // 로그인된 사용자의 아이디
+
+            // ScheduleDAO 인스턴스 생성
+            ScheduleDAO scheduleDAO = new ScheduleDAO();
+            // 해당 사용자의 모든 캘린더 정보 가져오기
+            List<Schedule> user_schedule = scheduleDAO.selectAllByUserId(userId);
+            // 가져온 일정 정보 출력
+   
+            for(Schedule event : user_schedule) {
+                String dateString = event.getAth_date(); // 문자열 형식의 날짜
+                SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+                Date date = sdf.parse(dateString); // 문자열을 Date 객체로 변환
+
+                String formattedDate = new SimpleDateFormat("yyyy-MM-dd").format(date); // 원하는 형식으로 문자열 변환
+        %>
+            {
+                title: '<%= event.getAth_type() %>',
+                start: '<%= formattedDate %>'
+            },
+        <% } %>
+
+    ];
+
+    var calendar = new FullCalendar.Calendar(calendarEl, {
+      height: '600px',
+      expandRows: true,
+      slotMinTime: '08:00',
+      slotMaxTime: '20:00',
+      headerToolbar: {
+        left: 'prev,next today',
+        center: 'title',
+        right: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek'
+      },
+      initialView: 'dayGridMonth',
+      editable: true,
+      selectable: true,
+      events: user_schedule,
+      locale: 'ko',
+      dateClick: function(info) {
+        window.open('addschedule.jsp?date=' + info.dateStr, '_blank');
+      }
+    });
+
+    calendar.render();
+  });
+
+
+	</script>
 </head>
 <body>
 
-  <div id='calendar-container'>
-    <div id='calendar'></div>
-  </div>
- 
- <script>
- 
- 
-  document.addEventListener('DOMContentLoaded', function() {
-      var calendarEl = document.getElementById('calendar');
-      var calendar = new FullCalendar.Calendar(calendarEl, {
-          height: '600px',
-          expandRows: true,
-          slotMinTime: '08:00',
-          slotMaxTime: '20:00',
-          headerToolbar: {
-              left: 'prev,next today',
-              center: 'title',
-              right: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek'
-          },
-          initialView: 'dayGridMonth',
-          editable: true,
-          selectable: true,
-          locale: 'ko',
-          dateClick: function(info) {
-              window.open('addschedule.jsp?date=' + info.dateStr, '_blank');
-          }
-      });
-
-      calendar.render();
-
-      // 부모 창에서 이벤트 데이터를 받아와서 캘린더에 추가
-      window.addEventListener('message', function(event) {
-          try {
-              var eventData = JSON.parse(event.data);
-              calendar.addEventSource({
-                  events: [{
-                      title: eventData.title,
-                      start: eventData.scheduleDate
-                  }]
-              });
-          } catch (e) {
-              console.error("Error parsing event data", e);
-          }
-      }, false);
-  });
-
-	</script>
+<div id='calendar-container'>
+  <div id='calendar'></div>
+</div>
 
   
-  
+ 
   <div id="chart-container"></div>
     <script>
         // 예시로 사용할 save_cal 변수 데이터

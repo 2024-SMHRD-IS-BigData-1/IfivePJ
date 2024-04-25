@@ -58,7 +58,9 @@ public class ScheduleService implements Command {
         try {
 			out = response.getWriter();
 			if(cnt > 0) {
-				System.out.println("일정추가 성공!");
+				System.out.println("일정추가 성공!");			
+				HttpSession session = request.getSession();
+				session.setAttribute("schedule", schedule);
 				out.print(true);
 				
 			}else {
