@@ -149,11 +149,11 @@
                 <div style="width: 1920px; height: 1px; left: 0px; top: 89px; position: absolute; background: #DBDBDB"></div>
                 <div style="width: 1920px; height: 90px; left: 0px; top: 0px; position: absolute">
                     <div style="width: 1920px; height: 90px; left: 0px; top: 0px; position: absolute; background: white"></div>
-                    <div style="width: 84px; height: 34px; left: 320px; top: 23px; position: absolute; color: black; font-size: 28px; font-family: Noto Sans KR; font-weight: 700; letter-spacing: 2.80px; word-wrap: break-word">IFIVE</div>
-                    <div style="left: 789px; top: 35px; position: absolute; color: black; font-size: 14px; font-family: Noto Sans KR; font-weight: 350; word-wrap: break-word">Group</div>
-                    <div style="left: 880px; top: 35px; position: absolute; color: black; font-size: 14px; font-family: Noto Sans KR; font-weight: 350; word-wrap: break-word">Callender</div>
+                    <a herf="Main.jsp"><div style="width: 84px; height: 34px; left: 320px; top: 23px; position: absolute; color: black; font-size: 28px; font-family: Noto Sans KR; font-weight: 700; letter-spacing: 2.80px; word-wrap: break-word">IFIVE</div></a>
+                    <a href = "group.jsp"><div style="left: 789px; top: 35px; position: absolute; color: black; font-size: 14px; font-family: Noto Sans KR; font-weight: 350; word-wrap: break-word">Group</div></a>
+                    <a href = "cal.jsp"><div style="left: 880px; top: 35px; position: absolute; color: black; font-size: 14px; font-family: Noto Sans KR; font-weight: 350; word-wrap: break-word">Callender</div></a>
                     <div style="left: 993px; top: 35px; position: absolute; color: black; font-size: 14px; font-family: Noto Sans KR; font-weight: 350; word-wrap: break-word">Board</div>
-                    <div style="left: 1082px; top: 35px; position: absolute; color: black; font-size: 14px; font-family: Noto Sans KR; font-weight: 350; word-wrap: break-word">Mypage</div>
+                    <a href ="mypage.jsp"><div style="left: 1082px; top: 35px; position: absolute; color: black; font-size: 14px; font-family: Noto Sans KR; font-weight: 350; word-wrap: break-word">Mypage</div></a>
                     <div style="width: 112px; height: 35px; left: 1488px; top: 27px; position: absolute">
                         <% if (loginMember == null) { %>
         <!-- 로그인되지 않은 상태 -->

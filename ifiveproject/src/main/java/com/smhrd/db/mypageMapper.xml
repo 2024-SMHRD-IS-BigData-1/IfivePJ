@@ -3,8 +3,22 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.smhrd.db.mypageMapper">
-  <update id="update" parameterType="Member">
-     update test_mypage set user_height=#{user_height}, user_weight=#{user_weight}, user_target_weight = #{user_target_weight}
-     where user_id=#{user_id}
-  </update>
+
+<update id="update" parameterType="mypage">
+    <!-- user_info 테이블만을 사용하여 업데이트 -->
+    UPDATE user_info
+    <set>
+        <if test="user_height != null">
+            user_height = #{user_height, jdbcType=FLOAT},
+        </if>
+        <if test="user_weight != null">
+            user_weight = #{user_weight, jdbcType=FLOAT},
+        </if>
+        <if test="user_target_weight != null">
+            user_target_weight = #{user_target_weight, jdbcType=FLOAT},
+        </if>
+    </set>
+    WHERE user_id=#{user_id}
+</update>
+
 </mapper>
