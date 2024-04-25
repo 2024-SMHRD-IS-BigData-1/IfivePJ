@@ -252,6 +252,7 @@
             left: 320px; 
             top: 141px; 
             position: fixed;
+            z-index: 1
         }
         
         .group_button{
@@ -389,6 +390,18 @@
         padding: 20px;
         border: 1px solid black;
         z-index: 10000000000000; /* 팝업이 다른 요소 위에 보이도록 함 */
+    	}
+    	
+    	#ChattingRoomInfoPopup {
+        display: none;
+        position: absolute;
+        left: 200px;
+        top: 100px;
+        transform: translate(-50%, -50%);
+        background-color: white;
+        padding: 20px;
+        border: 1px solid black;
+        z-index: 10000000000000; /* 팝업이 다른 요소 위에 보이도록 함 */
         
     }
         
@@ -436,38 +449,65 @@
     </div>
    
    <!-- group -->
-    <div class="group_main_box">
-        <div style="width: 198px; height: 731px; left: 0px; top: 0px; position: absolute; background: rgba(255, 255, 255, 0.70); border: 1px black solid"></div>
-        <div style="width: 196px; height: 1px; left: 1px; top: 111px; position: absolute; background: #DBDBDB"></div>
-        <div style="left: 15px; top: 71px; position: absolute; color: black; font-size: 20px; font-family: Inter; font-weight: 500; word-wrap: break-word">Group</div>
-          
-          <!-- 가입한 그룹 띄우기 -->                     
-          <div class="group_button" style="top:120px;">
-         <table>
-             <%
-             Member logiMember2Member = (Member) session.getAttribute("loginMember");
-             List<Group> groupList = null;
-             if (logiMember2Member != null) {
-                groupList = new GroupDAO().groupList(logiMember2Member.getUser_id());
-                 pageContext.setAttribute("groupList", groupList);
-             }
-             %>
-             <c:forEach items="${groupList}" var="group" varStatus="s">
-                  <tr>
-                  <td>
-                          <div class="group_button_bg"></div>
-                    <div style="width: 30px; height: 30px; left: 6px; top:${s.index*60+12}px; position: absolute; background: #DBDBDB; border-radius: 9999px"></div>
-                    <div style="width: 172px; height: 1px; left: 1px; top: ${s.index * 60 + 52}px; position: absolute; background: #D9D9D9"></div>
-                          <div style="left: 41px; top: ${s.index * 60 + 24}px; position: absolute; color: black; font-size: 13px; font-family: Inter; font-weight: 400; word-wrap: break-word">
-                              ${group.group_name}</div>
-                </td>
-               </tr>
-             </c:forEach>
-         </table>
-      </div>
-      
-      <!-- 그룹 원 색상 변경 -->
-      <!-- <script>
+	<div class="group_main_box">
+		<div
+			style="width: 198px; height: 731px; left: 0px; top: 0px; position: absolute; background: rgba(255, 255, 255, 0.70); border: 1px black solid"></div>
+		<div
+			style="width: 196px; height: 1px; left: 1px; top: 111px; position: absolute; background: #DBDBDB"></div>
+		<div
+			style="left: 15px; top: 71px; position: absolute; color: black; font-size: 20px; font-family: Inter; font-weight: 500; word-wrap: break-word">Group</div>
+		
+		<!-- 그룹 만들기 버튼 -->
+		<div id=groupjoin
+			style="width: 14px; height: 14px; left: 172px; top: 85.11px; position: absolute; background: black"></div>
+
+		<div id="myPopup" class="popup">
+			<span class="close_groupjoin" onclick="closePopup1()">&times;</span>
+			<div class="popup-content">
+				<h5>그룹생성하기</h5>
+				<form action="NewgroupService.do" method="post">
+					<li><input type="text" name="group_name"
+						placeholder="그룹명을 입력하세요"></li>
+					<li><input type="text" name="group_info"
+						placeholder="그룹소개를 입력하세요"></li>
+					<li><input type="number" name="group_limit"
+						placeholder="그룹 정원"></li> <input type="submit" value="그룹 생성">
+				</form>
+			</div>
+		</div>
+		
+		<!-- 가입한 그룹 띄우기 -->
+		<div class="group_button" style="top: 120px;">
+			<table>
+				<%
+				Member logiMember2Member = (Member) session.getAttribute("loginMember");
+				List<Group> groupList = null;
+				if (logiMember2Member != null) {
+					groupList = new GroupDAO().groupList(logiMember2Member.getUser_id());
+					pageContext.setAttribute("groupList", groupList);
+				}
+				%>
+				<c:forEach items="${groupList}" var="group" varStatus="s">
+					<tr>
+						<td>
+							<div class="group_button_bg"></div>
+							<div
+								style="width: 30px; height: 30px; left: 6px; top:${s.index*60+12}px; position: absolute; background: #DBDBDB; border-radius: 9999px"></div>
+							<div
+								style="width: 172px; height: 1px; left: 1px; top: ${s.index * 60 + 52}px; position: absolute; background: #D9D9D9"></div>
+							<div
+								style="left: 41px; top: ${s.index * 60 + 24}px; position: absolute; color: black; font-size: 13px; font-family: Inter; font-weight: 400; word-wrap: break-word">
+								${group.group_name}</div>
+						</td>
+					</tr>
+				</c:forEach>
+			</table>
+		</div>
+		
+	</div>
+
+		<!-- 그룹 원 색상 변경 -->
+		<!-- <script>
           function randomColor() {
               var letters = '0123456789ABCDEF';
               var color = '#';
@@ -478,198 +518,267 @@
           }
       </script> -->
 
-        
-        <!-- 그룹 만들기 버튼 -->
-		<div id=groupjoin
-			style="width: 14px; height: 14px; left: 172px; top: 85.11px; position: absolute; background: black"></div>
-			
-			
-		<div id="myPopup" class="popup">
-		    <span class="close_groupjoin" onclick="closePopup1()">&times;</span>
-		    <div class="popup-content">
-		        <h5>그룹생성하기</h5>
-		        <form action="NewgroupService.do" method="post">
-		            <li><input type="text" name="group_name" placeholder="그룹명을 입력하세요"></li>
-		            <li><input type="text" name="group_info" placeholder="그룹소개를 입력하세요"></li>
-		            <li><input type="number" name="group_limit" placeholder="그룹 정원"></li>
-		            <input type="submit" value="그룹 생성">
-		        </form>
-		    </div>
+
+		
+
+
+		<!-- person & chat -->
+		<div id="sidebar" class="sidebar">
+			<div
+				style="width: 1082px; height: 731px; left: 0px; top: 0px; position: absolute">
+				<div
+					style="width: 1082px; height: 731px; left: 0px; top: 0px; position: absolute; background: #ECECEC; border: 1px black solid"></div>
+				<div
+					style="width: 865px; height: 59px; left: 215px; top: 1px; position: absolute; background: white"></div>
+				<!-- 채팅 출력창 -->
+				<div id="chatbox"></div>
+				<div
+					style="width: 250px; height: 59px; left: 831px; top: 1px; position: absolute; background: white"></div>
+				<div
+					style="width: 205px; height: 29px; left: 831px; top: 16px; position: absolute; background: #F1F1F5; border-radius: 30px"></div>
+				<div
+					style="width: 14px; height: 14px; left: 1012px; top: 24px; position: absolute; background: #DBDBDB"></div>
+				<div
+					style="width: 865px; height: 1px; left: 215px; top: 60px; position: absolute; background: #DBDBDB"></div>
+				<div
+					style="width: 142px; height: 59px; left: 215px; top: 1px; position: absolute; background: #F7F7F7"></div>
+				<div
+					style="width: 71px; height: 59px; left: 215px; top: 1px; position: absolute; background: white"></div>
+				<div
+					style="width: 71px; height: 59px; left: 286px; top: 1px; position: absolute; background: white"></div>
+				<!-- 그룹이름 -->
+				<div
+					style="left: 286px; top: 29px; position: absolute; color: black; font-size: 15px; font-family: Inter; font-weight: 400; word-wrap: break-word">
+					해당 그룹이름을 넣어야함</div>
+				<div
+					style="width: 215px; height: 731px; left: 0px; top: 0px; position: absolute; background: white; border: 1px black solid"></div>
+				<div
+					style="width: 213px; height: 59px; left: 1px; top: 1px; position: absolute; background: #F7F7F7"></div>
+				<div
+					style="width: 105px; height: 59px; left: 109px; top: 1px; position: absolute">
+					<div
+						style="width: 105px; height: 59px; left: 0px; top: 0px; position: absolute; background: #F7F7F7"></div>
+					<div
+						style="width: 14px; height: 14px; left: 71px; top: 23px; position: absolute; background: #DBDBDB"></div>
+				</div>
+				<div
+					style="width: 213px; height: 1px; left: 1px; top: 60px; position: absolute; background: #DBDBDB"></div>
+				<div
+					style="width: 105px; height: 59px; left: 1px; top: 1px; position: absolute">
+					<div
+						style="width: 105px; height: 59px; left: 0px; top: 0px; position: absolute; background: #F7F7F7"></div>
+					<div
+						style="left: 19px; top: 18px; position: absolute; color: black; font-size: 20px; font-family: Inter; font-weight: 500; word-wrap: break-word">
+						<%=logiMember2Member.getUser_id() %></div>
+				</div>
+				<div
+					style="width: 213px; height: 52px; left: 1px; top: 61px; position: absolute">
+					<div
+						style="width: 213px; height: 52px; left: 0px; top: 0px; position: absolute; background: white"></div>
+					<div
+						style="width: 205px; height: 29px; left: 4px; top: 12px; position: absolute; background: #F1F1F5; border-radius: 30px"></div>
+					<div
+						style="width: 14px; height: 14px; left: 179px; top: 20px; position: absolute; background: #DBDBDB"></div>
+				</div>
+				<div
+					style="width: 213px; height: 53px; left: 1px; top: 113px; position: absolute">
+					<div
+						style="width: 180px; height: 1px; left: 33px; top: 52px; position: absolute; background: #DBDBDB"></div>
+					<div
+						style="width: 213px; height: 52px; left: 0px; top: 0px; position: absolute; background: white"></div>
+					<div
+						style="width: 135.91px; height: 21.15px; left: 68.54px; top: 15.87px; position: absolute; color: black; font-size: 20px; font-family: Inter; font-weight: 500; word-wrap: break-word">
+						그룹인원1</div>
+					<div
+						style="width: 34px; height: 52px; left: 0px; top: 0px; position: absolute; background: white"></div>
+					<div
+						style="width: 30px; height: 30px; left: 34px; top: 11px; position: absolute; background: #FEE292; border-radius: 9999px"></div>
+				</div>
+				<div
+					style="width: 213px; height: 53px; left: 1px; top: 166px; position: absolute">
+					<div
+						style="width: 180px; height: 1px; left: 33px; top: 52px; position: absolute; background: #DBDBDB"></div>
+					<div
+						style="width: 34px; height: 52px; left: 0px; top: 0px; position: absolute; background: white"></div>
+					<div
+						style="width: 213px; height: 52px; left: 0px; top: 0px; position: absolute; background: white"></div>
+					<div
+						style="width: 135.91px; height: 21.15px; left: 68.54px; top: 15.87px; position: absolute; color: black; font-size: 20px; font-family: Inter; font-weight: 500; word-wrap: break-word">
+						그룹인원2</div>
+					<div
+						style="width: 30px; height: 30px; left: 34px; top: 11px; position: absolute; background: #FF6B6B; border-radius: 9999px"></div>
+				</div>
+				<div
+					style="width: 213px; height: 53px; left: 1px; top: 219px; position: absolute">
+					<div
+						style="width: 180px; height: 1px; left: 33px; top: 52px; position: absolute; background: #DBDBDB"></div>
+					<div
+						style="width: 34px; height: 52px; left: 0px; top: 0px; position: absolute; background: white"></div>
+					<div
+						style="width: 213px; height: 52px; left: 0px; top: 0px; position: absolute; background: white"></div>
+					<div
+						style="width: 135.91px; height: 21.15px; left: 68.54px; top: 15.87px; position: absolute; color: black; font-size: 20px; font-family: Inter; font-weight: 500; word-wrap: break-word">
+						그룹인원3</div>
+					<div
+						style="width: 30px; height: 30px; left: 34px; top: 11px; position: absolute; background: #E8CBCB; border-radius: 9999px"></div>
+				</div>
+				<div
+					style="width: 30px; height: 30px; left: 250px; top: 16px; position: absolute; background: #D9D9D9; border-radius: 9999px"></div>
+			</div>
+			<div
+				style="width: 213px; height: 59px; left: 1px; top: 671px; position: absolute">
+				<div
+					style="width: 213px; height: 59px; left: 0px; top: 0px; position: absolute; background: #F7F7F7"></div>
+				<div
+					style="width: 40px; height: 40px; left: 16px; top: 10px; position: absolute; background: #FEE292; border-radius: 9999px"></div>
+				<div
+					style="left: 62px; top: 24px; position: absolute; color: black; font-size: 20px; font-family: Noto Sans KR; font-weight: 500; word-wrap: break-word">me</div>
+			</div>
+			<!-- 타이핑란 -->
+			<div
+				style="width: 865px; height: 59px; left: 218px; top: 672px; position: absolute">
+				<div
+					style="width: 865px; height: 59px; left: 0px; top: 0px; position: absolute; background: white"></div>
+				<div
+					style="width: 748px; height: 29px; left: 58px; top: 17px; position: absolute; background: #EEEEF5; border-radius: 30px"
+					contenteditable="true" id="message"></div>
+				<div
+					style="width: 14px; height: 14px; left: 11px; top: 23px; position: absolute; background: #D9D9D9"></div>
+				<div
+					style="width: 14px; height: 14px; left: 34px; top: 23px; position: absolute; background: #D9D9D9"></div>
+				<div
+					style="width: 13px; height: 14px; left: 760px; top: 23px; position: absolute; background: #D9D9D9"
+					id="button" onclick="sendMessage()"></div>
+			</div>
 		</div>
-		
-		
-
-		<script>
-			// 팝업 표시 함수
-			function showPopup() {
-				document.getElementById("myPopup").style.display = "block";
-			}
-
-			// 팝업 숨김 함수
-			function closePopup1() {
-				document.getElementById("myPopup").style.display = "none";
-			}
-
-			// 요소 클릭 시 팝업 표시
-			document.getElementById("groupjoin").addEventListener("click",
-					function() {
-						showPopup();
-					});
-		</script>
-       
-      <!-- backbutton -->
-        <!-- <a href="javascript:void(0)" class="close-btn" onclick="closeNav()">
-            <div style="width: 10px; height: 5px; left: 5px; top: 7.50px; position: absolute; border: 2px #212121 solid"></div>
-        </a> -->
-    </div>
-
-    <!-- person & chat -->
-    <div id="sidebar" class="sidebar" >
-        <div style="width: 1082px; height: 731px; left: 0px; top: 0px; position: absolute">
-            <div style="width: 1082px; height: 731px; left: 0px; top: 0px; position: absolute; background: #ECECEC; border: 1px black solid"></div>
-            <div style="width: 865px; height: 59px; left: 215px; top: 1px; position: absolute; background: white"></div>
-            <!-- 채팅 출력창 -->
-            <div id="chatbox" ></div>
-            <div style="width: 250px; height: 59px; left: 831px; top: 1px; position: absolute; background: white"></div>
-            <div style="width: 205px; height: 29px; left: 831px; top: 16px; position: absolute; background: #F1F1F5; border-radius: 30px"></div>
-            <div style="width: 14px; height: 14px; left: 1012px; top: 24px; position: absolute; background: #DBDBDB"></div>
-            <div style="width: 865px; height: 1px; left: 215px; top: 60px; position: absolute; background: #DBDBDB"></div>
-            <div style="width: 142px; height: 59px; left: 215px; top: 1px; position: absolute; background: #F7F7F7"></div>
-            <div style="width: 71px; height: 59px; left: 215px; top: 1px; position: absolute; background: white"></div>
-            <div style="width: 71px; height: 59px; left: 286px; top: 1px; position: absolute; background: white"></div>
-            <!-- 그룹이름 -->
-            <div style="left: 286px; top: 29px; position: absolute; color: black; font-size: 15px; font-family: Inter; font-weight: 400; word-wrap: break-word">
-               해당 그룹이름을 넣어야함</div>
-            <div style="width: 215px; height: 731px; left: 0px; top: 0px; position: absolute; background: white; border: 1px black solid"></div>
-            <div style="width: 213px; height: 59px; left: 1px; top: 1px; position: absolute; background: #F7F7F7"></div>
-            <div style="width: 105px; height: 59px; left: 109px; top: 1px; position: absolute">
-                <div style="width: 105px; height: 59px; left: 0px; top: 0px; position: absolute; background: #F7F7F7"></div>
-                <div style="width: 14px; height: 14px; left: 71px; top: 23px; position: absolute; background: #DBDBDB"></div>
-            </div>
-            <div style="width: 213px; height: 1px; left: 1px; top: 60px; position: absolute; background: #DBDBDB"></div>
-            <div style="width: 105px; height: 59px; left: 1px; top: 1px; position: absolute">
-                <div style="width: 105px; height: 59px; left: 0px; top: 0px; position: absolute; background: #F7F7F7"></div>
-                <div style="left: 19px; top: 18px; position: absolute; color: black; font-size: 20px; font-family: Inter; font-weight: 500; word-wrap: break-word">
-                   <%=logiMember2Member.getUser_id() %></div>
-            </div>
-            <div style="width: 213px; height: 52px; left: 1px; top: 61px; position: absolute">
-                <div style="width: 213px; height: 52px; left: 0px; top: 0px; position: absolute; background: white"></div>
-                <div style="width: 205px; height: 29px; left: 4px; top: 12px; position: absolute; background: #F1F1F5; border-radius: 30px"></div>
-                <div style="width: 14px; height: 14px; left: 179px; top: 20px; position: absolute; background: #DBDBDB"></div>
-            </div>
-            <div style="width: 213px; height: 53px; left: 1px; top: 113px; position: absolute">
-                <div style="width: 180px; height: 1px; left: 33px; top: 52px; position: absolute; background: #DBDBDB"></div>
-                <div style="width: 213px; height: 52px; left: 0px; top: 0px; position: absolute; background: white"></div>
-                <div style="width: 135.91px; height: 21.15px; left: 68.54px; top: 15.87px; position: absolute; color: black; font-size: 20px; font-family: Inter; font-weight: 500; word-wrap: break-word">
-                   그룹인원1</div>
-                <div style="width: 34px; height: 52px; left: 0px; top: 0px; position: absolute; background: white"></div>
-                <div style="width: 30px; height: 30px; left: 34px; top: 11px; position: absolute; background: #FEE292; border-radius: 9999px"></div>
-            </div>
-            <div style="width: 213px; height: 53px; left: 1px; top: 166px; position: absolute">
-                <div style="width: 180px; height: 1px; left: 33px; top: 52px; position: absolute; background: #DBDBDB"></div>
-                <div style="width: 34px; height: 52px; left: 0px; top: 0px; position: absolute; background: white"></div>
-                <div style="width: 213px; height: 52px; left: 0px; top: 0px; position: absolute; background: white"></div>
-                <div style="width: 135.91px; height: 21.15px; left: 68.54px; top: 15.87px; position: absolute; color: black; font-size: 20px; font-family: Inter; font-weight: 500; word-wrap: break-word">
-                   그룹인원2</div>
-                <div style="width: 30px; height: 30px; left: 34px; top: 11px; position: absolute; background: #FF6B6B; border-radius: 9999px"></div>
-            </div>
-            <div style="width: 213px; height: 53px; left: 1px; top: 219px; position: absolute">
-                <div style="width: 180px; height: 1px; left: 33px; top: 52px; position: absolute; background: #DBDBDB"></div>
-                <div style="width: 34px; height: 52px; left: 0px; top: 0px; position: absolute; background: white"></div>
-                <div style="width: 213px; height: 52px; left: 0px; top: 0px; position: absolute; background: white"></div>
-                <div style="width: 135.91px; height: 21.15px; left: 68.54px; top: 15.87px; position: absolute; color: black; font-size: 20px; font-family: Inter; font-weight: 500; word-wrap: break-word">
-                   그룹인원3</div>
-                <div style="width: 30px; height: 30px; left: 34px; top: 11px; position: absolute; background: #E8CBCB; border-radius: 9999px"></div>
-            </div>
-            <div style="width: 30px; height: 30px; left: 250px; top: 16px; position: absolute; background: #D9D9D9; border-radius: 9999px"></div>
-        </div>
-        <div style="width: 213px; height: 59px; left: 1px; top: 671px; position: absolute">
-            <div style="width: 213px; height: 59px; left: 0px; top: 0px; position: absolute; background: #F7F7F7"></div>
-            <div style="width: 40px; height: 40px; left: 16px; top: 10px; position: absolute; background: #FEE292; border-radius: 9999px"></div>
-            <div style="left: 62px; top: 24px; position: absolute; color: black; font-size: 20px; font-family: Noto Sans KR; font-weight: 500; word-wrap: break-word">me</div>
-        </div>
-        <!-- 타이핑란 -->
-        <div style="width: 865px; height: 59px; left: 218px; top: 672px; position: absolute">
-            <div style="width: 865px; height: 59px; left: 0px; top: 0px; position: absolute; background: white"></div>
-            <div style="width: 748px; height: 29px; left: 58px; top: 17px; position: absolute; background: #EEEEF5; border-radius: 30px"
-                contenteditable="true" id="message"  ></div>
-            <div style="width: 14px; height: 14px; left: 11px; top: 23px; position: absolute; background: #D9D9D9"></div>
-            <div style="width: 14px; height: 14px; left: 34px; top: 23px; position: absolute; background: #D9D9D9"></div>
-            <div style="width: 13px; height: 14px; left: 760px; top: 23px; position: absolute; background: #D9D9D9"
-               id="button" onclick="sendMessage()">
-            </div>
-        </div>
-    </div>
 
 
-        <!-- footer -->
-        <div class="footer" style="width: 1920px; height: 252px; left: 0px; top: 1042px; position: absolute">
-            <div style="width: 1920px; height: 252px; left: 0px; top: 0px; position: absolute; background: white"></div>
-            <div style="width: 1920px; height: 1px; left: 0px; top: 2px; position: absolute; background: #DBDBDB"></div>
-            <div style="left: 751px; top: 56px; position: absolute; color: black; font-size: 16px; font-family: Noto Sans KR; font-weight: 500; line-height: 16px; word-wrap: break-word">Group</div>
-            <div style="left: 1095px; top: 57px; position: absolute; color: black; font-size: 16px; font-family: Noto Sans KR; font-weight: 500; line-height: 16px; word-wrap: break-word">My page</div>
-            <div style="left: 835px; top: 56px; position: absolute; color: black; font-size: 16px; font-family: Noto Sans KR; font-weight: 500; line-height: 16px; word-wrap: break-word";
-               class="cal-link" onclick="location.href='cal.jsp'" >Callender</div>
-            <div style="left: 1017px; top: 57px; position: absolute; color: black; font-size: 16px; font-family: Noto Sans KR; font-weight: 500; line-height: 16px; word-wrap: break-word">Point</div>
-            <div style="left: 943px; top: 57px; position: absolute; color: black; font-size: 16px; font-family: Noto Sans KR; font-weight: 500; line-height: 16px; word-wrap: break-word">Chat</div>
-            <div style="left: 902px; top: 180px; position: absolute; color: #797979; font-size: 15px; font-family: Noto Sans KR; font-weight: 350; line-height: 15px; word-wrap: break-word">Ifive@naver.com</div>
-            <div style="width: 35px; height: 35px; left: 791px; top: 109px; position: absolute">
-                <div style="width: 35px; height: 35px; left: 0px; top: 0px; position: absolute; background: #C4C4C4"></div>
-                <div style="width: 35px; height: 35px; left: 0px; top: 0px; position: absolute; background: #C4C4C4; border-radius: 9999px"></div>
-            </div>
-            <div style="width: 35px; height: 35px; left: 892px; top: 109px; position: absolute">
-                <div style="width: 35px; height: 35px; left: 0px; top: 0px; position: absolute; background: black; border-radius: 9999px"></div>
-                <div style="width: 22.96px; height: 22.98px; left: 6.02px; top: 6.02px; position: absolute">
-                    <div style="width: 18.05px; height: 18.05px; left: 2.73px; top: 2.10px; position: absolute; background: white"></div>
-                    <div style="width: 22.96px; height: 22.98px; left: 0px; top: 0px; position: absolute; background: black"></div>
-                </div>
-                <div style="width: 20.78px; height: 20.78px; left: 7.11px; top: 7.11px; position: absolute">
-                    <div style="width: 20.78px; height: 20.78px; left: 0px; top: 0px; position: absolute; background: black"></div>
-                    <div style="width: 19.68px; height: 18.20px; left: 0.61px; top: 1.34px; position: absolute; background: white"></div>
-                    <div style="width: 4.41px; height: 5.28px; left: 2.39px; top: 6.89px; position: absolute; background: black"></div>
-                    <div style="width: 4.51px; height: 5.38px; left: 5.54px; top: 6.79px; position: absolute; background: black"></div>
-                    <div style="width: 3.63px; height: 5.29px; left: 10.20px; top: 6.79px; position: absolute; background: black"></div>
-                    <div style="width: 4.15px; height: 5.34px; left: 13.91px; top: 6.80px; position: absolute; background: black"></div>
-                </div>
-            </div>
-        </div>
+		<!-- footer -->
+		<div class="footer"
+			style="width: 1920px; height: 252px; left: 0px; top: 1042px; position: absolute">
+			<div
+				style="width: 1920px; height: 252px; left: 0px; top: 0px; position: absolute; background: white"></div>
+			<div
+				style="width: 1920px; height: 1px; left: 0px; top: 2px; position: absolute; background: #DBDBDB"></div>
+			<div
+				style="left: 751px; top: 56px; position: absolute; color: black; font-size: 16px; font-family: Noto Sans KR; font-weight: 500; line-height: 16px; word-wrap: break-word">Group</div>
+			<div
+				style="left: 1095px; top: 57px; position: absolute; color: black; font-size: 16px; font-family: Noto Sans KR; font-weight: 500; line-height: 16px; word-wrap: break-word">My
+				page</div>
+			<div
+				style="left: 835px; top: 56px; position: absolute; color: black; font-size: 16px; font-family: Noto Sans KR; font-weight: 500; line-height: 16px; word-wrap: break-word"
+				;
+               class="cal-link" onclick="location.href='cal.jsp'">Callender</div>
+			<div
+				style="left: 1017px; top: 57px; position: absolute; color: black; font-size: 16px; font-family: Noto Sans KR; font-weight: 500; line-height: 16px; word-wrap: break-word">Point</div>
+			<div
+				style="left: 943px; top: 57px; position: absolute; color: black; font-size: 16px; font-family: Noto Sans KR; font-weight: 500; line-height: 16px; word-wrap: break-word">Chat</div>
+			<div
+				style="left: 902px; top: 180px; position: absolute; color: #797979; font-size: 15px; font-family: Noto Sans KR; font-weight: 350; line-height: 15px; word-wrap: break-word">Ifive@naver.com</div>
+			<div
+				style="width: 35px; height: 35px; left: 791px; top: 109px; position: absolute">
+				<div
+					style="width: 35px; height: 35px; left: 0px; top: 0px; position: absolute; background: #C4C4C4"></div>
+				<div
+					style="width: 35px; height: 35px; left: 0px; top: 0px; position: absolute; background: #C4C4C4; border-radius: 9999px"></div>
+			</div>
+			<div
+				style="width: 35px; height: 35px; left: 892px; top: 109px; position: absolute">
+				<div
+					style="width: 35px; height: 35px; left: 0px; top: 0px; position: absolute; background: black; border-radius: 9999px"></div>
+				<div
+					style="width: 22.96px; height: 22.98px; left: 6.02px; top: 6.02px; position: absolute">
+					<div
+						style="width: 18.05px; height: 18.05px; left: 2.73px; top: 2.10px; position: absolute; background: white"></div>
+					<div
+						style="width: 22.96px; height: 22.98px; left: 0px; top: 0px; position: absolute; background: black"></div>
+				</div>
+				<div
+					style="width: 20.78px; height: 20.78px; left: 7.11px; top: 7.11px; position: absolute">
+					<div
+						style="width: 20.78px; height: 20.78px; left: 0px; top: 0px; position: absolute; background: black"></div>
+					<div
+						style="width: 19.68px; height: 18.20px; left: 0.61px; top: 1.34px; position: absolute; background: white"></div>
+					<div
+						style="width: 4.41px; height: 5.28px; left: 2.39px; top: 6.89px; position: absolute; background: black"></div>
+					<div
+						style="width: 4.51px; height: 5.38px; left: 5.54px; top: 6.79px; position: absolute; background: black"></div>
+					<div
+						style="width: 3.63px; height: 5.29px; left: 10.20px; top: 6.79px; position: absolute; background: black"></div>
+					<div
+						style="width: 4.15px; height: 5.34px; left: 13.91px; top: 6.80px; position: absolute; background: black"></div>
+				</div>
+			</div>
+		</div>
 
-        <div class="layer"></div>
-		
-		
+		<div class="layer"></div>
+
+
 		<!-- 중앙 -->
-        <div style="width: 798px; height: 1092px; left: 561px; top: 100px; position: absolute">
-            <div style="width: 797px; height: 1092px; left: 0px; top: 0px; position: absolute; background: #F6CFCF"></div>
-            <div style="width: 1px; height: 1092px; left: -1px; top: 0px; position: absolute; background: #DBDBDB"></div>
-            <div style="width: 1px; height: 1092px; left: 797px; top: 0px; position: absolute; background: #DBDBDB"></div>
-            <div style="width: 797px; height: 194px; left: 0px; top: 0px; position: absolute">
-                <div style="width: 797px; height: 194px; left: 0px; top: 0px; position: absolute">
-                    <div style="width: 797px; height: 194px; left: 0px; top: 0px; position: absolute; background: white"></div>
-                    <div style="width: 797px; height: 30px; left: 0px; top: 50px; position: absolute; background: white"></div>
-                    <div style="width: 72px; height: 30px; left: 50px; top: 50px; position: absolute">
-                        <div style="width: 72px; height: 30px; left: 0px; top: 0px; position: absolute; background: white"></div>
-                        <div style="left: 0px; top: 0px; position: absolute; color: black; font-size: 25px; font-family: Inter; font-weight: 700; word-wrap: break-word">Board</div>
-                    </div>
-                </div>
-                <div style="width: 797px; height: 48px; left: 0px; top: 120px; position: absolute">
-                    <div style="width: 797px; height: 48px; left: 0px; top: 0px; position: absolute; background: white"></div>
-                    <div style="width: 513px; height: 44px; left: 224px; top: 2px; position: absolute">
-                        <div id="search_bar" style="width: 513px; height: 44px; left: 0px; top: 0px; position: absolute; background: #F1F1F1; border-radius: 30px"></div>
-                        <div style="width: 24px; height: 24px; left: 469px; top: 10px; position: absolute; background: #E2ACAC"></div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- 채팅방 명단 -->
-            <div style="width: 797px; height: 898px; left: 0px; top: 194px; position: absolute">
-                <div style="width: 797px; height: 898px; left: 0px; top: 0px; position: absolute; background: white"></div>
-                <div style="width: 682px; height: 52px; left: 57px; top: 0px; position: absolute; background: white"></div>
-                <div style="width: 682px; height: 1px; left: 57px; top: 51px; position: absolute; background: #DBDBDB"></div>
-                <div id="groupIntroTitle"  style="left: 105px; top: 12px; position: absolute; color: black; font-size: 15px; font-family: Inter; font-weight: 400; word-wrap: break-word; cursor: pointer">
-                	그룹 소개 타이틀!</div>
-                <div style="width: 30px; height: 30px; left: 67px; top: 11px; position: absolute; background: #D9D9D9; border-radius: 9999px"></div>
-                
-                <div class="chattingRoom_button" style="top: 194px;">
+		<div
+			style="width: 798px; height: 1092px; left: 561px; top: 100px; position: absolute">
+			<div
+				style="width: 797px; height: 1092px; left: 0px; top: 0px; position: absolute; background: #F6CFCF"></div>
+			<div
+				style="width: 1px; height: 1092px; left: -1px; top: 0px; position: absolute; background: #DBDBDB"></div>
+			<div
+				style="width: 1px; height: 1092px; left: 797px; top: 0px; position: absolute; background: #DBDBDB"></div>
+			<div
+				style="width: 797px; height: 194px; left: 0px; top: 0px; position: absolute">
+				<div
+					style="width: 797px; height: 194px; left: 0px; top: 0px; position: absolute">
+					<div
+						style="width: 797px; height: 194px; left: 0px; top: 0px; position: absolute; background: white"></div>
+					<div
+						style="width: 797px; height: 30px; left: 0px; top: 50px; position: absolute; background: white"></div>
+					<div
+						style="width: 72px; height: 30px; left: 50px; top: 50px; position: absolute">
+						<div
+							style="width: 72px; height: 30px; left: 0px; top: 0px; position: absolute; background: white"></div>
+						<div
+							style="left: 0px; top: 0px; position: absolute; color: black; font-size: 25px; font-family: Inter; font-weight: 700; word-wrap: break-word">Board</div>
+					</div>
+				</div>
+				<div
+					style="width: 797px; height: 48px; left: 0px; top: 120px; position: absolute">
+					<div
+						style="width: 797px; height: 48px; left: 0px; top: 0px; position: absolute; background: white"></div>
+					<div
+						style="width: 513px; height: 44px; left: 224px; top: 2px; position: absolute">
+						<div id="search_bar"
+							style="width: 513px; height: 44px; left: 0px; top: 0px; position: absolute; background: #F1F1F1; border-radius: 30px"></div>
+						<div
+							style="width: 24px; height: 24px; left: 469px; top: 10px; position: absolute; background: #E2ACAC"></div>
+					</div>
+				</div>
+			</div>
+
+			<!-- 채팅방 명단 -->
+			<div
+				style="width: 797px; height: 898px; left: 0px; top: 194px; position: absolute">
+				 <div
+					style="width: 797px; height: 898px; left: 0px; top: 0px; position: absolute; background: white"></div>
+				<div
+					style="width: 30px; height: 30px; left: 67px; top: 11px; position: absolute; background: #D9D9D9; border-radius: 9999px"></div> 
+
+				<div style="top: 194px;">
+				
+				
+				<c:forEach items="${chattingRoomList}" var="chattingRoom" varStatus="s">
+					<div id="ChattingRoomInfoPopup_${s.index }" class="popup">
+						<span class="close_ChattingRoomInfo" style="cursor:pointer;" onclick="closePopup2(${index})">&times;</span>
+						<div class="popup-content">
+							<h5>그룹정보</h5>
+							<form action="GroupRequestService.do" method="post">
+								<li>그룹이름: ${chattingRoom.group_name} }</li>
+								<li>그룹정보: ${chattingRoom.GROUP_INFO }</li>
+								<li>그룹인원: ${GROUP_LIMIT }</li> 
+								<input type="submit" value="가입신청">
+							</form>
+						</div>
+					</div>
+				</c:forEach>
+				
 					<table>
 						<%
 						List<chattingRoom> chattingRoomList = null;
@@ -681,23 +790,44 @@
 							${chattingRoom}
 							<tr>
 								<td>
-									<div class="chattingRoom_bg"></div>
-										<div style="width: 682px; height: 52px; left: 57px; top: ${s.index*60+12}px; position: absolute; background: white"></div>
-										<div style="width: 682px; height: 1px; left: 57px; top: ${s.index * 60 + 52}px; position: absolute; background: #DBDBDB"></div>
-										<div id="chattingRoomTitle" style="left: 105px; top: ${s.index * 60 +5 }px; position: absolute; color: black; font-size: 15px; font-family: Inter; font-weight: 400; word-wrap: break-word; cursor: pointer">
-											${chattingRoom.group_name }</div>
-										<div style="width: 30px; height: 30px; left: 67px; top: ${s.index*60+12}px; position: absolute; background: #D9D9D9; border-radius: 9999px"></div>
+									<div class="chattingRoom"></div>
+									<div
+										id="ChattingRoomInfo" style="width: 682px; height: 52px; left: 57px; top: ${s.index*60}px; position: absolute; background: white; cursor: pointer;"></div>
+									<div
+										style="width: 682px; height: 1px; left: 57px; top: ${s.index * 60 + 52}px; position: absolute; background: #DBDBDB"></div>
+									<div id="chattingRoomTitle"
+										style="left: 105px; top: ${s.index * 60 +5 }px; position: absolute; color: black; font-size: 15px; font-family: Inter; font-weight: 400; word-wrap: break-word;">
+										${chattingRoom.group_name }</div>
+									<div
+										style="width: 30px; height: 30px; left: 67px; top: ${s.index*60+12}px; position: absolute; background: #D9D9D9; border-radius: 9999px"></div>
 								</td>
 							</tr>
 						</c:forEach>
 					</table>
 				</div>
-            </div>
-	
-				
+			</div>
 			
+			<script>
+			    /* // 각 chattingRoom_info 요소에 클릭 이벤트를 추가
+			     var chattingRoomInfos = document.querySelectorAll('.chattingRoom_info');
+			    chattingRoomInfos.forEach(function(info) {
+			        info.addEventListener('click', function() {
+			            // 팝업창을 열기 위한 함수 호출
+			            ChattingRoomInfoPopup();
+			        });
+			    });
+			    // 팝업창을 열기 위한 함수
+			    function ChattingRoomInfoPopup() {
+			        // 팝업창을 열거나 원하는 작업을 수행하세요.
+			        alert('채팅방 정보 팝업을 띄웁니다!');
+			    }  */
+			    
+			    
+			</script>
+
+
 		</div>
-		
+
 		<!-- 오른쪽 사이드 -->
 		<div
 			style="width: 240px; height: 1092px; left: 1360px; top: 100px; position: absolute">
@@ -843,171 +973,187 @@
 				</div>
 			</div>
 		</div>
+
+		<!-- top버튼 -->
+		<div class="button">
+			<div>
+				<button id="buttonStyle" onclick="scrollToTop()"></button>
+			</div>
+		</div>
+		<div class="write_button">
+			<div>
+				<button id="write_buttonStyle" onclick="openNewPopup()"
+					onclick="save()">글쓰기</button>
+			</div>
+		</div>
 		
-	
-	<div class="button" >
-        <div><button id="buttonStyle" onclick="scrollToTop()"></button></div>
-    </div>
-    <div class="write_button" >
-        <div><button id="write_buttonStyle" onclick="openNewPopup()" onclick="save()">글쓰기</button></div>
-    </div>
-	
-	<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> -->
 
-   <script>   
-	   document.addEventListener("DOMContentLoaded", function() { // 검색창 커서 기능
-	       var searchInput = document.getElementById("search_bar");
-	       searchInput.addEventListener("click", function() {
-	        var inputField = document.createElement("input");
-	        inputField.setAttribute("type", "text");
-	        inputField.setAttribute("style", "width: 100%; height: 100%; border: none; outline: none; background: transparent;");
-	       //  inputField.setAttribute("placeholder", "검색어를 입력하세요");
-	        inputField.focus();
-	        this.appendChild(inputField);
-	       });
-	   });
+		
+		<script>
+		/* 그룹생성 팝업 기능  */
+         // 팝업 표시 함수
+         function showPopup() {
+            document.getElementById("myPopup").style.display = "block";
+         }
+
+         // 팝업 숨김 함수
+         function closePopup1() {
+            document.getElementById("myPopup").style.display = "none";
+         }
+
+         // 요소 클릭 시 팝업 표시
+         document.getElementById("groupjoin").addEventListener("click",
+               function() {
+                  showPopup();
+               });
+         
+         /* 채팅정보 팝업 기능 */
+         function showPopup2(index) {
+        	 var popupId = "ChattingRoomInfoPopup_" + index;
+        	    var popup = document.getElementById(popupId);
+        	    popup.style.display = "block";
+          }
+
+          // 팝업 숨김 함수
+          function closePopup2() {
+        	  var popupId = "ChattingRoomInfoPopup_" + index;
+        	    var popup = document.getElementById(popupId);
+        	    popup.style.display = "none";
+          }
+
+          // 요소 클릭 시 팝업 표시
+          document.getElementById("ChattingRoomInfo").addEventListener("click",
+                function() {
+                   showPopup2();
+                });
+   		
+         // 검색창 커서
+		document.addEventListener("DOMContentLoaded", function() {
+		       var searchInput = document.getElementById("search_bar");
+		       searchInput.addEventListener("click", function() {
+		        var inputField = document.createElement("input");
+		        inputField.setAttribute("type", "text");
+		        inputField.setAttribute("style", "width: 100%; height: 100%; border: none; outline: none; background: transparent;");
+		       //  inputField.setAttribute("placeholder", "검색어를 입력하세요");
+		        inputField.focus();
+		        this.appendChild(inputField);
+		       });
+		   });
 			
-	   document.getElementById("groupIntroTitle").addEventListener("click", openPopup);
-
+		
+	    
+	    // 글쓰기 팝업
 	    function openPopup() {
-	      saveAndShowGroupInfo();
-	    } 
-	    
-	    function closePopup() {
-	        var popupWrapper= document.querySelector(".popup-wrapper");
-	        popupWrapper.parentNode.removeChild(popupWrapper);
-	    }
-	    
-	    function saveAndShowGroupInfo() {
-	        var groupNameInput = document.getElementById('groupName');
-	        var exampleInput = document.getElementById('example');
-	        var example2Input = document.getElementById('example2');
+			var popupContent = "<div class='popup'><h2>생성완료</h2> <button onclick='closePopup()'>확인</button> <p>그룹명 : "
+					+ groupName
+					+ "</p> <p>그룹인원 : "
+					+ example
+					+ " </p> <p>소개글(그룹설명) : " + example2 + " </div>";
 
-	        if (groupNameInput && exampleInput && example2Input) {
-	            var groupName = groupNameInput.value;
-	            var example = exampleInput.value;
-	            var example2 = example2Input.value;
+			// 팝업 창 요소 생성
+			var popupWrapper = document.createElement("div");
+			popupWrapper.classList.add("popup-wrapper");
+			popupWrapper.innerHTML = popupContent;
 
-	            if (groupName && example && example2) {
-	                // 팝업 창의 내용과 스타일을 설정
-	                var popupContent = "<div class='popup'><h2>생성완료</h2> <button onclick='closePopup()'>확인</button> <p>그룹명 : " + groupName + "</p> <p>그룹인원 : " + example + " </p> <p>소개글(그룹설명) : " + example2 + " </div>";
+			// 팝업 창을 body에 추가
+			document.body.appendChild(popupWrapper);
+		}
 
-	                // 팝업 창 요소 생성
-	                var popupWrapper = document.createElement("div");
-	                popupWrapper.classList.add("popup-wrapper");
-	                popupWrapper.innerHTML = popupContent;
-
-	                // 팝업 창을 body에 추가
-	                document.body.appendChild(popupWrapper);
-	            } else {
-	                alert("값을 모두 입력하세요.");
-	            }
-	        } else {
-	            alert("입력 필드를 찾을 수 없습니다.");
-	        }
-	    }
-
-	    	function openNewPopup(){
+			// 그룹 구인창 팝업
+			function openNewPopup() {
 				var popupContent = "<div class='popup'><h2>그룹구인창</h2> <button onclick='closePopup()'>등록</button> <p>그룹명 : </p><input type='text' id='groupName' placeholder='그룹명을 입력하세요'> <p>인원수:</p><input type='text' id='example'> <p>소개글:</p><input type='text' id='example2'></div>";
-					// 팝업 창 요소 생성
-					var popupWrapper = document.createElement("div");
-					popupWrapper.classList.add("popup-wrapper");
-					popupWrapper.innerHTML = popupContent;
+				// 팝업 창 요소 생성
+				var popupWrapper = document.createElement("div");
+				popupWrapper.classList.add("popup-wrapper");
+				popupWrapper.innerHTML = popupContent;
 
-					// 팝업 창을 body에 추가
-					document.body.appendChild(popupWrapper);
+				// 팝업 창을 body에 추가
+				document.body.appendChild(popupWrapper);
+			}
 
-					//   savedData = {
-					//         groupName: groupName,
-					//         example: example,
-					//         example2: example2
-					//     };
-				}
-				// 버튼을 클릭하면 페이지 맨 위로 스크롤합니다.
-				function scrollToTop() {
-					window.scrollTo({
-						top : 0,
-						behavior : "smooth" // 부드럽게 스크롤
-					});
-				}
+			// 버튼을 클릭하면 페이지 맨 위로 스크롤합니다.
+			function scrollToTop() {
+				window.scrollTo({
+					top : 0,
+					behavior : "smooth" // 부드럽게 스크롤
+				});
+			}
 
-				// 그룹 사이드바 기능
-				function openNav() {
-					document.getElementById("sidebar").style.width = "1250px";
-					document.querySelector(".footer").style.display = "block"; // 푸터 보이기
-				}
-				function closeNav() {
-					document.getElementById("sidebar").style.width = "0";
-				}
+			// 그룹 사이드바 기능
+			function openNav() {
+				document.getElementById("sidebar").style.width = "1250px";
+				document.querySelector(".footer").style.display = "block"; // 푸터 보이기
+			}
 
-				document.addEventListener('DOMContentLoaded',
-						function() {
-							const layer = document.querySelector('.layer');
-							const groupButton = document
-									.querySelector('.group_button');
+			function closeNav() {
+				document.getElementById("sidebar").style.width = "0";
+			}
 
-							groupButton.addEventListener('click', function() {
-								layer.style.display = 'block';
-								openNav(); // 사이드바를 열기
-							});
-							layer.addEventListener('click', function() {
-								layer.style.display = 'none';
-								closeNav(); // 사이드바를 닫기
-							});
-						});
+			document.addEventListener('DOMContentLoaded', function() {
+				const layer = document.querySelector('.layer');
+				const groupButton = document.querySelector('.group_button');
 
-				// 채팅 메세지 올리기
-				function sendMessage() {
-					// 입력 필드의 값을 가져옵니다.
-					const messageInput = document.getElementById('message');
-					const message = messageInput.innerText;
+				groupButton.addEventListener('click', function() {
+					layer.style.display = 'block';
+					openNav(); // 사이드바를 열기
+				});
+				layer.addEventListener('click', function() {
+					layer.style.display = 'none';
+					closeNav(); // 사이드바를 닫기
+				});
+			});
 
-					console.log("입력 메세지:" + message);
+			// 채팅 메세지 올리기
+			function sendMessage() {
+				// 입력 필드의 값을 가져옵니다.
+				const messageInput = document.getElementById('message');
+				const message = messageInput.innerText;
 
-					// AJAX 요청을 보냅니다.
-					$.ajax({
-						type : "POST",
-						url : "ChatService.do",
-						data : {
-							"message" : message
-						// 입력된 메시지를 서버로 보냅니다.
-						},
-						success : function(response) {
-							// 요청이 성공적으로 처리되었을 때의 작업
-							console.log("메세지 입력 완료");
-							console.log("Response:", response);
+				console.log("입력 메세지:" + message);
 
-							// 채팅 박스에 메시지를 추가합니다.
-							const chatbox = document.getElementById('chatbox');
-							const chatTextBox = document.createElement('div');
-							chatTextBox.className = 'chat-text-box';
-							chatTextBox.innerText = message;
+				// AJAX 요청을 보냅니다.
+				$.ajax({
+					type : "POST",
+					url : "ChatService.do",
+					data : {
+						"message" : message
+					// 입력된 메시지를 서버로 보냅니다.
+					},
+					success : function(response) {
+						// 요청이 성공적으로 처리되었을 때의 작업
+						console.log("메세지 입력 완료");
+						console.log("Response:", response);
 
-							// 메시지를 채팅 박스에 추가합니다.
-							chatbox.appendChild(chatTextBox);
-							// 채팅 박스를 스크롤하여 가장 최근의 메시지가 표시되도록 합니다.
-							chatbox.scrollTop = chatbox.scrollHeight;
+						// 채팅 박스에 메시지를 추가합니다.
+						const chatbox = document.getElementById('chatbox');
+						const chatTextBox = document.createElement('div');
+						chatTextBox.className = 'chat-text-box';
+						chatTextBox.innerText = message;
 
-							// 요청이 성공적으로 처리되면 입력 필드를 초기화합니다.
-							messageInput.innerText = '';
-						},
-						error : function(xhr, status, error) {
-							// 요청이 실패했을 때의 작업
-							console.error("Error sending message:", error);
-						}
-					});
-				}
-				document.getElementById('message').addEventListener('keydown',
-						function(event) {
-							// 이벤트가 Enter 키를 감지하는지 확인합니다.
-							if (event.key === 'Enter') {
-								// 기본 동작을 막습니다. (폼 제출 등)
-								event.preventDefault();
-								// 메시지를 보냅니다.
-								sendMessage();
-							}
-						});
-			</script>
-    
+						// 메시지를 채팅 박스에 추가합니다.
+						chatbox.appendChild(chatTextBox);
+						// 채팅 박스를 스크롤하여 가장 최근의 메시지가 표시되도록 합니다.
+						chatbox.scrollTop = chatbox.scrollHeight;
+
+						// 요청이 성공적으로 처리되면 입력 필드를 초기화합니다.
+						messageInput.innerText = '';
+					},
+					error : function(xhr, status, error) {
+						// 요청이 실패했을 때의 작업
+						console.error("Error sending message:", error);
+					}
+				});
+			}
+			document.getElementById('message').addEventListener('keydown',
+				function(event) {
+					// 이벤트가 Enter 키를 감지하는지 확인합니다.
+					if (event.key === 'Enter') {
+						// 기본 동작을 막습니다. (폼 제출 등)
+						event.preventDefault();
+						// 메시지를 보냅니다.
+						sendMessage();
+					}
+				});
+		</script>
 </body>
 </html>
