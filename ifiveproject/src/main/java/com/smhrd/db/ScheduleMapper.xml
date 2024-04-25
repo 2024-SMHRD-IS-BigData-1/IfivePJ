@@ -8,7 +8,7 @@
   	insert into athletics_plan_info values(plan_idx.nextval, #{user_id},#{ath_date},#{ath_time},#{ath_type},#{ath_duration},sysdate,#{ath_done},#{ath_reward})
   </insert>
   
-  <select id="selectAllByUserId" parameterType="String" resultType="com.smhrd.model.Schedule">
+  <select id="selectAllByUserId" parameterType="String" resultType="Schedule">
     SELECT * FROM athletics_plan_info WHERE user_id = #{userId}
 </select>
     

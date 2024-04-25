@@ -70,11 +70,6 @@
             </c:forEach>
             </table>   
 
-
-
-
-
-
     <script>
         // DOMContentLoaded 이벤트를 사용하여 페이지가 완전히 로드된 후에 함수를 실행
         document.addEventListener('DOMContentLoaded', function () {
