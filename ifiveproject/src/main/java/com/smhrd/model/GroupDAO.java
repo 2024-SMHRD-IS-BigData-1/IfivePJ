@@ -24,7 +24,13 @@ public class GroupDAO {
 		session.close();
 		return groupList;
 	}
-
+	
+	public List<Group> groupList() {
+		SqlSession session = sqlSessionFactory.openSession(true);
+		List<Group> groupList = session.selectList("com.smhrd.db.GroupMapper.AllgroupList");
+		session.close();
+		return groupList;
+	}
 
 
 
