@@ -9,5 +9,7 @@
 		(room_idx.NEXTVAL,#{user_id},#{group_name},#{group_info},#{group_limit},sysdate,#{group_status})
 	</insert>
 
-
+	<select id="chattingRoomList" resultType="chattingRoom" parameterType="String">
+	  	select * from chatroom_info
+	  </select>
 </mapper>
