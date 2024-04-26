@@ -1,7 +1,11 @@
+<%@page import="com.smhrd.model.DietDAO"%>
+<%@page import="com.smhrd.model.Diet"%>
 <%@page import="com.smhrd.model.Member"%>
 <%@page import="com.smhrd.model.ScheduleDAO"%>
 <%@page import="java.util.List"%>
 <%@page import="com.smhrd.model.Schedule"%>
+<%@page import="org.apache.ibatis.reflection.SystemMetaObject"%>
+<%@page import="com.smhrd.model.Member"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
    pageEncoding="UTF-8" isELIgnored="false"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -13,6 +17,12 @@
     <title>Document</title>
 
     <style>
+    @font-face {
+            font-family: 'Pretendard-Regular';
+            src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+            font-weight: 400;
+            font-style: normal;
+        }
         .box{
             width: 100%; 
             height: 100%; 
@@ -28,9 +38,10 @@
         }
 
 
+
         .callender_bg{
-            width: 500px; 
-            height: 695px; 
+            width: 1100px; 
+            height: 500px; 
             left: 0px; 
             top: 0px; 
             position: absolute; 
@@ -84,7 +95,7 @@
             position: absolute; 
             color: black; 
             font-size: 20px; 
-            font-family: Noto Sans KR; 
+            font-family: Pretendard-Regular; 
             font-weight: 500; 
             word-wrap: break-word
         }
@@ -129,7 +140,7 @@
             position: absolute; 
             color: #797979; 
             font-size: 15px; 
-            font-family: Noto Sans KR; 
+            font-family: Pretendard-Regular; 
             font-weight: 300; 
             word-wrap: break-word;
             border: none;
@@ -161,7 +172,7 @@
             position: absolute; 
             color: #797979; 
             font-size: 15px; 
-            font-family: Noto Sans KR; 
+            font-family: Pretendard-Regular; 
             font-weight: 300; 
             word-wrap: break-word;
             border: none;
@@ -200,7 +211,7 @@
             position: absolute; 
             color: #797979; 
             font-size: 12px; 
-            font-family: Noto Sans KR; 
+            font-family: Pretendard-Regular; 
             font-weight: 300; 
             word-wrap: break-word;
             border: none;
@@ -239,7 +250,7 @@
             position: absolute; 
             color: #797979; 
             font-size: 12px; 
-            font-family: Noto Sans KR; 
+            font-family: Pretendard-Regular; 
             font-weight: 300; 
             word-wrap: break-word;
             border: none;
@@ -249,7 +260,7 @@
 
         .adit_button_box1{
             width: 50px; 
-            height: 22px; 
+            height: 20px; 
             left: 445px; 
             top: 105px; 
             position: absolute;
@@ -269,11 +280,11 @@
         }
         .adit_button_box1_text{
             left: 11px; 
-            top: 0px; 
+            top: 3px; 
             position: absolute;
             color: white; 
             font-size: 15px; 
-            font-family: Noto Sans KR; 
+            font-family: Pretendard-Regular; 
             font-weight: 400; 
             word-wrap: break-word
         }
@@ -282,7 +293,7 @@
             width: 490px; 
             height: 169px; 
             left: 5px; 
-            top: 131px; 
+            top: 170px; 
             position: absolute
         }
         .record_exercise_box_bg{
@@ -302,7 +313,7 @@
             position: absolute; 
             color: #797979; 
             font-size: 15px; 
-            font-family: Noto Sans KR; 
+            font-family: Pretendard-Regular; 
             font-weight: 300; 
             word-wrap: break-word
         }
@@ -312,8 +323,8 @@
         .food_title_box1{
             width: 500px; 
             height: 31px; 
-            left: 0px; 
-            top: 351px; 
+            left: 520px; 
+            top: 0px; 
             position: absolute
         }
         .food_title_bar{
@@ -361,7 +372,7 @@
             position: absolute; 
             color: black; 
             font-size: 20px; 
-            font-family: Noto Sans KR; 
+            font-family: Pretendard-Regular; 
             font-weight: 500; 
             word-wrap: break-word
         }
@@ -415,7 +426,7 @@
             position: absolute; 
             color: #797979; 
             font-size: 15px; 
-            font-family: Noto Sans KR; 
+            font-family: Pretendard-Regular; 
             font-weight: 300; 
             word-wrap: break-word;
             border: none;
@@ -428,8 +439,8 @@
         .food_box{
             width: 500px; 
             height: 255px; 
-            left: 0px; 
-            top: 382px; 
+            left: 520px; 
+            top: 31px; 
             position: absolute;
         }
         .food_box_bg{
@@ -444,7 +455,7 @@
             width: 480px;
             height: 170px; 
             left: 10px; 
-            top: 75px; 
+            top: 170px; 
             position: absolute;
         }
         .record_food_box_bg2{
@@ -480,16 +491,16 @@
             position: absolute; 
             color: #797979; 
             font-size: 15px; 
-            font-family: Noto Sans KR; 
+            font-family: Pretendard-Regular; 
             font-weight: 300; 
             word-wrap: break-word;
         }
 
         .adit_button_box2{
             width: 50px; 
-            height: 22px; 
-            left: 440px; 
-            top: 49px; 
+            height: 20px; 
+            left: 435px; 
+            top: 21.5px; 
             position: absolute;
             border: none;
             outline: none;
@@ -507,11 +518,11 @@
         }
         .adit_button_box2_text{
             left: 11px; 
-            top: 0px; 
+            top: 3px; 
             position: absolute; 
             color: white; 
             font-size: 15px; 
-            font-family: Noto Sans KR; 
+            font-family: Pretendard-Regular; 
             font-weight: 400; 
             word-wrap: break-word;
         }
@@ -520,8 +531,8 @@
         .register_button_box{
             width: 70px; 
             height: 25px; 
-            left: 420px; 
-            top: 646px; 
+            left: 940px; 
+            top: 390px; 
             position: absolute;
             border: none;
             outline: none;
@@ -544,14 +555,213 @@
             position: absolute; 
             color: white; 
             font-size: 15px; 
-            font-family: Noto Sans KR; 
+            font-family: Pretendard-Regular; 
             font-weight: 400; 
             word-wrap: break-word
         }
     </style>
     
     
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+     
+    
+
+</head>
+<body>
+    <div class="box">
+        <div class="callender_bg"></div>
+
+        <!-- exercise -->
+        <div class="exercise_title_box1">
+            <div class="exercise_title_box1_bg"></div>
+            <div class="exercise_title_bar"></div>
+            <div class="exercise_title_text_box">
+                <div class="exercise_title_text_box_bg"></div>
+                <div class="exercise_title_text">Exercise</div>
+            </div>
+        </div>
+        <div class="exercise_box">
+            <div class="exercise_box_bg"></div>
+            <div class="what_exercise_box">
+                <div class="what_exercise_box_bg"></div>
+                <input type="text" class="what_exercise_type" placeholder="What..."/>
+            </div>
+            <div class="exercise_detail_box">
+                <div class="exercise_detail_box_bg"></div>
+                <input type="text" class="exercise_detail_type" placeholder="Details..."/>
+            </div>
+            <div class="when_day_box">
+                <div class="when_day_box_bg"></div>
+                <!-- <div class="when_day_box_img"></div> -->
+                <input type="date" name="ath_date" class="when_day_type" placeholder="Year-Month-Day"/>
+            </div>
+            <div class="when_time_box">
+                <div class="when_time_box_bg"></div>
+                <!-- <div class="when_time_box_img"></div> -->
+                <input type="time" name="ath_time" class="when_time_type">Time...</input>
+            </div>
+            <button onclick="submitEvent('schedule')" class="adit_button_box1">
+                <div class="adit_button_box1_bg"></div>
+                <div class="adit_button_box1_text">Adit</div>
+            </button>
+            <div class="record_exercise_box">
+                <div class="record_exercise_box_bg"></div>
+                <div class="exercise_record">Record...</div>
+                <!-- <div id="scheduleList"></div> -->
+
+            </div>
+        </div>
+
+        <!-- food -->
+        <div class="food_title_box1">
+            <div class="food_title_bar"></div>
+            <div class="food_title_box2">
+                <div class="food_title_box2_bg"></div>
+                <div class="food_title_text_box">
+                    <div class="food_title_text_box_bg"></div>
+                    <div class="food_title_text">Food</div>
+                </div>
+            </div>
+        </div>
+        <div class="food_box">
+            <div class="food_box_bg"></div>
+            <div class="what_food_box">
+                <div class="what_food_box_bg"></div>
+                <div class="what_food_type_box">
+                    <div class="what_food_type_box_bg"></div>
+                    <div class="what_food_type_img"></div>
+                    <input type="text" name="ath_type" class="what_food_type" placeholder="What..."/>
+                </div>
+            </div>
+            <button onclick="submitEvent('schedule')" class="adit_button_box2">
+                <div class="adit_button_box2_bg"></div>
+                <div class="adit_button_box2_text">Adit</div>
+            </button>
+            <div class="record_food_box2">
+                <div class="record_food_box_bg2"></div>
+                <div class="food_record_box">
+                    <div class="food_record_box_bg"></div>
+                    <div class="food_record">Record...</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- register button -->
+        <button class="register_button_box">
+            <div class="register_button_box_bg"></div>
+            <div class="register_button_text">Register</div>
+        </button>
+    </div>
+
+            
+         <%
+            Member loginMember = (Member)session.getAttribute("loginMember");
+            Diet eat_food = (Diet)session.getAttribute("eat_food");                      
+               String user_id = loginMember.getUser_id();
+               String eat_date = request.getParameter("date");
+               System.out.print(user_id+eat_date);
+               
+               Diet cal = new Diet(user_id,eat_date);              
+               List<Diet> dietList = new DietDAO().dietList(cal);
+               System.out.print(dietList.size());
+               pageContext.setAttribute("dietList", dietList);
+
+%>
+
+
+            <%-- <table>
+            <c:forEach items="${dietList }" var="diet" varStatus="s">
+               <tr>
+                <td>${s.count }</td>
+                <td>${diet.food_name}</td>
+                <td>${diet.intake_calory }</td>
+               </tr>
+            </c:forEach>
+            </table>   
+            <div class="record_food_box2">
+                <div class="record_food_box_bg2"></div>
+                <div class="food_record_box">
+                    <div class="food_record_box_bg"></div>
+                    <div class="food_record">Record...</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- register button -->
+        <button id="registerButton" class="register_button_box">
+            <div class="register_button_box_bg"></div>
+            <div class="register_button_text">Register</div>
+        </button>
+    </div> --%>
+     <script>
+        // DOMContentLoaded 이벤트를 사용하여 페이지가 완전히 로드된 후에 함수를 실행
+        document.addEventListener('DOMContentLoaded', function () {
+            // search_button() 함수를 클릭 이벤트에 연결
+            document.getElementById('search_button').addEventListener('click', search_button);
+        });
+
+        // 검색 버튼 클릭 시 실행될 함수
+        function search_button() {
+            var keyword = $('#search_area').val();
+
+            $.ajax({
+                url: 'GetFoodNames.do',
+                type: 'GET',
+                data: { 'keyword': keyword },
+                success: function (results) {
+                    console.log('Received data:', results);
+                    displayResults(results);
+                },
+                error: function (xhr, status, error) {
+                    console.error('Error:', error);
+                }
+            });
+        }
+
+        function displayResults(results) {
+            var list = '<ul class="food-list">';
+            $.each(results, function (index, item) {
+                list += '<li class="food-item" data-foodname="' + item.food_name + '" data-calory="' + item.intake_calory + '">' + item.food_name + ' (칼로리: ' + item.intake_calory + ')</li>';
+            });
+            list += '</ul>';
+
+            $('#searchBar').html(list);
+
+            // 각 음식 항목에 대한 클릭 이벤트 처리
+            $('.food-item').click(function () {
+                var selectedText = $(this).data('foodname');
+                var selectedCalory = $(this).data('calory');
+                var selectedDate = getSelectedDateFromURL();
+                console.log(selectedCalory);
+                $('#selectedItems').append('<div>' + selectedText + ' (칼로리: ' + selectedCalory + ')</div>');
+
+                // AJAX를 사용하여 서버로 선택된 음식 정보 전송
+                $.ajax({
+                    url: 'DietService.do',
+                    type: 'POST',
+                    data: {
+                        'food_name': selectedText,
+                        'intake_calory': selectedCalory,
+                        'date': selectedDate
+                    },
+                    success: function(response) {
+                        console.log('Data sent successfully:', response);
+                    },
+                    error: function(xhr, status, error) {
+                        console.error('Error:', error);
+                    }
+                });
+            });
+        }
+
+        
+        function getSelectedDateFromURL() {
+            // URL에서 날짜 파라미터 가져오기
+            var urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get('date');
+        }
+    </script>   
+    
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
         function submitEvent(eventType) {
             var eventTitleInput = document.getElementById(eventType + "EventTitle").value;
@@ -592,6 +802,13 @@
             eventItemDiv.appendChild(editButton);
 
             eventListDiv.insertBefore(eventItemDiv, eventListDiv.firstChild);
+            
+            var whatExerciseInput = document.getElementById('scheduleEventTitle').value;
+            var exerciseDetailInput = document.getElementById('scheduleDuration').value;
+
+            // "기록" 섹션 업데이트
+            var recordExerciseDiv = document.querySelector('.exercise_record');
+            recordExerciseDiv.textContent = "운동: " + whatExerciseInput + ", 세부사항: " + exerciseDetailInput;
 
             // AJAX 요청 보내기
             $.ajax({
@@ -634,94 +851,6 @@
             });
         }
     </script>
-    
-
-</head>
-<body>
-    <div class="box">
-        <div class="callender_bg"></div>
-        <!-- exercise -->
-        <div class="exercise_title_box1">
-            <div class="exercise_title_box1_bg"></div>
-            <div class="exercise_title_bar"></div>
-            <div class="exercise_title_text_box">
-                <div class="exercise_title_text_box_bg"></div>
-                <div class="exercise_title_text">Exercise</div>
-            </div>
-        </div>
-        <div class="exercise_box">
-            <div class="exercise_box_bg"></div>
-            <div class="what_exercise_box">
-                <div class="what_exercise_box_bg"></div>
-                <input type="text" id="scheduleEventTitle" name="ath_type" class="what_exercise_type" placeholder="What..."/>
-            </div>
-            <div class="exercise_detail_box">
-                <div class="exercise_detail_box_bg"></div>
-                <input type="text" id="scheduleDuration" name="ath_duration" class="exercise_detail_type" placeholder="Details..."/>
-            </div>
-            <div class="when_day_box">
-                <div class="when_day_box_bg"></div>
-                <!-- <div class="when_day_box_img"></div> -->
-                <input type="date" id="scheduleDate" name="ath_date" class="when_day_type" placeholder="Year-Month-Day"/>
-            </div>
-            <div class="when_time_box">
-                <div class="when_time_box_bg"></div>
-                <!-- <div class="when_time_box_img"></div> -->
-                <input type="time" id="scheduleTime" name="ath_time" class="when_time_type">Time...</input>
-            </div>
-            
-            <button onclick="submitEvent('schedule')" class="adit_button_box1">
-                <div class="adit_button_box1_bg"></div>
-                <div class="adit_button_box1_text">Adit</div>
-            </button>
-            <div class="record_exercise_box">
-                <div class="record_exercise_box_bg"></div>
-                <div class="exercise_record">Record...</div>
-
-
-            </div>
-        </div>
-
-        <!-- food -->
-        <div class="food_title_box1">
-            <div class="food_title_bar"></div>
-            <div class="food_title_box2">
-                <div class="food_title_box2_bg"></div>
-                <div class="food_title_text_box">
-                    <div class="food_title_text_box_bg"></div>
-                    <div class="food_title_text">Food</div>
-                </div>
-            </div>
-        </div>
-        <div class="food_box">
-            <div class="food_box_bg"></div>
-            <div class="what_food_box">
-                <div class="what_food_box_bg"></div>
-                <div class="what_food_type_box">
-                    <div class="what_food_type_box_bg"></div>
-                    <div class="what_food_type_img"></div>
-                    <input type="text"  class="what_food_type" placeholder="What..."/>
-                </div>
-            </div>
-            <button class="adit_button_box2">
-                <div class="adit_button_box2_bg"></div>
-                <div class="adit_button_box2_text">찾기</div>
-            </button>
-            <div class="record_food_box2">
-                <div class="record_food_box_bg2"></div>
-                <div class="food_record_box">
-                    <div class="food_record_box_bg"></div>
-                    <div class="food_record">Record...</div>
-                </div>
-            </div>
-        </div>
-
-        <!-- register button -->
-        <button id="registerButton" class="register_button_box">
-            <div class="register_button_box_bg"></div>
-            <div class="register_button_text">Register</div>
-        </button>
-    </div>
            
     
 
