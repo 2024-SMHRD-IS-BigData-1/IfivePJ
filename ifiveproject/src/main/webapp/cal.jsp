@@ -23,17 +23,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Document</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff">
+   <!--  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff"> -->
 
     <style>
        
         
-        @font-face {
+/*         @font-face {
             font-family: 'Pretendard-Regular';
             src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
             font-weight: 400;
             font-style: normal;
-        }
+        } */
 
 
 
@@ -1277,72 +1277,62 @@
    <script src='fullcalendar/main.js'></script>
    
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            var calendarEl = document.getElementById('calendar');
-            var user_schedule = [
-                <% 
-                    // 세션에서 로그인된 사용자 정보 가져오기
-                    String userId = loginMember.getUser_id(); // 로그인된 사용자의 아이디
+    document.addEventListener('DOMContentLoaded', function() {
+        var calendarEl = document.getElementById('calendar');
+        var user_schedule = [
+           
+           // 여기서 일정 정보를 직접 채워넣는 대신 JSP 코드를 사용하여 가져옴
+            <% 
+                // 세션에서 로그인된 사용자 정보 가져오기
 
-                    // ScheduleDAO 인스턴스 생성
-                    ScheduleDAO scheduleDAO = new ScheduleDAO();
+                String userId = loginMember.getUser_id(); // 로그인된 사용자의 아이디
 
-                    // 해당 사용자의 모든 캘린더 정보 가져오기
-                    List<Schedule> user_schedule = scheduleDAO.selectAllByUserId(userId);
-                    // 가져온 일정 정보 출력
-                        
-                    for(Schedule event : user_schedule) {
-                        String dateString = event.getAth_date(); // 문자열 형식의 날짜
-                        
-                        // dateString을 FullCalendar에서 요구하는 ISO 8601 형식으로 변환하는 코드
-                        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-                        Date date = sdf.parse(dateString);
-                      
-                       
-                %>
+                // ScheduleDAO 인스턴스 생성
+                ScheduleDAO scheduleDAO = new ScheduleDAO();
+                
+
+                
+                // 해당 사용자의 모든 캘린더 정보 가져오기
+                List<Schedule> user_schedule = scheduleDAO.selectAllByUserId(userId);
+                // 가져온 일정 정보 출력
+       
+                for(Schedule event : user_schedule) {
+                    String dateString = event.getAth_date(); // 문자열 형식의 날짜
+
+            %>
                 {
                     title: '<%= event.getAth_type() %>',
                     start: '<%= dateString %>'
                 },
-                <% } %>
-            ];
-            var calendar = new FullCalendar.Calendar(calendarEl, {
-                height: '600px',
-                expandRows: true,
-                slotMinTime: '08:00',
-                slotMaxTime: '20:00',
-                headerToolbar: {
-                    left: 'prev,next today',
-                    center: 'title',
-                    right: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek'
-                },
-                initialView: 'dayGridMonth',
-                editable: true,
-                selectable: true,
-                locale: 'ko',
-                dateClick: function(info) {
-                    window.open('addschedule.jsp?date=' + info.dateStr, '_blank');
-                }
-            });
-      
-            calendar.render();
-      
-            // 부모 창에서 이벤트 데이터를 받아와서 캘린더에 추가
-            window.addEventListener('message', function(event) {
-                try {
-                    var eventData = JSON.parse(event.data);
-                    calendar.addEventSource({
-                        events: [{
-                            title: eventData.title,
-                            start: eventData.scheduleDate
-                        }]
-                    });
-                } catch (e) {
-                    console.error("Error parsing event data", e);
-                }
-            }, false);
+            <% } %>
+
+        ];
+
+        var calendar = new FullCalendar.Calendar(calendarEl, {
+          height: '600px',
+          expandRows: true,
+          slotMinTime: '08:00',
+          slotMaxTime: '20:00',
+          headerToolbar: {
+            left: 'prev,next today',
+            center: 'title',
+            right: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek'
+          },
+          initialView: 'dayGridMonth',
+          editable: true,
+          selectable: true,
+          events: user_schedule,
+          locale: 'ko',
+          dateClick: function(info) {
+            window.open('schedule_final.jsp?date=' + info.dateStr, '_blank');
+          }
         });
+
+        calendar.render();
+      });
+
       
+
     </script>
 
        <script>
