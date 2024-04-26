@@ -967,7 +967,7 @@
         	 
         	 
 
-             /* window.close(); // 창 닫기 */
+             window.close(); // 창 닫기
          });
     </script>
 </body>

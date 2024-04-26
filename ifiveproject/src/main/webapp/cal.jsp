@@ -65,11 +65,6 @@
             // ScheduleDAO 인스턴스 생성
             ScheduleDAO scheduleDAO = new ScheduleDAO();
             
-
-            
-            
-            
-            
             // 해당 사용자의 모든 캘린더 정보 가져오기
             List<Schedule> user_schedule = scheduleDAO.selectAllByUserId(userId);
             // 가져온 일정 정보 출력
@@ -117,33 +112,14 @@
 <div id='calendar-container'>
   <div id='calendar'></div>
 </div>
-<%--          <% 
-         
-
-         List<Calory> user_calory = new CaloryDAO().selectAllByUserId(userId);
-
-         
-            for(Calory calory : user_calory) {
-                String dateString = calory.getEat_date();
-                int eat_cal = calory.getEat_cal();
-
-        %>
-            {
-                title: '<%=dateString %>',
-                start: '<%= eat_cal %>'
-            },
-        <% } %> --%>
          
          
-     
-         
-            
- 
+        
 
-  <div id="chart-container"></div>
-    <script>
-        // 예시로 사용할 save_cal 변수 데이터
 
+
+
+    <script>	
         var save_cal = [1250, 1400, 1250, 1400, 1350, 1300, 1450];
 
         google.charts.load('current', {packages: ['corechart']});
@@ -179,8 +155,11 @@
         }
 
     </script>
-  
-
+    
+    
+   
+   
+  <div id="chart-container"></div>
   
  
 
