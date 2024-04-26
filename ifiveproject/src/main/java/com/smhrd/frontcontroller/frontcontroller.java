@@ -18,6 +18,7 @@ import com.smhrd.controller.DeleteFood;
 import com.smhrd.controller.DeleteSchedule;
 import com.smhrd.controller.DietService;
 import com.smhrd.controller.GetFoodNames;
+import com.smhrd.controller.GroupRequestService;
 import com.smhrd.controller.JoinService;
 import com.smhrd.controller.LoginService;
 import com.smhrd.controller.LogoutService;
@@ -84,7 +85,11 @@ public class frontcontroller extends HttpServlet {
 			service= new CaloryChart();
 			
 		
+		}else if(resultURL.equals("GroupRequestService.do")) {
+			service= new GroupRequestService();
+
 		}
+		
 		String moveURL =service.execute(request, response);
 		System.out.print(moveURL);
 		

@@ -11,6 +11,10 @@
   <select id="groupList" resultType="Group" parameterType="String">
   	select * from group_info where user_id=#{user_id} 
   </select>
+  
+  <select id="AllgroupList" resultType="Group" parameterType="String">
+  	select * from group_info 
+  </select>
 
 
   

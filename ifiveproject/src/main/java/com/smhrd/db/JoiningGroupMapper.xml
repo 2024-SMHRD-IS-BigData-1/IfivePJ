@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.smhrd.db.JoiningGroupMapper">
+
+	<insert id="join" parameterType="JoiningGroup" >
+	  	insert into Joining_Group_info values(Joining_Group_idx.NEXTVAL, #{user_id},sysdate,#{confirm_yn},#{group_limit},sysdate,)
+	  </insert>
+
+</mapper>
