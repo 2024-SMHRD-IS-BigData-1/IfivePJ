@@ -667,7 +667,7 @@
                         <img class="snsbutton4" src="./img/Social Icons.png"></img>
                         
                         <!-- 회원가입 버튼 -->
-                        <a href="join.jsp"><div class="go_join_page_box">
+                        <a href="Join.jsp"><div class="go_join_page_box">
                             <div class="go_join_page_text">회원가입</div>
                         </div></a>
                 </div>             
