@@ -107,6 +107,33 @@
             position: absolute; 
             background: white;
         }
+        .input_text_login{
+        	left: 0px; 
+            top: 2px; 
+            position: absolute; 
+            color: black; 
+            font-size: 14px; 
+            font-family: Pretendard-Regular; 
+            font-weight: 350; 
+            word-wrap: break-word;
+            border:none;
+            background:white;
+            cursor:pointer;        
+        }
+        .input_text_logout{
+        	left: 0px; 
+            top: 6px; 
+            position: absolute; 
+            color: black; 
+            font-size: 18px; 
+            font-family: Pretendard-Regular; 
+            font-weight: 200; 
+            word-wrap: break-word;
+            border:none;
+            background:white;
+            cursor:pointer; 
+        }
+        
         .login_text{
             left: 3px; 
             top: 4px; 
@@ -629,7 +656,7 @@
               <% if (loginMember != null) { %>
                 <!-- 로그인된 상태 -->
                 <div class="login_button">
-                    <a href="LogoutService.do">로그아웃</a>
+                    <a href="LogoutService.do"><input type="submit" class="input_text_logout" value="Logout"></a>
                 </div>
             <% } else { %>
                 <!-- 로그인 안된 상태 -->
@@ -641,7 +668,7 @@
                         <div class="login_textBox">
                             <div class="login_textBg"></div>
                             <div class="login_button">
-                                <a href="Login.jsp">로그인</a>
+                                <a href="Login.jsp"><input type="submit" class="input_text_login" value="Login"></input></a>
                             </div>
                         </div>
                     </div>
@@ -717,10 +744,10 @@
                         </a>
         
                         <!-- sns icon -->
-                        <img class="footer_snsbutton1" src="./img/youtube.png"></img>
-                        <img class="footer_snsbutton2" src="./img/kakaotalk_black.png"></img>
-                        <img class="footer_snsbutton3" src="./img/Instagram.png"></img>
-                        <img class="footer_snsbutton4" src="./img/Facebook_black.png"></img>
+                        <a href="https://www.youtube.com"><img class="footer_snsbutton1" src="./img/youtube.png"></img></a>
+                        <a href="https://www.kakao.com"><img class="footer_snsbutton2" src="./img/kakaotalk_black.png"></img></a>
+                        <a href="https://www.instagram.com"><img class="footer_snsbutton3" src="./img/Instagram.png"></img></a>
+                        <a href="https://www.facebook.com"><img class="footer_snsbutton4" src="./img/Facebook_black.png"></img></a>
                         <!-- 가상 네이버 주소 -->
                         <div style="width: 120px; height: 20px; left: 132px; top: 177px; position: absolute">
                             <div style="width: 120px; height: 20px; left: 0px; top: 0px; position: absolute; background: white"></div>

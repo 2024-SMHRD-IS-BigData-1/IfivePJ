@@ -106,6 +106,20 @@
             position: absolute; 
             background: white;
         }
+         .input_text_logout{
+        	left: 0px; 
+            top: 6px; 
+            position: absolute; 
+            color: black; 
+            font-size: 18px; 
+            font-family: Pretendard-Regular; 
+            font-weight: 200; 
+            word-wrap: break-word;
+            border:none;
+            background:white;
+            cursor:pointer; 
+        }
+        
         .login_text{
             left: 3px; 
             top: 4px; 
@@ -817,6 +831,21 @@
 
 
         /* update_button */
+        .input_update{
+        	
+            left: -10px; 
+            top: 0px; 
+            position: absolute;
+            background:#CEC1C1;
+            border:none;
+            font-size:18px;
+            font-family: Pretendard-Regular;
+            font-weight: 500; 
+            word-wrap: break-word;
+            cursor:pointer; 
+        
+        
+        }
         .Update_button_box{
             width: 342px; 
             height: 58px; 
@@ -989,7 +1018,7 @@
        <% if (loginMember != null) { %>
                 <!-- 로그인된 상태 -->
                 <div class="login_button">
-                    <a href="LogoutService.do">로그아웃</a>
+                    <a href="LogoutService.do"><input type="submit" class="input_text_logout" value="Logout"></a>
                 </div>
             <% } else { %>
                 <!-- 로그인 안된 상태 -->
@@ -1001,7 +1030,7 @@
                         <div class="login_textBox">
                             <div class="login_textBg"></div>
                             <div class="login_button">
-                                <a href="Login.jsp">로그인</a>
+                                <a href="Login.jsp" value="login"></a>
                             </div>
                         </div>
                     </div>
@@ -1051,7 +1080,7 @@
                 <div class="weight_box_boundary"></div>
                 <div class="weight_count_box">
                     <div class="weight_count_box_bg"></div>
-                    <div class="weight"> <input type="text" name="weight" class="weight_input" style="width: 50px; left: 0px; top: 0px; position: absolute; color: black; font-size: 15px; font-family: Noto Sans KR; font-weight: 500; border: none; outline: none;" value="<%=loginMember.getUser_weight() %>"></div>
+                    <div class="weight"> <input type="text" name="weight" class="weight_input" style="width: 50px; left: -15px; top: -1px; position: absolute; color: black; font-size: 15px; font-family: Noto Sans KR; font-weight: 500; border: none; outline: none; background:#FFFCFC;" value="<%=loginMember.getUser_weight() %>"></div>
                     <div class="weight_unit">kg</div>
                 </div>
                 <div class="weight_text_box">
@@ -1066,7 +1095,7 @@
                 <div class="height_box_boundary"></div>
                 <div class="height_count_box">
                     <div class="height_count_box_bg"></div>
-                    <div class="height"> <input type="text" name ="height" class="height_input" style="width: 30px; left: 0px; top: 3px; position: absolute; color: black; font-size: 15px; font-family: Roboto; font-weight: 500; border: none; outline: none;" value="<%=loginMember.getUser_height() %>"></div>
+                    <div class="height"> <input type="text" name ="height" class="height_input" style="width: 37px; left: -15px; top: -3px; position: absolute; color: black; font-size: 15px; font-family: Roboto; font-weight: 500; border: none; outline: none; background:#FFFCFC;" value="<%=loginMember.getUser_height() %>"></div>
                     <div class="height_unit">cm</div>
                 </div>
                 <div class="height_text_box">
@@ -1081,7 +1110,7 @@
                 <div class="goal_weight_box_boundary"></div>
                 <div class="goal_weight_count_box">
                     <div class="goal_weight_count_box_bg"></div>
-                    <div class="goal_weight"><input type="text" name = "goal_weight" class="goal_weight_input" style="width: 40px; left: 0px; top: 3px; position: absolute; color: black; font-size: 15px; font-family: Roboto; font-weight: 500; border: none; outline: none;" value="<%=loginMember.getUser_target_weight() %>"></div>
+                    <div class="goal_weight"><input type="text" name = "goal_weight" class="goal_weight_input" style="width: 40px; left: -15px; top: -2px; position: absolute; color: black; font-size: 15px; font-family: Roboto; font-weight: 500; border: none; outline: none; background:#FFFCFC;" value="<%=loginMember.getUser_target_weight() %>"></div>
                     <div class="goal_weight_unit">kg</div>
                 </div>
                 <div class="goal_weight_text_box">
@@ -1148,7 +1177,7 @@
                 <div class="Update_button_box_bg"></div>
                 <div class="Update_button_text_box">
                     <div class="Update_button_text_box_bg"></div>
-                    <div class="Update_button_text"><input type="submit" value="Update"></div>
+                    <div class="Update_button_text"><input class="input_update" type="submit" value="Update"></div>
                 </div>
             </div>
         </div>
@@ -1172,10 +1201,10 @@
                     </a>
     
                     <!-- sns icon -->
-                    <img class="footer_snsbutton1" src="./img/youtube.png"></img>
-                    <img class="footer_snsbutton2" src="./img/kakaotalk_black.png"></img>
-                    <img class="footer_snsbutton3" src="./img/Instagram.png"></img>
-                    <img class="footer_snsbutton4" src="./img/Facebook_black.png"></img>
+                    <a href="https://www.youtube.com"><img class="footer_snsbutton1" src="./img/youtube.png"></img></a>
+                    <a href="https://www.kakao.com"><img class="footer_snsbutton2" src="./img/kakaotalk_black.png"></img></a>
+                    <a href="https://www.instagram.com"><img class="footer_snsbutton3" src="./img/Instagram.png"></img></a>
+                    <a href="https://www.facebook.com"><img class="footer_snsbutton4" src="./img/Facebook_black.png"></img></a>
                     <!-- 가상 네이버 주소 -->
                     <div style="width: 120px; height: 20px; left: 132px; top: 177px; position: absolute">
                         <div style="width: 120px; height: 20px; left: 0px; top: 0px; position: absolute; background: white"></div>

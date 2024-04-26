@@ -102,6 +102,20 @@
             position: absolute; 
             background: white;
         }
+        .input_text_login{
+        	left: -4px; 
+            top: -2px; 
+            position: absolute; 
+            color: black; 
+            font-size: 14px; 
+            font-family: Pretendard-Regular; 
+            font-weight: 350; 
+            word-wrap: break-word;
+            border:none;
+            background:white;
+            cursor:pointer;
+        
+        }
         .login_text{
             left: 3px; 
             top: 4px; 
@@ -351,7 +365,7 @@
         .button{
             position:absolute;
         }
-        .login_page_button{
+        /*.login_page_button{
             position: absolute;
             margin-top: 10px;
             width: 342px; 
@@ -362,6 +376,22 @@
             border: none;            
             font-size: 15px;
             background: #0F62FE;
+        }*/
+        .input_login{
+        	position: absolute;
+            margin-top: 10px;
+            width: 342px; 
+            height: 58px;
+            left: 790px; 
+            top: 507px; 
+            border-radius: 10px;
+            border: none;            
+            font-size: 18px;
+            background: #0F62FE;
+            color: white;
+            cursor:pointer;
+        
+        
         }
        
         a{
@@ -382,7 +412,7 @@
         }
 
         .simple_login_text{
-            left: 922px; 
+            left: 927px; 
             top: 620px; 
             position: absolute; 
             color: #767676; 
@@ -625,7 +655,7 @@
                         <img class="login_button_img" src="./img/Person.jpg"></img>
                         <div class="login_textBox">
                             <div class="login_textBg"></div>
-                            <div class="login_text">Login</div>
+                            <div class="login_text"><input type="submit" class="input_text_login" value="Login"></input></div>
                         </div>
                     </div>
                 </a>
@@ -652,11 +682,11 @@
                             </div>
 
                             <div class="find_id">아이디/비밀번호</div>
-                        <div class="button">
+                       
                             <button class="login_page_button">
-                                <a href="cal.jsp"><input type="submit" value="로그인" ></input></a>
+                                <a href="cal.jsp"><input type="submit" class="input_login" value="Login" ></input></a>
                             </button>
-                        </div>
+                        
             </form>
                         
                         <div class="simple_login_text">간편로그인</div>
