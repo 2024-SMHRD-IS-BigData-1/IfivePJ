@@ -28,4 +28,10 @@ public class DietDAO {
 
 
 	
+	public void deleteDiet(int diet_idx) {
+		SqlSession session = sqlSessionFactory.openSession(true);
+		session.delete("com.smhrd.db.DietMapper.deleteDiet", diet_idx);
+		session.close();
+	}
+	
 }

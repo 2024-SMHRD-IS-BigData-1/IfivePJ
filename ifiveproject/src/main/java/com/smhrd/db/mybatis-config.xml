@@ -14,6 +14,7 @@
 		<typeAlias type="com.smhrd.model.mypage" alias = "mypage"/>
 		<typeAlias type="com.smhrd.model.Schedule" alias = "Schedule"/>
 		<typeAlias type="com.smhrd.model.mypage" alias = "mypage"/>
+		<typeAlias type="com.smhrd.model.Calory" alias = "Calory"/>
 		<!-- <typeAlias type="com.smhrd.model.Board" alias = "Board"/>  -->
 	</typeAliases>
 		
@@ -42,6 +43,7 @@
 		<mapper resource="com/smhrd/db/ScheduleMapper.xml" />
 		<mapper resource="com/smhrd/db/chattingRoomMapper.xml" />
 		<mapper resource="com/smhrd/db/DietMapper.xml" />
+		<mapper resource="com/smhrd/db/CaloryMapper.xml" />
 	</mappers>
 	
 	

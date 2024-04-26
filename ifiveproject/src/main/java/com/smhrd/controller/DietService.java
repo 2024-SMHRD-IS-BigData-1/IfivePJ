@@ -21,7 +21,8 @@ public class DietService implements Command {
 		String food_name = request.getParameter("food_name");
 		String user_id = (String) request.getSession().getAttribute("user_id");
 		int intake_calory = Integer.parseInt(request.getParameter("intake_calory"));
-        String eat_date = request.getParameter("date");              
+        String eat_date = request.getParameter("date");
+        System.out.println(eat_date);
         String intake_weight = "300g";
      
         System.out.println(eat_date);

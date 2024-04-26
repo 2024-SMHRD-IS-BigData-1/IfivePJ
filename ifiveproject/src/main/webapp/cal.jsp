@@ -1,4 +1,6 @@
 
+<%@page import="com.smhrd.model.Calory"%>
+<%@page import="com.smhrd.model.CaloryDAO"%>
 <%@page import="java.util.Date"%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="com.google.gson.Gson"%>
@@ -62,20 +64,23 @@
 
             // ScheduleDAO 인스턴스 생성
             ScheduleDAO scheduleDAO = new ScheduleDAO();
+            
+
+            
+            
+            
+            
             // 해당 사용자의 모든 캘린더 정보 가져오기
             List<Schedule> user_schedule = scheduleDAO.selectAllByUserId(userId);
             // 가져온 일정 정보 출력
    
             for(Schedule event : user_schedule) {
                 String dateString = event.getAth_date(); // 문자열 형식의 날짜
-                SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-                Date date = sdf.parse(dateString); // 문자열을 Date 객체로 변환
 
-                String formattedDate = new SimpleDateFormat("yyyy-MM-dd").format(date); // 원하는 형식으로 문자열 변환
         %>
             {
                 title: '<%= event.getAth_type() %>',
-                start: '<%= formattedDate %>'
+                start: '<%= dateString %>'
             },
         <% } %>
 
@@ -112,12 +117,33 @@
 <div id='calendar-container'>
   <div id='calendar'></div>
 </div>
+<%--          <% 
+         
 
-  
+         List<Calory> user_calory = new CaloryDAO().selectAllByUserId(userId);
+
+         
+            for(Calory calory : user_calory) {
+                String dateString = calory.getEat_date();
+                int eat_cal = calory.getEat_cal();
+
+        %>
+            {
+                title: '<%=dateString %>',
+                start: '<%= eat_cal %>'
+            },
+        <% } %> --%>
+         
+         
+     
+         
+            
  
+
   <div id="chart-container"></div>
     <script>
         // 예시로 사용할 save_cal 변수 데이터
+
         var save_cal = [1250, 1400, 1250, 1400, 1350, 1300, 1450];
 
         google.charts.load('current', {packages: ['corechart']});

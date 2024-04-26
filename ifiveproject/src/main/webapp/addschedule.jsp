@@ -634,6 +634,82 @@
 
 
     </script>
+      <script>
+        // DOMContentLoaded 이벤트를 사용하여 페이지가 완전히 로드된 후에 함수를 실행
+        document.addEventListener('DOMContentLoaded', function () {
+            // search_button() 함수를 클릭 이벤트에 연결
+            document.getElementById('search_button').addEventListener('click', search_button);
+        });
+
+        // 검색 버튼 클릭 시 실행될 함수
+        function search_button() {
+            var keyword = $('#search_area').val();
+
+            $.ajax({
+                url: 'GetFoodNames.do',
+                type: 'GET',
+                data: { 'keyword': keyword },
+                success: function (results) {
+                    console.log('Received data:', results);
+                    displayResults(results);
+                },
+                error: function (xhr, status, error) {
+                    console.error('Error:', error);
+                }
+            });
+        }
+
+        function displayResults(results) {
+            var list = '<ul class="food-list">';
+            $.each(results, function (index, item) {
+                list += '<li class="food-item"><span class="food-name">' + item.food_name + '</span><span class="calory">칼로리: ' + item.intake_calory + '</span></li>';
+            });
+            list += '</ul>';
+
+            $('#searchBar').html(list);
+
+            $('.food-item').click(function () {
+                var selectedText = $(this).find('.food-name').text();
+                var selectedCalory = $(this).find('.calory').text().split(':')[1].trim(); // 숫자 부분만 추출하여 전송
+                var selectedDate = getSelectedDateFromURL();
+                console.log(selectedCalory);
+                
+                if ($('#selectedItems').children().length === 0) {
+                    $('#selectedItems').append('<div>' + selectedText + "칼로리 :  " + selectedCalory + '</div>');
+                } else {
+                    // 기존 코드: 목록에 추가
+                    $('#selectedItems').append('<div>' + selectedText + "칼로리 :  " + selectedCalory + '</div>');
+                }
+
+                
+                // AJAX를 사용하여 서버로 선택된 음식 정보 전송
+                $.ajax({
+                    url: 'DietService.do',
+                    type: 'POST',
+                    data: {
+                        'food_name': selectedText,
+                        'intake_calory': selectedCalory,
+                        'date': selectedDate
+                    },
+                    success: function(response) {
+                        console.log('Data sent successfully:', response);
+                        
+                    },
+                    error: function(xhr, status, error) {
+                        console.error('Error:', error);
+                    }
+                });
+            });
+        }
+        
+        function getSelectedDateFromURL() {
+            // URL에서 날짜 파라미터 가져오기
+            var urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get('date');
+        }
+        
+        var selectedDate = getSelectedDateFromURL();
+    </script>
     
 
 </head>
@@ -740,15 +816,15 @@
                 <div class="food_record_box">
                     <div class="food_record_box_bg"></div>
                     <div >Record...</div>
-		            <div  class= "food_record">
-		            <c:forEach items="${dietList }" var="diet" varStatus="s">
+		            <div class= "food_record" id="selectedItems">
+		              
 		               <div>
-		                 <div id="selectedItems"></div>
+		          		  <c:forEach items="${dietList }" var="diet" varStatus="s">
 		                 <div>${diet.food_name} ${diet.intake_calory }</div>
 		               </div>
 		              
 		            </c:forEach>
-		            
+		            </table>   
 
                 </div>
             </div>
@@ -760,72 +836,7 @@
             <div class="register_button_text">Register</div>
         </button>
     </div>
-     <script>
-        // DOMContentLoaded 이벤트를 사용하여 페이지가 완전히 로드된 후에 함수를 실행
-        document.addEventListener('DOMContentLoaded', function () {
-            // search_button() 함수를 클릭 이벤트에 연결
-            document.getElementById('search_button').addEventListener('click', search_button);
-        });
-
-        // 검색 버튼 클릭 시 실행될 함수
-        function search_button() {
-            var keyword = $('#search_area').val();
-
-            $.ajax({
-                url: 'GetFoodNames.do',
-                type: 'GET',
-                data: { 'keyword': keyword },
-                success: function (results) {
-                    console.log('Received data:', results);
-                    displayResults(results);
-                },
-                error: function (xhr, status, error) {
-                    console.error('Error:', error);
-                }
-            });
-        }
-
-        function displayResults(results) {
-            var list = '<ul class="food-list">';
-            $.each(results, function (index, item) {
-                list += '<li class="food-item"><span class="food-name">' + item.food_name + '</span><span class="calory">칼로리: ' + item.intake_calory + '</span></li>';
-            });
-            list += '</ul>';
-
-            $('#searchBar').html(list);
-
-            $('.food-item').click(function () {
-                var selectedText = $(this).find('.food-name').text();
-                var selectedCalory = $(this).find('.calory').text().split(':')[1].trim(); // 숫자 부분만 추출하여 전송
-                var selectedDate = getSelectedDateFromURL();
-                console.log(selectedCalory);
-                $('#selectedItems').append('<div>' + selectedText + "칼로리 :  " + selectedCalory + '</div>');
-                
-                // AJAX를 사용하여 서버로 선택된 음식 정보 전송
-                $.ajax({
-                    url: 'DietService.do',
-                    type: 'POST',
-                    data: {
-                        'food_name': selectedText,
-                        'intake_calory': selectedCalory,
-                        'date': selectedDate
-                    },
-                    success: function(response) {
-                        console.log('Data sent successfully:', response);
-                    },
-                    error: function(xhr, status, error) {
-                        console.error('Error:', error);
-                    }
-                });
-            });
-        }
-        
-        function getSelectedDateFromURL() {
-            // URL에서 날짜 파라미터 가져오기
-            var urlParams = new URLSearchParams(window.location.search);
-            return urlParams.get('date');
-        }
-    </script>
+   
            
     
 
