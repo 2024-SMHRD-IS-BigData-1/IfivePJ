@@ -15,7 +15,7 @@ public class IdCheck implements Command {
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) {
 		
-		String input_id = request.getParameter("input_id");
+		String input_id = request.getParameter("input_name");
 		System.out.println("IdCheck");
 		
 		Member member = new MemberDAO().idCheck(input_id);

@@ -1277,34 +1277,33 @@
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             var calendarEl = document.getElementById('calendar');
-            <%-- var user_schedule = [
-            	
-            	// 여기서 일정 정보를 직접 채워넣는 대신 JSP 코드를 사용하여 가져옴
+            var user_schedule = [
                 <% 
                     // 세션에서 로그인된 사용자 정보 가져오기
-                    Member loginMember = (Member)session.getAttribute("loginMember");
                     String userId = loginMember.getUser_id(); // 로그인된 사용자의 아이디
 
                     // ScheduleDAO 인스턴스 생성
                     ScheduleDAO scheduleDAO = new ScheduleDAO();
+
                     // 해당 사용자의 모든 캘린더 정보 가져오기
                     List<Schedule> user_schedule = scheduleDAO.selectAllByUserId(userId);
                     // 가져온 일정 정보 출력
-           
+                        
                     for(Schedule event : user_schedule) {
                         String dateString = event.getAth_date(); // 문자열 형식의 날짜
-                        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-                        Date date = sdf.parse(dateString); // 문자열을 Date 객체로 변환
-
-                        String formattedDate = new SimpleDateFormat("yyyy-MM-dd").format(date); // 원하는 형식으로 문자열 변환
+                        
+                        // dateString을 FullCalendar에서 요구하는 ISO 8601 형식으로 변환하는 코드
+                        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+                        Date date = sdf.parse(dateString);
+                      
+                       
                 %>
-                    {
-                        title: '<%= event.getAth_type() %>',
-                        start: '<%= formattedDate %>'
-                    },
+                {
+                    title: '<%= event.getAth_type() %>',
+                    start: '<%= dateString %>'
+                },
                 <% } %>
-
-            ];  --%>
+            ];
             var calendar = new FullCalendar.Calendar(calendarEl, {
                 height: '600px',
                 expandRows: true,

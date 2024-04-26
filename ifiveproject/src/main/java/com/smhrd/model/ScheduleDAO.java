@@ -26,15 +26,28 @@ public class ScheduleDAO {
 	    List<Schedule> schedules = session.selectList("com.smhrd.db.ScheduleMapper.selectAllByUserId", userId);
 	    session.close();
 	    return schedules;
-//	    try (SqlSession session = SqlSessionFactory.openSession(true)) {
-//	        List<Schedule> schedules = session.selectList("com.smhrd.db.ScheduleMapper.selectAllByUserId", userId);
-//	        return schedules;
-//	    } catch (Exception e) {
-//	        e.printStackTrace();
-//	        return null; // 예외 발생 시 null 반환
-//	    }
 	}
 
 	
+	public List<Schedule> dayList(Schedule day) {
+		System.out.println("dayList");
+		SqlSession session = sqlSessionFactory.openSession(true);
+		List<Schedule> dayList = session.selectList("com.smhrd.db.ScheduleMapper.dayList", day);
+		session.close();
+		return dayList;
+	}
+
+
+	
+	
+
+
+	public void deleteSchedule(int plan_idx) {
+		SqlSession session = sqlSessionFactory.openSession(true);
+		session.delete("com.smhrd.db.ScheduleMapper.deleteSchedule", plan_idx);
+		session.close();		
+	}
+	
+
 }
 	

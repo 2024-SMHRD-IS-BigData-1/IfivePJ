@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.smhrd.db.CaloryMapper">
+
+  <update id="join" parameterType="Calory" >
+  	insert into CALORY values(#{eat_date}, #{eat_cal}, #{user_id},sysdate)
+  </update>
+
+<!-- 	<select id="selectAllByUserId" parameterType="String" resultType="Calory">
+		SELECT *
+		FROM calory c1
+		WHERE c1.user_id = #{user_id}
+		AND c1.created_date = (
+		    SELECT MAX(c2.created_date)
+		    FROM calory c2
+		    WHERE c2.eat_date = c1.eat_date
+		    AND c2.user_id = #{user_id}
+		);    
+	</select> -->
+ 
+  </mapper>
