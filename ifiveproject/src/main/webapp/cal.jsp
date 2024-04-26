@@ -1,4 +1,6 @@
 
+<%@page import="com.smhrd.model.CaloryDAO"%>
+<%@page import="com.smhrd.model.Calory"%>
 <%@page import="java.util.Date"%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="com.google.gson.Gson"%>
@@ -21,17 +23,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Document</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff">
+   <!--  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff"> -->
 
     <style>
        
         
-        @font-face {
+/*         @font-face {
             font-family: 'Pretendard-Regular';
             src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
             font-weight: 400;
             font-style: normal;
-        }
+        } */
 
 
 
@@ -1272,112 +1274,106 @@
     <!-- Fullcalendar 언어 CDN -->
     <script src='https://cdn.jsdelivr.net/npm/fullcalendar@5.8.0/locales-all.min.js'></script>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-	<script src='fullcalendar/main.js'></script>
-	
+   <script src='fullcalendar/main.js'></script>
+   
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            var calendarEl = document.getElementById('calendar');
-            var user_schedule = [
-                <% 
-                    // 세션에서 로그인된 사용자 정보 가져오기
-                    String userId = loginMember.getUser_id(); // 로그인된 사용자의 아이디
+    document.addEventListener('DOMContentLoaded', function() {
+        var calendarEl = document.getElementById('calendar');
+        var user_schedule = [
+           
+           // 여기서 일정 정보를 직접 채워넣는 대신 JSP 코드를 사용하여 가져옴
+            <% 
+                // 세션에서 로그인된 사용자 정보 가져오기
 
-                    // ScheduleDAO 인스턴스 생성
-                    ScheduleDAO scheduleDAO = new ScheduleDAO();
+                String userId = loginMember.getUser_id(); // 로그인된 사용자의 아이디
 
-                    // 해당 사용자의 모든 캘린더 정보 가져오기
-                    List<Schedule> user_schedule = scheduleDAO.selectAllByUserId(userId);
-                    // 가져온 일정 정보 출력
-                        
-                    for(Schedule event : user_schedule) {
-                        String dateString = event.getAth_date(); // 문자열 형식의 날짜
-                        
-                        // dateString을 FullCalendar에서 요구하는 ISO 8601 형식으로 변환하는 코드
-                        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-                        Date date = sdf.parse(dateString);
-                      
-                       
-                %>
+                // ScheduleDAO 인스턴스 생성
+                ScheduleDAO scheduleDAO = new ScheduleDAO();
+                
+
+                
+                // 해당 사용자의 모든 캘린더 정보 가져오기
+                List<Schedule> user_schedule = scheduleDAO.selectAllByUserId(userId);
+                // 가져온 일정 정보 출력
+       
+                for(Schedule event : user_schedule) {
+                    String dateString = event.getAth_date(); // 문자열 형식의 날짜
+
+            %>
                 {
                     title: '<%= event.getAth_type() %>',
                     start: '<%= dateString %>'
                 },
-                <% } %>
-            ];
-            var calendar = new FullCalendar.Calendar(calendarEl, {
-                height: '600px',
-                expandRows: true,
-                slotMinTime: '08:00',
-                slotMaxTime: '20:00',
-                headerToolbar: {
-                    left: 'prev,next today',
-                    center: 'title',
-                    right: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek'
-                },
-                initialView: 'dayGridMonth',
-                editable: true,
-                selectable: true,
-                locale: 'ko',
-                dateClick: function(info) {
-                    window.open('addschedule.jsp?date=' + info.dateStr, '_blank');
-                }
-            });
-      
-            calendar.render();
-      
-            // 부모 창에서 이벤트 데이터를 받아와서 캘린더에 추가
-            window.addEventListener('message', function(event) {
-                try {
-                    var eventData = JSON.parse(event.data);
-                    calendar.addEventSource({
-                        events: [{
-                            title: eventData.title,
-                            start: eventData.scheduleDate
-                        }]
-                    });
-                } catch (e) {
-                    console.error("Error parsing event data", e);
-                }
-            }, false);
+            <% } %>
+
+        ];
+
+        var calendar = new FullCalendar.Calendar(calendarEl, {
+          height: '600px',
+          expandRows: true,
+          slotMinTime: '08:00',
+          slotMaxTime: '20:00',
+          headerToolbar: {
+            left: 'prev,next today',
+            center: 'title',
+            right: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek'
+          },
+          initialView: 'dayGridMonth',
+          editable: true,
+          selectable: true,
+          events: user_schedule,
+          locale: 'ko',
+          dateClick: function(info) {
+            window.open('schedule_final.jsp?date=' + info.dateStr, '_blank');
+          }
         });
+
+        calendar.render();
+      });
+
       
+
     </script>
 
-    <script>
+       <script>
         // 예시로 사용할 save_cal 변수 데이터
-        var save_cal = [1250, 1400, 1250, 1400, 1350, 1300, 1450];
+   var user_calory=[
+        <%  List<Calory> user_calory =new CaloryDAO().daycalory(userId);
+           System.out.println(user_calory.size());
+             // Java 코드로 가져온 user_calory 데이터를 JavaScript 배열로 변환
+             for (int i = 0; i < user_calory.size(); i++) {
+                 Calory calory = user_calory.get(i);
+                 String dateString = calory.getEat_date();
+                 int eat_cal = calory.getEat_cal();
+         %>
+             { date: '<%= dateString %>', calories: <%= eat_cal %> },
+         <% } %> // 각 요소 끝에 쉼표 추가
+     ];
+   console.log(user_calory);
+          
+   google.charts.load('current', { packages: ['corechart'] });
+   google.charts.setOnLoadCallback(drawChart);
 
-        google.charts.load('current', {packages: ['corechart']});
-        google.charts.setOnLoadCallback(drawChart);
+   function drawChart() {
+       var data = new google.visualization.DataTable();
+       data.addColumn('string', 'Date');
+       data.addColumn('number', 'Calories');
 
-        function drawChart() {
-            var data = new google.visualization.DataTable();
-            data.addColumn('string', 'Day');
-            data.addColumn('number', 'Calories');
-            data.addColumn('number', 'Basal Metabolic Rate');  // 기초대사량을 위한 새 열 추가
+       // user_calory 배열에서 데이터 행을 추가
+       user_calory.forEach(function(item) {
+           data.addRow([item.date, item.calories]);
+       });
 
-            var days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
-            var basalMetabolicRate = 1500;  // 기초대사량 고정 값
+       var options = {
+           title: 'Daily Calories Intake',
+           curveType: 'none',
+           legend: { position: 'bottom' }
+       };
 
-            var rows = days.map(function(day, index) {
-                return [day, save_cal[index], basalMetabolicRate];  // 모든 요일에 기초대사량 값 추가
-            });
+       var chart = new google.visualization.LineChart(document.getElementById('chart-container'));
+       chart.draw(data, options);
+   }
 
-            data.addRows(rows);
-
-            var options = {
-                title: 'Weekly Calories Intake',
-                curveType: 'none',
-                legend: { position: 'bottom' },
-                series: {
-                    0: { color: '#e2431e' },  // 칼로리 데이터의 색상
-                    1: { color: '#3366cc' }  // 기초대사량 라인의 색상
-                }
-            };
-
-            var chart = new google.visualization.LineChart(document.getElementById('chart-container'));
-            chart.draw(data, options);
-        }
 
     </script>
 
