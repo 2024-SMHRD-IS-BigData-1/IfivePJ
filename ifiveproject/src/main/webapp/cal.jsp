@@ -11,8 +11,8 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
-
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
+<%Member loginMember = (Member)session.getAttribute("loginMember"); %>
 
 
 <!DOCTYPE html>
@@ -999,17 +999,27 @@
                 </a>
             </div>
             <div class="header_bar"></div>
-            <a class="login_button" href="Login.jsp" role="button">
-                <div class="login_button_bg"></div>
-                <div class="login_button_textBox">
-                    <div class="login_button_textBg"></div>
-                    <img class="login_button_img" src="./img/Person.jpg"></img>
-                    <div class="login_textBox">
-                        <div class="login_textBg"></div>
-                        <div class="login_text">Login</div>
-                    </div>
+         <% if (loginMember != null) { %>
+                <!-- 로그인된 상태 -->
+                <div class="login_button">
+                    <a href="LogoutService.do">로그아웃</a>
                 </div>
-            </a>
+            <% } else { %>
+                <!-- 로그인 안된 상태 -->
+                <a class="login_button" href="Login.jsp" role="button">
+                    <div class="login_button_bg"></div>
+                    <div class="login_button_textBox">
+                        <div class="login_button_textBg"></div>
+                       <img class="login_button_img" src="img/Person.jpg"></img>
+                        <div class="login_textBox">
+                            <div class="login_textBg"></div>
+                            <div class="login_button">
+                                <a href="Login.jsp">로그인</a>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            <% } %>
         </div>
         
             <!-- sidebar group -->

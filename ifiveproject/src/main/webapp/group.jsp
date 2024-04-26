@@ -442,17 +442,27 @@
                 </a>
             </div>
             <div class="header_bar"></div>
-            <a class="login_button" href="login_pop.html" role="button">
-                <div class="login_button_bg"></div>
-                <div class="login_button_textBox">
-                    <div class="login_button_textBg"></div>
-                    <div class="login_button_img"></div>
-                    <div class="login_textBox">
-                        <div class="login_textBg"></div>
-                        <div class="login_text">Login</div>
-                    </div>
+             <% if (loginMember != null) { %>
+                <!-- 로그인된 상태 -->
+                <div class="login_button">
+                    <a href="LogoutService.do">로그아웃</a>
                 </div>
-            </a>
+            <% } else { %>
+                <!-- 로그인 안된 상태 -->
+                <a class="login_button" href="Login.jsp" role="button">
+                    <div class="login_button_bg"></div>
+                    <div class="login_button_textBox">
+                        <div class="login_button_textBg"></div>
+                       <img class="login_button_img" src="img/Person.jpg"></img>
+                        <div class="login_textBox">
+                            <div class="login_textBg"></div>
+                            <div class="login_button">
+                                <a href="Login.jsp">로그인</a>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            <% } %>
         </div>
     </div>
    

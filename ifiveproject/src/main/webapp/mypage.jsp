@@ -986,20 +986,29 @@
             </a>
         </div>
         <div class="header_bar"></div>
-        <% if (loginMember == null){ %>
-        <a class="login_button" href="Login.jsp" role="button">
-            <div class="login_button_bg"></div>
-            <div class="login_button_textBox">
-                <div class="login_button_textBg"></div>
-                <img class="login_button_img" src="./img/Person.jpg"></img>
-                <div class="login_textBox">
-                    <div class="login_textBg"></div>
-                    <div class="login_text">Login</div>
+       <% if (loginMember != null) { %>
+                <!-- 로그인된 상태 -->
+                <div class="login_button">
+                    <a href="LogoutService.do">로그아웃</a>
                 </div>
-            </div>
-        </a>
+            <% } else { %>
+                <!-- 로그인 안된 상태 -->
+                <a class="login_button" href="Login.jsp" role="button">
+                    <div class="login_button_bg"></div>
+                    <div class="login_button_textBox">
+                        <div class="login_button_textBg"></div>
+                       <img class="login_button_img" src="img/Person.jpg"></img>
+                        <div class="login_textBox">
+                            <div class="login_textBg"></div>
+                            <div class="login_button">
+                                <a href="Login.jsp">로그인</a>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            <% } %>
     </div>
-    <%} %>
+ 
 
         <!-- mypage 타이틀 -->
         <div style="width: 120px; height: 57px; left: 900px; top: 135px; position: absolute">
@@ -1018,7 +1027,7 @@
                 <div class="profile"></div>
                 <img class="profile_img" src="./img/profile.png"></img>
             </div>
-
+		<form action="mypageService.do" method="post">
             <!-- point -->
             <div class="point_round_box">
                 <div class="point_round_box_bg"></div>
@@ -1042,7 +1051,7 @@
                 <div class="weight_box_boundary"></div>
                 <div class="weight_count_box">
                     <div class="weight_count_box_bg"></div>
-                    <div class="weight">75</div>
+                    <div class="weight"> <input type="text" name="weight" class="weight_input" style="width: 50px; left: 0px; top: 0px; position: absolute; color: black; font-size: 15px; font-family: Noto Sans KR; font-weight: 500; border: none; outline: none;" value="<%=loginMember.getUser_weight() %>"></div>
                     <div class="weight_unit">kg</div>
                 </div>
                 <div class="weight_text_box">
@@ -1057,7 +1066,7 @@
                 <div class="height_box_boundary"></div>
                 <div class="height_count_box">
                     <div class="height_count_box_bg"></div>
-                    <div class="height">175</div>
+                    <div class="height"> <input type="text" name ="height" class="height_input" style="width: 30px; left: 0px; top: 3px; position: absolute; color: black; font-size: 15px; font-family: Roboto; font-weight: 500; border: none; outline: none;" value="<%=loginMember.getUser_height() %>"></div>
                     <div class="height_unit">cm</div>
                 </div>
                 <div class="height_text_box">
@@ -1072,7 +1081,7 @@
                 <div class="goal_weight_box_boundary"></div>
                 <div class="goal_weight_count_box">
                     <div class="goal_weight_count_box_bg"></div>
-                    <div class="goal_weight">68</div>
+                    <div class="goal_weight"><input type="text" name = "goal_weight" class="goal_weight_input" style="width: 40px; left: 0px; top: 3px; position: absolute; color: black; font-size: 15px; font-family: Roboto; font-weight: 500; border: none; outline: none;" value="<%=loginMember.getUser_target_weight() %>"></div>
                     <div class="goal_weight_unit">kg</div>
                 </div>
                 <div class="goal_weight_text_box">
@@ -1093,7 +1102,7 @@
                     <div class="modify_id_boundary"></div>
                     <div class="modify_id_typing_box">
                         <div class="modify_id_typing_box_bg"></div>
-                        <div class="typing_ID">ID</div>
+                        <div class="typing_ID"><%=loginMember.getUser_id()%></div>
                     </div>
                 </div>
             </div>
@@ -1139,11 +1148,11 @@
                 <div class="Update_button_box_bg"></div>
                 <div class="Update_button_text_box">
                     <div class="Update_button_text_box_bg"></div>
-                    <div class="Update_button_text">Update</div>
+                    <div class="Update_button_text"><input type="submit" value="Update"></div>
                 </div>
             </div>
         </div>
-        
+      </form>  
         <!-- footer -->
         <div class="footer_box">
             <div class="footer_box_bg">
