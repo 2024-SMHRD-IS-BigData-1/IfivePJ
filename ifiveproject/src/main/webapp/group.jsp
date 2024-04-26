@@ -609,7 +609,7 @@
 					<div style="width: 14px; height: 14px; left: 11px; top: 23px; position: absolute; background: #D9D9D9"></div>
 					<div style="width: 14px; height: 14px; left: 34px; top: 23px; position: absolute; background: #D9D9D9"></div>
 					<div style="width: 13px; height: 14px; left: 760px; top: 23px; position: absolute; background: #D9D9D9"
-						id="button" class="button" onkeydown="sendMessage(${s.index})"></div>
+						id="button" class="button" onclick="sendMessage(${s.index})"></div>
 				</div>
 			</div>
 			
@@ -1043,12 +1043,13 @@
 		    }
 
 			// 채팅 메세지 올리기
-			function sendMessage(index) {
+			function sendMessage(index,) {
+				console.log(index);
 			    // 입력 필드의 값을 가져옵니다.
-			    const messageInput = document.getElementById('message_' + index);
+			     const messageInput = document.getElementById('message_' + index);
 			    const message = messageInput.innerText;
 			
-			    console.log("입력 메세지:" + message);
+			    console.log(message);
 			
 			    // AJAX 요청을 보냅니다.
 			    $.ajax({
@@ -1056,7 +1057,7 @@
 			        url: "ChatService.do",
 			        data: {
 			            "message": message,
-			           /*  "groupName": groupName // 그룹 이름을 전송합니다.  */
+			            "groupName": groupName // 그룹 이름을 전송합니다. 
 			        },
 			        success: function(response) {
 			            // 요청이 성공적으로 처리되었을 때의 작업
@@ -1081,7 +1082,7 @@
 			            // 요청이 실패했을 때의 작업
 			            console.error("Error sending message:", error);
 			        }
-			    });
+			    }); 
 			}
 
 		</script>
