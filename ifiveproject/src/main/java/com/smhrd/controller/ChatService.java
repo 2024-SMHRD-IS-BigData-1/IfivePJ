@@ -11,13 +11,14 @@ public class ChatService implements Command {
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) {
-        String user_id = (String) request.getSession().getAttribute("user_id");
+        String chatter = (String) request.getSession().getAttribute("user_id");
+        String group_name= request.getParameter("groupName");
 		String chating = request.getParameter("message");
 		System.out.println(chating);
 		
 		
 		
-		chatting_info sendChat = new chatting_info(chating);
+		chatting_info sendChat = new chatting_info(group_name, chatter, chating);
 		
 		System.out.println(sendChat.toString());
 		
