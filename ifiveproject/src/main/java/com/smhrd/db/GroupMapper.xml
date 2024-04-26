@@ -16,7 +16,9 @@
   	select * from group_info 
   </select>
 
-
+<select id="SearchGroupIdx" resultType="Group" parameterType="String">
+	select * from group_info where 
+</select>
   
   
 </mapper>

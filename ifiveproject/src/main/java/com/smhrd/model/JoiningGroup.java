@@ -25,6 +25,7 @@ public class JoiningGroup {
 		super();
     	this.user_id = user_Id;
 		this.confirm_yn= confirm_yn;
+		this.group_idx= group_idx;
     }
 
 
