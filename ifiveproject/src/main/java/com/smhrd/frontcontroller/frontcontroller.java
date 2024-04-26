@@ -12,9 +12,11 @@ import javax.servlet.http.HttpServletResponse;
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 import com.smhrd.controller.IdCheck;
+import com.smhrd.controller.CaloryChart;
 import com.smhrd.controller.ChatService;
+import com.smhrd.controller.DeleteFood;
+import com.smhrd.controller.DeleteSchedule;
 import com.smhrd.controller.DietService;
-import com.smhrd.controller.EatService;
 import com.smhrd.controller.GetFoodNames;
 import com.smhrd.controller.GroupRequestService;
 import com.smhrd.controller.JoinService;
@@ -75,8 +77,17 @@ public class frontcontroller extends HttpServlet {
 			service= new LogoutService();
 		}else if(resultURL.equals("GetFoodNames.do")) {
 			service= new GetFoodNames();
+		}else if(resultURL.equals("DeleteFood.do")) {
+			service= new DeleteFood();
+		}else if(resultURL.equals("DeleteSchedule.do")) {
+			service= new DeleteSchedule();
+		}else if(resultURL.equals("CaloryChart.do")) {
+			service= new CaloryChart();
+			
+		
 		}else if(resultURL.equals("GroupRequestService.do")) {
 			service= new GroupRequestService();
+
 		}
 		
 		String moveURL =service.execute(request, response);

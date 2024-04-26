@@ -29,12 +29,14 @@ public class ScheduleService implements Command {
         String user_id = (String) request.getSession().getAttribute("user_id");
         String ath_type = request.getParameter("title");
         String ath_date = request.getParameter("date");
+        System.out.println(ath_date);
         String ath_time = request.getParameter("time");
         String ath_duration = request.getParameter("duration");
 		String ath_done = request.getParameter("checkbox");
-
-		System.out.println(user_id);
 		
+
+		
+
 		
 		
         System.out.println(ath_type+ath_date+ath_duration+ath_time+user_id);

@@ -36,15 +36,14 @@
         border: 1px solid #ccc;
         border-radius: 5px;
         padding: 10px;
-    }
+    }    
 </style>
-<body>
 
+<body>
     <input type="text" id='search_area'>
     <button id="search_button">찾기</button>
     <div id="searchBar"></div>
     <div id="selectedItems"></div>
-
 
          <%
             Member loginMember = (Member)session.getAttribute("loginMember");
@@ -57,9 +56,15 @@
                List<Diet> dietList = new DietDAO().dietList(cal);
                System.out.print(dietList.size());
                pageContext.setAttribute("dietList", dietList);
-
+               
+               int totalCalories = 0;
+               for (Diet diet : dietList) {
+                   totalCalories += diet.getIntake_calory();
+               }                         
+               out.println("Total Calories: " + totalCalories);
+              
 %>
-          
+         
             <table>
             <c:forEach items="${dietList }" var="diet" varStatus="s">
                <tr>
@@ -69,7 +74,7 @@
                </tr>
             </c:forEach>
             </table>   
-
+           
     <script>
         // DOMContentLoaded 이벤트를 사용하여 페이지가 완전히 로드된 후에 함수를 실행
         document.addEventListener('DOMContentLoaded', function () {
@@ -135,7 +140,32 @@
             var urlParams = new URLSearchParams(window.location.search);
             return urlParams.get('date');
         }
+        
+        var selectedDate = getSelectedDateFromURL();
+        
+     // totalCalories 값을 서버로 전송하는 Ajax 요청
+        $.ajax({
+            url: 'cal.jsp', // 서버 측 URL
+            type: 'POST', // 또는 GET 등
+            data: { 'totalCalories': <%= totalCalories %>,
+            		'selectedDate' : selectedDate            
+            }, // totalCalories 값을 전달
+            success: function(response) {
+                console.log('Total calories sent successfully:', response);
+                // 성공적으로 전송되었을 때 수행할 동작
+            },
+            error: function(xhr, status, error) {
+                console.error('Error sending total calories:', error);
+                // 전송 중 오류가 발생했을 때 수행할 동작
+            }
+        });
+
+        
+        
+        
     </script>
+    
+
     
     
     

@@ -17,11 +17,11 @@ import lombok.Setter;
 public class Schedule {
 	
 	@NonNull private int plan_idx;
-	private String user_id;
+	@NonNull private String user_id;
 	@NonNull private String ath_date;
-	private String ath_time;
-	private String ath_type;
-	private String ath_duration;
+	@NonNull private String ath_time;
+	@NonNull private String ath_type;
+	@NonNull private String ath_duration;
 	private String created_at;
 	private String ath_done;
 	private int ath_reward;
@@ -39,6 +39,18 @@ public class Schedule {
 		this.ath_done = ath_done;
 		this.ath_reward = ath_reward;
 	}
+
+
+
+	public Schedule(String user_id, String ath_date) {
+		super();
+		this.user_id = user_id;
+		this.ath_date = ath_date;
+	}
+
+
+
+
 	
 
 	

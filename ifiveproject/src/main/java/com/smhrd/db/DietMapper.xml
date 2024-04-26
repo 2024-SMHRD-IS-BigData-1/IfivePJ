@@ -10,9 +10,13 @@
   </insert>
   
   	<select id="dietList" parameterType="Diet" resultType="Diet">
-		select food_name,intake_calory from diet_info where user_id=#{user_id} and eat_date=#{eat_date}
+		select diet_idx,food_name,intake_calory,eat_date from diet_info where user_id=#{user_id} and eat_date=#{eat_date}
 	</select>
   
+  
+  	<delete id="deleteDiet">
+		delete from diet_info where diet_idx=#{diet_idx}
+	</delete>
   
   
 </mapper>

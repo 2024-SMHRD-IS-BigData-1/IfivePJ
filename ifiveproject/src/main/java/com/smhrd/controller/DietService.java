@@ -19,9 +19,10 @@ public class DietService implements Command {
 	public String execute(HttpServletRequest request, HttpServletResponse response) {
 		System.out.println("diet");
 		String food_name = request.getParameter("food_name");
+		String user_id = (String) request.getSession().getAttribute("user_id");
 		int intake_calory = Integer.parseInt(request.getParameter("intake_calory"));
-        String eat_date = request.getParameter("date");              
-        String user_id = (String) request.getSession().getAttribute("user_id");
+        String eat_date = request.getParameter("date");
+        System.out.println(eat_date);
         String intake_weight = "300g";
      
         System.out.println(eat_date);
