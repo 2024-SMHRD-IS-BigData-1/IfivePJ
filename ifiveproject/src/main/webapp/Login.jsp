@@ -259,6 +259,7 @@
             background: #FFFCFC; 
             box-shadow: 20px 20px 4px rgba(0, 0, 0, 0.05); 
             border: 1px #F4F4F4 solid;
+            
         }
         .login_id_typing_bar{
             width: 342px; 

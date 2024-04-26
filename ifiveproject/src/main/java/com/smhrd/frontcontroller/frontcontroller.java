@@ -16,6 +16,7 @@ import com.smhrd.controller.ChatService;
 import com.smhrd.controller.DietService;
 import com.smhrd.controller.EatService;
 import com.smhrd.controller.GetFoodNames;
+import com.smhrd.controller.GroupRequestService;
 import com.smhrd.controller.JoinService;
 import com.smhrd.controller.LoginService;
 import com.smhrd.controller.LogoutService;
@@ -74,9 +75,10 @@ public class frontcontroller extends HttpServlet {
 			service= new LogoutService();
 		}else if(resultURL.equals("GetFoodNames.do")) {
 			service= new GetFoodNames();
-			
-		
+		}else if(resultURL.equals("GroupRequestService.do")) {
+			service= new GroupRequestService();
 		}
+		
 		String moveURL =service.execute(request, response);
 		System.out.print(moveURL);
 		

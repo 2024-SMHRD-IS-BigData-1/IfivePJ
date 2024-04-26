@@ -1,13 +1,20 @@
-<%@page import="com.smhrd.model.chattingRoomDAO"%>
-<%@page import="com.smhrd.model.chattingRoom"%>
+<%@page import="org.apache.ibatis.reflection.SystemMetaObject"%>
 <%@page import="com.smhrd.model.GroupDAO"%>
 <%@page import="com.smhrd.model.Group"%>
 <%@page import="java.util.List"%>
 <%@page import="com.smhrd.model.Member"%>
+<%@ page import="com.google.gson.Gson" %>
+<%@page import="com.google.gson.JsonObject"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" isELIgnored="false"%>
    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
-<%Member loginMember = (Member)session.getAttribute("loginMember"); %>
+<%
+	Member loginMember = (Member) session.getAttribute("loginMember");
+	Gson gson = new Gson();
+	JsonObject jsonObject = new JsonObject();
+	jsonObject.addProperty("user_id", loginMember.getUser_id());
+	String jsonLoginMember = gson.toJson(jsonObject);
+%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -392,7 +399,7 @@
         z-index: 10000000000000; /* 팝업이 다른 요소 위에 보이도록 함 */
     	}
     	
-    	#ChattingRoomInfoPopup {
+    	#GroupInfoPopup {
         display: none;
         position: absolute;
         left: 200px;
@@ -476,18 +483,19 @@
 			</div>
 		</div>
 		
-		<!-- 가입한 그룹 띄우기 -->
+		<!-- 회원이 소속한 그룹 띄우기 -->
 		<div class="group_button" style="top: 120px;">
 			<table>
 				<%
-				Member logiMember2Member = (Member) session.getAttribute("loginMember");
-				List<Group> groupList = null;
-				if (logiMember2Member != null) {
-					groupList = new GroupDAO().groupList(logiMember2Member.getUser_id());
-					pageContext.setAttribute("groupList", groupList);
-				}
+					Member logiMember2Member = (Member) session.getAttribute("loginMember");
+					List<Group> groupList = null;
+					if (logiMember2Member != null) {
+						groupList = new GroupDAO().groupList(logiMember2Member.getUser_id());
+						pageContext.setAttribute("groupList", groupList);
+					}
 				%>
 				<c:forEach items="${groupList}" var="group" varStatus="s">
+					${groupListSize}
 					<tr>
 						<td>
 							<div class="group_button_bg"></div>
@@ -715,28 +723,17 @@
 
 
 		<!-- 중앙 -->
-		<div
-			style="width: 798px; height: 1092px; left: 561px; top: 100px; position: absolute">
-			<div
-				style="width: 797px; height: 1092px; left: 0px; top: 0px; position: absolute; background: #F6CFCF"></div>
-			<div
-				style="width: 1px; height: 1092px; left: -1px; top: 0px; position: absolute; background: #DBDBDB"></div>
-			<div
-				style="width: 1px; height: 1092px; left: 797px; top: 0px; position: absolute; background: #DBDBDB"></div>
-			<div
-				style="width: 797px; height: 194px; left: 0px; top: 0px; position: absolute">
-				<div
-					style="width: 797px; height: 194px; left: 0px; top: 0px; position: absolute">
-					<div
-						style="width: 797px; height: 194px; left: 0px; top: 0px; position: absolute; background: white"></div>
-					<div
-						style="width: 797px; height: 30px; left: 0px; top: 50px; position: absolute; background: white"></div>
-					<div
-						style="width: 72px; height: 30px; left: 50px; top: 50px; position: absolute">
-						<div
-							style="width: 72px; height: 30px; left: 0px; top: 0px; position: absolute; background: white"></div>
-						<div
-							style="left: 0px; top: 0px; position: absolute; color: black; font-size: 25px; font-family: Inter; font-weight: 700; word-wrap: break-word">Board</div>
+		<div style="width: 798px; height: 1092px; left: 561px; top: 100px; position: absolute">
+			<div style="width: 797px; height: 1092px; left: 0px; top: 0px; position: absolute; background: #F6CFCF"></div>
+			<div style="width: 1px; height: 1092px; left: -1px; top: 0px; position: absolute; background: #DBDBDB"></div>
+			<div style="width: 1px; height: 1092px; left: 797px; top: 0px; position: absolute; background: #DBDBDB"></div>
+			<div style="width: 797px; height: 194px; left: 0px; top: 0px; position: absolute">
+				<div style="width: 797px; height: 194px; left: 0px; top: 0px; position: absolute">
+					<div style="width: 797px; height: 194px; left: 0px; top: 0px; position: absolute; background: white"></div>
+					<div style="width: 797px; height: 30px; left: 0px; top: 50px; position: absolute; background: white"></div>
+					<div style="width: 72px; height: 30px; left: 50px; top: 50px; position: absolute">
+						<div style="width: 72px; height: 30px; left: 0px; top: 0px; position: absolute; background: white"></div>
+						<div style="left: 0px; top: 0px; position: absolute; color: black; font-size: 25px; font-family: Inter; font-weight: 700; word-wrap: break-word">Board</div>
 					</div>
 				</div>
 				<div
@@ -753,79 +750,80 @@
 				</div>
 			</div>
 
-			<!-- 채팅방 명단 -->
-			<div
-				style="width: 797px; height: 898px; left: 0px; top: 194px; position: absolute">
-				 <div
-					style="width: 797px; height: 898px; left: 0px; top: 0px; position: absolute; background: white"></div>
-				<div
-					style="width: 30px; height: 30px; left: 67px; top: 11px; position: absolute; background: #D9D9D9; border-radius: 9999px"></div> 
-
+			<!-- 전체그룹 명단 -->
+			<div style="width: 797px; height: 898px; left: 0px; top: 194px; position: absolute">
+				<div style="width: 797px; height: 898px; left: 0px; top: 0px; position: absolute; background: white"></div>
+				<div style="width: 30px; height: 30px; left: 67px; top: 11px; position: absolute; background: #D9D9D9; border-radius: 9999px"></div>
 				<div style="top: 194px;">
-				
-				
-				<c:forEach items="${chattingRoomList}" var="chattingRoom" varStatus="s">
-					<div id="ChattingRoomInfoPopup_${s.index }" class="popup">
-						<span class="close_ChattingRoomInfo" style="cursor:pointer;" onclick="closePopup2(${index})">&times;</span>
-						<div class="popup-content">
-							<h5>그룹정보</h5>
-							<form action="GroupRequestService.do" method="post">
-								<li>그룹이름: ${chattingRoom.group_name} }</li>
-								<li>그룹정보: ${chattingRoom.GROUP_INFO }</li>
-								<li>그룹인원: ${GROUP_LIMIT }</li> 
-								<input type="submit" value="가입신청">
-							</form>
+	
+	
+					<%-- <c:forEach items="${GroupList}" var="group" varStatus="a">
+						<div id="GroupInfo2"data-index="${a.index}">
+							<div class="popup-content">
+								<h5>그룹정보</h5>
+								<form action="GroupRequestService.do" method="post">
+									<li>그룹이름: ${group.group_name}</li>
+									<li>그룹정보: ${group.group_info}</li>
+									<li>그룹인원: ${group.group_limit}</li> 
+									<input type="submit" value="가입신청">
+								</form>
+							</div>
 						</div>
-					</div>
-				</c:forEach>
-				
+					</c:forEach> --%>
+	
+	
+	
 					<table>
 						<%
-						List<chattingRoom> chattingRoomList = null;
-						chattingRoomList = new chattingRoomDAO().chattingRoomList();
-							pageContext.setAttribute("chattingRoomList", chattingRoomList);
+							List<Group> GroupList = null;
+							GroupList = new GroupDAO().groupList();
+		
+							pageContext.setAttribute("GroupList", GroupList);
 						%>
-						${chattingRoomList}
-						<c:forEach items="${chattingRoomList}" var="chattingRoom" varStatus="s">
-							${chattingRoom}
-							<tr>
-								<td>
-									<div class="chattingRoom"></div>
-									<div
-										id="ChattingRoomInfo" style="width: 682px; height: 52px; left: 57px; top: ${s.index*60}px; position: absolute; background: white; cursor: pointer;"></div>
-									<div
-										style="width: 682px; height: 1px; left: 57px; top: ${s.index * 60 + 52}px; position: absolute; background: #DBDBDB"></div>
-									<div id="chattingRoomTitle"
-										style="left: 105px; top: ${s.index * 60 +5 }px; position: absolute; color: black; font-size: 15px; font-family: Inter; font-weight: 400; word-wrap: break-word;">
-										${chattingRoom.group_name }</div>
-									<div
-										style="width: 30px; height: 30px; left: 67px; top: ${s.index*60+12}px; position: absolute; background: #D9D9D9; border-radius: 9999px"></div>
-								</td>
-							</tr>
+						<c:forEach items="${GroupList}" var="group" varStatus="s">
+						    <tr>
+						        <td>
+						            <div class="Group"></div>
+						            <div id="GroupList_${s.index}" style="width: 682px; height: 52px; left: 57px; top: ${s.index*60}px; position: absolute; background: white; cursor: pointer;"></div>
+						            <div style="width: 682px; height: 1px; left: 57px; top: ${s.index * 60 + 52}px; position: absolute; background: #DBDBDB"></div>
+						            <form action="GroupRequestService.do" method="post">
+						                <div id="GroupTitle_${s.index }" style="left: 105px; top: ${s.index * 60 +5 }px; position: absolute; color: black; font-size: 15px; font-family: Inter; font-weight: 400; word-wrap: break-word;">
+						                    ${group.group_name}
+						                </div>
+						                <div style="left: 600px; top: ${s.index * 60 +5 }px; position: absolute;">
+						                    <input id="GroupRequest_${s.index}" type="button" value="가입신청" style="width: auto; height: auto" onclick="sendGroupRequest(${s.index})">
+						                </div>
+						            </form>
+						            <div id="GroupList_circle" style="width: 30px; height: 30px; left: 67px; top: ${s.index*60+12}px; position: absolute; background: #D9D9D9; border-radius: 9999px"></div>
+						        </td>
+						    </tr>
 						</c:forEach>
 					</table>
 				</div>
 			</div>
 			
-			<script>
-			    /* // 각 chattingRoom_info 요소에 클릭 이벤트를 추가
-			     var chattingRoomInfos = document.querySelectorAll('.chattingRoom_info');
-			    chattingRoomInfos.forEach(function(info) {
-			        info.addEventListener('click', function() {
-			            // 팝업창을 열기 위한 함수 호출
-			            ChattingRoomInfoPopup();
-			        });
-			    });
-			    // 팝업창을 열기 위한 함수
-			    function ChattingRoomInfoPopup() {
-			        // 팝업창을 열거나 원하는 작업을 수행하세요.
-			        alert('채팅방 정보 팝업을 띄웁니다!');
-			    }  */
+			
+			<script >
+			function sendGroupRequest(index) {
+				var groupName = document.getElementById("GroupTitle_" + index).textContent;
+				var userId = JSON.parse('<%= jsonLoginMember %>').user_id;
+			    console.log("가입신청 - 그룹 ID:", groupName);
+			    console.log("가입신청 - 사용자 ID:", userId);		
 			    
-			    
+			     var xhr = new XMLHttpRequest();
+			    xhr.open("POST", "GroupRequestService.do", true);
+			    xhr.setRequestHeader("Content-Type", "application/json");
+			    xhr.onreadystatechange = function() {
+			        if (xhr.readyState === 4 && xhr.status === 200) {
+			            // 서버로부터 응답을 받았을 때 할 작업
+			            console.log("요청이 성공적으로 전송되었습니다.");
+			        }
+			    };
+			    var data = JSON.stringify({ groupName: groupName, userId: userId });
+			    xhr.send(data); 
+			}
 			</script>
-
-
+	
 		</div>
 
 		<!-- 오른쪽 사이드 -->
@@ -980,52 +978,51 @@
 				<button id="buttonStyle" onclick="scrollToTop()"></button>
 			</div>
 		</div>
-		<div class="write_button">
-			<div>
-				<button id="write_buttonStyle" onclick="openNewPopup()"
-					onclick="save()">글쓰기</button>
-			</div>
-		</div>
 		
 
 		
 		<script>
 		/* 그룹생성 팝업 기능  */
-         // 팝업 표시 함수
-         function showPopup() {
-            document.getElementById("myPopup").style.display = "block";
-         }
-
-         // 팝업 숨김 함수
-         function closePopup1() {
-            document.getElementById("myPopup").style.display = "none";
-         }
-
-         // 요소 클릭 시 팝업 표시
-         document.getElementById("groupjoin").addEventListener("click",
-               function() {
-                  showPopup();
-               });
+	         // 팝업 표시 함수
+	         function showPopup() {
+	            document.getElementById("myPopup").style.display = "block";
+	         }
+	
+	         // 팝업 숨김 함수
+	         function closePopup1() {
+	            document.getElementById("myPopup").style.display = "none";
+	         }
+	
+	         // 요소 클릭 시 팝업 표시
+	         document.getElementById("groupjoin").addEventListener("click",
+	               function() {
+	                  showPopup();
+	               });
          
-         /* 채팅정보 팝업 기능 */
-         function showPopup2(index) {
-        	 var popupId = "ChattingRoomInfoPopup_" + index;
-        	    var popup = document.getElementById(popupId);
-        	    popup.style.display = "block";
-          }
-
-          // 팝업 숨김 함수
-          function closePopup2() {
-        	  var popupId = "ChattingRoomInfoPopup_" + index;
-        	    var popup = document.getElementById(popupId);
-        	    popup.style.display = "none";
-          }
-
-          // 요소 클릭 시 팝업 표시
-          document.getElementById("ChattingRoomInfo").addEventListener("click",
-                function() {
-                   showPopup2();
-                });
+         /* 그룹리스트 정보 팝업 기능 */
+	         /* function showPopup2(index) {
+	        	 var popupId = "GroupInfoPopup_" + index;
+	        	 console.log("Popup ID:", popupId);
+	        	    var popup = document.getElementById(popupId);
+	        	    console.log("Popup Element:", popup);
+	        	    popup.style.display = "block";
+	          }
+	
+	          // 팝업 숨김 함수
+	          function closePopup2(index) {
+	        	  var popupId = "GroupInfoPopup_" + index;
+	        	    var popup = document.getElementById(popupId);
+	        	    popup.style.display = "none";
+	          }
+	
+	          // 요소 클릭 시 팝업 표시
+	           	var popups = document.querySelectorAll('.popup2');
+			    popups.forEach(function(popup) {
+			        popup.addEventListener('click', function() {
+			            var index = this.dataset.index;
+			            showPopup2(index);
+			        });
+			    }); */
    		
          // 검색창 커서
 		document.addEventListener("DOMContentLoaded", function() {
@@ -1039,25 +1036,7 @@
 		        this.appendChild(inputField);
 		       });
 		   });
-			
-		
 	    
-	    // 글쓰기 팝업
-	    function openPopup() {
-			var popupContent = "<div class='popup'><h2>생성완료</h2> <button onclick='closePopup()'>확인</button> <p>그룹명 : "
-					+ groupName
-					+ "</p> <p>그룹인원 : "
-					+ example
-					+ " </p> <p>소개글(그룹설명) : " + example2 + " </div>";
-
-			// 팝업 창 요소 생성
-			var popupWrapper = document.createElement("div");
-			popupWrapper.classList.add("popup-wrapper");
-			popupWrapper.innerHTML = popupContent;
-
-			// 팝업 창을 body에 추가
-			document.body.appendChild(popupWrapper);
-		}
 
 			// 그룹 구인창 팝업
 			function openNewPopup() {
