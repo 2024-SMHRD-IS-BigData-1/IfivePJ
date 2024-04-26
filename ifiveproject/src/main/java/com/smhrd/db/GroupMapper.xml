@@ -5,7 +5,8 @@
 <mapper namespace="com.smhrd.db.GroupMapper">
   
   <insert id="join" parameterType="Group" >
-  	insert into group_info values(group_idx.NEXTVAL, #{user_id},#{group_name},#{group_info},#{group_limit},sysdate,#{group_status})
+  	insert into group_info values
+  	(group_idx.NEXTVAL, #{user_id},#{group_name},#{group_info},#{group_limit},sysdate,#{group_status})
   </insert>
   
   <select id="groupList" resultType="Group" parameterType="String">

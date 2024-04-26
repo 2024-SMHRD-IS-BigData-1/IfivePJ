@@ -19,13 +19,13 @@ public class JoiningGroup {
     private String user_id;
     private String apply_date;
     private String confirm_yn;
-    private String group_idx;
+    private String group_name;
     
-    public JoiningGroup(String user_Id, String confirm_yn) {
+    public JoiningGroup(String user_Id, String confirm_yn, String group_name) {
 		super();
     	this.user_id = user_Id;
 		this.confirm_yn= confirm_yn;
-		this.group_idx= group_idx;
+		this.group_name= group_name;
     }
 
 
