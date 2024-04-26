@@ -617,6 +617,7 @@
                     </a>
                 </div>
                 <div class="header_bar"></div>
+            <form action="LoginService.do" method="post">
                 <a class="login_button" href="login.jsp" role="button">
                     <div class="login_button_bg"></div>
                     <div class="login_button_textBox">
@@ -632,13 +633,12 @@
              <div class="pageText">로그인</div>
             <!-- login page box -->
 
-            <form action="LoginService.do" method="post">
 
                 <div class="login_box">
                       <div class="login_id_box_bg"></div>
                             <div class="login_id_typing_bar">
 
-                                <input name="user_name" id="input-username" autocapitalize="off" type="text" placeholder="아이디를 입력하세요" value="">
+                                <input name="user_id" id="input-username" autocapitalize="off" type="text" placeholder="아이디를 입력하세요" value="">
                                 
                             </div>                        
                             <div class="login_pw_typing_bar">

@@ -716,9 +716,9 @@
         <div class="join_box">
             <div class="join_box_bg"></div>
                 <div class="bar1">
-                    <input name="user_id" id="input_id" autocapitalize="off" type="text" placeholder="아이디를 입력하세요" value="">
-                     <input id="IDcheck" type="button" value="중복체크" onclick="checkID()">
-                     <span id="checkID"></span>
+                    <input name="user_id" id="input-name" autocapitalize="off" type="text" placeholder="아이디를 입력하세요" value="">
+                     <!-- <input id="IDcheck" type="button" value="중복체크" onclick="checkID()"> -->
+                   <!--   <span id="checkID"></span> -->
                 </div>
                 <div class="bar2">
                     <input name="user_pw" id="input-userpassword" autocapitalize="off" type="password" placeholder="비밀번호를 입력하세요" value="">
