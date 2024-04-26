@@ -14,10 +14,7 @@
 	JsonObject jsonObject = new JsonObject();
 	jsonObject.addProperty("user_id", loginMember.getUser_id());
 	String jsonLoginMember = gson.toJson(jsonObject);
-	
-	Group GroupInfo =(Group) session.getAttribute("GroupInfo");
-	jsonObject.addProperty("group_idx", GroupInfo.getGroup_idx());
-	String jsonGroupInfo = gson.toJson(jsonObject);
+	 
 %>
 <!DOCTYPE html>
 <html lang="en">
@@ -811,10 +808,8 @@
 			function sendGroupRequest(index) {
 				var groupName = document.getElementById("GroupTitle_" + index).textContent;
 				var userId = JSON.parse('<%= jsonLoginMember %>').user_id;
-				var group_idx = JSON.parse('<%=jsonGroupInfo %>').group_idx;
 			    console.log("가입신청 - 그룹 ID:", groupName);
 			    console.log("가입신청 - 사용자 ID:", userId);		
-			    console.log("가입신청 - 그룹 IDX:",group_idx)
 			     var xhr = new XMLHttpRequest();
 			    xhr.open("POST", "GroupRequestService.do", true);
 			    xhr.setRequestHeader("Content-Type", "application/json");
@@ -826,7 +821,7 @@
 			    };
 			    var data = JSON.stringify({ groupName: groupName, userId: userId });
 			    xhr.send(data); 
-			}
+			} 
 			</script>
 	
 		</div>

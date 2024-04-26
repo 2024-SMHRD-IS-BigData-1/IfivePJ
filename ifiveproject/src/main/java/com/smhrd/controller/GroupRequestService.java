@@ -31,12 +31,12 @@ public class GroupRequestService implements Command {
             String groupNameor = jsonObject.getString("groupName");
             String groupName = groupNameor.trim();
             String user_Id = jsonObject.getString("userId");
-            String group_idx = jsonObject.getString("group_idx");
+			/* String group_idx = jsonObject.getString("group_idx"); */
             String confirm_yn= "y";
 
             System.out.println("Group Name: " + groupName);
             System.out.println("User ID: " + user_Id);
-            System.out.println("group_idx: " + group_idx);
+			/* System.out.println("group_idx: " + group_idx); */
         	
             JoiningGroup JoiningGroup = new JoiningGroup(user_Id, confirm_yn);
             
