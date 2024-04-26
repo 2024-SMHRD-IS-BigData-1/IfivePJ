@@ -717,8 +717,8 @@
             <div class="join_box_bg"></div>
                 <div class="bar1">
                     <input name="user_id" id="input-name" autocapitalize="off" type="text" placeholder="아이디를 입력하세요" value="">
-                     <!-- <input id="IDcheck" type="button" value="중복체크" onclick="checkID()"> -->
-                   <!--   <span id="checkID"></span> -->
+                      <input id="IDcheck" type="button" value="중복체크" onclick="checkID()"> 
+                  <span id="checkID"></span> 
                 </div>
                 <div class="bar2">
                     <input name="user_pw" id="input-userpassword" autocapitalize="off" type="password" placeholder="비밀번호를 입력하세요" value="">
@@ -814,33 +814,25 @@
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
          <script type="text/javascript">
          function checkID(){
-            var input_id = $("#input_id").val()
-            console.log(input_id)
-            $.ajax(
-               {
-                  // 어디로 요청할건지
-                  url : "IdCheck.do",
-                  // 어떤 데이터를 보낼건지
-                  data : {'input_id' : input_id},
-                  // 어떤 방식으로 요청할건지
-                  type : 'get',
-                  // 성공했을 때 / 실패했을 때 어떻게 처리할건지
-                  success : function(data){
-                	  if(data == "true") {
-                		    alert('사용 가능한 ID입니다');
-                		} else {
-                		    alert('사용 불가능한 ID입니다');
-                		}
-                  },
-                  error : function(){
-                     alert("통신실패!")
-                     }
-                  }      
-               )
-            
-            }
-   
-   
+        	    var inputName = $("#input-name").val(); // 변수 이름 수정
+        	    console.log(inputName);
+        	    $.ajax({
+        	        url : "IdCheck.do",
+        	        data : {'input_name' : inputName}, // 수정된 부분
+        	        type : 'get',
+        	        success : function(data){
+        	            if(data == "true") {
+        	                alert('사용 가능한 ID입니다');
+        	            } else {
+        	                alert('사용 불가능한 ID입니다');
+        	            }
+        	        },
+        	        error : function(){
+        	            alert("통신실패!")
+        	        }
+        	    });
+        	}
+        	
          </script>
 </body>
 </html>
