@@ -10,8 +10,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff">
+
     <style>
+       
+
         
+        @font-face {
+            font-family: 'Pretendard-Regular';
+            src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+            font-weight: 400;
+            font-style: normal;
+        }
+
+
+
         .wrap{
             margin: 10px auto;
             width: 1920px;
@@ -96,11 +109,11 @@
         }
         .login_text{
             left: 3px; 
-            top: 0px; 
+            top: 4px; 
             position: absolute; 
             color: black; 
             font-size: 14px; 
-            font-family: Noto Sans KR; 
+            font-family: Pretendard-Regular; 
             font-weight: 350; 
             word-wrap: break-word;
         }
@@ -125,7 +138,7 @@
             position: absolute; 
             color: black; 
             font-size: 14px; 
-            font-family: Noto Sans KR; 
+            font-family: Pretendard-Regular; 
             font-weight: 350; 
             word-wrap: break-word;
         }
@@ -150,7 +163,7 @@
             position: absolute; 
             color: black; 
             font-size: 14px; 
-            font-family: Noto Sans KR; 
+            font-family: Pretendard-Regular; 
             font-weight: 350; 
             word-wrap: break-word;
         }
@@ -176,7 +189,7 @@
             position: absolute; 
             color: black; 
             font-size: 14px; 
-            font-family: Noto Sans KR; 
+            font-family: Pretendard-Regular; 
             font-weight: 350; 
             word-wrap: break-word;
         }
@@ -202,7 +215,7 @@
             position: absolute; 
             color: black; 
             font-size: 28px; 
-            font-family: Noto Sans KR; 
+            font-family: Pretendard-Regular; 
             font-weight: 700; 
             letter-spacing: 2.80px; 
             word-wrap: break-word;
@@ -217,6 +230,10 @@
             position: absolute; 
             background: #D9D9D9;
         }
+
+
+
+
       
         #record_img{
             width: 1600px; 
@@ -231,7 +248,7 @@
             position: absolute; 
             color: #DBDBDB; 
             font-size: 70px; 
-            font-family: Roboto; 
+            font-family: Pretendard-Regular; 
             font-weight: 800; 
             word-wrap: break-word;
         }
@@ -241,7 +258,7 @@
             position: absolute; 
             color: #DBDBDB; 
             font-size: 40px; 
-            font-family: Noto Sans KR; 
+            font-family: Pretendard-Regular; 
             font-weight: 400; 
             word-wrap: break-word;
         }
@@ -252,7 +269,7 @@
             position: absolute; 
             color: #DBDBDB; 
             font-size: 40px; 
-            font-family: Noto Sans KR; 
+            font-family: Pretendard-Regular; 
             font-weight: 350; 
             word-wrap: break-word;
         }
@@ -262,7 +279,7 @@
             position: absolute; 
             color: black; 
             font-size: 40px; 
-            font-family: Noto Sans KR; 
+            font-family: Pretendard-Regular; 
             font-weight: 500; 
             word-wrap: break-word"
         }
@@ -295,7 +312,7 @@
             position: absolute; 
             color: black; 
             font-size: 30px; 
-            font-family: Roboto; 
+            font-family: Pretendard-Regular; 
             font-weight: 500; 
             word-wrap: break-word;
         }
@@ -305,7 +322,7 @@
             position: absolute; 
             color: black; 
             font-size: 15px; 
-            font-family: Roboto; 
+            font-family: Pretendard-Regular; 
             font-weight: 300; 
             word-wrap: break-word;
         }
@@ -342,7 +359,7 @@
             position: absolute; 
             color: black; 
             font-size: 15px; 
-            font-family: Noto Sans KR; 
+            font-family: Pretendard-Regular; 
             font-weight: 350; 
             word-wrap: break-word;
         }
@@ -353,7 +370,7 @@
             position: absolute; 
             color: black; 
             font-size: 40px; 
-            font-family: Noto Sans KR; 
+            font-family: Pretendard-Regular; 
             font-weight: 500; 
             word-wrap: break-word;
         }
@@ -373,29 +390,29 @@
             background: white;
         }
         #group_exp_title{
-            left: 412px; 
+            left: 430px; 
             top: 2089px; 
             position: absolute; 
             color: black; 
             font-size: 30px; 
-            font-family: Roboto; 
+            font-family: Pretendard-Regular; 
             font-weight: 500; 
             word-wrap: break-word;
         }
         #group_exp_subtitle{
-            left: 474px;
+            left: 440px;
             top: 2148px;
             position: absolute; 
             color: black; 
             font-size: 15px; 
-            font-family: Roboto; 
+            font-family: Pretendard-Regular; 
             font-weight: 300; 
             word-wrap: break-word;
         }
         #group_exp_button_box{
-            width: 112px; 
+            width: 100px; 
             height: 41px; 
-            left: 640px; 
+            left: 660px; 
             top: 2218px; 
             position: absolute;
         }
@@ -425,67 +442,159 @@
             position: absolute; 
             color: black; 
             font-size: 15px; 
-            font-family: Noto Sans KR; 
+            font-family: Pretendard-Regular; 
             font-weight: 350; 
             word-wrap: break-word;
         }
-        #up_button_box{
+        .up_button_box{
             width: 58px; 
             height: 52px; 
             left: 932px; 
             top: 2567px;
             position: absolute;
         }
-        #up_button_img{
-            width: 29px; 
-            eight: 13px; 
+        .up_button_img{
+            width: 30px; 
+            height: 30px; 
             left: 14.50px; 
             top: 19.50px; 
             position: absolute; 
-            border: 2px #212121 solid;
         }
-        #footer_box{
+        .footer_box{
             width: 1920px; 
-            height: 252px; 
-            left: 1px; 
+            height: 253px; 
+            left: 0px; 
             top: 2731px; 
+            position: absolute;
+        }
+        .footer_box_bg{
+            width: 1920px; 
+            height: 253px; 
+            left: 0px; 
+            top: 0px; 
             position: absolute; 
             background: white;
         }
-        #footer_bar{
-            width: 1920px; 
-            height: 1px; 
-            left: -1px; 
-            top: 2734px; 
-            position: absolute; 
-            background: #DBDBDB;
+        .footer_icon_box{
+            width: 382px; 
+            height: 252px; 
+            left: 769px; 
+            top: 1px; 
+            position: absolute
         }
-        #footer_group{
-            left: 750px; 
-            top: 2790px; 
+        .footer_icon_box_bg{
+            width: 382px; 
+            height: 252px; 
+            left: 0px; 
+            top: 0px; 
+            position: absolute; 
+            background: white
+        }
+        .footer_groupBox{
+            width: 76px; 
+            height: 20px; 
+            left: 47px; 
+            top: 50px; 
+            position: absolute
+        }
+        .footer_groupBg{
+            width: 76px; 
+            height: 20px; 
+            left: 0px; 
+            top: 0px; 
+            position: absolute; 
+            background: white
+        }
+        .footer_groupText{
+            left: 14px; 
+            top: 2px; 
             position: absolute; 
             color: black; 
             font-size: 16px; 
-            font-family: Noto Sans KR; 
+            font-family: Pretendard-Regular; 
             font-weight: 500; 
             line-height: 16px; 
-            word-wrap: break-word;
+            word-wrap: break-word
         }
-        #footer_mypage{
-            left: 1094px; top: 2791px; position: absolute; color: black; font-size: 16px; font-family: Noto Sans KR; font-weight: 500; line-height: 16px; word-wrap: break-word
+        .footer_Callender_box{
+            width: 76px; 
+            height: 20px; 
+            left: 153px; 
+            top: 50px; 
+            position: absolute
         }
-        #footer_callender{
-            left: 834px; top: 2790px; position: absolute; color: black; font-size: 16px; font-family: Noto Sans KR; font-weight: 500; line-height: 16px; word-wrap: break-word
+        .footer_CallenderBg{
+            width: 76px; 
+            height: 20px; 
+            left: 0px; 
+            top: 0px; 
+            position: absolute; 
+            background: white
         }
-        #footer_point{
-            left: 1016px; top: 2791px; position: absolute; color: black; font-size: 16px; font-family: Noto Sans KR; font-weight: 500; line-height: 16px; word-wrap: break-word
+        .footer_CallenderText{
+            left: 1px; 
+            top: 2px; 
+            position: absolute; 
+            color: black; 
+            font-size: 16px; 
+            font-family: Pretendard-Regular; 
+            font-weight: 500; 
+            line-height: 16px; 
+            word-wrap: break-word
         }
-        #footer_chat{
-            left: 942px; top: 2791px; position: absolute; color: black; font-size: 16px; font-family: Noto Sans KR; font-weight: 500; line-height: 16px; word-wrap: break-word
+        .footer_mypage_box{
+            width: 76px;
+            height: 20px; 
+            left: 259px; 
+            top: 50px; 
+            position: absolute
         }
-        #footer_address{
-            left: 901px; top: 2914px; position: absolute; color: #797979; font-size: 15px; font-family: Noto Sans KR; font-weight: 350; line-height: 15px; word-wrap: break-word
+        .footer_mypageBg{
+            width: 76px; 
+            height: 20px; 
+            left: 0px; 
+            top: 0px; 
+            position: absolute; 
+            background: white
         }
+        .footer_bar{
+            width: 1920px; 
+            height: 1px; 
+            left: 0px; 
+            top: 2730px; 
+            position: absolute; 
+            background: #D9D9D9
+        }
+       
+       
+        .footer_mypageText{
+            left: 7px; 
+            top: 2px;
+            position: absolute; 
+            color: black; 
+            font-size: 16px; 
+            font-family: Pretendard-Regular; 
+            font-weight: 500; 
+            line-height: 16px; 
+            word-wrap: break-word
+        }
+        .footer_snsbutton1{
+            width: 35px; 
+            height: 35px; 
+            left: 25px; 
+            top: 106px; 
+            position: absolute; 
+        }
+        .footer_snsbutton2{
+            width: 35px; height: 35px; left: 124px; top: 106px; position: absolute; 
+        }
+        .footer_snsbutton3{
+            width: 35px; height: 35px; left: 223px; top: 106px; position: absolute;
+        }
+        .footer_snsbutton4{
+            width: 35px; height: 35px; left: 322px; top: 106px; position: absolute;
+        }   
+       
     </style>
 </head>
 <body>
@@ -528,7 +637,7 @@
                     <div class="login_button_bg"></div>
                     <div class="login_button_textBox">
                         <div class="login_button_textBg"></div>
-                        <div class="login_button_img"></div>
+                       <img class="login_button_img" src="img/Person.jpg"></img>
                         <div class="login_textBox">
                             <div class="login_textBg"></div>
                             <div class="login_button">
@@ -544,86 +653,84 @@
        
        
       
-        <nav>
-            <img id="record_img" src="./img/동기부여2.jpg" />
+ <nav>
+            <a href="cal.jsp"><img id="record_img" src="./img/동기부여2.jpg" />
                 <div id="mainboard_title">Life is like riding a bicycle</div>
                 <div id="mainboard_subtitle">To keep your balance you must keep moving </div>
                 <!-- <div id="mainboard_button"></div> -->
                 <div id="record">Record</div>
-
+            </a>
         </nav>
 
         <!-- callender exp -->
         <nav>
             <div id="cal_exp_box"></div>
                 <div id="callender_exp">Callender</div>
-                <img id="cal_exp_img" src="./img/캘린더1.jpg" />
+                <a href="cal.jsp"><img id="cal_exp_img" src="img/캘린더1.jpg" alt="" /></a>
                 <div id="cal_exp_textbox"></div>
                 <div id="cal_exp_title">자신의 하루를 기록해보세요 </div>
                 <div id="cal_exp_subtitle">“내일을 실현하는데 유일한 한계는 오늘에 대한 의심입니다.”<br/>- 프랭클린 D. 루즈벨트</div>
                 
-                <div id="cal_exp_button_box">
-                    <div id="cal_exp_button_bg"></div>
-                    <div id="cal_exp_button_bar"></div>
-                    <div id="cal_exp_button_text">Callender</div>
-                    <!-- <img id="cal_enter_img" src="./img/Vector.jpg"/> -->
-                </div>
-
+                <a href="cal.jsp"><div id="cal_exp_button_box">
+                        <div id="cal_exp_button_bg"></div>
+                        <div id="cal_exp_button_bar"></div>
+                        <div id="cal_exp_button_text">Callender</div>
+                        <!-- <img id="cal_enter_img" src="./img/Vector.jpg"/> -->
+                    </div>
+                </a>
         </nav>
 
         <!-- group exp -->
         <div id="group_exp">Group</div>
-        <img id="gruop_exp_img" src="./img/그룹.jpg" />
+        <a href="group.jsp"><img id="gruop_exp_img" src="./img/그룹.jpg" /></a>
         <div id="group_exp_box"></div>
             <div id="group_exp_title">런닝메이트를 만들어 보세요</div>
             <div id="group_exp_subtitle">“혼자서는 우리는 아무 것도 못한다, <br/>함께 하면 우리는 그렇게 많은 것을 할 수 있다.” <br/>- 헬렌 켈러</div>
-            <div id="group_exp_button_box">
-                <div id="group_exp_button_bg"></div>
-                <div id="group_exp_button_bar"></div>
-                <div id="gruop_exp_button_title">Group</div>
-            </div>
-        <div id="up_button_box">
-            <div id="up_button_img"></div>
+            <a href="group.jsp"><div id="group_exp_button_box">
+                    <div id="group_exp_button_bg"></div>
+                    <div id="group_exp_button_bar"></div>
+                    <div id="gruop_exp_button_title">Group</div>
+                </div>
+            </a>
+        <div class="up_button_box">
+            <img class="up_button_img" src="./img/Feather Icon.png"></img>
         </div>
-        <!-- footer -->
-        <div id="footer_box"></div>
-            <div id="footer_group">Group</div>
-            <div id="footer_mypage">My page</div>
-            <div id="footer_callender">Callender</div>
-            <div id="footer_point">Point</div>
-            <div id="footer_chat">Chat</div>
-            <div id="footer_address">Ifive@naver.com</div>
-        <div id="footer_bar"></div>
+       
+       
+       <!-- footer -->
+        <div class="box">
+            <div class="footer_box">
+                <div class="footer_box_bg">
+                    <div class="footer_icon_box">
+                        <div class="footer_icon_box_bg"></div>
+                        <a class="footer_groupBox"  href="group.jsp" role="button">
+                            <div class="footer_groupBg"></div>
+                            <div class="footer_groupText">Group</div>
+                        </a>
+                        <a class="footer_Callender_box" href="cal.jsp" role="button">
+                            <div class="footer_CallenderBg"></div>
+                            <div class="footer_CallenderText">Callender</div>
+                        </a>
+                        <a class="footer_mypage_box" href="mypage.jsp" role="button">
+                            <div class="footer_mypageBg"></div>
+                            <div class="footer_mypageText">My Page</div>
+                        </a>
         
-        
-       <!-- footer icon -->
-        <div style="width: 35px; height: 35px; left: 790px; top: 2843px; position: absolute">
-            <div style="width: 35px; height: 35px; left: 0px; top: 0px; position: absolute; background: #C4C4C4"></div>
-            <div style="width: 35px; height: 35px; left: 0px; top: 0px; position: absolute; background: #C4C4C4; border-radius: 9999px"></div>
-            <img style="width: 35px; height: 35px; left: 0px; top: 0px; position: absolute" src="https://via.placeholder.com/35x35" />
-        </div>
-        <div style="width: 35px; height: 35px; left: 891px; top: 2843px; position: absolute">
-            <div style="width: 35px; height: 35px; left: 0px; top: 0px; position: absolute; background: black; border-radius: 9999px"></div>
-            <div style="width: 22.96px; height: 22.98px; left: 6.02px; top: 6.02px; position: absolute">
-                <div style="width: 18.05px; height: 18.05px; left: 2.73px; top: 2.10px; position: absolute; background: white"></div>
-                <div style="width: 22.96px; height: 22.98px; left: 0px; top: 0px; position: absolute; background: black"></div>
+                        <!-- sns icon -->
+                        <img class="footer_snsbutton1" src="./img/youtube.png"></img>
+                        <img class="footer_snsbutton2" src="./img/kakaotalk_black.png"></img>
+                        <img class="footer_snsbutton3" src="./img/Instagram.png"></img>
+                        <img class="footer_snsbutton4" src="./img/Facebook_black.png"></img>
+                        <!-- 가상 네이버 주소 -->
+                        <div style="width: 120px; height: 20px; left: 132px; top: 177px; position: absolute">
+                            <div style="width: 120px; height: 20px; left: 0px; top: 0px; position: absolute; background: white"></div>
+                            <div style="left: 0px; top: 2px; position: absolute; color: #797979; font-size: 15px; font-family: Pretendard-Regular; font-weight: 500; line-height: 15px; word-wrap: break-word">Ifive@naver.com</div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div style="width: 20.78px; height: 20.78px; left: 7.11px; top: 7.11px; position: absolute">
-                <div style="width: 20.78px; height: 20.78px; left: 0px; top: 0px; position: absolute; background: black"></div>
-                <div style="width: 19.68px; height: 18.20px; left: 0.61px; top: 1.34px; position: absolute; background: white"></div>
-                <div style="width: 4.41px; height: 5.28px; left: 2.39px; top: 6.89px; position: absolute; background: black"></div>
-                <div style="width: 4.51px; height: 5.38px; left: 5.54px; top: 6.79px; position: absolute; background: black"></div>
-                <div style="width: 3.63px; height: 5.29px; left: 10.20px; top: 6.79px; position: absolute; background: black"></div>
-                <div style="width: 4.15px; height: 5.34px; left: 13.91px; top: 6.80px; position: absolute; background: black"></div>
-            </div>
-        </div>
-        <div style="width: 35px; height: 35px; left: 990px; top: 2843px; position: absolute; justify-content: center; align-items: center; display: inline-flex">
-            <img style="width: 35px; height: 35px" src="https://via.placeholder.com/35x35" />
-        </div>
-        <div style="width: 35px; height: 35px; left: 1089px; top: 2843px; position: absolute; justify-content: center; align-items: center; display: inline-flex">
-            <img style="width: 35px; height: 35px" src="https://via.placeholder.com/35x35" />
-        </div>
-    </div>
+            <div class="footer_bar"></div>
+       
 
     <script>
 

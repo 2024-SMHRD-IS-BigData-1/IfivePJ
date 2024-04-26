@@ -3,23 +3,250 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff">
 
     <style>
+       
+
+        
+        @font-face {
+            font-family: 'Pretendard-Regular';
+            src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+            font-weight: 400;
+            font-style: normal;
+        }
+
+        
         .wrap{
             width: 1920px;
             height: 1316px;
         }
+        /* header */
+        .header_box1{
+            width: 1920px; 
+            height: 92px; 
+            left: 0px; 
+            top: 0px; 
+            position: absolute;
+        }
+        .header_box2{
+            width: 1920px; 
+            height: 91px; 
+            left: 0px; 
+            top: 0px; 
+            position: absolute;
+        }
+        .header_bg{
+            width: 1920px; 
+            height: 91px; 
+            left: 0px; 
+            top: 0px; 
+            position: absolute; 
+            background: white;
+        }
+        .login_button{
+            width: 112px; 
+            height: 35px; 
+            left: 1527px; 
+            top: 26px; 
+            position: absolute;
+        }
+        .login_button_bg{
+            width: 112px; 
+            height: 35px; 
+            left: 0px; 
+            top: 0px; 
+            position: absolute; 
+            background: white; 
+            border-radius: 30px; 
+            border: 1px #DBDBDB solid;
+        }
+        .login_button_textBox{
+            width: 70px; 
+            height: 22px; 
+            left: 21px; 
+            top: 7px; 
+            position: absolute;
+        }
+        .login_button_textBg{
+            width: 70px; 
+            height: 22px; 
+            left: 0px; 
+            top: 0px; 
+            position: absolute; 
+            background: white;
+        }
+        .login_button_img{
+            width: 20px; 
+            height: 20px; 
+            left: 1px; 
+            top: 1px; 
+            position: absolute; 
+            background: #DEDBDB;
+        }
+        .login_textBox{
+            width: 43px; 
+            height: 20px; 
+            left: 27px; 
+            top: 1px; 
+            position: absolute;
+        }
+        .login_textBg{
+            width: 43px; 
+            height: 20px; 
+            left: 0px; 
+            top: 0px; 
+            position: absolute; 
+            background: white;
+        }
+        .login_text{
+            left: 3px; 
+            top: 4px; 
+            position: absolute; 
+            color: black; 
+            font-size: 14px; 
+            font-family: Pretendard-Regular; 
+            font-weight: 350; 
+            word-wrap: break-word;
+        }
+        .header_mypage{
+            width: 50px; 
+            height: 40px; 
+            left: 1051px; 
+            top: 26px; 
+            position: absolute;
+        }
+        .header_mypage_bg{
+            width: 50px; 
+            height: 40px; 
+            left: 0px; 
+            top: 0px; 
+            position: absolute; 
+            background: white;
+        }
+        .header_mypage_text{
+            left: 0px; 
+            top: 10px; 
+            position: absolute; 
+            color: black; 
+            font-size: 14px; 
+            font-family: Pretendard-Regular; 
+            font-weight: 350; 
+            word-wrap: break-word;
+        }
+        .header_callender{
+            width: 63px; 
+            height: 40px; 
+            left: 928px; 
+            top: 26px; 
+            position: absolute;
+        }
+        .header_callender_bg{
+            width: 63px; 
+            height: 40px; 
+            left: 0px; 
+            top: 0px; 
+            position: absolute; 
+            background: white;
+        }
+        .header_callender_text{
+            left: 0px; 
+            top: 10px; 
+            position: absolute; 
+            color: black; 
+            font-size: 14px; 
+            font-family: Pretendard-Regular; 
+            font-weight: 350; 
+            word-wrap: break-word;
+        }
+
+        .header_group{
+            width: 41px; 
+            height: 40px; 
+            left: 827px; 
+            top: 26px; 
+            position: absolute;
+        }
+        .header_group_bg{
+            width: 41px; 
+            height: 40px; 
+            left: 0px; 
+            top: 0px; 
+            position: absolute; 
+            background: white;
+        }
+        .header_group_text{
+            left: 0px; 
+            top: 10px; 
+            position: absolute; 
+            color: black; 
+            font-size: 14px; 
+            font-family: Pretendard-Regular; 
+            font-weight: 350; 
+            word-wrap: break-word;
+        }
+
+        .team_title{
+            width: 85px;
+            height: 50px; 
+            left: 320px; 
+            top: 21px; 
+            position: absolute;
+        }
+        .team_title_bg{
+            width: 85px; 
+            height: 50px; 
+            left: 0px; 
+            top: 0px; 
+            position: absolute; 
+            background: white;
+        }
+        .team_title_text{
+            left: 2px; 
+            top: 5px; 
+            position: absolute; 
+            color: black; 
+            font-size: 28px; 
+            font-family: Pretendard-Regular; 
+            font-weight: 700; 
+            letter-spacing: 2.80px; 
+            word-wrap: break-word;
+        }
+
+
+        .header_bar{
+            width: 1920px; 
+            height: 1px; 
+            left: 0px; 
+            top: 91px; 
+            position: absolute; 
+            background: #D9D9D9;
+        }
+
+
+        /* pagetext */
+        .pageText{
+            left: 919px; 
+            top: 134px; 
+            position: absolute; 
+            color: black; 
+            font-size: 28px; 
+            font-family: Pretendard-Regular; 
+            font-weight: 500; 
+            letter-spacing: 2.80px; 
+            word-wrap: break-word;
+        }
+
+        /* login box */
         .login_box{
             font-style: normal;
             -webkit-font-smoothing: antialiased;
             font-size: 100%;
             box-sizing: border-box;
-            font-family: 'noto sans kr', sans-serif;
+            font-family: 'Pretendard-Regular', sans-serif;
             grid-column: 5 / span 4;
 
         }
@@ -77,15 +304,59 @@
             font-size: 15px;
             font-family: sans-serif;
         }
+
+        .login_maintain{
+            width: 165px; 
+            height: 22px; 
+            left: 782px; 
+            top: 440px; 
+            position: relative;
+        }
+        .maintain_button{
+            width: 19px; 
+            height: 19px; 
+            left: 5px; 
+            top: 0px; 
+            position: absolute; 
+            background: #FFFEFE; 
+            border-radius: 9999px; 
+            border: 1px #DBDBDB solid;
+        }
+        .maintain_text{
+            width: 143px; 
+            left: 30px; 
+            top: 1px; 
+            position: absolute; 
+            color: #767676; 
+            font-size: 15px; 
+            font-family: Pretendard-Regular; 
+            font-weight: 400; 
+            letter-spacing: 1.50px; 
+            word-wrap: break-word
+        }
+
+        .find_id{
+            width: 123px; 
+            left: 1016px; 
+            top: 450px; 
+            position: absolute; 
+            color: #767676; 
+            font-size: 15px; 
+            font-family: Pretendard-Regular; 
+            font-weight: 400; 
+            letter-spacing: 1.50px; 
+            word-wrap: break-word
+        }
+
         .button{
             position:absolute;
         }
-        .login_button{
+        .login_page_button{
             position: absolute;
             margin-top: 10px;
             width: 342px; 
             height: 58px;
-            left: 794px; 
+            left: 790px; 
             top: 507px; 
             border-radius: 5px;
             border: none;            
@@ -109,133 +380,330 @@
             word-wrap: break-word;
            
         }
-       
+
+        .simple_login_text{
+            left: 922px; 
+            top: 620px; 
+            position: absolute; 
+            color: #767676; 
+            font-size: 17px; 
+            font-family: Pretendard-Regular; 
+            font-weight: 400; 
+            letter-spacing: 1.80px; 
+            word-wrap: break-word
+        }
+
+        .snsbutton1{
+            width: 40px; 
+            height: 40px; 
+            left: 844px; 
+            top: 677px; 
+            position: absolute; 
+            background: white; 
+            border-radius: 9999px; 
+            overflow: hidden; 
+            border: 1px #E6E6EA solid; 
+            justify-content: center; 
+            align-items: center; 
+            display: inline-flex;
+            background-color: #DBDBDB;
+        }
+        .snsbutton2{
+            width: 40px; 
+            height: 40px; 
+            left: 914px; 
+            top: 677px; 
+            border-radius: 9999px; 
+            position: absolute;
+            background-color: #DBDBDB;
+        }
+        .snsbutton3{
+            width: 40px; 
+            height: 40px; 
+            left: 984px; 
+            top: 677px; 
+            border-radius: 9999px; 
+            position: absolute; 
+            justify-content: center; 
+            align-items: center; 
+            display: inline-flex;
+            background-color: #DBDBDB;
+        }
+        .snsbutton4{
+            width: 40px; 
+            height: 40px; 
+            padding-right: 0.80px; 
+            left: 1054px; 
+            top: 677px; 
+            border-radius: 9999px; 
+            position: absolute; 
+            justify-content: center; 
+            align-items: center; 
+            display: inline-flex;
+        }
+
+        .go_join_page_box{
+            width: 342px; 
+            height: 58px; 
+            left: 794px; 
+            top: 785px; 
+            position: absolute; 
+            background: white; 
+            border: 1px black solid
+        }
+        .go_join_page_text{
+            left: 132px; 
+            top: 17px; 
+            position: absolute; 
+            color: #B6ADAD; 
+            font-size: 18px; 
+            font-family: Pretendard-Regular; 
+            font-weight: 500; 
+            letter-spacing: 1.80px; 
+            word-wrap: break-word;
+        }
+
+        /* footer */
+        .footer_box{
+            width: 1920px; 
+            height: 253px; 
+            left: 0px; 
+            top: 1064px; 
+            position: absolute;
+        }
+        .footer_box_bg{
+            width: 1920px; 
+            height: 253px; 
+            left: 0px; 
+            top: 0px; 
+            position: absolute; 
+            background: white;
+        }
+        .footer_icon_box{
+            width: 382px; 
+            height: 252px; 
+            left: 769px; 
+            top: 1px; 
+            position: absolute
+        }
+        .footer_icon_box_bg{
+            width: 382px; 
+            height: 252px; 
+            left: 0px; 
+            top: 0px; 
+            position: absolute; 
+            background: white
+        }
+        .footer_groupBox{
+            width: 76px; 
+            height: 20px; 
+            left: 47px; 
+            top: 50px; 
+            position: absolute
+        }
+        .footer_groupBg{
+            width: 76px; 
+            height: 20px; 
+            left: 0px; 
+            top: 0px; 
+            position: absolute; 
+            background: white
+        }
+        .footer_groupText{
+            left: 14px; 
+            top: 2px; 
+            position: absolute; 
+            color: black; 
+            font-size: 16px; 
+            font-family: Pretendard-Regular; 
+            font-weight: 500; 
+            line-height: 16px; 
+            word-wrap: break-word
+        }
+        .footer_Callender_box{
+            width: 76px; 
+            height: 20px; 
+            left: 153px; 
+            top: 50px; 
+            position: absolute
+        }
+        .footer_CallenderBg{
+            width: 76px; 
+            height: 20px; 
+            left: 0px; 
+            top: 0px; 
+            position: absolute; 
+            background: white
+        }
+        .footer_CallenderText{
+            left: 1px; 
+            top: 2px; 
+            position: absolute; 
+            color: black; 
+            font-size: 16px; 
+            font-family: Pretendard-Regular; 
+            font-weight: 500; 
+            line-height: 16px; 
+            word-wrap: break-word
+        }
+        .footer_mypage_box{
+            width: 76px;
+            height: 20px; 
+            left: 259px; 
+            top: 50px; 
+            position: absolute
+        }
+        .footer_mypageBg{
+            width: 76px; 
+            height: 20px; 
+            left: 0px; 
+            top: 0px; 
+            position: absolute; 
+            background: white
+        }
+        .footer_bar{
+            width: 1920px; 
+            height: 1px; 
+            left: 0px; 
+            top: 1064px; 
+            position: absolute; 
+            background: #D9D9D9
+        }
+        .footer_snsbutton1{
+            width: 35px; 
+            height: 35px; 
+            left: 25px; 
+            top: 106px; 
+            position: absolute; 
+        }
+        .footer_snsbutton2{
+            width: 35px; height: 35px; left: 124px; top: 106px; position: absolute; 
+        }
+        .footer_snsbutton3{
+            width: 35px; height: 35px; left: 223px; top: 106px; position: absolute;
+        }
+        .footer_snsbutton4{
+            width: 35px; height: 35px; left: 322px; top: 106px; position: absolute;
+        }   
+
+
+
     </style>
      <script src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>	
 </head>
 <body>
     <div class="wrap">
-            <div style="left: 919px; top: 134px; position: absolute; color: black; font-size: 28px; font-family: Noto Sans KR; font-weight: 500; letter-spacing: 2.80px; word-wrap: break-word">로그인</div>
-            <div style="width: 1920px; height: 90px; left: 0px; top: 0px; position: absolute; background: white"></div>
-            <div style="width: 1920px; height: 1px; left: 0px; top: 89px; position: absolute; background: #DBDBDB"></div>
-            <div style="width: 84px; height: 34px; left: 320px; top: 23px; position: absolute; color: black; font-size: 28px; font-family: Noto Sans KR; font-weight: 700; letter-spacing: 2.80px; word-wrap: break-word">IFIVE</div>
-            <div style="left: 789px; top: 35px; position: absolute; color: black; font-size: 14px; font-family: Noto Sans KR; font-weight: 350; word-wrap: break-word">Group</div>
-            <div style="left: 880px; top: 35px; position: absolute; color: black; font-size: 14px; font-family: Noto Sans KR; font-weight: 350; word-wrap: break-word">Callender</div>
-            <div style="left: 993px; top: 35px; position: absolute; color: black; font-size: 14px; font-family: Noto Sans KR; font-weight: 350; word-wrap: break-word">Board</div>
-            <div style="left: 1082px; top: 35px; position: absolute; color: black; font-size: 14px; font-family: Noto Sans KR; font-weight: 350; word-wrap: break-word">Mypage</div>
-            <div style="width: 112px; height: 35px; left: 1488px; top: 27px; position: absolute">
-                <div style="width: 112px; height: 35px; left: 0px; top: 0px; position: absolute; background: white; border-radius: 30px; border: 1px #DBDBDB solid"></div>
-                <div style="width: 70px; height: 22px; left: 21px; top: 7px; position: absolute">
-                    <div style="left: 34px; top: 1px; position: absolute; color: black; font-size: 14px; font-family: Noto Sans KR; font-weight: 350; word-wrap: break-word">Login</div>
-                    <div style="width: 28px; height: 22px; left: 0px; top: 0px; position: absolute; flex-direction: column; justify-content: flex-start; align-items: flex-start; display: inline-flex">
-                        <div style="width: 28px; height: 22px"></div>
-                        <div style="width: 18.67px; height: 14.67px; background: black"></div>
-                    </div>
+        <!-- header -->
+        <div class="header_box1">
+                <div class="header_box2">
+                    <div class="header_bg"></div>
+                    
+                    <a class="header_mypage" href="mypage.jsp" role="button">
+                        <div class="header_mypage_bg"></div>
+                        <div class="header_mypage_text">Mypage</div>
+                    </a>
+                    
+                    <a class="header_callender" href="cal.jsp" role="button">
+                        <div class="header_callender_bg"></div>
+                        <div class="header_callender_text">Callender</div>
+                    </a>
+                    <a class="header_group" href="group.jsp" role="button">
+                        <div class="header_group_bg"></div>
+                        <div class="header_group_text">Group</div>
+                    </a>
+                    <a class="team_title" href="main.jsp" role="button">
+                        <div class="team_title_bg"></div>
+                        <div class="team_title_text">IFIVE</div>
+                    </a>
                 </div>
+                <div class="header_bar"></div>
+                <a class="login_button" href="login.jsp" role="button">
+                    <div class="login_button_bg"></div>
+                    <div class="login_button_textBox">
+                        <div class="login_button_textBg"></div>
+                        <img class="login_button_img" src="./img/Person.jpg"></img>
+                        <div class="login_textBox">
+                            <div class="login_textBg"></div>
+                            <div class="login_text">Login</div>
+                        </div>
+                    </div>
+                </a>
             </div>
+             <div class="pageText">로그인</div>
             <!-- login page box -->
 
             <form action="LoginService.do" method="post">
 
                 <div class="login_box">
-                    <div class="login_id_box_bg"></div>
+                      <div class="login_id_box_bg"></div>
                             <div class="login_id_typing_bar">
 
-
-                                <input name="user_id" id="input-username" autocapitalize="off" type="text" placeholder="아이디를 입력하세요" value="">
-
+                                <input name="user_name" id="input-username" autocapitalize="off" type="text" placeholder="아이디를 입력하세요" value="">
+                                
                             </div>                        
                             <div class="login_pw_typing_bar">
 
                                 <input name="user_pw" id="input-userpassword" autocapitalize="off" type="password" placeholder="비밀번호를 입력하세요">
+                            </div>
+                            <div class="login_maintain">
+                                <div class="maintain_button"></div>
+                                <div class="maintain_text">로그인 상태 유지</div>
 
                             </div>
+
+                            <div class="find_id">아이디/비밀번호</div>
                         <div class="button">
-
-
-                            
-                            <input class="login_button" type="submit" value="Login" >
-                            
-                            
-
+                            <button class="login_page_button">
+                                <a href="cal.jsp"><input type="submit" value="로그인" ></input></a>
+                            </button>
                         </div>
-                        
-                </div>             
             </form>
+                        
+                        <div class="simple_login_text">간편로그인</div>
+                        
+                        <img class="snsbutton1" src="./img/네이버 로그인.png"></img>
+                        <img class="snsbutton2" src="./img/kakaotalk.png"></img>
+                        <img class="snsbutton3" src="./img/Facebook.png"></img>
+                        <img class="snsbutton4" src="./img/Social Icons.png"></img>
+                        
+                        <!-- 회원가입 버튼 -->
+                        <a href="join.jsp"><div class="go_join_page_box">
+                            <div class="go_join_page_text">회원가입</div>
+                        </div></a>
+                </div>             
 
-            <div style="width: 40px; height: 40px; padding-right: 0.80px; left: 1046px; top: 677px; position: absolute; justify-content: center; align-items: center; display: inline-flex">
-
-                <div style="width: 39.20px; height: 40px; position: relative">
-                    <div style="width: 19.20px; height: 18.80px; left: 20px; top: 16.36px; position: absolute; background: #4285F4"></div>
-                    <div style="width: 31.09px; height: 16.19px; left: 2.15px; top: 23.81px; position: absolute; background: #34A853"></div>
-                    <div style="width: 8.80px; height: 17.93px; left: 0px; top: 11.04px; position: absolute; background: #FBBC05"></div>
-                    <div style="width: 31.24px; height: 16.20px; left: 2.15px; top: 0px; position: absolute; background: #EA4335"></div>
+           <!-- footer -->
+            <div class="footer_box">
+                <div class="footer_box_bg">
+                    <div class="footer_icon_box">
+                        <div class="footer_icon_box_bg"></div>
+                        <a class="footer_groupBox"  href="group.jsp" role="button">
+                            <div class="footer_groupBg"></div>
+                            <div class="footer_groupText">Group</div>
+                        </a>
+                        <a class="footer_Callender_box" href="cal.jsp" role="button">
+                            <div class="footer_CallenderBg"></div>
+                            <div class="footer_CallenderText">Callender</div>
+                        </a>
+                        <a class="footer_mypage_box" href="mypage.jsp" role="button">
+                            <div class="footer_mypageBg"></div>
+                            <div style="left: 7px; top: 2px; position: absolute; color: black; font-size: 16px; font-family: Pretendard-Regular; font-weight: 500; line-height: 16px; word-wrap: break-word">My Page</div>
+                        </a>
+        
+                        <!-- sns icon -->
+                        <img class="footer_snsbutton1" src="./img/youtube.png"></img>
+                        <img class="footer_snsbutton2" src="./img/kakaotalk_black.png"></img>
+                        <img class="footer_snsbutton3" src="./img/Instagram.png"></img>
+                        <img class="footer_snsbutton4" src="./img/Facebook_black.png"></img>
+                        <!-- 가상 네이버 주소 -->
+                        <div style="width: 120px; height: 20px; left: 132px; top: 177px; position: absolute">
+                            <div style="width: 120px; height: 20px; left: 0px; top: 0px; position: absolute; background: white"></div>
+                            <div style="left: 0px; top: 2px; position: absolute; color: #797979; font-size: 15px; font-family: Pretendard-Regular; font-weight: 500; line-height: 15px; word-wrap: break-word">Ifive@naver.com</div>
+                        </div>
+                    </div>
                 </div>
             </div>
-           
-            
-            <div style="width: 19px; height: 19px; left: 794px; top: 443px; position: absolute; background: #FFFEFE; border-radius: 9999px; border: 1px #DBDBDB solid"></div>
-            <div style="width: 143px; left: 820px; top: 441px; position: absolute; color: #767676; font-size: 15px; font-family: Noto Sans KR; font-weight: 400; letter-spacing: 1.50px; word-wrap: break-word">로그인 상태 유지</div>
-            <div style="left: 915px; top: 611px; position: absolute; color: #767676; font-size: 18px; font-family: Noto Sans KR; font-weight: 400; letter-spacing: 1.80px; word-wrap: break-word">간편로그인</div>
-            <div style="width: 115px; left: 1021px; top: 441px; position: absolute; color: #767676; font-size: 15px; font-family: Noto Sans KR; font-weight: 400; letter-spacing: 1.50px; word-wrap: break-word">아이디/비밀번호</div>
-            <div style="width: 342px; height: 58px; left: 794px; top: 785px; position: absolute; background: white; border: 1px black solid"></div>
-            <a href="Join.jsp"><div style="left: 929px; top: 801px; position: absolute; color: #B6ADAD; font-size: 18px; font-family: Noto Sans KR; font-weight: 500; letter-spacing: 1.80px; word-wrap: break-word">회원가입</div></a>
-            <div style="width: 40px; height: 40px; left: 844px; top: 677px; position: absolute; background: white; border-radius: 9999px; overflow: hidden; border: 1px #E6E6EA solid; justify-content: center; align-items: center; display: inline-flex">
-                <div style="width: 20px; height: 20px; position: relative">
-                    <div style="width: 20px; height: 20px; left: 0px; top: 20px; position: absolute; background: #03C75A"></div>
-                </div>
-            </div>
-            <div style="width: 50.58px; height: 40px; left: 975px; top: 677px; position: absolute; justify-content: center; align-items: center; display: inline-flex">
-                <div style="width: 50.58px; height: 40px; position: relative; flex-direction: column; justify-content: flex-start; align-items: flex-start; display: flex">
-                    <div style="width: 50.58px; height: 39.76px; background: #1877F2"></div>
-                    <div style="width: 21.63px; height: 32.19px; background: white"></div>
-                </div>
-            </div>
-            <div style="width: 50.58px; height: 40px; left: 904px; top: 677px; position: absolute">
-            <button id="kakao-login-btn" style="background-color: #FEE500; color: black; border: none; font-weight: bold; padding: 10px 20px; border-radius: 5px; cursor: pointer;">
-                <div style="width: 50.58px; height: 40px; left: 0px; top: 0px; position: absolute; background: #FEE500; border-radius: 9999px"></div>
-                <div style="width: 28.45px; height: 20.79px; left: 11.15px; top: 9.65px; position: absolute">
-                    <div style="width: 28.45px; height: 20.79px; left: 0px; top: 0px; position: absolute; background: #392020"></div>
-                    <div style="width: 6.37px; height: 6.04px; left: 2.58px; top: 6.34px; position: absolute; background: #FEE500"></div>
-                    <div style="width: 6.51px; height: 6.15px; left: 7.12px; top: 6.24px; position: absolute; background: #FEE500"></div>
-                    <div style="width: 5.24px; height: 6.04px; left: 13.87px; top: 6.24px; position: absolute; background: #FEE500"></div>
-                    <div style="width: 6px; height: 6.10px; left: 19.22px; top: 6.24px; position: absolute; background: #FEE500"></div>
-                </div>
-            </div>
-            <div style="width: 1920px; height: 252px; left: 0px; top: 1064px; position: absolute; background: white"></div>
-            <div style="width: 1920px; height: 1px; left: 0px; top: 1066px; position: absolute; background: #DBDBDB"></div>
-            <div style="left: 751px; top: 1120px; position: absolute; color: black; font-size: 16px; font-family: Noto Sans KR; font-weight: 500; line-height: 16px; word-wrap: break-word">Group</div>
-            <div style="left: 1095px; top: 1121px; position: absolute; color: black; font-size: 16px; font-family: Noto Sans KR; font-weight: 500; line-height: 16px; word-wrap: break-word">My page</div>
-            <div style="left: 835px; top: 1120px; position: absolute; color: black; font-size: 16px; font-family: Noto Sans KR; font-weight: 500; line-height: 16px; word-wrap: break-word">Callender</div>
-            <div style="left: 1017px; top: 1121px; position: absolute; color: black; font-size: 16px; font-family: Noto Sans KR; font-weight: 500; line-height: 16px; word-wrap: break-word">Point</div>
-            <div style="left: 943px; top: 1121px; position: absolute; color: black; font-size: 16px; font-family: Noto Sans KR; font-weight: 500; line-height: 16px; word-wrap: break-word">Chat</div>
-            <div style="left: 902px; top: 1244px; position: absolute; color: #797979; font-size: 15px; font-family: Noto Sans KR; font-weight: 350; line-height: 15px; word-wrap: break-word">Ifive@naver.com</div>
-            <div style="width: 35px; height: 27.68px; left: 792px; top: 1177px; position: absolute">
-                <div style="width: 35px; height: 27.68px; left: 0px; top: 0px; position: absolute; background: #C4C4C4"></div>
-                <div style="width: 35px; height: 27.68px; left: 0px; top: 0px; position: absolute; background: #C4C4C4; border-radius: 9999px"></div>
-                <img style="width: 35px; height: 27.68px; left: 0px; top: 0px; position: absolute" src="https://via.placeholder.com/35x28" />
-            </div>
-            <div style="width: 35px; height: 27.68px; left: 893px; top: 1177px; position: absolute">
-                <div style="width: 35px; height: 27.68px; left: 0px; top: 0px; position: absolute; background: black; border-radius: 9999px"></div>
-                <div style="width: 22.96px; height: 18.17px; left: 6.02px; top: 4.76px; position: absolute">
-                    <div style="width: 18.05px; height: 14.27px; left: 2.73px; top: 1.66px; position: absolute; background: white"></div>
-                    <div style="width: 22.96px; height: 18.17px; left: 0px; top: 0px; position: absolute; background: black"></div>
-                </div>
-                <div style="width: 20.78px; height: 16.44px; left: 7.11px; top: 5.62px; position: absolute">
-                    <div style="width: 20.78px; height: 16.44px; left: 0px; top: 0px; position: absolute; background: black"></div>
-                    <div style="width: 19.68px; height: 14.39px; left: 0.61px; top: 1.06px; position: absolute; background: white"></div>
-                    <div style="width: 4.41px; height: 4.18px; left: 2.39px; top: 5.45px; position: absolute; background: black"></div>
-                    <div style="width: 4.51px; height: 4.25px; left: 5.54px; top: 5.37px; position: absolute; background: black"></div>
-                    <div style="width: 3.63px; height: 4.18px; left: 10.20px; top: 5.37px; position: absolute; background: black"></div>
-                    <div style="width: 4.15px; height: 4.22px; left: 13.91px; top: 5.37px; position: absolute; background: black"></div>
-                </div>
-            </div>
-            <div style="width: 35px; height: 27.68px; left: 992px; top: 1177px; position: absolute; justify-content: center; align-items: center; display: inline-flex">
-                <img style="width: 35px; height: 27.68px" src="https://via.placeholder.com/35x28" />
-            </div>
-            <div style="width: 35px; height: 27.68px; left: 1091px; top: 1177px; position: absolute; justify-content: center; align-items: center; display: inline-flex">
-                <img style="width: 35px; height: 27.68px" src="https://via.placeholder.com/35x28" />
-            </div>
+            <div class="footer_bar"></div>
         </div>
     </div>
 	    <script>
