@@ -523,23 +523,9 @@
 	    </c:forEach>
 	</div>
 
-		<!-- 그룹 원 색상 변경 -->
-		<!-- <script>
-          function randomColor() {
-              var letters = '0123456789ABCDEF';
-              var color = '#';
-              for (var i = 0; i < 6; i++) {
-                  color += letters[Math.floor(Math.random() * 16)];
-              }
-              return color;
-          }
-      </script> -->
-
-
-		
-
 
 		<!-- person & chat -->
+		
 		<c:forEach items="${JoiningGroupList}" var="JoiningGroup" varStatus="s">
 			<div id="sidebar_${s.index }" class="sidebar">
 				
@@ -548,11 +534,11 @@
 					<div style="width: 865px; height: 59px; left: 215px; top: 1px; position: absolute; background: white"></div>
 					
 					<!-- 채팅 출력창 -->
-					<div id="chatbox_${s.index }" class="chatbox"></div>
+					<div id="chatbox" class="chatbox"></div>
 					<div style="width: 250px; height: 59px; left: 831px; top: 1px; position: absolute; background: white"></div>
 					<div style="width: 205px; height: 29px; left: 831px; top: 16px; position: absolute; background: #F1F1F5; border-radius: 30px"></div>
 					<div style="width: 14px; height: 14px; left: 1012px; top: 24px; position: absolute; background: #DBDBDB"></div>
-					<div style="width: 865px; height: 1px; left: 215px; top: 60px; position: absolute; background: #DBDBDB"></div>
+					<div style="width: 865px; height: 1px; lemrft: 215px; top: 60px; position: absolute; background: #DBDBDB"></div>
 					<div style="width: 142px; height: 59px; left: 215px; top: 1px; position: absolute; background: #F7F7F7"></div>
 					<div style="width: 71px; height: 59px; left: 215px; top: 1px; position: absolute; background: white"></div>
 					<div style="width: 71px; height: 59px; left: 286px; top: 1px; position: absolute; background: white"></div>
@@ -580,18 +566,14 @@
 						<div style="width: 14px; height: 14px; left: 179px; top: 20px; position: absolute; background: #DBDBDB"></div>
 					</div>
 					
-					<c:forEach items="${JoiningGroupList}" var="JoiningGroup" varStatus="s">
-						<%-- <c:if test="${JoiningGroup.group_name eq JoiningGroup.user_id}"> --%>
-							 <div style="width: 213px; height: 53px; left: 1px; top: ${113 + s.index * 60}px; position: absolute"> <!-- 52px -->
-								<div style="width: 180px; height: 1px; left: 33px; top: 52px; position: absolute; background: #DBDBDB"></div>
-								<div style="width: 213px; height: 52px; left: 0px; top: 0px; position: absolute; background: white"></div>
-								<div style="width: 135.91px; height: 21.15px; left: 68.54px; top: 15.87px; position: absolute; color: black; font-size: 20px; font-family: Inter; font-weight: 500; word-wrap: break-word">
-									${JoiningGroup.user_id}</div>
-								<div style="width: 34px; height: 52px; left: 0px; top: 0px; position: absolute; background: white"></div>
-								<div style="width: 30px; height: 30px; left: 34px; top: 11px; position: absolute; background: #FEE292; border-radius: 9999px"></div>
-							</div> 
-						<%-- </c:if> --%>
-					</c:forEach>
+					 <div style="width: 213px; height: 53px; left: 1px; top: ${113 + s.index * 60}px; position: absolute"> <!-- 52px -->
+						<div style="width: 180px; height: 1px; left: 33px; top: 52px; position: absolute; background: #DBDBDB"></div>
+						<div style="width: 213px; height: 52px; left: 0px; top: 0px; position: absolute; background: white"></div>
+						<div style="width: 135.91px; height: 21.15px; left: 68.54px; top: 15.87px; position: absolute; color: black; font-size: 20px; font-family: Inter; font-weight: 500; word-wrap: break-word">
+							${JoiningGroup.user_id}</div>
+						<div style="width: 34px; height: 52px; left: 0px; top: 0px; position: absolute; background: white"></div>
+						<div style="width: 30px; height: 30px; left: 34px; top: 11px; position: absolute; background: #FEE292; border-radius: 9999px"></div>
+					</div> 
 					
 					<div style="width: 30px; height: 30px; left: 250px; top: 16px; position: absolute; background: #D9D9D9; border-radius: 9999px"></div>
 				</div>
@@ -605,11 +587,11 @@
 				<div style="width: 865px; height: 59px; left: 218px; top: 672px; position: absolute">
 					<div style="width: 865px; height: 59px; left: 0px; top: 0px; position: absolute; background: white"></div>
 					<div style="width: 748px; height: 29px; left: 58px; top: 17px; position: absolute; background: #EEEEF5; border-radius: 30px"
-						contenteditable="true" id="message_${s.index }" class="message"></div>
+						contenteditable="true" id="message" class="message"></div>
 					<div style="width: 14px; height: 14px; left: 11px; top: 23px; position: absolute; background: #D9D9D9"></div>
 					<div style="width: 14px; height: 14px; left: 34px; top: 23px; position: absolute; background: #D9D9D9"></div>
 					<div style="width: 13px; height: 14px; left: 760px; top: 23px; position: absolute; background: #D9D9D9"
-						id="button" class="button" onclick="sendMessage(${s.index})"></div>
+						id="button" class="button" onclick="sendMessage()"></div>
 				</div>
 			</div>
 			
@@ -710,22 +692,6 @@
 				<div style="width: 797px; height: 898px; left: 0px; top: 0px; position: absolute; background: white"></div>
 				<div style="width: 30px; height: 30px; left: 67px; top: 11px; position: absolute; background: #D9D9D9; border-radius: 9999px"></div>
 				<div style="top: 194px;">
-	
-	
-					<%-- <c:forEach items="${GroupList}" var="group" varStatus="a">
-						<div id="GroupInfo2"data-index="${a.index}">
-							<div class="popup-content">
-								<h5>그룹정보</h5>
-								<form action="GroupRequestService.do" method="post">
-									<li>그룹이름: ${group.group_name}</li>
-									<li>그룹정보: ${group.group_info}</li>
-									<li>그룹인원: ${group.group_limit}</li> 
-									<input type="submit" value="가입신청">
-								</form>
-							</div>
-						</div>
-					</c:forEach> --%>
-	
 	
 	
 					<table>
@@ -997,34 +963,6 @@
 					behavior : "smooth" // 부드럽게 스크롤
 				});
 			}
-
-			// 그룹 사이드바 기능
-			/* function openNav(index) {
-				document.getElementById("sidebar_"+index).style.width = "1250px"; // 채팅창
-				document.querySelector(".footer").style.display = "block"; // 푸터 보이기
-				
-			}
-
-			function closeNav(index) {
-				document.getElementById("sidebar").style.width = "0";
-			}
-			
-			function ClickNav(index){
-				console.log("클릭한 버튼의 인덱스:", index);
-				const layer = document.querySelector('.layer');
-				const groupButton = document.getElementById("group_button_"+index);
-				
-				groupButton.addEventListener('click', function() {
-			        layer.style.display = 'block';
-			        openNav(index); // 사이드바를 열기
-			    }, { once: true });
-			    
-			    layer.addEventListener('click', function() {
-			        layer.style.display = 'none';
-			        closeNav(index); // 사이드바를 닫기
-			    }); 
-				
-			} */
 			
 			function ClickNav(index) {
 		        console.log("클릭한 버튼의 인덱스:", index);
@@ -1043,12 +981,10 @@
 		    }
 
 			// 채팅 메세지 올리기
-			function sendMessage(index,) {
-				console.log(index);
+			function sendMessage() {
 			    // 입력 필드의 값을 가져옵니다.
-			     const messageInput = document.getElementById('message_' + index);
+			    const messageInput = document.getElementById('message');
 			    const message = messageInput.innerText;
-			
 			    console.log(message);
 			
 			    // AJAX 요청을 보냅니다.
@@ -1057,7 +993,6 @@
 			        url: "ChatService.do",
 			        data: {
 			            "message": message,
-			            "groupName": groupName // 그룹 이름을 전송합니다. 
 			        },
 			        success: function(response) {
 			            // 요청이 성공적으로 처리되었을 때의 작업
@@ -1065,7 +1000,7 @@
 			            console.log("Response:", response);
 			
 			            // 채팅 박스에 메시지를 추가합니다.
-			            const chatbox = document.getElementById('chatbox_' + index);
+			            const chatbox = document.getElementById('chatbox');
 			            const chatTextBox = document.createElement('div');
 			            chatTextBox.className = 'chat-text-box';
 			            chatTextBox.innerText = message;
@@ -1084,6 +1019,13 @@
 			        }
 			    }); 
 			}
+			
+			document.getElementById('message').addEventListener('keydown', function(event) {
+			    // Enter 키를 눌렀을 때 sendMessage 함수 호출
+			    if (event.key === 'Enter') {
+			        sendMessage();
+			    }
+			});
 
 		</script>
 </body>
