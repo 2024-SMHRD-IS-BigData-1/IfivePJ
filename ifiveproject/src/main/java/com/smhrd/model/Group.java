@@ -14,7 +14,7 @@ import lombok.Setter;
 @Setter
 
 public class Group {
-	 @NonNull private Double group_idx; // 그룹 식별자 
+	 @NonNull private String group_idx; // 그룹 식별자 
 	 private String user_id; // 회원 아이디 
 	 private String group_name; // 그룹 명 
 	 private String group_info; // 그룹 설명 

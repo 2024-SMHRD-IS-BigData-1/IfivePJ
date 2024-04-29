@@ -1,8 +1,11 @@
+<%@page import="com.google.common.util.concurrent.AbstractScheduledService.Scheduler"%>
+<%@page import="com.smhrd.model.Schedule"%>
 <%@page import="com.smhrd.model.Member"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
      <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
 <%Member loginMember = (Member)session.getAttribute("loginMember"); %>
+<%Schedule scheudle = (Schedule)session.getAttribute("scheudle"); %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -1068,7 +1071,16 @@
                     <div class="point_count_round_box_bg"></div>
                     <div class="point_count_box">
                         <div class="point_count_box_bg"></div>
-                        <div class="point_record">150</div>
+                        <div class="point_record"><% 
+    Schedule schedule = (Schedule) session.getAttribute("schedule");
+    if (schedule != null) { 
+%>
+    <div class="point_record"><%= schedule.getAth_reward() %></div>
+<% 
+    } else {
+        // 세션에서 일정 객체를 가져오지 못한 경우에 대한 처리를 여기에 추가할 수 있습니다.
+    }
+%></div>
                         <div class="point_record_P">P</div>
                     </div>
                 </div>

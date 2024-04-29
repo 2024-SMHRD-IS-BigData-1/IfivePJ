@@ -47,7 +47,14 @@ public class ScheduleDAO {
 		session.delete("com.smhrd.db.ScheduleMapper.deleteSchedule", plan_idx);
 		session.close();		
 	}
-	
+
+	public int getReward(String user_id) {
+	    SqlSession session = sqlSessionFactory.openSession(true);
+	    int reward = session.selectOne("com.smhrd.db.ScheduleMapper.getReward", user_id);
+	    session.close();
+	    return reward;
+	}
+
 
 }
 	

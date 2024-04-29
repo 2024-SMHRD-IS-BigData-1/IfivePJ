@@ -5,7 +5,12 @@
 <mapper namespace="com.smhrd.db.JoiningGroupMapper">
 
 	<insert id="join" parameterType="JoiningGroup" >
-	  	insert into Joining_Group_info values(Joining_Group_idx.NEXTVAL, #{user_id},sysdate,#{confirm_yn},#{group_limit},sysdate,)
+	  	insert into JOINGING_GROUP_INFO values
+	  	(Joining_Group_idx.NEXTVAL, #{user_id},sysdate,#{confirm_yn},#{group_name})
 	  </insert>
+	  
+	  <select id="JoiningGroupList" resultType="JoiningGroup" parameterType="String">
+	  	select * from JOINGING_GROUP_INFO where user_id=#{user_id} 
+	  </select>
 
 </mapper>

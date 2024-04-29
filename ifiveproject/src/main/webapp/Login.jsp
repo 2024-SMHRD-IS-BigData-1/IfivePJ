@@ -619,7 +619,7 @@
 
 
     </style>
-     <script src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>	
+     <script src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>   
 </head>
 <body>
     <div class="wrap">
@@ -736,18 +736,18 @@
             <div class="footer_bar"></div>
         </div>
     </div>
-	    <script>
-		    function onSignIn(googleUser) {
-		  	  var profile = googleUser.getBasicProfile();
-		  	  console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
-		  	  console.log('Name: ' + profile.getName());
-		  	  console.log('Image URL: ' + profile.getImageUrl());
-		  	  console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
-		  	}
-		    
-	    
-	    </script>
-	     <script>
+       <script>
+          function onSignIn(googleUser) {
+             var profile = googleUser.getBasicProfile();
+             console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+             console.log('Name: ' + profile.getName());
+             console.log('Image URL: ' + profile.getImageUrl());
+             console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+           }
+          
+       
+       </script>
+        <script>
     Kakao.init('5d988841c896e18e470d2bab9c3492e6');
 
     function loginWithKakao() {
@@ -775,22 +775,22 @@
     document.getElementById('kakao-login-btn').addEventListener('click', loginWithKakao);
 
 
-	</script>
-	
-	<script>
-		Kakao.Auth.login({
-		    success: function(authObj) {
-		        console.log(authObj);
-	
-		        // 로그인 성공 후 main.jsp로 리디렉션
-		        window.location.href = 'Main.jsp';
-		    },
-		    fail: function(err) {
-		        console.error(err);
-		    }
-		});
+   </script>
+   
+   <script>
+      Kakao.Auth.login({
+          success: function(authObj) {
+              console.log(authObj);
+   
+              // 로그인 성공 후 main.jsp로 리디렉션
+              window.location.href = 'Main.jsp';
+          },
+          fail: function(err) {
+              console.error(err);
+          }
+      });
 
-	
-	</script>
+   
+   </script>
 </body>
 </html>

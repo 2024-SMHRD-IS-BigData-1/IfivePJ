@@ -6,6 +6,6 @@
 <mapper namespace="com.smhrd.db.MessageMapper">
 
   <insert id="insertMessage" parameterType="Message">
-    INSERT INTO test_chat VALUES(#{chating})
+    INSERT INTO chatting_info VALUES(chatting_info_idx.NEXTVAL,#{group_name},#{chatter},#{chating},sysdate);
   </insert>
 </mapper>

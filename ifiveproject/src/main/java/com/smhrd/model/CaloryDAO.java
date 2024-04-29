@@ -22,7 +22,7 @@ public class CaloryDAO {
 	public List<Calory> daycalory(String user_id) { 
 	    System.out.println("dao2");
 	    SqlSession session =  sqlSessionFactory.openSession(true);
-	    List<Calory> calory = session.selectList("com.smhrd.db.CaloryMapper.selectAllByUserId", user_id);
+	    List<Calory> calory = session.selectList("com.smhrd.db.CaloryMapper.daycalory", user_id);
 	    session.close();
 	    return calory;
 	}

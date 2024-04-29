@@ -21,6 +21,12 @@ public class athletics_plan_infoService implements Command {
             String created_at = request.getParameter("created_at");
             String ath_done = request.getParameter("ath_done");
             int ath_reward = Integer.parseInt(request.getParameter("ath_reward"));
+            
+            if (created_at != null && !created_at.isEmpty()) {
+                ath_reward += 10;
+            }
+            
+            System.out.println("리워드"+ath_reward);
 
             athletics_plan_info ath = new athletics_plan_info(plan_idx, user_id, ath_date, ath_time, ath_duration, created_at, ath_done, ath_done, ath_reward);
 
