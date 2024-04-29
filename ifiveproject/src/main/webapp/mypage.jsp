@@ -356,7 +356,7 @@
         
         .point_record{
             left: 0px; 
-            top: 2px;
+            top: 0px;
             position: absolute; 
             color: black; 
             font-size: 20px; 
