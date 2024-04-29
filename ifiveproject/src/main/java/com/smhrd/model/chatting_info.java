@@ -10,6 +10,7 @@ import lombok.NoArgsConstructor;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 
 
 @AllArgsConstructor
@@ -17,22 +18,19 @@ import lombok.Setter;
 @RequiredArgsConstructor
 @Getter
 @Setter
+@ToString
 public class chatting_info {
 
-
-    @NonNull private String chat_idx;
-    private String group_name;
+	@NonNull private String chat_idx;
+    // private String group_name;
     private String chatter;
-    private String chating;
-    private String chatted_at;
+    private String chatting;
+    // private String chatted_at;
     
+//	public chatting_info(String chatting) {
+//		super();
+//		this.chatting = chatting;
+//	}
     
-	public chatting_info(String group_name, String chatter, String chating) {
-		super();
-		this.group_name = group_name;
-		this.chatter = chatter;
-		this.chating = chating;
-	}
- 
     
 }

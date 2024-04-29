@@ -11,6 +11,7 @@ public class JoiningGroupDAO {
 	
 	SqlSessionFactory sqlSessionFactory=  SqlSessionManager.getSqlSession();
 	
+
 	public int join(JoiningGroup JoiningGroup) { 				
 		SqlSession session =  sqlSessionFactory.openSession(true);
 		int cnt = session.insert("com.smhrd.db.JoiningGroupMapper.join",JoiningGroup);		
@@ -24,5 +25,15 @@ public class JoiningGroupDAO {
 		session.close();
 		return JoiningGroupList;
 	}
+	
+//	 public List<JoiningGroup> GroupPersonList(String group_name) { 
+//		 SqlSession session = sqlSessionFactory.openSession(true); 
+//		 List<JoiningGroup> GroupPersonList =session.selectList("com.smhrd.db.JoiningGroupMapper.GroupPersonList", group_name); 
+//		 session.close(); 
+//		 return GroupPersonList;
+//	  
+//	 }
+	 
+	 
 
 }
