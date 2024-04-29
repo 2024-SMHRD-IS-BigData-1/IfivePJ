@@ -10,7 +10,7 @@
 	  </insert>
 	  
 	  <select id="JoiningGroupList" resultType="JoiningGroup" parameterType="String">
-	  	select * from JOINGING_GROUP_INFO where user_id=#{user_id} 
+	  	select DISTINCT group_name from JOINGING_GROUP_INFO where user_id=#{user_id} 
 	  </select>
 	  
 	<!--   <select id="GroupPersonList" resultType="GroupPerson" parameterType="String">
