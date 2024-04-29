@@ -28,13 +28,13 @@
     <style>
        
         
-/*         @font-face {
+       @font-face {
             font-family: 'Pretendard-Regular';
             src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
             font-weight: 400;
             font-style: normal;
-        } */
-
+        } 
+		 
 
 
         .box{
@@ -118,6 +118,32 @@
             top: 0px; 
             position: absolute; 
             background: white;
+        }
+        .input_text_login{
+        	left: 0px; 
+            top: 2px; 
+            position: absolute; 
+            color: black; 
+            font-size: 14px; 
+            font-family: Pretendard-Regular; 
+            font-weight: 350; 
+            word-wrap: break-word;
+            border:none;
+            background:white;
+            cursor:pointer;        
+        }
+         .input_text_logout{
+        	left: 0px; 
+            top: 6px; 
+            position: absolute; 
+            color: black; 
+            font-size: 18px; 
+            font-family: Pretendard-Regular; 
+            font-weight: 200; 
+            word-wrap: break-word;
+            border:none;
+            background:white;
+            cursor:pointer; 
         }
         .login_text{
             left: 3px; 
@@ -809,7 +835,7 @@
             top: 114px; 
             position: absolute;
         }
-        .upbutton_box_round{
+       /*  .upbutton_box_round{
             width: 100px; 
             height: 40px; 
             left: 937px; 
@@ -849,7 +875,7 @@
             position: absolute; 
             background: #DBDBDB; 
         }
-
+ */
         /* footer */
         .footer_box{
             width: 1920px; 
@@ -1004,7 +1030,7 @@
          <% if (loginMember != null) { %>
                 <!-- 로그인된 상태 -->
                 <div class="login_button">
-                    <a href="LogoutService.do">로그아웃</a>
+                    <a href="LogoutService.do"><input type="submit" class="input_text_logout" value="Logout"></a>
                 </div>
             <% } else { %>
                 <!-- 로그인 안된 상태 -->
@@ -1016,7 +1042,7 @@
                         <div class="login_textBox">
                             <div class="login_textBg"></div>
                             <div class="login_button">
-                                <a href="Login.jsp">로그인</a>
+                                <a href="Login.jsp"><input type="submit" class="input_text_login" value="Login"></input></a>
                             </div>
                         </div>
                     </div>
