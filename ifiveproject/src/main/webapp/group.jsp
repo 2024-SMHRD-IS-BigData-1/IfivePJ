@@ -1555,7 +1555,7 @@
                     <div class="boardNarrowBlock"></div>
                     <div class="boardWord_decoFrame">
                         <div class="boardWord_decoBlock"></div>
-                        <div class="boardWord_deco">Board</div>
+                        <div class="boardWord_deco">Open Group</div>
                     </div>
                 </div>
                 <div class="searchBar_wholeFrame">
