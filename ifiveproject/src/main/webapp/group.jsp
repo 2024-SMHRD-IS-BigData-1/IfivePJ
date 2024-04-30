@@ -737,7 +737,7 @@
             width: 797px; height: 30px; left: 0px; top: 50px; position: absolute; background: white
         }
         .boardWord_decoFrame{
-            width: 72px; height: 30px; left: 50px; top: 50px; position: absolute
+            width: 300px; height: 30px; left: 50px; top: 50px; position: absolute
         }
         .boardWord_decoBlock{
             width: 72px; height: 30px; left: 0px; top: 0px; position: absolute; background: white
