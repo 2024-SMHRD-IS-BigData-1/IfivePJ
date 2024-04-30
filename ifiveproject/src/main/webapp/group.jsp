@@ -331,7 +331,7 @@
             position: absolute; 
             color: black; 
             font-size: 20px; 
-            font-family: Inter; 
+            font-family: pretendard-regular; 
             font-weight: 500;
             word-wrap: break-word
         }
@@ -456,7 +456,7 @@
             position: absolute; 
             color: black; 
             font-size: 20px; 
-            font-family: Noto Sans KR; 
+            font-family: pretendard-regular; 
             font-weight: 500; 
             word-wrap: break-word
         }
@@ -555,7 +555,7 @@
             position: absolute; 
             color: black; 
             font-size: 15px; 
-            font-family: Inter; 
+            font-family: pretendard-regular; 
             font-weight: 400; 
             word-wrap: break-word
         }
@@ -618,7 +618,7 @@
             position: absolute; 
             color: #DBDBDB; 
             font-size: 14px; 
-            font-family: Noto Sans KR; 
+            font-family: pretendard-regular; 
             font-weight: 500; 
             word-wrap: break-word;
         }
@@ -663,7 +663,7 @@
             position: absolute; 
             color: black; 
             font-size: 20px; 
-            font-family: Inter; 
+            font-family: pretendard-regular; 
             font-weight: 500; 
             word-wrap: break-word;
         }
@@ -743,7 +743,7 @@
             width: 72px; height: 30px; left: 0px; top: 0px; position: absolute; background: white
         }
         .boardWord_deco{
-            left: 0px; top: 0px; position: absolute; color: black; font-size: 25px; font-family: Inter; font-weight: 700; word-wrap: break-word
+            left: 0px; top: 0px; position: absolute; color: black; font-size: 25px; font-family: pretendard-regular; font-weight: 700; word-wrap: break-word
         }
         .searchBar_wholeFrame{
             width: 797px; height: 48px; left: 0px; top: 120px; position: absolute
@@ -793,7 +793,7 @@
             width: 240px; height: 28px; left: 0px; top: 0px; position: absolute; background: white
         }
         .emailInfo{
-            left: 10px; top: 1px; position: absolute; color: black; font-size: 18px; font-family: Noto Sans KR; font-weight: 500; word-wrap: break-word
+            left: 10px; top: 1px; position: absolute; color: black; font-size: 18px; font-family: pretendard-regular; font-weight: 500; word-wrap: break-word
         }
         .run_day_whole_info{
             width: 240px; height: 15px; left: 0px; top: 108px; position: absolute
@@ -805,10 +805,10 @@
             width: 139px; height: 14px; left: 10px; top: 1px; position: absolute
         }
         .run_day{
-            left: 0px; top: 0px; position: absolute; color: black; font-size: 12px; font-family: Roboto; font-weight: 500; word-wrap: break-word
+            left: 0px; top: 0px; position: absolute; color: black; font-size: 12px; font-family: pretendard-regular; font-weight: 500; word-wrap: break-word
         }
         .business_time{
-            left: 80px; top: 0px; position: absolute; color: black; font-size: 12px; font-family: Roboto; font-weight: 500; word-wrap: break-word
+            left: 80px; top: 0px; position: absolute; color: black; font-size: 12px; font-family: pretendard-regular; font-weight: 500; word-wrap: break-word
         }
         .qna_bgcolor_block{
             width: 240px; height: 30px; left: 0px; top: 0px; position: absolute
@@ -817,7 +817,7 @@
             width: 240px; height: 30px; left: 0px; top: 0px; position: absolute; background: white
         }
         .qna_info{
-            left: 10px; top: 2px; position: absolute; color: black; font-size: 18px; font-family: Noto Sans KR; font-weight: 500; word-wrap: break-word
+            left: 10px; top: 2px; position: absolute; color: black; font-size: 18px; font-family: pretendard-regular; font-weight: 500; word-wrap: break-word
         }
         .infoLine{
             width: 240px; height: 1px; left: 0px; top: 39px; position: absolute; background: #DBDBDB
@@ -832,7 +832,7 @@
             width: 240px; height: 22px; left: 0px; top: 0px; position: absolute; background: white
         }
         .rubber_company_title{
-            left: 10px; top: 0px; position: absolute; color: black; font-size: 15px; font-family: Noto Sans KR; font-weight: 500; word-wrap: break-word
+            left: 10px; top: 0px; position: absolute; color: black; font-size: 15px; font-family: pretendard-regular; font-weight: 500; word-wrap: break-word
         }
         .rubber_product_name_frame{
             width: 240px; height: 22px; left: 0px; top: 292px; position: absolute
@@ -841,7 +841,7 @@
             width: 240px; height: 22px; left: 0px; top: 0px; position: absolute; background: white
         }
         .rubber_product_name{
-            left: 10px; top: 0px; position: absolute; color: #505050; font-size: 15px; font-family: Noto Sans KR; font-weight: 400; word-wrap: break-word
+            left: 10px; top: 0px; position: absolute; color: #505050; font-size: 15px; font-family: pretendard-regular; font-weight: 400; word-wrap: break-word
         }
         .rubber_price_info_frame{
             width: 240px; height: 22px; left: 0px; top: 314px; position: absolute
@@ -853,10 +853,10 @@
             width: 58px; height: 21px; left: 10px; top: 0px; position: absolute
         }
         .rubber_price_won{
-            left: 40px; top: 0px; position: absolute; color: black; font-size: 14px; font-family: Noto Sans KR; font-weight: 400; word-wrap: break-word
+            left: 40px; top: 0px; position: absolute; color: black; font-size: 14px; font-family: pretendard-regular; font-weight: 400; word-wrap: break-word
         }
         .rubber_price{
-            left: 0px; top: 0px; position: absolute; color: black; font-size: 14px; font-family: Roboto; font-weight: 500; word-wrap: break-word
+            left: 0px; top: 0px; position: absolute; color: black; font-size: 14px; font-family: pretendard-regular; font-weight: 500; word-wrap: break-word
         }
         .rubber_whole_box{
             width: 240px; height: 292px; left: 0px; top: 0px; position: absolute; background: rgba(0, 0, 0, 0.03)
@@ -874,7 +874,7 @@
             width: 240px; height: 22px; left: 0px; top: 0px; position: absolute; background: white
         }
         .chickenCompany_title{
-            left: 10px; top: 0px; position: absolute; color: black; font-size: 15px; font-family: Noto Sans KR; font-weight: 500; word-wrap: break-word
+            left: 10px; top: 0px; position: absolute; color: black; font-size: 15px; font-family: pretendard-regular; font-weight: 500; word-wrap: break-word
         }
         .chicken_product_name_frame{
             width: 240px; height: 22px; left: 0px; top: 292px; position: absolute
@@ -883,7 +883,7 @@
             width: 240px; height: 22px; left: 0px; top: 0px; position: absolute; background: white
         }
         .chicken_product_name{
-            left: 10px; top: 0px; position: absolute; color: #505050; font-size: 15px; font-family: Noto Sans KR; font-weight: 400; word-wrap: break-word
+            left: 10px; top: 0px; position: absolute; color: #505050; font-size: 15px; font-family: pretendard-regular; font-weight: 400; word-wrap: break-word
         }
         .chickenPrice_info_frame{
             width: 240px; height: 22px; left: 0px; top: 314px; position: absolute
@@ -895,10 +895,10 @@
             width: 58px; height: 21px; left: 10px; top: 1px; position: absolute
         }
         .chicken_Price{
-            left: 0px; top: 0px; position: absolute; color: black; font-size: 14px; font-family: Roboto; font-weight: 500; word-wrap: break-word
+            left: 0px; top: 0px; position: absolute; color: black; font-size: 14px; font-family: pretendard-regular; font-weight: 500; word-wrap: break-word
         }
         .chickenPrice_won{
-            left: 45px; top: 0px; position: absolute; color: black; font-size: 14px; font-family: Noto Sans KR; font-weight: 400; word-wrap: break-word
+            left: 45px; top: 0px; position: absolute; color: black; font-size: 14px; font-family: pretendard-regular; font-weight: 400; word-wrap: break-word
         }
         .chicken_whole_box{
             width: 240px; height: 292px; left: 0px; top: 0px; position: absolute; background: rgba(0, 0, 0, 0.03)
@@ -919,7 +919,7 @@
             width: 240px; height: 20px; left: 0px; top: 0px; position: absolute; background:  #EFE9E9
         }
         .notice_explain{
-            left: 10px; top: 0px; position: absolute; color: #505050; font-size: 13px; font-family: Noto Sans KR; font-weight: 400; word-wrap: break-word
+            left: 10px; top: 0px; position: absolute; color: #505050; font-size: 13px; font-family: pretendard-regular; font-weight: 400; word-wrap: break-word
         }
         .notice_title_frame{
             width: 240px; height: 25px; left: 0px; top: 10px; position: absolute
@@ -934,7 +934,7 @@
             width: 20px; height: 20px; left: 58px; top: 1px; position: absolute
         }
         .notice{
-            left: 0px; top: 0px; position: absolute; color: black; font-size: 15px; font-family: Noto Sans KR; font-weight: 500; word-wrap: break-word
+            left: 0px; top: 0px; position: absolute; color: black; font-size: 15px; font-family: pretendard-regular; font-weight: 500; word-wrap: break-word
         }
         
         .custom_search_bar {
@@ -1421,7 +1421,7 @@
                          <div class="group_button_bg_${s.index }"></div>
                          <div style="width: 30px; height: 30px; left: 6px; top:${s.index+12}px; position: absolute; background: #DBDBDB; border-radius: 9999px"></div>
                          <div style="width: 172px; height: 1px; left: 1px; top: ${s.index + 52}px; position: absolute; background: #D9D9D9"></div>
-                         <div style="left: 41px; top: ${s.index + 24}px; position: absolute; color: black; font-size: 13px; font-family: Inter; font-weight: 400; word-wrap: break-word">
+                         <div style="left: 41px; top: ${s.index + 24}px; position: absolute; color: black; font-size: 13px; font-family: pretendard-regular; font-weight: 400; word-wrap: break-word">
                              ${JoiningGroup.group_name}
                          </div>
                      </td>
@@ -1590,14 +1590,14 @@
 	                              <div id="GroupList_${s.index}" style="width: 682px; height: 52px; left: 0px; top: ${s.index*60}px; position: absolute; background: white;"></div>
 	                              <div style="width: 682px; height: 1px; left: 0px; top: ${s.index * 60 + 52}px; position: absolute; background: #DBDBDB"></div>
 	                              <form action="GroupRequestService.do" method="post">
-	                                  <div id="GroupTitle_${s.index }" style="left: 40px; top: ${s.index * 60 +10 }px; position: absolute; color: black; font-size: 15px; font-family: Inter; font-weight: 400; word-wrap: break-word;">
+	                                  <div id="GroupTitle_${s.index }" style="left: 40px; top: ${s.index * 60 +10 }px; position: absolute; color: black; font-size: 15px; font-family: pretendard-regular; font-weight: 400; word-wrap: break-word;">
 	                                      ${group.group_name}
 	                                  </div>
-	                                  <div id="Groupinfo_${s.index }" style="left: 40px; top: ${s.index * 60 +30 }px; position: absolute; color: black; font-size: 10px; font-family: Inter; font-weight: 400; word-wrap: break-word;">
+	                                  <div id="Groupinfo_${s.index }" style="left: 40px; top: ${s.index * 60 +30 }px; position: absolute; color: black; font-size: 10px; font-family: pretendard-regular; font-weight: 400; word-wrap: break-word;">
 	                                      ${group.group_info}
 	                                  </div>
-	                                  <div id="Grouplimit_${s.index }" style="left: 550px; top: ${s.index * 60 +5 }px; position: absolute; color: black; font-size: 15px; font-family: Inter; font-weight: 400; word-wrap: break-word;">
-	                                      ${group.group_limit}
+	                                  <div id="Grouplimit_${s.index }" style="left: 530px; top: ${s.index * 60 +10 }px; position: absolute; color: black; font-size: 14px; font-family: pretendard-regular; font-weight: 400; word-wrap: break-word;">
+	                                      인원 : ${group.group_limit}
 	                                  </div>
 	                                  <div style="left: 600px; top: ${s.index * 60 +5 }px; position: absolute;">
 	                                      <input id="GroupRequest_${s.index}" type="button" value="가입신청" style="width: auto; height: auto; border:none; font-family: pretendard-regular; background-color: transparent; cursor:pointer" onclick="sendGroupRequest(${s.index})">
