@@ -1,4 +1,6 @@
 
+<%@page import="com.smhrd.model.JoiningGroupDAO"%>
+<%@page import="com.smhrd.model.JoiningGroup"%>
 <%@page import="com.smhrd.model.CaloryDAO"%>
 <%@page import="com.smhrd.model.Calory"%>
 <%@page import="java.util.Date"%>
@@ -322,6 +324,15 @@
             transition: 0.3s;
             padding-top: 60px;
             padding-bottom: 60px;
+        }
+        
+        #groupjoin {
+          width: 14px; 
+          height: 11.04px; 
+          left: 215px; 
+          top: 85.11px; 
+          position: absolute;
+          cursor: pointer; /* 커서를 손가락으로 바꿈 */
         }
 
         /* sidebar_groupMember */
@@ -1052,44 +1063,40 @@
         
             <!-- sidebar group -->
             <!-- group -->
-            <div class="group_main_box">
-                <div class="group_box1"></div>
-                <div class="group_box1_groupText_bar"></div>
-                <div class="group_box1_groupText">Group</div>
-                <img class="produce_group" src="./img/Vector.png"></img>
-                
-                <div class="group_button" onclick="openNav()">
-                    <div class="group_button_bg1"></div>
-                    <div class="group_button_profile1"></div>
-                <div class="group_button_bar1"></div>
-                <div class="group_title1">group1</div>            
-            </div>
-            
-            <!-- <div style="width: 172px; height: 52px; left: 67px; top: 164px; position: absolute; background: white;"  >
-                <div style="width: 172px; height: 52px; left: 0px; top: 0px; position: absolute; background: white"></div>
-                <div style="width: 30px; height: 30px; left: 6px; top: 12px; position: absolute; background: #FF6B6B; border-radius: 9999px"></div>
-                <div style="width: 172px; height: 1px; left: 1px; top: 51px; position: absolute; background: #D9D9D9"></div>
-                <div style="left: 41px; top: 24px; position: absolute; color: black; font-size: 13px; font-family: Inter; font-weight: 400; word-wrap: break-word">group2</div>
-                
-            </div>
-            
-            <div style="width: 172px; height: 52px; left: 67px; top: 216px; position: absolute; background: white">
-                <div style="width: 172px; height: 52px; left: 0px; top: 0px; position: absolute; background: white"></div>
-                <div style="width: 30px; height: 30px; left: 6px; top: 12px; position: absolute; background: #0B5FFD; border-radius: 9999px"></div>
-                <div style="width: 172px; height: 1px; left: 1px; top: 51px; position: absolute; background: #D9D9D9"></div>
-                <div style="left: 41px; top: 24px; position: absolute; color: black; font-size: 13px; font-family: Inter; font-weight: 400; word-wrap: break-word">group3</div>
-            </div>
-            
-            
-            <div style="width: 172px; height: 52px; left: 67px; top: 268px; position: absolute; background: white">
-                <div style="width: 172px; height: 52px; left: 0px; top: 0px; position: absolute; background: white"></div>
-                <div style="width: 30px; height: 30px; left: 6px; top: 12px; position: absolute; background: #FBBC05; border-radius: 9999px"></div>
-                <div style="width: 172px; height: 1px; left: 1px; top: 51px; position: absolute; background: #D9D9D9"></div>
-                <div style="left: 41px; top: 24px; position: absolute; color: black; font-size: 13px; font-family: Inter; font-weight: 400; word-wrap: break-word">group4</div>
-            </div> -->
-            
-            
-        </div>
+           <div class="group_main_box">
+      <div class="group_box1"></div>
+      <div class="group_box1_groupText_bar"></div>
+      <div class="group_box1_groupText">Group</div>
+      <img id=groupjoin src="img/Vector.png"></img>
+      
+      
+      <!-- 회원이 소속한 그룹 띄우기 -->
+            <%
+               Member logiMember2Member = (Member) session.getAttribute("loginMember");
+               List<JoiningGroup> JoiningGroupList = null;
+               if (logiMember2Member != null) {
+                  JoiningGroupList = new JoiningGroupDAO().JoiningGroupList(logiMember2Member.getUser_id());
+                  pageContext.setAttribute("JoiningGroupList", JoiningGroupList);
+               }
+            %>
+      <c:forEach items="${JoiningGroupList}" var="JoiningGroup" varStatus="s">
+         <div id="group_button_${s.index }" class="group_button" onclick="ClickNav(${s.index})" style="top: ${120+s.index * 60 + 12}px;">
+             <table>
+                 <tr>
+                     <td>
+                         <div class="group_button_bg_${s.index }"></div>
+                         <div style="width: 30px; height: 30px; left: 6px; top:${s.index+12}px; position: absolute; background: #DBDBDB; border-radius: 9999px"></div>
+                         <div style="width: 172px; height: 1px; left: 1px; top: ${s.index + 52}px; position: absolute; background: #D9D9D9"></div>
+                         <div style="left: 41px; top: ${s.index + 24}px; position: absolute; color: black; font-size: 13px; font-family: Inter; font-weight: 400; word-wrap: break-word">
+                             ${JoiningGroup.group_name}
+                         </div>
+                     </td>
+                 </tr>
+            </table> 
+   
+         </div>
+       </c:forEach>
+   </div>
         
         <!-- person & chat -->
         <div id="sidebar" class="sidebar" >

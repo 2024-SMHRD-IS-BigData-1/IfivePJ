@@ -608,7 +608,7 @@
          .imoticon{
             width: 13px; 
             height: 14px; 
-            left: 784px; 
+            left: 810px; 
             top: 25px; 
             position: absolute;
         }
@@ -1464,7 +1464,7 @@
                		<div class="inside_group_member_box_bg"></div>
                		
                     <div class="inside_group_member_boudary"></div>
-                    <div class="inside_group_member_name">${JoiningGroup.user_id}</div>
+                    <div class="inside_group_member_name"><%=logiMember2Member.getUser_id() %></div>
                     
                      
                  	<div class="inside_group_member_whiteSpace"></div>
@@ -1522,7 +1522,10 @@
 	                  <img class="chat_photo" src="./img/Photo camera.png"></img>
 	                  <img class="option" src="./img/option.png"></img>
 	                  <img class="imoticon" src="./img/imoticon.png"></img>
-	                  <div class="typing_text">Message</div>
+	                  <div style="width: 13px; height: 14px; left: 760px; top: 23px; position: absolute; background: #D9D9D9"
+                 			id="button" class="button" onclick="sendMessage()"></div>	
+	                  <div style="width: 748px; height: 29px; left: 58px; top: 17px; position: absolute; background: #EEEEF5; border-radius: 30px"
+                  			contenteditable="true" id="message" class="message"></div>
 	            </div>
 				            
                 
@@ -1584,7 +1587,7 @@
 	                      <tr>
 	                          <td>
 	                              <div class="Group"></div>
-	                              <div id="GroupList_${s.index}" style="width: 682px; height: 52px; left: 0px; top: ${s.index*60}px; position: absolute; background: white; cursor: pointer;"></div>
+	                              <div id="GroupList_${s.index}" style="width: 682px; height: 52px; left: 0px; top: ${s.index*60}px; position: absolute; background: white;"></div>
 	                              <div style="width: 682px; height: 1px; left: 0px; top: ${s.index * 60 + 52}px; position: absolute; background: #DBDBDB"></div>
 	                              <form action="GroupRequestService.do" method="post">
 	                                  <div id="GroupTitle_${s.index }" style="left: 40px; top: ${s.index * 60 +10 }px; position: absolute; color: black; font-size: 15px; font-family: Inter; font-weight: 400; word-wrap: break-word;">
@@ -1678,14 +1681,25 @@
              console.log("가입신청 - 그룹 ID:", groupName);
              console.log("가입신청 - 그룹 정보:", groupInfo);
              console.log("가입신청 - 그룹 인원:", groupLimit);
-             console.log("가입신청 - 사용자 ID:", user_id);      
+             console.log("가입신청 - 사용자 ID:", user_id);
+             
               var xhr = new XMLHttpRequest();
              xhr.open("POST", "GroupRequestService.do", true);
              xhr.setRequestHeader("Content-Type", "application/json");
-             xhr.onreadystatechange = function() {
-                 if (xhr.readyState === 4 && xhr.status === 200) {
-                     // 서버로부터 응답을 받았을 때 할 작업
-                     console.log("요청이 성공적으로 전송되었습니다.");
+             xhr.onreadystatechange = function () {
+                 if (xhr.readyState === 4) {
+                     if (xhr.status === 200) {
+                         // 서버로부터 응답을 받았을 때 할 작업
+                         console.log("요청이 성공적으로 전송되었습니다.");
+                         // 여기에 팝업을 출력하는 코드 추가
+                         alert("" + groupName + " 그룹에 가입되었습니다.");
+                         // 페이지를 새로고침
+                         location.reload();
+                     } else {
+                         console.log("요청 전송 중 오류가 발생했습니다.");
+                         // 오류가 발생했을 때 사용자에게 알림을 주는 코드 추가
+                         alert("그룹 가입 요청 중 오류가 발생했습니다.");
+                     }
                  }
              };
              var data = JSON.stringify({ groupName: groupName, groupInfo:groupInfo, groupLimit:groupLimit, user_id: user_id  });
