@@ -17,7 +17,7 @@
             src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
             font-weight: 400;
             font-style: normal;
-        }
+        } 
 
         
         .wrap{
@@ -103,7 +103,7 @@
             background: white;
         }
         .input_text_login{
-        	left: -4px; 
+           left: -4px; 
             top: -2px; 
             position: absolute; 
             color: black; 
@@ -257,7 +257,7 @@
         /* login box */
         .login_box{
             font-style: normal;
-            -webkit-font-smoothing: antialiased;
+            -webkit-font-smoothing: antialiased;h
             font-size: 100%;
             box-sizing: border-box;
             font-family: 'Pretendard-Regular', sans-serif;
@@ -378,7 +378,7 @@
             background: #0F62FE;
         }*/
         .input_login{
-        	position: absolute;
+           position: absolute;
             margin-top: 10px;
             width: 342px; 
             height: 58px;
@@ -441,11 +441,18 @@
         .snsbutton2{
             width: 40px; 
             height: 40px; 
-            left: 914px; 
+            left: 910px; 
             top: 677px; 
             border-radius: 9999px; 
             position: absolute;
-            background-color: #DBDBDB;
+            background-color: transparent;
+            border:none
+        }
+        .kakaoimg{
+           width:40px;
+           height:40px;
+           cursor:pointer;
+        
         }
         .snsbutton3{
             width: 40px; 
@@ -692,7 +699,8 @@
                         <div class="simple_login_text">간편로그인</div>
                         
                         <img class="snsbutton1" src="./img/네이버 로그인.png"></img>
-                        <img class="snsbutton2" src="./img/kakaotalk.png"></img>
+                        <button id="kakao-login-btn"class="snsbutton2" ><img  src="./img/kakaotalk.png" class="kakaoimg"></img>
+                        </button>
                         <img class="snsbutton3" src="./img/Facebook.png"></img>
                         <img class="snsbutton4" src="./img/Social Icons.png"></img>
                         
@@ -747,50 +755,40 @@
           
        
        </script>
-        <script>
-    Kakao.init('5d988841c896e18e470d2bab9c3492e6');
+   <!--    <button id="kakao-login-btn">카카오 계정으로 로그인</button> -->
+  <script>
+        // 카카오 SDK 초기화
+        Kakao.init('5d988841c896e18e470d2bab9c3492e6');
 
-    function loginWithKakao() {
-        Kakao.Auth.login({
-            success: function(authObj) {
-                console.log(authObj);
-
-                // 사용자 정보 요청
-                Kakao.API.request({
-                    url: '/v2/user/me',
-                    success: function(response) {
-                        console.log(response);
-                    },
-                    fail: function(error) {
-                        console.log(error);
+        // 카카오 로그인 버튼 클릭 시 실행될 함수
+       document.getElementById('kakao-login-btn').addEventListener('click', function() {
+    Kakao.Auth.login({
+        success: function(authObj) {
+            var accessToken = authObj.access_token;
+            // AJAX를 사용하여 서블릿으로 토큰 전송
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', 'SaveTokenServlet', true); // SaveTokenServlet은 서블릿의 URL
+            xhr.setRequestHeader('Content-Type', 'application/json');
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === XMLHttpRequest.DONE) {
+                    if (xhr.status === 200) {
+                        console.log('토큰이 성공적으로 저장되었습니다.');                    
+                        
+                        window.location.href = "Main.jsp";
+                    } else {
+                        console.error('토큰 저장에 실패했습니다.');
                     }
-                });
-            },
-            fail: function(err) {
-                console.error(err);
-            }
-        });
-    }
-
-    document.getElementById('kakao-login-btn').addEventListener('click', loginWithKakao);
-
-
-   </script>
-   
-   <script>
-      Kakao.Auth.login({
-          success: function(authObj) {
-              console.log(authObj);
-   
-              // 로그인 성공 후 main.jsp로 리디렉션
-              window.location.href = 'Main.jsp';
-          },
-          fail: function(err) {
-              console.error(err);
-          }
-      });
-
-   
-   </script>
+                }
+            };
+            // JSON 형식으로 데이터 전송
+            xhr.send(JSON.stringify({ accessToken: accessToken }));
+        },
+        fail: function(err) {
+            // 로그인 실패 시 수행할 동작
+            console.error(err);
+        }
+    });
+});
+    </script>
 </body>
 </html>
