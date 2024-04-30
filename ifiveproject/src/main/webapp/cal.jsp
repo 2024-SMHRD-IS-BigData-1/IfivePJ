@@ -301,7 +301,7 @@
             position: absolute; 
             color: black; 
             font-size: 20px; 
-            font-family: Inter; 
+            font-family: Pretendard-Regular; 
             font-weight: 500; 
             word-wrap: break-word;
         }
@@ -374,7 +374,7 @@
             position: absolute; 
             color: black; 
             font-size: 20px; 
-            font-family: Inter; 
+            font-family: Pretendard-Regular; 
             font-weight: 500;
             word-wrap: break-word
         }
@@ -482,7 +482,7 @@
             position: absolute; 
             color: black; 
             font-size: 20px; 
-            font-family: Inter; 
+            font-family: Pretendard-Regular; 
             font-weight: 500; 
             word-wrap: break-word
         }
@@ -627,7 +627,7 @@
             position: absolute; 
             color: black; 
             font-size: 15px; 
-            font-family: Inter; 
+            font-family: Pretendard-Regular; 
             font-weight: 400; 
             word-wrap: break-word
         }
@@ -689,7 +689,7 @@
             position: absolute; 
             color: black; 
             font-size: 13px; 
-            font-family: Inter; 
+            font-family: Pretendard-Regular; 
             font-weight: 400; 
             word-wrap: break-word
         }
@@ -781,7 +781,7 @@
             position: absolute; 
             color: black; 
             font-size: 25px; 
-            font-family: Inter; 
+            font-family: Pretendard-Regular; 
             font-weight: 700; 
             word-wrap: break-word
         }
@@ -1087,7 +1087,7 @@
                          <div class="group_button_bg_${s.index }"></div>
                          <div style="width: 30px; height: 30px; left: 6px; top:${s.index+12}px; position: absolute; background: #DBDBDB; border-radius: 9999px"></div>
                          <div style="width: 172px; height: 1px; left: 1px; top: ${s.index + 52}px; position: absolute; background: #D9D9D9"></div>
-                         <div style="left: 41px; top: ${s.index + 24}px; position: absolute; color: black; font-size: 13px; font-family: Inter; font-weight: 400; word-wrap: break-word">
+                         <div style="left: 41px; top: ${s.index + 24}px; position: absolute; color: black; font-size: 13px; font-family: Pretendard-Regular; font-weight: 400; word-wrap: break-word">
                              ${JoiningGroup.group_name}
                          </div>
                      </td>

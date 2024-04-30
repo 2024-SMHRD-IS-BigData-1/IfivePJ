@@ -22,6 +22,24 @@
             font-weight: 400;
             font-style: normal;
         }
+        @keyframes shadow-drop-2-center {
+            0% {
+                transform: translateZ(0);
+                box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+            }
+            100% {
+                transform: translateZ(50px);
+                box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.35);
+            }
+        } 
+        #cal_exp_img:hover{
+            transform: scale(1.1);
+            animation: shadow-drop-2-center 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+        }
+        #gruop_exp_img:hover{
+         	transform: scale(1.1);
+            animation: shadow-drop-2-center 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+        }
 
 
 
