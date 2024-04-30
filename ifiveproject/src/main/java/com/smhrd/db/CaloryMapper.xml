@@ -21,7 +21,7 @@
 		    ) c2 ON c1.eat_date = c2.eat_date AND c1.created_date = c2.max_created_date
 		    WHERE c1.user_id = #{user_id}
 		)
-		ORDER BY eat_date DESC
+		ORDER BY eat_date asc
 
 	 
 		</select>
