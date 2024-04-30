@@ -473,19 +473,26 @@
             font-weight: 350; 
             word-wrap: break-word;
         }
-        .up_button_box{
+        .button{
             width: 58px; 
             height: 52px; 
             left: 932px; 
             top: 2567px;
             position: absolute;
+             background-color: white; border: white solid; cursor: pointer;
+            
         }
-        .up_button_img{
+        #buttonStyle{
             width: 30px; 
             height: 30px; 
             left: 14.50px; 
             top: 19.50px; 
-            position: absolute; 
+            position: absolute;
+            background-color: white; 
+            border: white solid; 
+            cursor: pointer; 
+            
+            
         }
         .footer_box{
             width: 1920px; 
@@ -622,6 +629,8 @@
             width: 35px; height: 35px; left: 322px; top: 106px; position: absolute;
         }   
        
+       
+       
     </style>
 </head>
 <body>
@@ -719,9 +728,10 @@
                     <div id="gruop_exp_button_title">Group</div>
                 </div>
             </a>
-        <div class="up_button_box">
-            <img class="up_button_img" src="./img/Feather Icon.png"></img>
-        </div>
+        <div class="button" >
+        	<div><button id="buttonStyle" onclick="scrollToTop()" ><img src="./img/Feather Icon.png"></button></div>
+    	</div>
+      
        
        
        <!-- footer -->
@@ -760,7 +770,29 @@
        
 
     <script>
-
+    // 버튼을 클릭하면 페이지 맨 위로 스크롤합니다.
+    function scrollToTop() {
+       window.scrollTo({
+          top : 0,
+          behavior : "smooth" // 부드럽게 스크롤
+       });
+    }
+    
+    function ClickNav(index) {
+         console.log("클릭한 버튼의 인덱스:", index);
+         const layer = document.querySelector('.layer');
+         const sidebar = document.getElementById("sidebar_" + index);
+         
+         layer.style.display = 'block';
+         sidebar.style.width = "1250px"; // 채팅창
+         document.querySelector(".footer").style.display = 'block'; // 푸터 보이기
+         
+         layer.addEventListener('click', function() {
+             layer.style.display = 'none';
+             sidebar.style.width = '0'; // 사이드바를 닫기
+             document.querySelector(".footer").style.display = 'none'; // 푸터 감추기
+         }); 
+     }
 
     </script>
 </body>

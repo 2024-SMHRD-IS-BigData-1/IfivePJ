@@ -716,7 +716,7 @@
         <div class="join_box">
             <div class="join_box_bg"></div>
                 <div class="bar1">
-                    <input name="user_id" id="input-name" autocapitalize="off" type="text" placeholder="아이디를 입력하세요" value="">
+                    <input name="user_id" id="input-username" autocapitalize="off" type="text" placeholder="아이디를 입력하세요" value="">
                       <input id="IDcheck" type="button" value="중복체크" onclick="checkID()"> 
                   <span id="checkID"></span> 
                 </div>
@@ -814,7 +814,7 @@
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
          <script type="text/javascript">
          function checkID(){
-        	    var inputName = $("#input-name").val(); // 변수 이름 수정
+        	    var inputName = $("#input-username").val(); // 변수 이름 수정
         	    console.log(inputName);
         	    $.ajax({
         	        url : "IdCheck.do",
