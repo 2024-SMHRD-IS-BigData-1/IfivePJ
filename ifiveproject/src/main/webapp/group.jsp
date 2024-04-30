@@ -595,23 +595,23 @@
             width: 14px; 
             height: 14px; 
             left: 11px; 
-            top: 23px; 
+            top: 25px; 
             position: absolute; 
         }
         .option{
             width: 14px; 
             height: 14px; 
             left: 34px; 
-            top: 23px; 
+            top: 25px; 
             position: absolute; 
         }
-         .imoticon{
+        /*  .imoticon{
             width: 13px; 
             height: 14px; 
-            left: 810px; 
-            top: 25px; 
+            left: 740px; 
+            top: 10px; 
             position: absolute;
-        }
+        } */
           .typing_text{
             left: 74px; 
             top: 22px; 
@@ -1281,9 +1281,13 @@
         .chat-text-box {
             width: fit-content;
             padding: 10px; /* 내부 패딩 */
+            left: 20px;
+            top:10px;
             margin: 5px 0; /* 상하 여백 */
-            border: 1px solid black; /* 테두리 */
-            border-radius: 5px; /* 테두리 둥글게 */
+            border: 1px solid #d9d9d9; /* 테두리 */
+            border-bottom-left-radius: 10px; 
+			border-top-right-radius: 10px; 
+			border-bottom-right-radius: 10px; /* 테두리 둥글게 */
             background-color: #f0f0f0; /* 배경색 */
             text-align: right;
            position: relative;
@@ -1520,12 +1524,14 @@
 	                  <div class="chat_typing_Round_box_bg"></div>
 	                  <div class="chat_typing_box"></div>
 	                  <img class="chat_photo" src="./img/Photo camera.png"></img>
-	                  <img class="option" src="./img/option.png"></img>
-	                  <img class="imoticon" src="./img/imoticon.png"></img>
+	                  <img class="option" src="./img/imoticon.png"></img>
 	                  <div style="width: 13px; height: 14px; left: 760px; top: 23px; position: absolute; background: #D9D9D9"
                  			id="button" class="button" onclick="sendMessage()"></div>	
-	                  <div style="width: 748px; height: 29px; left: 58px; top: 17px; position: absolute; background: #EEEEF5; border-radius: 30px"
-                  			contenteditable="true" id="message" class="message"></div>
+	                  <div style="width: 748px; height: 25px; left: 58px; top: 17px; position: absolute; background: #EEEEF5; border-radius: 30px; padding-left: 20px; padding-top:6px; font-family: pretendard-regular;  "
+                  			contenteditable="true" id="message" class="message">
+		                  <img class="imoticon" ></img>
+                  	 
+                  	 </div>
 	            </div>
 				            
                 
