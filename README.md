@@ -1,12 +1,9 @@
-# 대제목
-## 중제목
-### 소제목
-
-프로젝트 설명
-
-![도트캣](https://github.com/2024-SMHRD-IS-BigData-1/IfivePJ/assets/161554781/eba46db9-eeb0-4e86-9f3f-2449ba707988)
-
+## 1. Full Step(팀명: Ifive)
 ![image](https://user-images.githubusercontent.com/25995055/178401048-d6484bda-a2d7-40e1-998b-2bd195cd9f89.png)
+<br>
+
+## 2. 서비스 소개
+![6  풀스텝 시연 설명서](https://github.com/2024-SMHRD-IS-BigData-1/IfivePJ/assets/161554781/ec7f0296-5526-4d8f-a75e-ded2e3b686da)
 <br>
 
 ## 📌 ER다이어그램
