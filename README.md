@@ -7,11 +7,20 @@
 <br>
 
 ## ✅ 주요 기능
-### 캘린더: 일정 등록
-#### - 캘린더 페이지
-![5_2캘린더_크롭](https://github.com/2024-SMHRD-IS-BigData-1/IfivePJ/assets/161554781/08cc906f-f683-4c39-9e1c-8f2c11f5e8d2)
-#### - 운동&식단 기록 페이지
-![6_1운동-식단기록](https://github.com/2024-SMHRD-IS-BigData-1/IfivePJ/assets/161554781/49785e32-11e9-4660-bb28-629954b90883)
+<table>
+  <tr>
+    <th colspan="2"><h3>캘린더</h3></th>
+  </tr>
+  <tr>
+    <th colspan="2"><img src="https://github.com/2024-SMHRD-IS-BigData-1/IfivePJ/assets/161554781/87301563-4fe1-4e0d-872c-0f6edb5a59c7"></th>
+  </tr>
+  <tr>
+    <th colspan="2"><img src="https://github.com/2024-SMHRD-IS-BigData-1/IfivePJ/assets/161554781/d24a9c26-d214-4815-888d-2136e046d1a5"></th>
+  </tr>
+  <tr>
+    <th colspan="2"><img src="https://github.com/2024-SMHRD-IS-BigData-1/IfivePJ/assets/161554781/b411ac50-5199-43c1-8c81-0cbff93dde8d"></th>
+  </tr>
+</table>
 
 <br>
 
@@ -88,7 +97,7 @@
 
 ## 🖥 화면 구성
 ### 메인
-![0_메인화면](https://github.com/2024-SMHRD-IS-BigData-1/IfivePJ/assets/161554781/f475d337-a56b-4dc5-9272-c3f637b00d08)
+![0_메인화면]()
 <br>
 ### 로그인/회원가입 화면
 ![1_로그인화면](https://github.com/2024-SMHRD-IS-BigData-1/IfivePJ/assets/161554781/9bc6041c-0e17-4216-ab0b-62ad70be7413)
