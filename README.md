@@ -25,6 +25,11 @@
 
 <br>
 
+## 서비스 아키텍처
+![image](https://github.com/2024-SMHRD-IS-BigData-1/IfivePJ/assets/164446363/a3dd9f02-3cc7-4178-b7d2-e9cab886abd7)
+
+
+
 ## 🛠 기술 스택
 <table>
   <tr>
