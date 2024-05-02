@@ -1,7 +1,8 @@
 ## 📅 Full Step(팀명: Ifive)
 ![6  풀스텝 시연 설명서](https://github.com/2024-SMHRD-IS-BigData-1/IfivePJ/assets/161554781/ec7f0296-5526-4d8f-a75e-ded2e3b686da)
 <br>
-### ⏱프로젝트 기간 2024.04.15~2024.05.01
+## ⏱프로젝트 기간 
+###2024.04.15~2024.05.01
 
 <br>
 
@@ -25,29 +26,48 @@
 <br>
 
 ## 🛠 기술 스택
-기본 사용언어
-<img src="https://img.shields.io/badge/Java-007396?style=for-the-badge&logo=java&logoColor=white"/> 
-<br>
-프론트 사용언어
-<img src="https://img.shields.io/badge/javascript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black">
-<img src="https://img.shields.io/badge/HTML-E34F26?style=for-the-badge&logo=html5&logoColor=white">
-<img src="https://img.shields.io/badge/CSS-1572B6?style=for-the-badge&logo=css3&logoColor=white">
-<br>
-개발도구
-<img src="https://img.shields.io/badge/Eclipse-2C2255?style=for-the-badge&logo=Eclipse&logoColor=white"/> 
-<img src="https://img.shields.io/badge/VSCode-007ACC?style=for-the-badge&logo=VisualStudioCode&logoColor=white"/>
-<img src="https://img.shields.io/badge/Jupyter-F37626?style=for-the-badge&logo=Jupyter&logoColor=white"/>
-<br>
-협업도구
-<img src="https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=Git&logoColor=white"/> 
-<img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=GitHub&logoColor=white"/>
-<br>
-서버환경
-<img src="https://img.shields.io/badge/Apache Tomcat 9.0-D22128?style=for-the-badge&logo=Apache Tomcat&logoColor=white"/> 
-<br>
-데이터베이스
-<img src="https://img.shields.io/badge/Oracle 11g-F80000?style=for-the-badge&logo=Oracle&logoColor=white"/> 
-<br>
+<table>
+  <tr>
+    <td>기본 사용언어</td>
+    <td><img src="https://img.shields.io/badge/Java-007396?style=for-the-badge&logo=java&logoColor=white"/> </td>
+  </tr>
+  <tr>
+    <td>프론트 사용언어</td>
+    <td>
+      <img src="https://img.shields.io/badge/javascript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black">
+      <img src="https://img.shields.io/badge/HTML-E34F26?style=for-the-badge&logo=html5&logoColor=white">
+      <img src="https://img.shields.io/badge/CSS-1572B6?style=for-the-badge&logo=css3&logoColor=white">
+    </td>
+  </tr>
+  
+  <tr>
+    <td>개발도구</td>
+    <td>
+      <img src="https://img.shields.io/badge/Eclipse-2C2255?style=for-the-badge&logo=Eclipse&logoColor=white"/> 
+      <img src="https://img.shields.io/badge/VSCode-007ACC?style=for-the-badge&logo=VisualStudioCode&logoColor=white"/>
+      <img src="https://img.shields.io/badge/Jupyter-F37626?style=for-the-badge&logo=Jupyter&logoColor=white"/>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>협업도구</td>
+    <td>
+      <img src="https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=Git&logoColor=white"/> 
+      <img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=GitHub&logoColor=white"/>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>서버환경</td>
+    <td><img src="https://img.shields.io/badge/Apache Tomcat 9.0-D22128?style=for-the-badge&logo=Apache Tomcat&logoColor=white"/> </td>
+  </tr>
+  
+  <tr>
+    <td>데이터베이스</td>
+    <td<img src="https://img.shields.io/badge/Oracle 11g-F80000?style=for-the-badge&logo=Oracle&logoColor=white"/> ></td>
+  </tr>
+</table>
+
 
 ## 📝 유스케이스
 ![Ifive유스케이스](https://github.com/2024-SMHRD-IS-BigData-1/IfivePJ/assets/161554781/0b8288e1-6e6e-48c3-a248-c54cb0e29ad1)
