@@ -1,11 +1,11 @@
-## Full Step(팀명: Ifive)
+## 📅 Full Step(팀명: Ifive)
 ![6  풀스텝 시연 설명서](https://github.com/2024-SMHRD-IS-BigData-1/IfivePJ/assets/161554781/ec7f0296-5526-4d8f-a75e-ded2e3b686da)
 <br>
 ### ⏱프로젝트 기간 2024.04.15~2024.05.01
 
 <br>
 
-## 주요 기능
+## ✅ 주요 기능
 ### 캘린더: 일정 등록
 #### - 캘린더 페이지
 ![5_2캘린더_크롭](https://github.com/2024-SMHRD-IS-BigData-1/IfivePJ/assets/161554781/08cc906f-f683-4c39-9e1c-8f2c11f5e8d2)
@@ -24,7 +24,7 @@
 
 <br>
 
-## 기술 스택
+## 🛠 기술 스택
 기본 사용언어
 <img src="https://img.shields.io/badge/Java-007396?style=for-the-badge&logo=java&logoColor=white"/> 
 <br>
@@ -49,15 +49,15 @@
 <img src="https://img.shields.io/badge/Oracle 11g-F80000?style=for-the-badge&logo=Oracle&logoColor=white"/> 
 <br>
 
-## 유스케이스
+## 📝 유스케이스
 ![Ifive유스케이스](https://github.com/2024-SMHRD-IS-BigData-1/IfivePJ/assets/161554781/0b8288e1-6e6e-48c3-a248-c54cb0e29ad1)
 <br>
 
-## 서비스 흐름도
+## 📑 서비스 흐름도
 ![메뉴구성](https://github.com/2024-SMHRD-IS-BigData-1/IfivePJ/assets/161554781/ca3c2585-c512-497b-99ea-a540c05c13c6)
 <br>
 
-## ER다이어그램
+## 🗨 ER다이어그램
 ![테이블 명세서 이미지](https://github.com/2024-SMHRD-IS-BigData-1/IfivePJ/assets/161554781/c9b67e99-7516-4295-9f31-472640caa046)
 <br>
 
@@ -66,6 +66,8 @@
 ![0_메인화면](https://github.com/2024-SMHRD-IS-BigData-1/IfivePJ/assets/161554781/f475d337-a56b-4dc5-9272-c3f637b00d08)
 <br>
 ### 로그인/회원가입 화면
+![1_로그인화면](https://github.com/2024-SMHRD-IS-BigData-1/IfivePJ/assets/161554781/9bc6041c-0e17-4216-ab0b-62ad70be7413)
+![2_회원가입화면](https://github.com/2024-SMHRD-IS-BigData-1/IfivePJ/assets/161554781/39e7fcaa-8949-4fa2-81db-2de263db66d6)
 
 ### 캘린더
 ![5_2캘린더_크롭](https://github.com/2024-SMHRD-IS-BigData-1/IfivePJ/assets/161554781/b59d3a82-4b20-418b-95e1-8fa3f2966a37)
@@ -78,7 +80,6 @@
 ### 마이페이지
 ![7_마이페이지](https://github.com/2024-SMHRD-IS-BigData-1/IfivePJ/assets/161554781/efee0736-a54e-4bda-ae4f-3682b2b36d7b)
 <br>
-
 
 ## 👨‍👩‍👦‍👦 팀원 역할
 <table>
