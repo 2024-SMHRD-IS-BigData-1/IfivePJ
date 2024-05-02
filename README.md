@@ -79,16 +79,15 @@
 ![7_마이페이지](https://github.com/2024-SMHRD-IS-BigData-1/IfivePJ/assets/161554781/efee0736-a54e-4bda-ae4f-3682b2b36d7b)
 <br>
 
+
 ## 👨‍👩‍👦‍👦 팀원 역할
 <table>
   <tr>
-    <td align="center">
-      <img src="https://item.kakaocdn.net/do/fd49574de6581aa2a91d82ff6adb6c0115b3f4e3c2033bfd702a321ec6eda72c" width="100" height="100"/>
-    </td>
-    <td align="center"><img src="https://mb.ntdtv.kr/assets/uploads/2019/01/Screen-Shot-2019-01-08-at-4.31.55-PM-e1546932545978.png" width="100" height="100"/></td>
-    <td align="center"><img src="https://mblogthumb-phinf.pstatic.net/20160127_177/krazymouse_1453865104404DjQIi_PNG/%C4%AB%C4%AB%BF%C0%C7%C1%B7%BB%C1%EE_%B6%F3%C0%CC%BE%F0.png?type=w2" width="100" height="100"/></td>
-    <td align="center"><img src="https://i.pinimg.com/236x/ed/bb/53/edbb53d4f6dd710431c1140551404af9.jpg" width="100" height="100"/></td>
-    <td align="center"><img src="https://pbs.twimg.com/media/B-n6uPYUUAAZSUx.png" width="100" height="100"/></td>
+    <td align="center"><img src="https://github.com/2024-SMHRD-IS-BigData-1/IfivePJ/assets/161554781/509c7af3-e2e0-400f-bd29-413988a7200a" width="100" height="100"/></td>
+    <td align="center"><img src="https://github.com/2024-SMHRD-IS-BigData-1/IfivePJ/assets/161554781/01d13045-05ed-4551-9c27-ad96da713be5)" width="100" height="100"/></td>
+    <td align="center"><img src="https://github.com/2024-SMHRD-IS-BigData-1/IfivePJ/assets/161554781/7d8d72f8-ba37-4992-a307-8ac8ea78f16e" width="100" height="100"/></td>
+    <td align="center"><img src="https://github.com/2024-SMHRD-IS-BigData-1/IfivePJ/assets/161554781/dc79eff0-7294-48b5-a066-3ea0f0f0fc2b" width="100" height="100"/></td>
+    <td align="center"><img src="https://github.com/2024-SMHRD-IS-BigData-1/IfivePJ/assets/161554781/d5273874-3e99-4ada-a91a-09d1d715f3ee" width="100" height="100"/></td>
   </tr>
   <tr>
     <td align="center"><strong>김지은</strong></td>
@@ -105,11 +104,11 @@
     <td align="center"><b>Frontend</b></td>
   </tr>
   <tr>
-    <td align="center"><a href="https://github.com/자신의username작성해주세요" target='_blank'>github</a></td>
-    <td align="center"><a href="https://github.com/자신의username작성해주세요" target='_blank'>github</a></td>
-    <td align="center"><a href="https://github.com/자신의username작성해주세요" target='_blank'>github</a></td>
-    <td align="center"><a href="https://github.com/자신의username작성해주세요" target='_blank'>github</a></td>
-    <td align="center"><a href="https://github.com/자신의username작성해주세요" target='_blank'>github</a></td>
+    <td align="center"><a href="https://github.com/2013je" target='_blank'>2013je</a></td>
+    <td align="center"><a href="https://github.com/uunn10" target='_blank'>uunn10</a></td>
+    <td align="center"><a href="https://github.com/ddde98" target='_blank'>ddde98</a></td>
+    <td align="center"><a href="https://github.com/JungUbin" target='_blank'>JungUbin</a></td>
+    <td align="center"><a href="https://github.com/mj4226" target='_blank'>mj4226</a></td>
   </tr>
 </table>
 
