@@ -2,7 +2,7 @@
 ![6  풀스텝 시연 설명서](https://github.com/2024-SMHRD-IS-BigData-1/IfivePJ/assets/161554781/ec7f0296-5526-4d8f-a75e-ded2e3b686da)
 <br>
 ## ⏱프로젝트 기간 
-###2024.04.15~2024.05.01
+### 2024.04.15~2024.05.01
 
 <br>
 
@@ -144,6 +144,13 @@
     <td align="center"><a href="https://github.com/ddde98" target='_blank'>ddde98</a></td>
     <td align="center"><a href="https://github.com/JungUbin" target='_blank'>JungUbin</a></td>
     <td align="center"><a href="https://github.com/mj4226" target='_blank'>mj4226</a></td>
+  </tr>
+  <tr>
+    <td align="center"> 그룹 가입&생성기능,<br>채팅기능</td>
+    <td align="center">캘린더 기능<br>음식 섭취 칼로리 차트<br>카카오톡 SNS 로그인</td>
+    <td align="center">전체기능 감독및 도움<br>초기기능 세팅<br>프론트 및 백엔드 연결</td>
+    <td align="center">프론트 전체적 디자인<br>html 및 css 총괄</td>
+    <td align="center">음식 데이터 8만개 크롤링<br>그룹페이지 상세디자인</td>
   </tr>
 </table>
 
