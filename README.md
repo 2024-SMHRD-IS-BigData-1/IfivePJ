@@ -23,19 +23,31 @@
 </table>
 
 <br>
-
-### 그룹페이지: 그룹 가입/생성 & 채팅
-#### - 그룹 메인 페이지
-![4_그룹화면](https://github.com/2024-SMHRD-IS-BigData-1/IfivePJ/assets/161554781/618afe15-0f3a-4b35-adc0-7b4993cdd4a7)
-#### - 그룹 생성창
-![4_1그룹생성창](https://github.com/2024-SMHRD-IS-BigData-1/IfivePJ/assets/161554781/3813deb7-3a70-4091-9a2d-ea701b83dda4)
-#### - 채팅창
-![4_2그룹 채팅창](https://github.com/2024-SMHRD-IS-BigData-1/IfivePJ/assets/161554781/e15f2946-2d25-498a-8e1a-1a771fc2e9dc)
+<table>
+  <tr>
+    <th colspan="2"><h3>그룹</h3></th>
+  </tr>
+  <tr>
+    <th colspan="2"><img src="https://github.com/2024-SMHRD-IS-BigData-1/IfivePJ/assets/161554781/0847233e-d4a2-4131-8c94-fa68cb4c7cc2"></th>
+  </tr>
+  <tr>
+    <th colspan="2"><img src="https://github.com/2024-SMHRD-IS-BigData-1/IfivePJ/assets/161554781/3888f8af-9a7b-4a6d-b3f4-bdbbd6bf9fe5"></th>
+  </tr>
+  <tr>
+    <th colspan="2"><img src="https://github.com/2024-SMHRD-IS-BigData-1/IfivePJ/assets/161554781/6a92cc2c-53de-44e2-bcc2-aec13fab7f51"></th>
+  </tr>
+    <tr>
+    <th colspan="2"><img src="https://github.com/2024-SMHRD-IS-BigData-1/IfivePJ/assets/161554781/91c8008c-0dd2-40b0-9273-ce3a813d8911"></th>
+  </tr>
+    <tr>
+    <th colspan="2"><img src="https://github.com/2024-SMHRD-IS-BigData-1/IfivePJ/assets/161554781/9a6afeb8-e69e-4fe7-ac3d-c80008700f6a"></th>
+  </tr>
+</table>
 
 <br>
 
 ## 서비스 아키텍처
-![image](https://github.com/2024-SMHRD-IS-BigData-1/IfivePJ/assets/164446363/a3dd9f02-3cc7-4178-b7d2-e9cab886abd7)
+![서비스 아키텍쳐](https://github.com/2024-SMHRD-IS-BigData-1/IfivePJ/assets/161554781/ed65217c-9c61-4fa2-97b8-6266a3351bcc)
 
 
 
@@ -96,24 +108,43 @@
 <br>
 
 ## 🖥 화면 구성
-### 메인
-![0_메인화면]()
+<table>
+  <tr>
+    <th colspan="2"><h3>메인</h3></th>
+  </tr>
+  <tr>
+    <th colspan="2"><img src="https://github.com/2024-SMHRD-IS-BigData-1/IfivePJ/assets/161554781/17df01f4-4fe8-4ff3-b534-479d1b989d6b"></th>
+  </tr>
+  <tr>
+    <th colspan="2"><h3>로그인/회원가입</h3></th>
+  </tr>
+  <tr>
+    <th colspan="2"><img src="https://github.com/2024-SMHRD-IS-BigData-1/IfivePJ/assets/161554781/9bc6041c-0e17-4216-ab0b-62ad70be7413"></th>
+  </tr>
+  <tr>
+    <th colspan="2"><img src="https://github.com/2024-SMHRD-IS-BigData-1/IfivePJ/assets/161554781/39e7fcaa-8949-4fa2-81db-2de263db66d6"></th>
+  </tr>
+   <tr>
+    <th colspan="2"><h3>캘린더</h3></th>
+  </tr>
+  <tr>
+    <th colspan="2"><img src="https://github.com/2024-SMHRD-IS-BigData-1/IfivePJ/assets/161554781/b59d3a82-4b20-418b-95e1-8fa3f2966a37"></th>
+  </tr>
+   <tr>
+    <th colspan="2"><h3>그룹</h3></th>
+  </tr>
+  <tr>
+    <th colspan="2"><img src="https://github.com/2024-SMHRD-IS-BigData-1/IfivePJ/assets/161554781/5cadb781-36d4-45b4-9c62-6f8824fdb987"></th>
+  </tr>
+     <tr>
+    <th colspan="2"><h3>마이페이지</h3></th>
+  </tr>
+  <tr>
+    <th colspan="2"><img src="https://github.com/2024-SMHRD-IS-BigData-1/IfivePJ/assets/161554781/efee0736-a54e-4bda-ae4f-3682b2b36d7b"></th>
+  </tr>
+</table>
 <br>
-### 로그인/회원가입 화면
-![1_로그인화면](https://github.com/2024-SMHRD-IS-BigData-1/IfivePJ/assets/161554781/9bc6041c-0e17-4216-ab0b-62ad70be7413)
-![2_회원가입화면](https://github.com/2024-SMHRD-IS-BigData-1/IfivePJ/assets/161554781/39e7fcaa-8949-4fa2-81db-2de263db66d6)
 
-### 캘린더
-![5_2캘린더_크롭](https://github.com/2024-SMHRD-IS-BigData-1/IfivePJ/assets/161554781/b59d3a82-4b20-418b-95e1-8fa3f2966a37)
-<br>
-
-### 그룹
-![4_그룹화면](https://github.com/2024-SMHRD-IS-BigData-1/IfivePJ/assets/161554781/5cadb781-36d4-45b4-9c62-6f8824fdb987)
-<br>
-
-### 마이페이지
-![7_마이페이지](https://github.com/2024-SMHRD-IS-BigData-1/IfivePJ/assets/161554781/efee0736-a54e-4bda-ae4f-3682b2b36d7b)
-<br>
 
 ## 👨‍👩‍👦‍👦 팀원 역할
 <table>
@@ -159,11 +190,15 @@
 프로젝트 진행하는 동안 발생했던 이슈 중 가장 기억에 남았던 문제와 해결 프로세스 나열(2~5가지 정도)
 
 * 문제1<br>
- 카카오톡 access token 값에서 id 추출 안되는 문제
+ 카카오톡 access token 값에서 id 추출 안되는 문제<br>
  access token 출력결과 길이가 길지 않아서 string으로 받았으나 long 자료형으로 받아 문제해결
  
-* 문제1<br>
- 문제점 설명 및 해결방안
- 
 * 문제2<br>
+  그룹방마다 다른 그룹인덱스 값을 받아오지 못해 채팅메세지 DB가 연결 안되는 문제<br>
+  이미 페이지에 나온 그룹 이름을 PK로 바꾸고 그룹 이름 FK로 받아 채팅 메세지에 연결
+  
+* 문제3<br>
+ 문제점 설명 및 해결방안
+
+* 문제4<br>
  문제점 설명 및 해결방안
